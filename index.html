@@ -1,10 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tutorial Site</title>
+    <title>Ysa Class</title>
+    <link rel="stylesheet" type="text/css" href="css/mycss.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   </head>
   <body>
-    <p>Test</p>
-    <img src="resources/MicSearch.PNG">
+      <div class="container">
+          <div class="row">
+            <h1>
+                My code is below as well as the homework for the week for the week of
+            </h1>
+            <h1>
+                March 14, 2020
+            </h1>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                <h2>
+                    Code:
+                </h2>
+                <pre>
+    #!/bin/python3
+
+    import random
+
+    list_a = []
+    list_b = []
+    list_c = []
+
+    numbers = [1, 2, 3, 4, 5]
+
+    if 1 in numbers:
+        print("yes")
+    else:
+        print("no")
+
+    with open("insults.csv", "r") as f:
+        for line in f:
+        words = line.split(",")
+        list_a.append(words[0])
+        list_b.append(words[1])
+        list_c.append(words[2].strip())
+
+    def insult_me():
+        word_a = random.choice(list_a)
+        word_b = random.choice(list_b)
+        word_c = random.choice(list_c)
+        print("Thou art a " + word_a + " " + word_b + " " + word_c + ".")
+
+    insult_me()
+                </pre>
+              </div>
+              <div class="col-md-6">
+                  <h2>
+                      Homework:
+                  </h2>
+                  <p>
+                      Take input and have the users choose the insults that they want.
+                      Must be an insult from the csv file.
+                      Do not use more than 5 if statements.
+                  </p>
+              </div>
+          </div>
+      </div>
   </body>
 </html>
