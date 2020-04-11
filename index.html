@@ -22,25 +22,25 @@
                         </h2>
                         <pre>
 class Player:
-"""description of class"""
-health = 100
+    """description of class"""
+    health = 100
 
-# Constructor
-def __init__(self, name, color):
-    self.name = name
-    self.color = color
+    # Constructor
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
 
-# Function
-def damage(self, amount_dmg):
-    self.health -= amount_dmg
+    # Function
+    def damage(self, amount_dmg):
+        self.health -= amount_dmg
 
-# Function
-def current_health(self):
-    print("Current health is: " + str(self.health))
+    # Function
+    def current_health(self):
+        print("Current health is: " + str(self.health))
 
-# Print Function
-def print_player(self):
-    print(self.name + ", " + self.color)                        
+    # Print Function
+    def print_player(self):
+        print(self.name + ", " + self.color)                        
                     </pre>
                     <h2>
                         Main.py
