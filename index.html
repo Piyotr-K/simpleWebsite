@@ -17,39 +17,50 @@
                         <h2>
                             Code:
                         </h2>
+                        <h2>
+                            Player.py
+                        </h2>
                         <pre>
-    #!/bin/python3
+class Player:
+"""description of class"""
+health = 100
 
-    import turtle
-    screen = turtle.Screen()
-    
-    image_urls = []
-    
-    with open("images.txt", "r") as f:
-        for line in f:
-        image_urls.append(line.strip())
-    
-    for url in image_urls:
-        screen.addshape(url)
-    
-    for x in range(0, 10):
-        print(x)
-    
-    melon = turtle.Turtle()
-    melon.shape(image_urls[0])
-    melon.speed(0)
-    melon.left(90)
-    melon.st()
-    
-    input("test")
-    
-    melon.ht()
-    
-    chcken = turtle.Turtle()
-    chcken.shape(image_urls[1])
-    melon.speed(0)
-    melon.left(90)
-    chcken.st()
+# Constructor
+def __init__(self, name, color):
+    self.name = name
+    self.color = color
+
+# Function
+def damage(self, amount_dmg):
+    self.health -= amount_dmg
+
+# Function
+def current_health(self):
+    print("Current health is: " + str(self.health))
+
+# Print Function
+def print_player(self):
+    print(self.name + ", " + self.color)                        
+                    </pre>
+                    <h2>
+                        Main.py
+                    </h2>
+                    <pre>
+from random import *
+from Player import *
+
+p1 = Player("John", "Red")
+
+p2 = Player("Bob", "Blue")
+
+p1.print_player()
+p2.print_player()
+
+p1.damage(randint(0, 10))
+p2.damage(randint(0, 80))
+
+p1.current_health()
+p2.current_health()
                     </pre>
                 </div>
                 <div class="col-md-6">
