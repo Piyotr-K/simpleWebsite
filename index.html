@@ -18,58 +18,94 @@
                             Code:
                         </h2>
                         <h2>
-                            Player.py
+                            Enemy.py
                         </h2>
                         <pre>
-class Player:
-    """description of class"""
-    health = 100
+class Enemy:
+"""class description"""
 
-    # Constructor
-    def __init__(self, name, color):
-        self.name = name
-        self.color = color
+def __init__(self, name, faction):
+    self.name = name
+    self.faction = faction
 
-    # Function
-    def damage(self, amount_dmg):
-        self.health -= amount_dmg
+def printData(self):
+    print(self.name, self.faction, sep="-")
 
-    # Function
-    def current_health(self):
-        print("Current health is: " + str(self.health))
+def __str__(self): # To String method
+    return "{}, {}".format(self.name, self.faction)                       
+                        </pre>
+                        <h2>
+                            Ghost.py
+                        </h2>
+                        <pre>
+from Enemy import Enemy
 
-    # Print Function
-    def print_player(self):
-        print(self.name + ", " + self.color)                        
-                    </pre>
-                    <h2>
-                        Main.py
-                    </h2>
-                    <pre>
-from random import *
-from Player import *
+class Ghost(Enemy):
 
-p1 = Player("John", "Red")
+    def printData(self):
+        print("Ghost\'s method -->", self.name, self.faction, sep="-")
 
-p2 = Player("Bob", "Blue")
+    def __add__(self, other):
+        return self.faction + other.faction
 
-p1.print_player()
-p2.print_player()
+                        </pre>
+                        <h2>
+                            Main.py
+                        </h2>
+                        <pre>
+from Ghost import *
 
-p1.damage(randint(0, 10))
-p2.damage(randint(0, 80))
+g1 = Ghost("John", "Red") # Inherited attributes from Enemy
+print(g1.name + ", " + g1.faction)
 
-p1.current_health()
-p2.current_health()
+e1 = Enemy("Andy", "Blue") # Enemy object
+g2 = Ghost("Steven", "Purple") # Ghost object
+
+e1.printData() # Andy-Blue
+g2.printData() # Ghost's method -->-Steven-Purple
+
+g3 = Ghost("Oliver", "Green")
+g4 = Ghost("Piyotr", "Red")
+
+g5, g6, g7 = Ghost("Hello", "Yellow"), Ghost("Ice", "nice"), Ghost("Rice", "Spice") # Multiple same-line instantiation
+
+ghosts = [] # Instantiate a new list object
+
+ghosts.append(g1) # Add some objects to the list
+ghosts.append(g2)
+ghosts.append(g3)
+ghosts.append(g4)
+
+for scary in ghosts:
+    scary.printData() # Print out the ghosts
+
+ghosts.remove(g2) # Remove one
+print("Removed Steven")
+
+for scary in ghosts:
+    scary.printData() # Print them out again!
+
+print(g1) # To string magic method demonstration
+
+print(g1 + g2) # Add magic method demonstration
                     </pre>
                 </div>
                 <div class="col-md-6">
                     <h2>
                         Homework:
                     </h2>
-                    <iframe src="./resources/Python_2_Homework(April18).pdf#toolbar=0" width="100%" height="615px">
+                    <iframe src="./resources/Python_2_Homework(April25).pdf#toolbar=0" width="100%" height="615px">
                     </iframe>
                 </div>
+            </div>
+        
+            <div class="col-md-12">
+                <h2>
+                    Last week's Answer:
+                </h2>
+                <pre>
+                    Not here yet
+                </pre>
             </div>
         </div>
     </body>
