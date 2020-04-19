@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Ysa Class</title>
     <link rel="stylesheet" type="text/css" href="css/mycss.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  </head>
-  <body>
-        <div class="container">
-            <div class="row">
+</head>
+
+<body>
+    <div class="container-fluid" style="width: 90%;">
+        <div class="row">
             <h1>
                 Python 2 Class
             </h1>
-            </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>
-                            Code:
-                        </h2>
-                        <h2>
-                            Enemy.py
-                        </h2>
-                        <pre>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>
+                    Code:
+                </h2>
+                <h2>
+                    Enemy.py
+                </h2>
+                <pre>
 class Enemy:
 """class description"""
 
@@ -33,11 +35,11 @@ def printData(self):
 
 def __str__(self): # To String method
     return "{}, {}".format(self.name, self.faction)                       
-                        </pre>
-                        <h2>
-                            Ghost.py
-                        </h2>
-                        <pre>
+                </pre>
+                <h2>
+                    Ghost.py
+                </h2>
+                <pre>
 from Enemy import Enemy
 
 class Ghost(Enemy):
@@ -48,11 +50,11 @@ class Ghost(Enemy):
     def __add__(self, other):
         return self.faction + other.faction
 
-                        </pre>
-                        <h2>
-                            Main.py
-                        </h2>
-                        <pre>
+                </pre>
+                <h2>
+                    Main.py
+                </h2>
+                <pre>
 from Ghost import *
 
 g1 = Ghost("John", "Red") # Inherited attributes from Enemy
@@ -89,24 +91,100 @@ print(g1) # To string magic method demonstration
 
 print(g1 + g2) # Add magic method demonstration
                     </pre>
-                </div>
-                <div class="col-md-6">
-                    <h2>
-                        Homework:
-                    </h2>
-                    <iframe src="./resources/Python_2_Homework(April25).pdf#toolbar=0" width="100%" height="615px">
-                    </iframe>
-                </div>
             </div>
-        
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <h2>
-                    Last week's Answer:
+                    Homework:
                 </h2>
+                <iframe src="./resources/Python_2_Homework(April25).pdf#toolbar=0" width="100%" height="600px">
+                </iframe>
+            </div>
+        </div>
+        <div class="row">
+            <h2>
+                Last week's Answer:
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>
+                    Main.py
+                </h3>
                 <pre>
-                    Not here yet
+from Music import *
+from Vehicle import *
+
+playlist = []
+vehicle_list = []
+
+song1 = Music("Detour Ahead", "Bill Evans", "Waltz for Debby", "7:36")
+song2 = Music("19-2000", "Gorillaz", "Gorillaz", "3:30")
+song3 = Music("Tomorrow Comes Today", "Gorillaz", "Gorillaz", "3:14")
+song4 = Music("Safe", "Shubh Saran", "Becoming", "5:34")
+song5 = Music("I know you know", "Esperanza Spalding", "Esperanza", "3:45")
+
+playlist.append(song1)
+playlist.append(song2)
+playlist.append(song3)
+playlist.append(song4)
+playlist.append(song5)
+
+for song in playlist: # Play the songs
+    song.play()
+
+print("\n")
+
+car1 = Vehicle("Chrome", "Blue", "5000 horsepower")
+car2 = Vehicle("Steel", "Blue", "3000 horsepower")
+car3 = Vehicle("Titanium", "Red", "6000 horsepower")
+car4 = Vehicle("Chrome", "Green", "2000 horsepower")
+car5 = Vehicle("Chrome", "Purple", "500 horsepower")
+
+vehicle_list.append(car1)
+vehicle_list.append(car2)
+vehicle_list.append(car3)
+vehicle_list.append(car4)
+vehicle_list.append(car5)
+
+for car in vehicle_list: # Print out the cars
+    car.print_stats()
+                </pre>
+            </div>
+            <div class="col-md-4">
+                <h3>
+                    Vehicle.py
+                </h3>
+                <pre>
+class Vehicle:
+    energy = "gas"
+
+    def __init__(self, wheels, color, speed):
+        self.wheels = wheels
+        self.color = color
+        self.speed = speed
+
+    def print_stats(self):
+        print("Wheels: " + self.wheels + "\nColor: " + self.color + "\nSpeed: " + self.speed)
+                </pre>
+            </div>
+            <div class="col-md-4">
+                <h3>
+                    Music.py
+                </h3>
+                <pre>
+class Music:
+    def __init__(self, title, artist, album, length):
+        self.title = title
+        self.artist = artist
+        self.album = album
+        self.length = length
+
+    def play(self):
+        print("Playing music: " + self.title)
                 </pre>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
