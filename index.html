@@ -19,92 +19,117 @@
                 <h2>
                     Code:
                 </h2>
-                <h2>
-                    Enemy.py
-                </h2>
+                <h3>
+                    Employee.py
+                </h3>
                 <pre>
-class Enemy:
-"""class description"""
+class Employee:
 
-def __init__(self, name, faction):
-    self.name = name
-    self.faction = faction
+    __fullname = ""
+    __email = "@"
 
-def printData(self):
-    print(self.name, self.faction, sep="-")
+    def __init__(self, fullname="Default Name"):
+        self.__fullname = fullname
+        self.Email = fullname
 
-def __str__(self): # To String method
-    return "{}, {}".format(self.name, self.faction)                       
+    @property
+    def Fullname(self):
+        pass
+
+    @Fullname.getter
+    def Fullname(self):
+        return self.__fullname
+
+    @Fullname.setter
+    def Fullname(self, value):
+        self.__fullname = value
+        self.Email = value
+
+    @property
+    def Email(self):
+        pass
+
+    @Email.getter
+    def Email(self):
+        return self.__email
+
+    @Email.setter
+    def Email(self, value):
+        first, last = value.split(" ")
+        self.__email = "{}.{}@mail.com".format(first, last)
+
+    @Email.deleter
+    def Email(self):
+        self.__email = "Email Deleted"                                      
                 </pre>
-                <h2>
-                    Ghost.py
-                </h2>
-                <pre>
-from Enemy import Enemy
-
-class Ghost(Enemy):
-
-    def printData(self):
-        print("Ghost\'s method -->", self.name, self.faction, sep="-")
-
-    def __add__(self, other):
-        return self.faction + other.faction
-
-                </pre>
-                <h2>
+                <h3>
                     Main.py
-                </h2>
+                </h3>
                 <pre>
-from Ghost import *
+from Employee import Employee
 
-g1 = Ghost("John", "Red") # Inherited attributes from Enemy
-print(g1.name + ", " + g1.faction)
-
-e1 = Enemy("Andy", "Blue") # Enemy object
-g2 = Ghost("Steven", "Purple") # Ghost object
-
-e1.printData() # Andy-Blue
-g2.printData() # Ghost's method -->-Steven-Purple
-
-g3 = Ghost("Oliver", "Green")
-g4 = Ghost("Piyotr", "Red")
-
-# Multiple same-line instantiation
-g5, g6, g7 = Ghost("Hello", "Yellow"), Ghost("Ice", "nice"), Ghost("Rice", "Spice")
-
-ghosts = [] # Instantiate a new list object
-
-ghosts.append(g1) # Add some objects to the list
-ghosts.append(g2)
-ghosts.append(g3)
-ghosts.append(g4)
-
-for scary in ghosts:
-    scary.printData() # Print out the ghosts
-
-ghosts.remove(g2) # Remove one
-print("Removed Steven")
-
-for scary in ghosts:
-    scary.printData() # Print them out again!
-
-print(g1) # To string magic method demonstration
-
-print(g1 + g2) # Add magic method demonstration
-                    </pre>
+emp1 = Employee("John Mayer")
+print(emp1.Fullname)
+print(emp1.Email)
+del emp1.Email
+print(emp1.Email)
+                </pre>
             </div>
             <div class="col-md-6">
                 <h2>
                     Homework:
                 </h2>
-                <iframe src="./resources/Python_2_Homework(April25).pdf#toolbar=0" width="100%" height="600px">
+                <iframe src="./resources/Python_2_Homework_(May2).pdf#toolbar=0" width="100%" height="600px">
                 </iframe>
             </div>
         </div>
         <div class="row">
             <h2>
-                Last week's Answer:
+                Last week's Answers:
             </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>
+                    Animal.py
+                </h3>
+                <pre>
+class Animal:
+    totalAnimals = 0
+
+    def __init__(self):
+        Animal.totalAnimals += 1
+
+    def printType(self):
+        print("Animal")
+                </pre>
+            </div>
+            <div class="col-md-4">
+                <h3>
+                    Chicken.py
+                </h3>
+                <pre>
+from Animal import Animal
+
+class Chicken(Animal):
+    
+    def printType(self):
+        print("Chicken")
+                </pre>
+            </div>
+            <div class="col-md-4">
+                <h3>
+                    Sheep.py
+                </h3>
+                <pre>
+from Animal import Animal
+
+class Sheep(Animal):
+
+    def printType(self):
+        print("Sheep")
+                </pre>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -112,76 +137,22 @@ print(g1 + g2) # Add magic method demonstration
                     Main.py
                 </h3>
                 <pre>
-from Music import *
-from Vehicle import *
+from Animal import *
+from Chicken import Chicken
+from Sheep import Sheep
 
-playlist = []
-vehicle_list = []
+c1 = Chicken()
+c2 = Chicken()
+s1 = Sheep()
+s2 = Sheep()
+s3 = Sheep()
 
-song1 = Music("Detour Ahead", "Bill Evans", "Waltz for Debby", "7:36")
-song2 = Music("19-2000", "Gorillaz", "Gorillaz", "3:30")
-song3 = Music("Tomorrow Comes Today", "Gorillaz", "Gorillaz", "3:14")
-song4 = Music("Safe", "Shubh Saran", "Becoming", "5:34")
-song5 = Music("I know you know", "Esperanza Spalding", "Esperanza", "3:45")
-
-playlist.append(song1)
-playlist.append(song2)
-playlist.append(song3)
-playlist.append(song4)
-playlist.append(song5)
-
-for song in playlist: # Play the songs
-    song.play()
-
-print("\n")
-
-car1 = Vehicle("Chrome", "Blue", "5000 horsepower")
-car2 = Vehicle("Steel", "Blue", "3000 horsepower")
-car3 = Vehicle("Titanium", "Red", "6000 horsepower")
-car4 = Vehicle("Chrome", "Green", "2000 horsepower")
-car5 = Vehicle("Chrome", "Purple", "500 horsepower")
-
-vehicle_list.append(car1)
-vehicle_list.append(car2)
-vehicle_list.append(car3)
-vehicle_list.append(car4)
-vehicle_list.append(car5)
-
-for car in vehicle_list: # Print out the cars
-    car.print_stats()
-                </pre>
-            </div>
-            <div class="col-md-4">
-                <h3>
-                    Vehicle.py
-                </h3>
-                <pre>
-class Vehicle:
-    energy = "gas"
-
-    def __init__(self, wheels, color, speed):
-        self.wheels = wheels
-        self.color = color
-        self.speed = speed
-
-    def print_stats(self):
-        print("Wheels: " + self.wheels + "\nColor: " + self.color + "\nSpeed: " + self.speed)
-                </pre>
-            </div>
-            <div class="col-md-4">
-                <h3>
-                    Music.py
-                </h3>
-                <pre>
-class Music:
-    def __init__(self, title, artist, album, length):
-        self.title = title
-        self.artist = artist
-        self.album = album
-        self.length = length
-
-    def play(self):
-        print("Playing music: " + self.title)
+c1.printType()
+c2.printType()
+s1.printType()
+s2.printType()
+s3.printType()
+print(Animal.totalAnimals)
                 </pre>
             </div>
         </div>
