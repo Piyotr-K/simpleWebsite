@@ -20,225 +20,49 @@
                     Code:
                 </h2>
                 <h3>
-                    Main.py
+                    Canvas.py
                 </h3>
                 <pre>
 from tkinter import *
-
-spaces = 10
-
-def Update():
-    for x in range(0, spaces):
-        print(" ", end="")
-    print("*")
-
-def moveRight():
-    global spaces
-    spaces += 1
-    Update()
-
-def moveLeft():
-    global spaces
-    if spaces < 1:
-        return
-    spaces -= 1
-    Update()
-
-
-def printRandom(event):
-    print("Hello")
-
-def leftClick(event):
-    print("Left Click Detected!")
-
-def rightClick(event):
-    print("Right Click Detected!")
-
-def leftArrow(event):
-    moveLeft()
-
-def rightArrow(event):
-    moveRight()
-
-def upArrow(event):
-    print("^")
-
-def downArrow(event):
-    print("v")
+import random
+import time
 
 root = Tk()
 
-# window size
-root.geometry("300x300")
-root.title("Test")
+canvas = Canvas(root, width=300, height=300)
+canvas.pack()
 
-root.bind("<Button-1>", leftClick)
-root.bind("<Button-3>", rightClick)
-root.bind("<Left>", leftArrow)
-root.bind("<Right>", rightArrow)
-root.bind("<Up>", upArrow)
-root.bind("<Down>", downArrow)
+# def create_Rect(x1, y1, x2, y2):
+#     colours = ["pink", "red", "orange", "yellow", "green", "blue", "indigo", "purple"]
+#     selected = random.choice(colours)
+#     canvas.create_rectangle(x1, y1, x2, y2, fill=selected)
+#
+# def randomRects(num):
+#     for i in range(num):
+#         x1 = random.randrange(150)
+#         y1 = random.randrange(150)
+#         x2 = random.randrange(150) + x1
+#         y2 = random.randrange(150) + y1
+#         create_Rect(x1, y1, x2, y2)
+#
+# randomRects(10)
 
-Update()
+canvas.create_polygon(10, 10, 10, 60, 50, 35)
 
-root.mainloop()                                    
-                </pre>
-                <h3>
-                    TkinterFacts.py
-                </h3>
-                <pre>
-from tkinter import *
+for i in range(60):
+    canvas.move(1, 5, 0)
+    root.update()
+    time.sleep(0.1)
 
-root = Tk()
-
-mainMenu = Menu(root)
-root.configure(menu = mainMenu)
-
-def randomQuote():
-    print("hi")
-
-subMenu = Menu(mainMenu, tearoff=False)
-mainMenu.add_cascade(label="File", menu=subMenu)
-subMenu.add_command(label="Help me", command=randomQuote)
-
-root.mainloop()
-                </pre>
-                <h3>
-                    Calculator.py
-                </h3>
-                <pre>
-from tkinter import *
-
-def btnPress(num):
-    global eq
-    global equation
-    eq = eq + str(num)
-    equation.set(eq)
-
-root = Tk()
-root.geometry("300x300")
-
-equation = StringVar()
-
-calc = Label(root, textvariable=equation)
-
-equation.set("23+45")
-calc.grid(columnspan=4)
-
-eq = ""
-
-Button0 = Button(root, text="0", command=lambda: btnPress(0), height=1, width=7)
-Button1 = Button(root, text="1", command=lambda: btnPress(1), height=1, width=7)
-Button2 = Button(root, text="2", command=lambda: btnPress(2), height=1, width=7)
-Button3 = Button(root, text="3", command=lambda: btnPress(3), height=1, width=7)
-Button4 = Button(root, text="4", command=lambda: btnPress(4), height=1, width=7)
-Button5 = Button(root, text="5", command=lambda: btnPress(5), height=1, width=7)
-Button6 = Button(root, text="6", command=lambda: btnPress(6), height=1, width=7)
-Button7 = Button(root, text="7", command=lambda: btnPress(7), height=1, width=7)
-Button8 = Button(root, text="8", command=lambda: btnPress(8), height=1, width=7)
-Button9 = Button(root, text="9", command=lambda: btnPress(9), height=1, width=7)
-
-Button1.grid(row=1, column=0)
-Button2.grid(row=1, column=1)
-Button3.grid(row=1, column=2)
-Button4.grid(row=2, column=0)
-Button5.grid(row=2, column=1)
-Button6.grid(row=2, column=2)
-Button7.grid(row=3, column=0)
-Button8.grid(row=3, column=1)
-Button9.grid(row=3, column=2)
-Button0.grid(row=4, column=1)
-
-root.mainloop()
+root.mainloop()                 
                 </pre>
             </div>
             <div class="col-md-6">
                 <h2>
                     Homework:
                 </h2>
-                <iframe src="./resources/Python_2_Homework_(May9).pdf#toolbar=0" width="100%" height="600px">
+                <iframe src="./resources/Python_2_Homework_(May16).pdf#toolbar=0" width="100%" height="600px">
                 </iframe>
-                <h3>
-                    <img src="resources/calculator.PNG">
-                </h3>
-                <h3>
-                    <a href="resources/may2output.txt">
-                        Sample Output
-                    </a>
-                </h3>
-            </div>
-        </div>
-        <div class="row">
-            <h2>
-                Last week's Answers:
-            </h2>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h3>
-                    Animal.py
-                </h3>
-                <pre>
-class Animal:
-    totalAnimals = 0
-
-    def __init__(self):
-        Animal.totalAnimals += 1
-
-    def printType(self):
-        print("Animal")
-                </pre>
-            </div>
-            <div class="col-md-4">
-                <h3>
-                    Chicken.py
-                </h3>
-                <pre>
-from Animal import Animal
-
-class Chicken(Animal):
-    
-    def printType(self):
-        print("Chicken")
-                </pre>
-            </div>
-            <div class="col-md-4">
-                <h3>
-                    Sheep.py
-                </h3>
-                <pre>
-from Animal import Animal
-
-class Sheep(Animal):
-
-    def printType(self):
-        print("Sheep")
-                </pre>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h3>
-                    Main.py
-                </h3>
-                <pre>
-from Animal import *
-from Chicken import Chicken
-from Sheep import Sheep
-
-c1 = Chicken()
-c2 = Chicken()
-s1 = Sheep()
-s2 = Sheep()
-s3 = Sheep()
-
-c1.printType()
-c2.printType()
-s1.printType()
-s2.printType()
-s3.printType()
-print(Animal.totalAnimals)
-                </pre>
             </div>
         </div>
     </div>
