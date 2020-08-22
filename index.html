@@ -11,7 +11,7 @@
     <div class="container-fluid" style="width: 90%;">
         <div class="row">
             <h1>
-                Python 2 Class
+                Python 1 Class
             </h1>
         </div>
         <div class="row">
@@ -19,18 +19,118 @@
                 <h2>
                     Code:
                 </h2>
-                <a href="./resources/scraper.py">
-                    <h3>
-                        scraper.py
-                    </h3>
-                </a>
+                <pre>
+#!/bin/python3
+
+from turtle import *
+from random import randint
+
+penup()
+goto(-190, 190)
+
+speed(0)
+
+for step in range(10):
+    write(step * 10, align='center')
+    right(90)
+    forward(10)
+    for step in range (10):
+    pendown()
+    forward(15)
+    penup()
+    forward(15)
+    backward(310)
+    left(90)
+    forward(30)
+
+# Finish line
+write('Finish', align='center')
+right(90)
+forward(10)
+pendown()
+forward(285)
+penup()
+backward(300)
+print(xcor())
+hideturtle()
+
+paul = Turtle()
+paul.color('#0000FF') # RRGGBB 0-F (15)
+paul.shape('turtle')
+paul.penup()
+paul.goto(-190, 150)
+paul.pendown()
+
+matthew = Turtle()
+matthew.color('#FF0000')
+matthew.shape('turtle')
+matthew.penup()
+matthew.goto(-190, 100)
+matthew.pendown()
+
+rachel = Turtle()
+rachel.color('#00FF00')
+rachel.shape('turtle')
+rachel.penup()
+rachel.goto(-190, 50)
+rachel.pendown()
+
+piyotr = Turtle()
+piyotr.color('#220088')
+piyotr.shape('turtle')
+piyotr.penup()
+piyotr.goto(-190, 0)
+piyotr.pendown()
+
+jon = Turtle()
+jon.color('#FFDF00')
+jon.shape('turtle')
+jon.penup()
+jon.goto(-190, -50)
+jon.pendown()
+
+winner = ''
+
+# Move the turtles
+for step in range(100):
+    paul.forward(randint(1, 5))
+    matthew.forward(randint(1, 5))
+    rachel.forward(randint(1, 5))
+    piyotr.forward(randint(1, 5))
+    jon.forward(randint(1, 10))
+    if paul.xcor() > 50:
+    winner = 'paul'
+    break
+
+print(winner)
+
+done()
+                </pre>
             </div>
             <div class="col-md-6">
                 <h2>
                     Homework:
                 </h2>
-                <iframe src="./resources/Python_2_Homework_(Jun20).pdf#toolbar=0" width="100%" height="600px">
-                </iframe>
+                <!-- <iframe src="./resources/Python_2_Homework_(Jun20).pdf#toolbar=0" width="100%" height="600px">
+                </iframe> -->
+                <h3>
+                    Basic:
+                </h3>
+                <p>
+                    - End the game when a turtle reaches the finish line
+                </p>
+                <h3>
+                    Challenge:
+                </h3>
+                <p>
+                    - Print the winner on the screen
+                </p>
+                <h3>
+                    Mega Challenge:
+                </h3>
+                <p>
+                    - Keep track of who's in the lead
+                </p>
             </div>
         </div>
     </div>
