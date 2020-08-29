@@ -22,89 +22,54 @@
                 <pre>
 #!/bin/python3
 
-from turtle import *
-from random import randint
+from random import choice
 
-penup()
-goto(-190, 190)
+players = []
+file = open('names.txt', 'r') # Open in read-only mode
+players = file.read().splitlines()
+print(players)
 
-speed(0)
+# running = True
 
-for step in range(10):
-    write(step * 10, align='center')
-    right(90)
-    forward(10)
-    for step in range (10):
-    pendown()
-    forward(15)
-    penup()
-    forward(15)
-    backward(310)
-    left(90)
-    forward(30)
+# while running:
+#   cont = input('Press 0 to quit, any key to continue')
+    
+#   if cont == '0':
+#     running = False
+#   else:
+#     newMember = input('Type a new player name')
+#     players.append(newMember)
 
-# Finish line
-write('Finish', align='center')
-right(90)
-forward(10)
-pendown()
-forward(285)
-penup()
-backward(300)
-print(xcor())
-hideturtle()
+teamA = []
+teamB = []
 
-paul = Turtle()
-paul.color('#0000FF') # RRGGBB 0-F (15)
-paul.shape('turtle')
-paul.penup()
-paul.goto(-190, 150)
-paul.pendown()
-
-matthew = Turtle()
-matthew.color('#FF0000')
-matthew.shape('turtle')
-matthew.penup()
-matthew.goto(-190, 100)
-matthew.pendown()
-
-rachel = Turtle()
-rachel.color('#00FF00')
-rachel.shape('turtle')
-rachel.penup()
-rachel.goto(-190, 50)
-rachel.pendown()
-
-piyotr = Turtle()
-piyotr.color('#220088')
-piyotr.shape('turtle')
-piyotr.penup()
-piyotr.goto(-190, 0)
-piyotr.pendown()
-
-jon = Turtle()
-jon.color('#FFDF00')
-jon.shape('turtle')
-jon.penup()
-jon.goto(-190, -50)
-jon.pendown()
-
-winner = ''
-
-# Move the turtles
-for step in range(100):
-    paul.forward(randint(1, 5))
-    matthew.forward(randint(1, 5))
-    rachel.forward(randint(1, 5))
-    piyotr.forward(randint(1, 5))
-    jon.forward(randint(1, 10))
-    if paul.xcor() > 50:
-    winner = 'paul'
+while len(players) > 0:
+    playerA = choice(players)
+    print(playerA)
+    teamA.append(playerA)
+    players.remove(playerA)
+    print('Players left: ', players)
+    
+    if players == []:
     break
+    
+    playerB = choice(players)
+    print(playerB)
+    teamB.append(playerB)
+    players.remove(playerB)
+    print('Players left: ', players)
 
-print(winner)
+print('Team A members: ', teamA)
+print('Team B members: ', teamB)
 
-done()
+file = open('Final_Teams.txt', 'w')
+file.write('Team A:\n')
+for member in teamA:
+    file.write('  ' + member + '\n')
+file.write('Team B:\n')
+for member in teamB:
+    file.write('  ' + member + '\n')
+file.close()
                 </pre>
             </div>
             <div class="col-md-6">
@@ -117,19 +82,13 @@ done()
                     Basic:
                 </h3>
                 <p>
-                    - End the game when a turtle reaches the finish line
+                    - Sort at least 20 names into 3 teams
                 </p>
                 <h3>
                     Challenge:
                 </h3>
                 <p>
-                    - Print the winner on the screen
-                </p>
-                <h3>
-                    Mega Challenge:
-                </h3>
-                <p>
-                    - Keep track of who's in the lead
+                    - Sort at least 20 names into 5 teams
                 </p>
             </div>
         </div>
