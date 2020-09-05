@@ -22,54 +22,63 @@
                 <pre>
 #!/bin/python3
 
-from random import choice
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+# a + 3 = d
+# z + 3 = c
+# prints 'h' because all lists in programming start at index 0
+# print(alphabet[7])
+# h = k
+# e = h
+# l = o
+# o = r
 
-players = []
-file = open('names.txt', 'r') # Open in read-only mode
-players = file.read().splitlines()
-print(players)
+user_key = input("Enter a key (enter a number): ")
+if user_key.isnumeric():
+    user_key = int(user_key)
+    key = user_key
+else:
+    print("Invalid entry, using default key(3)")
+    key = 3
 
-# running = True
+done = False
 
-# while running:
-#   cont = input('Press 0 to quit, any key to continue')
+while not done:
+    message = input("Enter a word: ")
+    if message.isnumeric():
+    print("Invalid entry")
+    else:
+    done = True
+
+encoded_string = '' # Define the string first
+
+for letter in message:
+    pos = alphabet.find(letter)
     
-#   if cont == '0':
-#     running = False
-#   else:
-#     newMember = input('Type a new player name')
-#     players.append(newMember)
-
-teamA = []
-teamB = []
-
-while len(players) > 0:
-    playerA = choice(players)
-    print(playerA)
-    teamA.append(playerA)
-    players.remove(playerA)
-    print('Players left: ', players)
+    if pos > (25 - key):
+    pos = (pos % 25) + (key - 1)
+    else:
+    pos = (pos % 25) + key # 25 % 25
     
-    if players == []:
-    break
+    encoded_string += alphabet[pos] # Concatenate (add) to the end of the string
+
+print("Encoded Message: " + encoded_string)
+
+print("Decoding Message...")
+
+decoded_string = ''
+
+for letter in encoded_string:
     
-    playerB = choice(players)
-    print(playerB)
-    teamB.append(playerB)
-    players.remove(playerB)
-    print('Players left: ', players)
+    pos = alphabet.find(letter)
+    
+    if pos < key:
+    pos = (25 - pos) + (key - 1) # c = 2 -> z = 25
+    else:
+    pos = pos - key
+    
+    decoded_string += alphabet[pos]
 
-print('Team A members: ', teamA)
-print('Team B members: ', teamB)
-
-file = open('Final_Teams.txt', 'w')
-file.write('Team A:\n')
-for member in teamA:
-    file.write('  ' + member + '\n')
-file.write('Team B:\n')
-for member in teamB:
-    file.write('  ' + member + '\n')
-file.close()
+print("Decoded Message: " + decoded_string)
                 </pre>
             </div>
             <div class="col-md-6">
@@ -81,14 +90,23 @@ file.close()
                 <h3>
                     Basic:
                 </h3>
-                <p>
-                    - Sort at least 20 names into 3 teams
-                </p>
+                <ul>
+                    <li>Read a word from file called "input"</li>
+                    <li>Print the encoded word to a file called "output"</li>
+                    <li>Read from output to decode</li>
+                    <li>Print decoded to screen</li>
+                </ul>
                 <h3>
                     Challenge:
                 </h3>
                 <p>
-                    - Sort at least 20 names into 5 teams
+                    - With a sentence (have to make exceptions for whitespace)
+                </p>
+                <h3>
+                    Ultra Challenge:
+                </h3>
+                <p>
+                    - Multiple sentences
                 </p>
             </div>
         </div>
