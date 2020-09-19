@@ -22,63 +22,63 @@
                 <pre>
 #!/bin/python3
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
-# a + 3 = d
-# z + 3 = c
-# prints 'h' because all lists in programming start at index 0
-# print(alphabet[7])
-# h = k
-# e = h
-# l = o
-# o = r
+import turtle
+import random
 
-user_key = input("Enter a key (enter a number): ")
-if user_key.isnumeric():
-    user_key = int(user_key)
-    key = user_key
-else:
-    print("Invalid entry, using default key(3)")
-    key = 3
+colors = ["red", "orange", "yellow", "green", "blue", "indigo", "purple"]
 
-done = False
+snow = turtle.Turtle()
 
-while not done:
-    message = input("Enter a word: ")
-    if message.isnumeric():
-    print("Invalid entry")
-    else:
-    done = True
+def moveFlake(x, y):
+    snow.pu() # pen up first
+    snow.goto(x, y) # move
+    snow.pd() # pen dowN
 
-encoded_string = '' # Define the string first
+def twig(size):
+    snow.left(3 * size)
+    snow.forward(2 * size)
+    snow.backward(2 * size)
+    snow.right(3 * size)
+    snow.forward(2 * size)
+    snow.backward(2 * size)
+    snow.right(3 * size)
+    snow.forward(2 * size)
+    snow.backward(2 * size)
+    snow.left(3 * size)
 
-for letter in message:
-    pos = alphabet.find(letter)
+def branch(size):
+    twigLength = 2 * size
+    numOfSegments = 4
     
-    if pos > (25 - key):
-    pos = (pos % 25) + (key - 1)
-    else:
-    pos = (pos % 25) + key # 25 % 25
+    for i in range(numOfSegments):
+    twig(size)
+    snow.forward(twigLength)
     
-    encoded_string += alphabet[pos] # Concatenate (add) to the end of the string
+    snow.backward(twigLength * numOfSegments)
 
-print("Encoded Message: " + encoded_string)
+def snowflake(size):
+    numOfBranches = 12
 
-print("Decoding Message...")
+    for i in range(numOfBranches):
+    branch(size)
+    snow.right(30)
 
-decoded_string = ''
+color_chosen = random.choice(colors)
 
-for letter in encoded_string:
-    
-    pos = alphabet.find(letter)
-    
-    if pos < key:
-    pos = (25 - pos) + (key - 1) # c = 2 -> z = 25
-    else:
-    pos = pos - key
-    
-    decoded_string += alphabet[pos]
+turtle.Screen().bgcolor("black")
+snow.color(color_chosen)
+snow.speed(0)
+snow.ht() # hide turtle
 
-print("Decoded Message: " + decoded_string)
+moveFlake(100, 100) # move the center point of the snowflake
+
+snowflake(10)
+
+color_chosen = random.choice(colors)
+snow.color(color_chosen)
+moveFlake(-100,-100)
+
+snowflake(20)
                 </pre>
             </div>
             <div class="col-md-6">
@@ -90,23 +90,14 @@ print("Decoded Message: " + decoded_string)
                 <h3>
                     Basic:
                 </h3>
-                <ul>
-                    <li>Read a word from file called "input"</li>
-                    <li>Print the encoded word to a file called "output"</li>
-                    <li>Read from output to decode</li>
-                    <li>Print decoded to screen</li>
-                </ul>
+                <p>
+                    Finis the tree
+                </p>
                 <h3>
                     Challenge:
                 </h3>
                 <p>
-                    - With a sentence (have to make exceptions for whitespace)
-                </p>
-                <h3>
-                    Ultra Challenge:
-                </h3>
-                <p>
-                    - Multiple sentences
+                    - Resize snowflake
                 </p>
             </div>
         </div>
