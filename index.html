@@ -21,62 +21,37 @@
                 </h2>
                 <pre>
 #!/bin/python3
-import pygal
 
-def readFile():
-  out = []
-  
-  file = open('data.txt', 'r')
+import random
 
-  for line in file.read().splitlines():
-    if line:
-      out.append(line)
-  file.close()
-  
-  return out
+def insult_me():
+    word_a = random.choice(list_1)
+    word_b = random.choice(list_2)
+    word_c = random.choice(list_3)
+    print("You are a " + word_a + " " + word_b + " " + word_c)
 
-def writeFile(data):
-  file = open('data.txt', 'w')
-  
-  for line in data:
-    file.write(line + "\n")
-  file.close()
+list_1 = []
+list_2 = []
+list_3 = []
 
-piechart = pygal.Pie()
-piechart.title = 'Favourite Pets'
-# piechart.add('Dog', 6)
-# piechart.add('Cat', 4)
-# piechart.add('Hamster', 3)
-# piechart.add('Fish', 2)
-# piechart.add('Snake', 1)
-# piechart.render()
+with open("insults.csv", "r") as f:
+    for line in f:
+    list_1.append(line.split(",")[0])
+    list_2.append(line.split(",")[1])
+    list_3.append(line.split(",")[2].strip())
+    # print(list_1)
+    # print(list_2)
+    # print(list_3)
 
-barGraph = pygal.Bar()
-barGraph.title = 'Do you play minecraft'
-barGraph.add('Yes', 20)
-barGraph.add('No', 4)
-barGraph.render()
+# example of "in"
+test_list = ["hello", "grello", "shello", "wello"]
+choice = input("Enter something: ")
+if choice in test_list: # Tests if the word is inside of the list
+    print("yes")
+else:
+    print("no")
 
-data = readFile()
-
-for line in data:
-  label, value = line.split(":")
-  piechart.add(label, int(value))
-
-# Change value
-for line in data:
-  if 'dog' in line: # search for the label you want to change
-    new = "" # define new first
-    label, value = line.split(":")
-    data.remove(line) # replace it
-    value = int(value) # convert value from string to integer
-    value += 1 # add or set whatever value
-    new += label + ":" + str(value) # putting it back together
-    data.append(new)
-
-piechart.render()
-
-writeFile(data)
+insult_me()
                 </pre>
             </div>
             <div class="col-md-6">
@@ -86,20 +61,12 @@ writeFile(data)
                 <!-- <iframe src="./resources/Python_2_Homework_(Jun20).pdf#toolbar=0" width="100%" height="600px">
                 </iframe> -->
                 <h3>
-                    Basic:
+                    Choose your own insults
                 </h3>
                 <p>
-                    Do the rock, paper, scissors game but keep track of how many wins you get vs cpu
-		    </br>
-		    -Graph it
-                </p>
-                <h3>
-                    Challenge:
-                </h3>
-                <p>
-                    Survey
-		    </br>
-		    Graph answers to a survery
+                    - Can only choose valid insults</br>
+                    - Should not let you proceed to the next column if the user enters an invalid word</br>
+                    - Don't need to use the function
                 </p>
             </div>
         </div>
