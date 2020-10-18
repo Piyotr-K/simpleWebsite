@@ -22,36 +22,40 @@
                 <pre>
 #!/bin/python3
 
-import random
+# reverse data
+data = [1,2,3,4,5] # [5,4,3,2,1]
+storage_1 = []
 
-def insult_me():
-    word_a = random.choice(list_1)
-    word_b = random.choice(list_2)
-    word_c = random.choice(list_3)
-    print("You are a " + word_a + " " + word_b + " " + word_c)
+# append() -> list : ["hello", "test"] -> list.append("haha") -> list : ["hello", "test", "haha"]
+# pop() -> list : ["hello", "test"] -> last_el = list.pop() -> list : ["hello"], last_el : "test"
 
-list_1 = []
-list_2 = []
-list_3 = []
+# print(data.pop())
 
-with open("insults.csv", "r") as f:
-    for line in f:
-    list_1.append(line.split(",")[0])
-    list_2.append(line.split(",")[1])
-    list_3.append(line.split(",")[2].strip())
-    # print(list_1)
-    # print(list_2)
-    # print(list_3)
+# for i in range(0, len(data)):
+#   storage_1.append(data.pop())
 
-# example of "in"
-test_list = ["hello", "grello", "shello", "wello"]
-choice = input("Enter something: ")
-if choice in test_list: # Tests if the word is inside of the list
-    print("yes")
-else:
-    print("no")
+#print(storage_1)
 
-insult_me()
+list_1 = [1, "hello", "$%^&", 4, 5, "LMOP"] # [1,2,3,4,5,6]
+list_2 = [1,2,3,4,5,6] # insert(pos, val)
+# to index a list [] list_1[0] = 1
+
+list_1.insert(1, list_2[1])
+list_1.remove(list_1[2])
+list_1.insert(2, list_2[2])
+list_1.remove(list_1[3])
+list_1.insert(5, list_2[5])
+list_1.remove(list_1[6])
+# print(list_1)
+# print(list_2)
+
+data1 = {1: "wow", 2: "oh my"} # {1:"wow", 2: "oh my", 3: "what"}
+data2 = {1: "wow", 3: "what"}
+print(data1.keys())
+data1[2]
+
+tmp = data1.pop(1)
+# print(tmp)
                 </pre>
             </div>
             <div class="col-md-6">
@@ -61,12 +65,19 @@ insult_me()
                 <!-- <iframe src="./resources/Python_2_Homework_(Jun20).pdf#toolbar=0" width="100%" height="600px">
                 </iframe> -->
                 <h3>
-                    Choose your own insults
+                    List and Dictionary Exercises
                 </h3>
                 <p>
-                    - Can only choose valid insults</br>
-                    - Should not let you proceed to the next column if the user enters an invalid word</br>
-                    - Don't need to use the function
+                    Put the replacement algorithm in a for loop
+                </br>
+                </br>
+                    Have the maps be the same
+                </br>
+                </br>
+                    {1:"wow", 2: "oh my", 3: "what"}
+                </br>
+                </br>
+                    Use the maps.keys() function to get the keys
                 </p>
             </div>
         </div>
