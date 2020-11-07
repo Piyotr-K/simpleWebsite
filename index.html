@@ -11,7 +11,7 @@
     <div class="container-fluid" style="width: 90%;">
         <div class="row">
             <h1>
-                Python 1 Class
+                Python 2 Class
             </h1>
         </div>
         <div class="row">
@@ -20,42 +20,42 @@
                     Code:
                 </h2>
                 <pre>
-#!/bin/python3
+from tkinter import *
+from random import *
 
-# reverse data
-data = [1,2,3,4,5] # [5,4,3,2,1]
-storage_1 = []
+def phrase_display():
+    global entry, text
+    greetings = ["Hi", "Hello", "S'up"]
 
-# append() -> list : ["hello", "test"] -> list.append("haha") -> list : ["hello", "test", "haha"]
-# pop() -> list : ["hello", "test"] -> last_el = list.pop() -> list : ["hello"], last_el : "test"
+    name = entry.get()
 
-# print(data.pop())
+    greeting = choice(greetings) + " " + name
 
-# for i in range(0, len(data)):
-#   storage_1.append(data.pop())
+    text.insert(END, greeting)
+    print(greeting)
 
-#print(storage_1)
+window = Tk()
 
-list_1 = [1, "hello", "$%^&", 4, 5, "LMOP"] # [1,2,3,4,5,6]
-list_2 = [1,2,3,4,5,6] # insert(pos, val)
-# to index a list [] list_1[0] = 1
+window.title("Test")
+window.geometry("500x500")
 
-list_1.insert(1, list_2[1])
-list_1.remove(list_1[2])
-list_1.insert(2, list_2[2])
-list_1.remove(list_1[3])
-list_1.insert(5, list_2[5])
-list_1.remove(list_1[6])
-# print(list_1)
-# print(list_2)
+lbl = Label(window, text="Username").grid()
+label = Label(text="My Label").grid(row=1, column=0)
 
-data1 = {1: "wow", 2: "oh my"} # {1:"wow", 2: "oh my", 3: "what"}
-data2 = {1: "wow", 3: "what"}
-print(data1.keys())
-data1[2]
+# Buttons
+playButton = Button(window, text="Play", command=phrase_display).grid(row=1, column=1)
 
-tmp = data1.pop(1)
-# print(tmp)
+button = Button(window, text="Click Me")
+button.grid()
+
+# Entry and Textbox
+entry = Entry()
+entry.grid()
+
+text = Text(window, height=10, width=30)
+text.grid()
+
+window.mainloop()                    
                 </pre>
             </div>
             <div class="col-md-6">
@@ -65,20 +65,24 @@ tmp = data1.pop(1)
                 <!-- <iframe src="./resources/Python_2_Homework_(Jun20).pdf#toolbar=0" width="100%" height="600px">
                 </iframe> -->
                 <h3>
-                    List and Dictionary Exercises
+                    Tkinter Intro
                 </h3>
+                <h4>
+                    Basic:
+                </h4>
                 <p>
-                    Put the replacement algorithm in a for loop
-                </br>
-                </br>
-                    Have the maps be the same
-                </br>
-                </br>
-                    {1:"wow", 2: "oh my", 3: "what"}
-                </br>
-                </br>
-                    Use the maps.keys() function to get the keys
+                    - Reorganize the window so it looks like this:
                 </p>
+                <img src="./resources/py2_hm_res1_nov_07_2020.png">
+                <h4>
+                    Challenge:
+                </h4>
+                <p>
+                    - If the user enters a character, you print a quote instead.
+                    <br>
+                    - Have at least 3 characters
+                </p>
+                <img src="resources/py2_hm_res2_nov_07_2020.png">
             </div>
         </div>
     </div>
