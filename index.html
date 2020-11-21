@@ -15,54 +15,91 @@
             </h1>
         </div>
         <div class="row">
+            <h2>
+                Email me at: auberegg@gmail.com
+            </h2>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <h2>
                     Code:
                 </h2>
+                <h3>
+                    Player.py
+                </h3>
                 <pre>
-from tkinter import *
-from random import *
+class Player(object):
 
-def phrase_display():
-    global entry, text
-    greetings = ["Hi", "Hello", "S'up"]
+    # default attribute / variable
+    health = 100
+    number_of_players = 0
+    age = 30
 
-    name = entry.get()
+    # Constructor function
+    def __init__(self, name, color):
+        self.name = name # class attributes/variables
+        self.color = color
+        Player.number_of_players += 1
 
-    greeting = choice(greetings) + " " + name
+    # Print function
+    def print_player(self):
+        print('{} {}'.format(self.name, self.color))
+    
+    def apply_damage(self, damage):
+        self.health -= damage
+    
+    @classmethod
+    def printAge(cls):
+        print("Age is: " + str(cls.age))
+                </pre>
+                <h3>
+                    Enemy.py
+                </h3>
+                <pre>
+class Enemy:
 
-    text.insert(END, greeting)
-    print(greeting)
+    def __init__(self, name, faction):
+        self.name = name
+        self.faction = faction
 
-window = Tk()
+    # Representation of the class
+    # def __repr__(self):
+    #     return "Enemy('{}', '{}')".format(self.name, self.faction)
 
-window.title("Test")
-window.geometry("500x500")
+    # Similar to repr, but for when you need to convert to string
+    def __str__(self):
+        return "Enemy('{}', '{}')".format(self.name, self.faction)
+    
+    def printData(self):
+        print(self.name, self.faction, sep=" - ")
+    
+class Ghost(Enemy):
 
-lbl = Label(window, text="Username").grid()
-label = Label(text="My Label").grid(row=1, column=0)
+    # Override method (same name as parent)
+    def printData(self):
+        print("Ghost's method -> ", self.name, self.faction, sep=" - ")
+                </pre>
+                <h3>
+                    main3.py
+                </h3>
+                <pre>
+from Enemy import *
 
-# Buttons
-playButton = Button(window, text="Play", command=phrase_display).grid(row=1, column=1)
+enemy1 = Enemy("Big Boss", "Big Bad")
+enemy1.printData()
 
-button = Button(window, text="Click Me")
-button.grid()
+ghost1 = Ghost("Ghost", "Monster 1")
+ghost1.printData()
 
-# Entry and Textbox
-entry = Entry()
-entry.grid()
-
-text = Text(window, height=10, width=30)
-text.grid()
-
-window.mainloop()                    
+# Enemy('Big Boss', 'Big Bad')
+print(enemy1) # if you don't have repr : Enemy.Enemy object at 0x0000023CE87AFFD0>             
                 </pre>
             </div>
             <div class="col-md-6">
                 <h2>
                     Homework:
                 </h2>
-                <iframe src="./resources/Python_2_Homework_2.pdf#toolbar=0" width="100%" height="600px">
+                <iframe src="./resources/Python_2_Homework_3.pdf#toolbar=0" width="100%" height="600px">
                 </iframe>
             </div>
         </div>
