@@ -25,81 +25,78 @@
                     Code:
                 </h2>
                 <h3>
-                    Player.py
+                    Employee.py
                 </h3>
                 <pre>
-class Player(object):
+class Employee(object):
 
-    # default attribute / variable
-    health = 100
-    number_of_players = 0
-    age = 30
+    __email = "@"
+    __fullname = ""
+    __status = "nothing"
 
-    # Constructor function
-    def __init__(self, name, color):
-        self.name = name # class attributes/variables
-        self.color = color
-        Player.number_of_players += 1
-
-    # Print function
-    def print_player(self):
-        print('{} {}'.format(self.name, self.color))
+    def __init__(self, fullname):
+        self.__fullname = fullname
+        self.Status = "Employed"
+        self.Email = fullname
     
-    def apply_damage(self, damage):
-        self.health -= damage
+    @property
+    def Fullname(self):
+        pass
+
+    @Fullname.getter
+    def Fullname(self):
+        return self.__fullname
     
-    @classmethod
-    def printAge(cls):
-        print("Age is: " + str(cls.age))
+    @Fullname.setter
+    def Fullname(self, value):
+        self.__fullname = value
+        self.Email = value
+    
+    @property
+    def Status(self):
+        pass
+
+    @Status.getter
+    def Status(self):
+        # to-do
+        pass
+    
+    @Status.setter
+    def Status(self):
+        # to-do
+        pass
+    
+    @property
+    def Email(self):
+        pass
+
+    @Email.getter
+    def Email(self):
+        return self.__email
+    
+    @Email.setter
+    def Email(self, value):
+        first, last = value.split(" ")
+        self.__email = "{}.{}@mail.com".format(first, last)
+        return self.__email
                 </pre>
                 <h3>
-                    Enemy.py
+                    main.py
                 </h3>
                 <pre>
-class Enemy:
+from Employee import *
 
-    def __init__(self, name, faction):
-        self.name = name
-        self.faction = faction
-
-    # Representation of the class
-    # def __repr__(self):
-    #     return "Enemy('{}', '{}')".format(self.name, self.faction)
-
-    # Similar to repr, but for when you need to convert to string
-    def __str__(self):
-        return "Enemy('{}', '{}')".format(self.name, self.faction)
-    
-    def printData(self):
-        print(self.name, self.faction, sep=" - ")
-    
-class Ghost(Enemy):
-
-    # Override method (same name as parent)
-    def printData(self):
-        print("Ghost's method -> ", self.name, self.faction, sep=" - ")
-                </pre>
-                <h3>
-                    main3.py
-                </h3>
-                <pre>
-from Enemy import *
-
-enemy1 = Enemy("Big Boss", "Big Bad")
-enemy1.printData()
-
-ghost1 = Ghost("Ghost", "Monster 1")
-ghost1.printData()
-
-# Enemy('Big Boss', 'Big Bad')
-print(enemy1) # if you don't have repr : Enemy.Enemy object at 0x0000023CE87AFFD0>             
+emp1 = Employee("John Smith")
+print(emp1.Fullname)
+print(emp1.Email)
+print(emp1.Status)
                 </pre>
             </div>
             <div class="col-md-6">
                 <h2>
                     Homework:
                 </h2>
-                <iframe src="./resources/Python_2_Homework_3.pdf#toolbar=0" width="100%" height="600px">
+                <iframe src="./resources/Python_2_Homework_4.pdf#toolbar=0" width="100%" height="600px">
                 </iframe>
             </div>
         </div>
