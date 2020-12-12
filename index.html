@@ -25,125 +25,61 @@
                     Code:
                 </h2>
                 <h3>
-                    main.py
+                    canvas.py
                 </h3>
                 <pre>
 from tkinter import *
+import random
 
-def leftArrow(event):
-    print("<- Left")
+def createRect(x1, y1, x2, y2, color):
+    canvas.create_rectangle(x1, y1, x2, y2, fill=color)
 
-def rightArrow(event):
-    print("Right ->")
-
-def leftClick(event):
-    print("Left Click")
-
-def rightClick(event):
-    print("Right Click")
+def randomRects(num):
+    colors = ["red", "green", "blue", "orange", "purple"]
+    for i in range(num):
+        color = random.choice(colors)
+        x1 = random.randrange(150)
+        y1 = random.randrange(150)
+        x2 = random.randrange(150) + x1
+        y2 = random.randrange(150) + y1
+        createRect(x1, y1, x2, y2, color)
 
 root = Tk()
-root.geometry("300x300")
 
-# topFrame = Frame(root, bg="Black")
-# topFrame.pack()
+canvas = Canvas(root, width=300, height=300)
+canvas.grid()
 
-# botFrame = Frame(root, bg="")
-# botFrame.pack(side=BOTTOM)
+# Create a rectangle, takes topleft, bottomright
+#canvas.create_rectangle(10, 10, 50, 50)
 
-# Grid Example
-button1 = Button(root, text="Click Me", fg="green")
-button1.grid(row=0,column=0)
+# Create a line, takes start point, end point
+#canvas.create_line(20, 20, 60, 60)
 
-button2 = Button(root, text="Click This Button", fg="blue")
-button2.grid(row=0,column=1)
+# Create a polygon, takes more than 3 points
+#canvas.create_polygon(0, 0, 5, 20, 50, 30, 40, 15)
+randomRects(3)
 
-button3 = Button(root, text="Click Me", fg="yellow")
-button3.grid(row=1,column=0)
+root.mainloop()                 
+                </pre>
+                <h3>
+                    draw_rectangles.py
+                </h3>
+                <pre>
+from tkinter import *
+import random
 
-button4 = Button(root, text="Click This Button", fg="red")
-button4.grid(row=1,column=1)
+def createRect(x1, y1, x2, y2, color):
+    canvas.create_rectangle(x1, y1, x2, y2, fill=color)
 
-# Binding events on root
+def leftClick(evnt):
+    print(evnt.x, evnt.y)
+
+root = Tk()
+
+canvas = Canvas(root, width=300, height=300)
+canvas.grid()
+
 root.bind("<Button-1>", leftClick)
-root.bind("<Button-3>", rightClick)
-root.bind("<Left>", leftArrow)
-root.bind("<Right>", rightArrow)
-
-root.mainloop()
-                </pre>
-                <h3>
-                    fluff.py
-                </h3>
-                <pre>
-from tkinter import *
-from tkinter import messagebox
-
-root = Tk()
-root.geometry("300x300")
-
-def evaluate(event):
-    data = e.get()
-    ans.configure(text="Answer: " + data)
-
-def saveFile():
-    print("File Saved!")
-
-e = Entry(root)
-e.bind("<Return>", evaluate)
-e.grid()
-
-ans = Label(root)
-ans.grid()
-
-# messagebox.showinfo("Uh Oh!", "Error!")
-
-# answer = messagebox.askquestion("Surprise!", "Close the game?")
-
-# if answer == 'yes':
-#     # do something
-#     pass
-# elif answer == 'no':
-#     # do something
-#     pass
-
-mainMenu = Menu(root)
-root.configure(menu = mainMenu)
-
-subMenu = Menu(mainMenu, tearoff=False)
-mainMenu.add_cascade(label="File", menu=subMenu)
-subMenu.add_command(label="Save", command=saveFile)
-
-root.mainloop()
-                </pre>
-                <h3>
-                    calculator.py
-                </h3>
-                <pre>
-from tkinter import *
-
-def btnPress(num):
-    global eq
-    eq = eq + str(num)
-    equation.set(eq)
-
-root = Tk()
-
-equation = StringVar()
-calc = Label(root, textvariable = equation)
-
-# Calculator panel
-equation.set("23 + 45")
-calc.grid(columnspan=4)
-
-eq = ""
-
-# Creating the buttons
-Button0 = Button(root, text="0", command = lambda: btnPress(0), height="1", width="7")
-Button1 = Button(root, text="1", command = lambda: btnPress(1))
-
-Button0.grid(row=2, column=1)
-Button1.grid(row=1, column=0)
 
 root.mainloop()
                 </pre>
@@ -152,7 +88,7 @@ root.mainloop()
                 <h2>
                     Homework:
                 </h2>
-                <iframe src="./resources/Python_2_Homework_5.pdf#toolbar=0" width="100%" height="600px">
+                <iframe src="./resources/Python_2_Homework_6.pdf#toolbar=0" width="100%" height="600px">
                 </iframe>
             </div>
         </div>
