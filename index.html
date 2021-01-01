@@ -25,72 +25,119 @@
                     Code:
                 </h2>
                 <h3>
-                    animation.py
+                    GameDisplay.py
                 </h3>
                 <pre>
-from tkinter import *
-import time
-import random
+# Try is used because some computers use the Tkinter package, but some have tkinter
+try:
+    import Tkinter, random, time, sys
+except:
+    import tkinter as Tkinter, sys, random, time
 
-root = Tk()
+class Game(object):
 
-canvas = Canvas(root, width=500, height=500)
-canvas.pack()
-
-canvas.create_polygon(10, 10, 10, 60, 50, 35)
-
-for i in range(60):
-    canvas.move(1, 5, 0)
-    root.update() # Redraw the screen
-    time.sleep(0.1)
-
-root.mainloop()                
-                </pre>
-                <h3>
-                    bouncing_ball.py
-                </h3>
-                <pre>
-from tkinter import *
-from Ball import *
-import time
-
-root = Tk()
-
-# This window is always on top
-root.wm_attributes('-topmost', 1)
-
-root.geometry("400x400")
-root.title("Bouncing Ball Game")
-# Cannot resize
-root.resizable(0, 0)
-
-canvas = Canvas(root, width=400, height = 400)
-canvas.pack()
-
-ball = Ball(canvas, "red")
-
-# Define our own mainloop
-while True:
-    ball.draw()
-    root.update_idletasks()
-    root.update()
-    time.sleep(0.01)
-                </pre>
-                <h3>
-                    Ball.py
-                </h3>
-                <pre>
-class Ball(object):
-    def __init__(self, canvas, color):
+    def __init__(self, canvas):
         self.canvas = canvas
-        self.id = canvas.create_oval(10,10,25,25,fill = color)
-        self.canvas.move(self.id, 245, 100)
-        self.direction = "up"
+        self.widthlimit = canvas.winfo_screenwidth()
+        self.heightlimit = canvas.winfo_screenheight()
+        # Reserving space for the 'bat'
+        y2 = canvas.winfo_screenheight() - 70
+        y1 = y2 - 15
+        self.bat = Tkinter.Canvas.create_rectangle(canvas, 0, y1, 200, y2, fill='steelblue')
+        self.ball = Tkinter.Canvas.create_oval(canvas, 0, 0, 50, 50, fill='red')
+        self.xvelocity = 10
+        self.yvelocity = 10
     
-    def draw(self):
-        x1,y1,x2,y2 = self.canvas.coords(self.id)
-        print("<{},{}>,<{},{}>".format(x1,y1,x2,y2))
-        self.canvas.move(self.id, 0, -1)
+    def update(self, event=None):
+        x1, y1, x2, y2 = self.canvas.coords(self.ball)
+        bat_x1, bat_y1, bat_x2, bat_y2 = self.canvas.coords(self.bat)
+        # Finds if any object is overlapping the bat object, aka checking for collision
+        k = len(self.canvas.find_overlapping(bat_x1, bat_y1, bat_x2, bat_y2))
+
+        # If the ball hits the leftmost of the window
+        if x1 < 0:
+            self.xvelocity = 2 # Change it so that it moves right
+            self.canvas.move(self.ball, self.xvelocity, 0)
+            pass
+        # If the ball hits the bottom of the window
+        elif y2 >= self.heightlimit:
+            # Display Game Over Screen
+            x = self.widthlimit / 2
+            y = self.heightlimit / 2
+            self.canvas.create_text(x, y, text='Game Over', font=('arial 50 bold'), fill='black')
+            self.canvas.master.update()
+            self.canvas.master.update_idletasks()
+            time.sleep(2)
+            self.canvas.master.destroy()
+            sys.exit(0)
+        # If the ball hits the rightmost of the window
+        elif x2 >= self.widthlimit:
+            self.xvelocity = -2
+            self.canvas.move(self.ball, self.xvelocity, 0)
+        # If the ball hits the top of the window
+        elif y1 <= 0:
+            self.yvelocity = 2
+            self.canvas.move(self.ball, 0, self.yvelocity)
+        # If the ball hits the bat
+        elif k == 2:
+            self.yvelocity = -2
+            self.canvas.move(self.ball, 0, self.yvelocity)
+        else:
+            self.canvas.move(self.ball, self.xvelocity, self.yvelocity)
+        pass
+    
+    # This is for controlling the bat with your keyboard
+    def update_bat(self, event=None):
+        direction = event.keysym
+        x1, y1, x2, y2 = self.canvas.coords(self.bat)
+
+        # If the bat is too far right
+        if x2 > self.widthlimit:
+            if direction == 'Right':
+                self.canvas.move(self.bat, -20, 0)
+            pass
+        # If the bat is too far left
+        elif x1 < 0:
+            if direction == 'Left':
+                self.canvas.move(self.bat, 20, 0)
+            pass
+        elif direction == 'Right':
+            self.canvas.move(self.bat, 20, 0)
+        elif direction == 'Left':
+            self.canvas.move(self.bat, -20, 0)
+        else:
+            pass              
+                </pre>
+                <h3>
+                    Main.py
+                </h3>
+                <pre>
+from tkinter import *
+from GameDisplay import *
+import time
+
+print("Game Starting...")
+root = Tk(className='Bouncing Ball Game')
+w, h=root.winfo_screenwidth(), root.winfo_screenheight()
+
+canvas = Canvas(root, background='grey', width = w, height = h)
+canvas.grid()
+
+game = Game(canvas)
+for seq in ['&lt;Any-KeyPress&gt;']:
+    root.bind_all(seq, game.update_bat)
+
+# Waits until the canvas is visible before the window shows up
+root.wait_visibility(canvas)
+# Window will always be 100% opacity
+root.wm_attributes('-alpha', 1.0)
+
+# Custom Mainloop
+while True:
+    time.sleep(0.01)
+    game.update()
+    root.update()
+    root.update_idletasks()
                 </pre>
             </div>
             <div class="col-md-6">
@@ -100,11 +147,11 @@ class Ball(object):
                 <h3>
                     |
                 </h3>
-                <iframe src="./resources/Python_2_Homework_7.pdf#toolbar=0" width="100%" height="600px">
+                <iframe src="./resources/Python_2_Homework_8.pdf#toolbar=0" width="100%" height="600px">
                 </iframe>
                 <br/>
                 <p>
-                    Hint: Make sure to spawn the other balls with different x and y coords
+                    Hint: Which if statement is the one that detects collision?
                 </p>
             </div>
         </div>
