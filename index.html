@@ -25,6 +25,102 @@
                     Code:
                 </h2>
                 <h3>
+                    Main.py
+                </h3>
+                <pre>
+import turtle
+import os
+import math
+import random
+
+def move_left():
+    global player, playerspeed
+    x = player.xcor()
+    x -= playerspeed
+    if x < -280:
+        x = -280
+    player.setx(x)
+
+# Screen setup
+wn = turtle.Screen()
+wn.setup(800, 800)
+wn.bgcolor("black")
+wn.title("Space Invaders")
+wn.bgpic("space_invaders_background.gif")
+
+# Register our own custom images
+turtle.register_shape("invader.gif")
+turtle.register_shape("player.gif")
+
+# Draw Border
+border_pen = turtle.Turtle()
+border_pen.speed(0)
+border_pen.color("white")
+border_pen.pu()
+border_pen.setposition(-300,-300)
+border_pen.pd()
+border_pen.pensize(3)
+
+for side in range(4):
+    border_pen.fd(600)
+    border_pen.lt(90)
+border_pen.ht()
+
+# Score
+score = 0
+
+# Display the score on screen
+score_pen = turtle.Turtle()
+score_pen.speed(0)
+score_pen.color("white")
+score_pen.penup()
+score_pen.setposition(-290, 280)
+scorestring = "Score: {}".format(score)
+score_pen.write(scorestring, False, align="left", font=("Arial", 14, "normal"))
+score_pen.ht()
+
+# Make a new player turtle
+player = turtle.Turtle()
+player.color("blue")
+player.shape("player.gif")
+player.penup()
+player.speed(0)
+player.setposition(0, -250)
+player.setheading(90)
+
+playerspeed = 15
+
+# Enemies
+number_of_enemies = 5
+# Create an empty list of enemies
+enemies = []
+
+# Add enemies to the list
+for i in range(number_of_enemies):
+    # Create the enemy
+    enemies.append(turtle.Turtle())
+
+# Give the enemies appearance
+for enemy in enemies:
+    enemy.color("red")
+    enemy.shape("invader.gif")
+    enemy.pu()
+    enemy.speed(0)
+    x = random.randint(-200, 200)
+    y = random.randint(100, 250)
+    enemy.setposition(x, y)
+
+# Create keyboard bindings
+turtle.listen()
+turtle.onkey(move_left, "Left")
+
+# Pause the program so it doesn't auto-close
+pause = input()
+                </pre>
+                <h2>
+                    Homework answers:
+                </h2>
+                <h3>
                     GameDisplay.py
                 </h3>
                 <pre>
@@ -35,6 +131,10 @@ except:
     import tkinter as Tkinter, sys, random, time
 
 class Game(object):
+
+    # ===============
+    score = 0
+    # ===============
 
     def __init__(self, canvas):
         self.canvas = canvas
@@ -82,6 +182,11 @@ class Game(object):
         elif k == 2:
             self.yvelocity = -2
             self.canvas.move(self.ball, 0, self.yvelocity)
+
+            # =================================
+            self.score += 1
+            print(self.score)
+            # =================================
         else:
             self.canvas.move(self.ball, self.xvelocity, self.yvelocity)
         pass
@@ -107,37 +212,6 @@ class Game(object):
             self.canvas.move(self.bat, -20, 0)
         else:
             pass              
-                </pre>
-                <h3>
-                    Main.py
-                </h3>
-                <pre>
-from tkinter import *
-from GameDisplay import *
-import time
-
-print("Game Starting...")
-root = Tk(className='Bouncing Ball Game')
-w, h=root.winfo_screenwidth(), root.winfo_screenheight()
-
-canvas = Canvas(root, background='grey', width = w, height = h)
-canvas.grid()
-
-game = Game(canvas)
-for seq in ['&lt;Any-KeyPress&gt;']:
-    root.bind_all(seq, game.update_bat)
-
-# Waits until the canvas is visible before the window shows up
-root.wait_visibility(canvas)
-# Window will always be 100% opacity
-root.wm_attributes('-alpha', 1.0)
-
-# Custom Mainloop
-while True:
-    time.sleep(0.01)
-    game.update()
-    root.update()
-    root.update_idletasks()
                 </pre>
             </div>
             <div class="col-md-6">
