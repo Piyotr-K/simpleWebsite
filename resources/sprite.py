@@ -2,7 +2,7 @@ import pygame
 from settings import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, img, width, height, x, y, speed):
+    def __init__(self, img, width, height, x, y, speed, game):
         super().__init__()
         self.image = pygame.image.load(f"{folder}/{img}")
         self.image = pygame.transform.scale(self.image, (width, height))
@@ -13,6 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.speed = speed
         self.FRICTION = -0.1
         self.MAX_SPEED = 10
+        self.game = game
     
     def update(self):
         pressed_keys = pygame.key.get_pressed()
@@ -36,10 +37,18 @@ class Player(pygame.sprite.Sprite):
 
         if self.rect.left <= 0:
             self.rect.left = 0
-            self.velocity.update(0)
+            self.velocity.x = 0
         elif self.rect.right > screen_w:
             self.rect.right = screen_w
-            self.velocity.update(0)
+            self.velocity.x = 0
+    
+    def jump(self):
+        self.rect.y += 1
+        hits = pygame.sprite.spritecollide(self, self.game.platforms, False)
+        self.rect.y -= 1
+        if hits:
+            self.velocity.y = -15
+
 
 class Platform(pygame.sprite.Sprite):
     def __init__(self, w, h, x, y, color):
