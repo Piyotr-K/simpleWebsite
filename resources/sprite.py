@@ -35,19 +35,17 @@ class Player(pygame.sprite.Sprite):
 
         self.rect.move_ip(self.velocity + 0.5 * self.acceleration)
 
-        if self.rect.left <= 0:
-            self.rect.left = 0
-            self.velocity.x = 0
-        elif self.rect.right > screen_w:
+        if self.rect.right <= 0:
             self.rect.right = screen_w
-            self.velocity.x = 0
+        elif self.rect.left > screen_w:
+            self.rect.left = 0
     
     def jump(self):
         self.rect.y += 1
         hits = pygame.sprite.spritecollide(self, self.game.platforms, False)
         self.rect.y -= 1
         if hits:
-            self.velocity.y = -15
+            self.velocity.y = -20
 
 
 class Platform(pygame.sprite.Sprite):
