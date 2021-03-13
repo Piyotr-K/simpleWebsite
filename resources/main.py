@@ -15,7 +15,9 @@ class Game:
         self.screen = pygame.display.set_mode((screen_w, screen_h))
         self.clock = pygame.time.Clock()
         self.playing = True
+        self.running = True
 
+        self.load_data()
         self.pikachu = Player("pikachu.png", 50, 50,
                             screen_w // 2, screen_h // 2, 1.5, self)
         
@@ -23,11 +25,22 @@ class Game:
         self.platforms = pygame.sprite.Group()
         self.reset()
     
+    def load_data(self):
+        try:
+            with open(folder + "/highscore.txt", 'r') as f:
+                try:
+                    self.highscore = int(f.read())
+                except:
+                    self.highscore = 0
+        except:
+            with open(folder + "/highscore.txt", 'w') as f:
+                self.highscore = 0
+    
     def events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                self.playing = False
+                self.running = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.pikachu.jump()
@@ -82,15 +95,64 @@ class Game:
         text_rect.midtop = (x, y)
         self.screen.blit(text_surface, text_rect)
     
+    def show_gameover_screen(self):
+        if not self.running:
+            return
+        self.screen.fill(white)
+        self.draw_text("GAME OVER", 48, black, screen_w / 2, screen_h / 4)
+        self.draw_text("Score: " + str(self.score), 22,
+                        black, screen_w / 2, screen_h / 2)
+        self.draw_text("Press a key to play again!", 22,
+                        black, screen_w / 2, screen_h * 3 / 4)
+        
+        # Saving the highscore
+        if self.score > self.highscore:
+            self.highscore = self.score
+            self.draw_text("NEW HIGH SCORE!", 22, black,
+                            screen_w / 2, screen_h / 2 + 40)
+            with open(folder + "/highscore.txt", 'w') as f:
+                f.write(str(self.score))
+        else:
+            self.draw_text("High score: " + str(self.highscore),
+                            22, black, screen_w / 2, screen_h / 2 + 40)
+
+        pygame.display.update()
+        self.wait_for_key()
+
+    def show_main_menu(self):
+        if not self.running:
+            return
+        self.screen.fill(white)
+        self.draw_text("Doodle Jump Ripoff", 48, 
+                        black, screen_w / 2, screen_h / 4)
+        self.draw_text("Press a key to play!", 22,
+                        black, screen_w / 2, screen_h * 3 / 4)
+        pygame.display.update()
+        self.wait_for_key()
+   
+    def wait_for_key(self):
+        waiting = True
+        while waiting:
+            self.clock.tick(fps)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    waiting = False
+                    self.running = False
+                if event.type == pygame.KEYUP:
+                    waiting = False
+    
     def run(self):
+        self.playing = True
         while self.playing:
             self.clock.tick(fps)
             self.events()
             self.update()
             self.draw()
-    
+
     def reset(self):
+        self.score = 0
         self.all_sprites.empty()
+        self.platforms.empty()
         self.all_sprites.add(self.pikachu)
     
     def level_1(self):
@@ -109,5 +171,9 @@ class Game:
             self.platforms.add(p)
 
 game = Game()
-game.level_1()
-game.run()
+
+game.show_main_menu()
+while game.running:
+    game.level_1()
+    game.run()
+    game.show_gameover_screen()
