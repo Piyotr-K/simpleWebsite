@@ -4,7 +4,6 @@ from sprite import *
 import random
 
 class Game:
-
     score = 0
     font_name = pygame.font.match_font('Arial')
     # Exact path = "C:/Windows/Fonts/Arial.ttf"
@@ -35,6 +34,7 @@ class Game:
         except:
             with open(folder + "/highscore.txt", 'w') as f:
                 self.highscore = 0
+        self.spritesheet = Spritesheet(folder + "/spritesheet_jumper.png")
     
     def events(self):
         for event in pygame.event.get():
