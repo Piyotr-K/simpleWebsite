@@ -46,6 +46,33 @@ class Player(pygame.sprite.Sprite):
     
     def animate(self):
         now = pygame.time.get_ticks()
+
+        self.jumping = self.velocity.y != 0
+        if self.jumping:
+            self.last_update = now
+            bottom = self.rect.bottom
+            x = self.rect.x
+            self.image = self.jump_frame
+            self.rect = self.image.get_rect()
+            self.rect.bottom = bottom
+            self.rect.x = x
+
+        self.walking = self.velocity.x != 0
+        if self.walking:
+            if now - self.last_update > 180:
+                self.last_update = now
+                self.current_frame = (
+                    self.current_frame + 1) % len(self.walk_frames_l)
+                bottom = self.rect.bottom
+                x = self.rect.x
+                if self.velocity.x > 0:
+                    self.image = self.walk_frames_r[self.current_frame]
+                else:
+                    self.image = self.walk_frames_l[self.current_frame]
+                self.rect = self.image.get_rect()
+                self.rect.bottom = bottom
+                self.rect.x = x
+
         if not self.jumping and not self.walking:
             if now - self.last_update > 350:
                 self.last_update = now
@@ -57,6 +84,7 @@ class Player(pygame.sprite.Sprite):
                 self.rect = self.image.get_rect()
                 self.rect.bottom = bottom
                 self.rect.x = x
+        
     
     def update(self):
         self.animate()
@@ -70,6 +98,9 @@ class Player(pygame.sprite.Sprite):
         self.acceleration *= self.speed
         self.acceleration.x += self.velocity.x * self.FRICTION
         self.velocity += self.acceleration
+
+        if abs(self.velocity.x) < 1:
+            self.velocity.x = 0
 
         if abs(self.velocity.x) > self.MAX_SPEED:
             if self.velocity.x < 0:
@@ -85,19 +116,31 @@ class Player(pygame.sprite.Sprite):
             self.rect.left = 0
     
     def jump(self):
-        self.rect.y += 1
+        self.rect.y += 2
         hits = pygame.sprite.spritecollide(self, self.game.platforms, False)
-        self.rect.y -= 1
+        self.rect.y -= 2
         if hits:
             self.velocity.y = -20
 
 class Platform(pygame.sprite.Sprite):
-    def __init__(self, w, h, x, y, color):
+
+    def __init__(self, x, y, game):
         super().__init__()
-        self.image = pygame.Surface((w, h))
+        self.game = game
+        images = [self.game.spritesheet.get_image(0, 288, 380, 94),
+                    self.game.spritesheet.get_image(213, 1662, 201, 100)]
+        self.image = random.choice(images)
+        self.image.set_colorkey(black)
         self.rect = self.image.get_rect()
-        self.rect.topleft = (x, y)
-        self.image.fill(color)
+        self.rect.x = x
+        self.rect.y = y
+
+    # def __init__(self, w, h, x, y, color):
+    #     super().__init__()
+    #     self.image = pygame.Surface((w, h))
+    #     self.rect = self.image.get_rect()
+    #     self.rect.topleft = (x, y)
+    #     self.image.fill(color)
 
 class Spritesheet:
     def __init__(self, filename):

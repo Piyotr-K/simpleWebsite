@@ -1,5 +1,6 @@
 import pygame
 import os
+import random
 from colors import *
 
 # Init clock

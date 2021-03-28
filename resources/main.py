@@ -50,14 +50,15 @@ class Game:
         if self.pikachu.velocity.y > 0:
             hits = pygame.sprite.spritecollide(self.pikachu, self.platforms, False)
             if hits:
-                self.pikachu.rect.bottom = hits[0].rect.top
-                self.pikachu.velocity.y = 0
+                if self.pikachu.rect.bottom < hits[0].rect.centery:
+                    self.pikachu.rect.bottom = hits[0].rect.top
+                    self.pikachu.velocity.y = 0
         
         # Scrolling platforms downwards
         if self.pikachu.rect.top <= screen_h / 4:
-            self.pikachu.rect.y += abs(self.pikachu.velocity.y)
+            self.pikachu.rect.y += max(2, abs(self.pikachu.velocity.y))
             for plat in self.platforms:
-                plat.rect.y += abs(self.pikachu.velocity.y)
+                plat.rect.y += max(2, abs(self.pikachu.velocity.y))
                 if plat.rect.top >= screen_h:
                     plat.kill()
                     self.score += 1
@@ -75,10 +76,9 @@ class Game:
         
         while len(self.platforms) < 6:
             width = random.randrange(50, 100)
-            p = Platform(width, 20,
-                        random.randrange(0, screen_w - width),
+            p = Platform(random.randrange(0, screen_w - width),
                         random.randrange(-75, -30),
-                        red)
+                        self)
             self.platforms.add(p)
             self.all_sprites.add(p)
     
@@ -154,6 +154,9 @@ class Game:
         self.all_sprites.empty()
         self.platforms.empty()
         self.all_sprites.add(self.pikachu)
+        self.pikachu.rect.x = screen_w // 2
+        self.pikachu.rect.y = screen_h // 2
+        self.pikachu.velocity.y = 0
     
     def level_1(self):
         self.reset()
@@ -166,7 +169,7 @@ class Game:
         ]
         for plat in platform_list:
             w, h, x, y, color = plat
-            p = Platform(w, h, x, y, color)
+            p = Platform(x, y, game)
             self.all_sprites.add(p)
             self.platforms.add(p)
 
