@@ -121,6 +121,11 @@ class Player(pygame.sprite.Sprite):
         self.rect.y -= 2
         if hits:
             self.velocity.y = -20
+            self.game.jump_sound.play()
+    
+    def jump_cut(self):
+        if self.jumping and self.velocity.y < -3:
+            self.velocity.y = -3
 
 class Platform(pygame.sprite.Sprite):
 

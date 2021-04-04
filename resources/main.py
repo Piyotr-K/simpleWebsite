@@ -13,17 +13,18 @@ class Game:
     def __init__(self):
         self.screen = pygame.display.set_mode((screen_w, screen_h))
         self.clock = pygame.time.Clock()
+        self.sound_dir = folder + "/sound"
         self.playing = True
         self.running = True
 
         self.load_data()
-        self.pikachu = Player("pikachu.png", 50, 50,
+        self.player = Player("pikachu.png", 50, 50,
                             screen_w // 2, screen_h // 2, 1.5, self)
-        
+
         self.all_sprites = pygame.sprite.Group()
         self.platforms = pygame.sprite.Group()
         self.reset()
-    
+
     def load_data(self):
         try:
             with open(folder + "/highscore.txt", 'r') as f:
@@ -35,6 +36,11 @@ class Game:
             with open(folder + "/highscore.txt", 'w') as f:
                 self.highscore = 0
         self.spritesheet = Spritesheet(folder + "/spritesheet_jumper.png")
+        self.main_menu_img = pygame.image.load(folder + "/pichu.png")
+
+        self.background_music = pygame.mixer.Sound(self.sound_dir + "/happy.ogg")
+        self.gameover_music = pygame.mixer.Sound(self.sound_dir + "/techno.ogg")
+        self.jump_sound = pygame.mixer.Sound(self.sound_dir + "/jump1.wav")
     
     def events(self):
         for event in pygame.event.get():
@@ -43,30 +49,37 @@ class Game:
                 self.running = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    self.pikachu.jump()
+                    self.player.jump()
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_SPACE:
+                    self.player.jump_cut()
     
     def update(self):
         self.all_sprites.update()
-        if self.pikachu.velocity.y > 0:
-            hits = pygame.sprite.spritecollide(self.pikachu, self.platforms, False)
+        if self.player.velocity.y > 0:
+            hits = pygame.sprite.spritecollide(self.player, self.platforms, False)
             if hits:
-                if self.pikachu.rect.bottom < hits[0].rect.centery:
-                    self.pikachu.rect.bottom = hits[0].rect.top
-                    self.pikachu.velocity.y = 0
+                lowest = hits[0]
+                for hit in hits[1:]:
+                    if hit.rect.bottom > lowest.rect.bottom:
+                        lowest = hit
+                if self.player.rect.bottom < hits[0].rect.centery:
+                    self.player.rect.bottom = hits[0].rect.top
+                    self.player.velocity.y = 0
         
         # Scrolling platforms downwards
-        if self.pikachu.rect.top <= screen_h / 4:
-            self.pikachu.rect.y += max(2, abs(self.pikachu.velocity.y))
+        if self.player.rect.top <= screen_h / 4:
+            self.player.rect.y += max(2, abs(self.player.velocity.y))
             for plat in self.platforms:
-                plat.rect.y += max(2, abs(self.pikachu.velocity.y))
+                plat.rect.y += max(2, abs(self.player.velocity.y))
                 if plat.rect.top >= screen_h:
                     plat.kill()
                     self.score += 1
         
         # Falling
-        if self.pikachu.rect.bottom > screen_h:
+        if self.player.rect.bottom > screen_h:
             for sprite in self.all_sprites:
-                sprite.rect.y -= max(self.pikachu.velocity.y, 10)
+                sprite.rect.y -= max(self.player.velocity.y, 10)
                 if sprite.rect.bottom < 0:
                     sprite.kill()
         
@@ -98,6 +111,8 @@ class Game:
     def show_gameover_screen(self):
         if not self.running:
             return
+        self.gameover_music.stop()
+        self.gameover_music.play(-1)
         self.screen.fill(white)
         self.draw_text("GAME OVER", 48, black, screen_w / 2, screen_h / 4)
         self.draw_text("Score: " + str(self.score), 22,
@@ -123,6 +138,7 @@ class Game:
         if not self.running:
             return
         self.screen.fill(white)
+        self.screen.blit(self.main_menu_img, [100, 100]) #
         self.draw_text("Doodle Jump Ripoff", 48, 
                         black, screen_w / 2, screen_h / 4)
         self.draw_text("Press a key to play!", 22,
@@ -148,15 +164,19 @@ class Game:
             self.events()
             self.update()
             self.draw()
+        self.background_music.fadeout(500)
 
     def reset(self):
+        self.gameover_music.stop()
+        self.background_music.stop()
         self.score = 0
         self.all_sprites.empty()
         self.platforms.empty()
-        self.all_sprites.add(self.pikachu)
-        self.pikachu.rect.x = screen_w // 2
-        self.pikachu.rect.y = screen_h // 2
-        self.pikachu.velocity.y = 0
+        self.all_sprites.add(self.player)
+        self.player.rect.x = screen_w // 2
+        self.player.rect.y = screen_h // 2
+        self.player.velocity.y = 0
+        self.background_music.play(-1)
     
     def level_1(self):
         self.reset()
