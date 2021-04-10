@@ -127,10 +127,52 @@ class Player(pygame.sprite.Sprite):
         if self.jumping and self.velocity.y < -3:
             self.velocity.y = -3
 
-class Platform(pygame.sprite.Sprite):
+class Mob(pygame.sprite.Sprite):
+    def __init__(self, game):
+        self.groups = game.all_sprites, game.mobs
+        super().__init__(self.groups)
+        self.game = game
+        self.image_up = self.game.spritesheet.get_image(566, 510, 122, 139)
+        self.image_up.set_colorkey(black)
+        self.image_down = self.game.spritesheet.get_image(568, 1534, 122, 135)
+        self.image_down.set_colorkey(black)
+        self.image = self.image_up
+        self.rect = self.image.get_rect()
+        # Spawn the enemy from either the left side of the screen
+        # or the right
+        self.rect.centerx = random.choice([-100, screen_w + 100])
+        self.vx = random.randrange(1, 4)
+        if self.rect.centerx > screen_w:
+            self.vx *= -1
+        # Spawn the enemy in the top half of the screen somewhere
+        self.rect.y = random.randrange(screen_h / 2)
+        self.vy = 0
+        self.dy = 0.5
+    
+    def update(self):
+        self.rect.x += self.vx
+        self.vy += self.dy
+        # Reverse the y direction if the enemy bobs past 3 in the y axis
+        if self.vy > 3 or self.vy < -3:
+            self.dy *= -1
+        center = self.rect.center
+        # "Animate" the sprite by cycling the image between up and down
+        if self.dy < 0:
+            self.image = self.image_up
+        else:
+            self.image = self.image_down
+        self.rect = self.image.get_rect()
+        self.rect.center = center
+        self.rect.y += self.vy
+        # If the enemy leaves the right or left side of the screen
+        # delete the sprite
+        if self.rect.left > screen_w + 100 or self.rect.right < -100:
+            self.kill()
 
+class Platform(pygame.sprite.Sprite):
     def __init__(self, x, y, game):
-        super().__init__()
+        self.groups = game.all_sprites, game.platforms
+        super().__init__(self.groups)
         self.game = game
         images = [self.game.spritesheet.get_image(0, 288, 380, 94),
                     self.game.spritesheet.get_image(213, 1662, 201, 100)]
@@ -139,6 +181,8 @@ class Platform(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        if random.randrange(100) < 15:
+            Pow(self.game, self)
 
     # def __init__(self, w, h, x, y, color):
     #     super().__init__()
@@ -156,3 +200,21 @@ class Spritesheet:
         image.blit(self.spritesheet, (0,0), (x, y, w, h))
         image = pygame.transform.scale(image, (w // 2, h // 2))
         return image
+
+class Pow(pygame.sprite.Sprite):
+    def __init__(self, game, plat):
+        self.groups = game.all_sprites, game.powerups
+        super().__init__(self.groups)
+        self.game = game
+        self.plat = plat
+        self.type = random.choice(['boost'])
+        self.image = self.game.spritesheet.get_image(820, 1805, 71, 70)
+        self.image.set_colorkey(black)
+        self.rect = self.image.get_rect()
+        self.rect.centerx = self.plat.rect.centerx
+        self.rect.bottom = self.plat.rect.top - 5
+    
+    def update(self):
+        self.rect.bottom = self.plat.rect.top - 5
+        if not self.game.platforms.has(self.plat):
+            self.kill()

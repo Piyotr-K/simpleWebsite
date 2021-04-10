@@ -23,6 +23,7 @@ class Game:
 
         self.all_sprites = pygame.sprite.Group()
         self.platforms = pygame.sprite.Group()
+        self.powerups = pygame.sprite.Group()
         self.reset()
 
     def load_data(self):
@@ -41,6 +42,7 @@ class Game:
         self.background_music = pygame.mixer.Sound(self.sound_dir + "/happy.ogg")
         self.gameover_music = pygame.mixer.Sound(self.sound_dir + "/techno.ogg")
         self.jump_sound = pygame.mixer.Sound(self.sound_dir + "/jump1.wav")
+        self.boost_sound = pygame.mixer.Sound(self.sound_dir + "/boost.wav")
     
     def events(self):
         for event in pygame.event.get():
@@ -56,6 +58,14 @@ class Game:
     
     def update(self):
         self.all_sprites.update()
+
+        pow_hits = pygame.sprite.spritecollide(self.player, self.powerups, True)
+        for pow in pow_hits:
+            if pow.type == 'boost':
+                self.boost_sound.play()
+                self.player.velocity.y = -60
+                self.player.jumping = False
+
         if self.player.velocity.y > 0:
             hits = pygame.sprite.spritecollide(self.player, self.platforms, False)
             if hits:
@@ -63,7 +73,9 @@ class Game:
                 for hit in hits[1:]:
                     if hit.rect.bottom > lowest.rect.bottom:
                         lowest = hit
-                if self.player.rect.bottom < hits[0].rect.centery:
+                if self.player.rect.bottom < hits[0].rect.centery and \
+                    self.player.rect.centerx < lowest.rect.right + 10 and \
+                        self.player.rect.centerx > lowest.rect.left - 10:
                     self.player.rect.bottom = hits[0].rect.top
                     self.player.velocity.y = 0
         
@@ -92,8 +104,8 @@ class Game:
             p = Platform(random.randrange(0, screen_w - width),
                         random.randrange(-75, -30),
                         self)
-            self.platforms.add(p)
-            self.all_sprites.add(p)
+            # self.platforms.add(p)
+            # self.all_sprites.add(p)
     
     def draw(self):
         self.screen.fill(white)
@@ -190,8 +202,8 @@ class Game:
         for plat in platform_list:
             w, h, x, y, color = plat
             p = Platform(x, y, game)
-            self.all_sprites.add(p)
-            self.platforms.add(p)
+            # self.all_sprites.add(p)
+            # self.platforms.add(p)
 
 game = Game()
 
