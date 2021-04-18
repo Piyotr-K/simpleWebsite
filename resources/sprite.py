@@ -184,13 +184,6 @@ class Platform(pygame.sprite.Sprite):
         if random.randrange(100) < 15:
             Pow(self.game, self)
 
-    # def __init__(self, w, h, x, y, color):
-    #     super().__init__()
-    #     self.image = pygame.Surface((w, h))
-    #     self.rect = self.image.get_rect()
-    #     self.rect.topleft = (x, y)
-    #     self.image.fill(color)
-
 class Spritesheet:
     def __init__(self, filename):
         self.spritesheet = pygame.image.load(filename).convert()
@@ -213,7 +206,7 @@ class Pow(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.centerx = self.plat.rect.centerx
         self.rect.bottom = self.plat.rect.top - 5
-    
+
     def update(self):
         self.rect.bottom = self.plat.rect.top - 5
         if not self.game.platforms.has(self.plat):

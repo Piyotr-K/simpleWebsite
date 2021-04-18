@@ -16,6 +16,7 @@ class Game:
         self.sound_dir = folder + "/sound"
         self.playing = True
         self.running = True
+        self.mob_timer = 0
 
         self.load_data()
         self.player = Player("pikachu.png", 50, 50,
@@ -24,6 +25,8 @@ class Game:
         self.all_sprites = pygame.sprite.Group()
         self.platforms = pygame.sprite.Group()
         self.powerups = pygame.sprite.Group()
+        self.mobs = pygame.sprite.Group()
+
         self.reset()
 
     def load_data(self):
@@ -59,6 +62,15 @@ class Game:
     def update(self):
         self.all_sprites.update()
 
+        now = pygame.time.get_ticks()
+        if now - self.mob_timer > 5000 + random.choice([-1000, -500, 0, 500, 1000]):
+            self.mob_timer = now
+            Mob(self)
+        mob_hits = pygame.sprite.spritecollide(
+            self.player, self.mobs, False, pygame.sprite.collide_mask)
+        if mob_hits:
+            self.playing = False
+
         pow_hits = pygame.sprite.spritecollide(self.player, self.powerups, True)
         for pow in pow_hits:
             if pow.type == 'boost':
@@ -81,7 +93,10 @@ class Game:
         
         # Scrolling platforms downwards
         if self.player.rect.top <= screen_h / 4:
-            self.player.rect.y += max(2, abs(self.player.velocity.y))
+            self.player.rect.y += abs(self.player.velocity.y)
+            for mob in self.mobs:
+                mob.rect.y += max(2, abs(self.player.velocity.y))
+            # self.player.rect.y += max(2, abs(self.player.velocity.y))
             for plat in self.platforms:
                 plat.rect.y += max(2, abs(self.player.velocity.y))
                 if plat.rect.top >= screen_h:
@@ -181,13 +196,18 @@ class Game:
     def reset(self):
         self.gameover_music.stop()
         self.background_music.stop()
+
         self.score = 0
+
         self.all_sprites.empty()
         self.platforms.empty()
+        self.mobs.empty()
+
         self.all_sprites.add(self.player)
         self.player.rect.x = screen_w // 2
         self.player.rect.y = screen_h // 2
         self.player.velocity.y = 0
+
         self.background_music.play(-1)
     
     def level_1(self):
