@@ -70,37 +70,50 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
+                    <h2>
+                        Python 1 Class Code:
+                    </h2>
+                    <h3>
+                        Main.py
+                    </h3>
+                    <pre>
+#!/bin/python3
 
+from random import randint
+
+cpu_choice = randint(1,3)
+
+player_choice = input("Rock, paper, scissors!\n(r - 1, p - 2, s - 3)")
+
+player_choice = int(player_choice)
+
+if player_choice == cpu_choice:
+  print("Draw!")
+
+if player_choice == 1 and cpu_choice == 2:
+  winner = "cpu"
+if player_choice == 3 and cpu_choice == 2:
+  winner = "player"
+
+print(winner + " wins!")
+                    </pre>
                 </div>
                 <div class="col-md-6">
-                    <!-- <h2>
-                        Saturday Class Homework:
+                    <h2>
+                        Python 1 Class Homework:
                     </h2>
                     <h3>
                         |
                     </h3>
                     <h4>
-                        Unit Conversion Program
+                        Finish Rock Paper Scissors Game and add to it.
                     </h4>
                     <p>
-                        - Converts the user's measurement into the desired unit.
+                        Finish the rock paper scissors game you started in class.
                     </p>
                     <p>
-                        - Ask the user for 3 inputs:
+                        Add at least 1 more choice other than rock, paper or scissors.
                     </p>
-                    <p>
-                        1. The float to convert
-                    </p>
-                    <p>
-                        2. The unit
-                    </p>
-                    <p>
-                        3. The target unit
-                    </p>
-                    <p>
-                        ex.<br/>Input:<br/>12<br/>cm<br/>inch<br/>
-                        Output:<br/>4.72 in.<br/>
-                    </p> -->
                     <!-- <iframe src="./resources/Python_2_Homework_11.pdf#toolbar=0" width="100%" height="600px">
                     </iframe> -->
                 </div>
