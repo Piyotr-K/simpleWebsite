@@ -91,23 +91,42 @@
                     <pre>
 #!/bin/python3
 
+from turtle import *
 from random import randint
 
-cpu_choice = randint(1,3)
+penup()
+speed(0)
+goto(-190, 190)
 
-player_choice = input("Rock, paper, scissors!\n(r - 1, p - 2, s - 3)")
+for step in range(11):
+    write(step * 10, align="center")
+    right(90)
+    forward(10)
+    pendown()
+    forward(150)
+    penup()
+    backward(160)
+    left(90)
+    forward(30)
 
-player_choice = int(player_choice)
+sam = Turtle()
+sam.color("#87CEEB")
+sam.shape("turtle")
+sam.penup()
+sam.goto(-190, 170)
 
-if player_choice == cpu_choice:
-  print("Draw!")
+michael = Turtle()
+michael.color("green")
+michael.shape("turtle")
+michael.penup()
+michael.goto(-190, 140)
 
-if player_choice == 1 and cpu_choice == 2:
-  winner = "cpu"
-if player_choice == 3 and cpu_choice == 2:
-  winner = "player"
-
-print(winner + " wins!")
+for step in range(100):
+    sam.forward(randint(1, 5))
+    michael.forward(randint(1, 5))
+    print(sam.xcor())
+    print(michael.xcor())
+# Use if statements
                     </pre>
                 </div>
                 <div class="col-md-6">
@@ -118,13 +137,19 @@ print(winner + " wins!")
                         |
                     </h3>
                     <h4>
-                        Finish Rock Paper Scissors Game and add to it.
+                        Add to your turtle game
                     </h4>
                     <p>
-                        Finish the rock paper scissors game you started in class.
+                        - Have at least 4 racers
                     </p>
                     <p>
-                        Add at least 1 more choice other than rock, paper or scissors.
+                        - Make the distance markers dotted lines
+                    </p>
+                    <h4>
+                        BEEG Challenge:
+                    </h4>
+                    <p>
+                        - Who ever gets to the finish line first is displayed and all other racers are stopped.
                     </p>
                     <!-- <iframe src="./resources/Python_2_Homework_11.pdf#toolbar=0" width="100%" height="600px">
                     </iframe> -->
