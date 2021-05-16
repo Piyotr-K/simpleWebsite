@@ -28,29 +28,47 @@
                         Webscraper Class Code:
                     </h2>
                     <h3>
-                        index.html
+                        regex.py
                     </h3>
 <pre>
-&lt;!DOCTYPE html>
-&lt;html>
-    &lt;head>
-        &lt;title>My Cool Website&lt;/title>
-        &lt;link rel="stylesheet" type="text/css" href="style.css">
-    &lt;/head>
-    &lt;body>
-        &lt;h1>This text will be huge&lt;/h1>
-        &lt;img id="shadow" src="https://i.imgur.com/Qx5d6ua.png" width="600px" height="300px">
-        &lt;p>Heheh&lt;/p>
-    &lt;/body>
-&lt;/html>
-</pre>
-                    <h3>
-                        style.css
-                    </h3>
-                    <pre>
-#shadow {
-    box-shadow: 5px 10px rgba(0,0,0,0.5);
-}
+import re
+
+result = re.match('abc', 'abcde')
+# Returns FIRST occurrence anywhere in string
+findResult = re.search('cde', 'abcde')
+# Returns ALL occurrences anywhere in string
+findAllResult = re.findall('abc', 'abc123abcHHHabc999')
+
+print(result)
+print(findResult)
+print(findAllResult)
+
+haystack = 'thankyou876goodbye98'
+result = re.search('goodbye', haystack)[0]
+print(result)
+
+a = 'An apple is 15 dollars and a peach is 3 dollars'
+result = re.findall('\d', a)
+print(result)
+
+a = 'The temperature in the next week will vary between 3 and 8 degrees celsius'
+result = re.search('\d', a)
+print(result)
+
+b = 'My_email_address_is_7657akj@gmail.com'
+# you cannot do this: re.search('@', b)
+result = re.search('\W', b)
+print(result)
+
+c = 'My number is 778-123-456'
+result = re.search('[0-9]+', c)
+print(result)
+
+d = 'Am funny comedy haha man'
+
+e = 'If sam goes to teh store and buys 50 melons and then travels 30 meters to his house why are there 4 moons around jupiters'
+
+f = 'Where y@ boi111! Im boutta &*$^ u so hard r%now'
 </pre>
                 </div>
                 <div class="col-md-6">
@@ -61,22 +79,22 @@
                         |
                     </h3>
                     <h4>
-                        Improve your simple site.
+                        Use regex to find the required text in the string d, e and f
                     </h4>
                     <h2>
                         Requirements:
                     </h2>
                     <p>
-                        - Have at least 4 images total.
+                        - For string d, find all the occurrences of the letter 'a'
                     </p>
                     <p>
-                        - A short description of every image
+                        - For string e, find all the occurrences of numbers, (50, 30 and 4)
                     </p>
                     <p>
-                        - Add a different style to each image using ids
+                        - For string f, find all the occurrences of special characters.
                     </p>
                     <p>
-                        - Anything else you want
+                        - Note: you can use multiple queries for string e.
                     </p>
                 </div>
             </div>
