@@ -108,44 +108,62 @@ f = 'Where y@ boi111! Im boutta &*$^ u so hard r%now'
                         Main.py
                     </h3>
                     <pre>
-#!/bin/python3
+from random import choice
 
-from turtle import *
-from random import randint
+players = []
+# Read local files
+file = open('names.txt', 'r')
+players = file.read().splitlines()
+print(players)
 
-penup()
-speed(0)
-goto(-190, 190)
+teamA = []
+teamB = []
+teamC = []
 
-for step in range(11):
-    write(step * 10, align="center")
-    right(90)
-    forward(10)
-    pendown()
-    forward(150)
-    penup()
-    backward(160)
-    left(90)
-    forward(30)
+while len(players) > 0:
+    selected = choice(players)
+    teamA.append(selected) # Append = add to end of list
+    players.remove(selected)
+    
+    if players == []:
+    break # exits out of loop at this line
 
-sam = Turtle()
-sam.color("#87CEEB")
-sam.shape("turtle")
-sam.penup()
-sam.goto(-190, 170)
+    selected = choice(players)
+    teamB.append(selected)
+    players.remove(selected)
+    
+    if players == []:
+    break # exits out of loop at this line
 
-michael = Turtle()
-michael.color("green")
-michael.shape("turtle")
-michael.penup()
-michael.goto(-190, 140)
+    selected = choice(players)
+    teamC.append(selected)
+    players.remove(selected)
 
-for step in range(100):
-    sam.forward(randint(1, 5))
-    michael.forward(randint(1, 5))
-    print(sam.xcor())
-    print(michael.xcor())
-# Use if statements
+print("Team A:")
+print(teamA)
+
+print("Team B:")
+print(teamB)
+
+print("Team C:")
+print(teamC)
+
+f = open('Final.txt', 'w')
+f.write('Something')
+                    </pre>
+                    <h3>
+                        hints.py
+                    </h3>
+                    <pre>
+fruits = ['apple', 'orange', 'lemon']
+for fruit in fruits:
+    print(fruit)
+
+# Remember to use '\n'
+
+# You can combine two strings using +
+combined = "nice" + "\n" + "not so nice"
+print(combined)
                     </pre>
                 </div>
                 <div class="col-md-6">
@@ -156,19 +174,22 @@ for step in range(100):
                         |
                     </h3>
                     <h4>
-                        Add to your turtle game
+                        Output to the file
                     </h4>
                     <p>
-                        - Have at least 4 racers
+                        - Output all your teams to the text file "Final.txt"
                     </p>
                     <p>
-                        - Make the distance markers dotted lines
+                        - Make sure it's formatted nicely
                     </p>
                     <h4>
                         BEEG Challenge:
                     </h4>
                     <p>
-                        - Who ever gets to the finish line first is displayed and all other racers are stopped.
+                        - Get the user to enter more names before creating the three teams
+                    </p>
+                    <p>
+                        - The user can enter as many as they want until they type a special sequence; "!q"
                     </p>
                     <!-- <iframe src="./resources/Python_2_Homework_11.pdf#toolbar=0" width="100%" height="600px">
                     </iframe> -->
