@@ -28,47 +28,47 @@
                         Webscraper Class Code:
                     </h2>
                     <h3>
-                        regex.py
+                        bookScraper.py
                     </h3>
 <pre>
+import requests
 import re
 
-result = re.match('abc', 'abcde')
-# Returns FIRST occurrence anywhere in string
-findResult = re.search('cde', 'abcde')
-# Returns ALL occurrences anywhere in string
-findAllResult = re.findall('abc', 'abc123abcHHHabc999')
+def parse_result(html):
+    pattern = re.compile('&lt;li>.*?list_num.*?(\d+).&lt;/div>.*?'
+                            '&lt;img src="(.*?)".*?class="name".*?'
+                            'title="(.*?)">.*?class="star">.*?'
+                            'class="tuijian">(.*?)&lt;/span>.*?'
+                            'class="publish_info">.*?'
+                            'target="_blank">(.*?)&lt;/a>.*?'
+                            'class="biaosheng">.*?&lt;span>(.*?)&lt;/span>'
+                            '&lt;/div>.*?&lt;p>'
+                            '&lt;span\sclass="price_n">&yen;(.*?)'
+                            '&lt;span>.*?&lt;/li>', re.S)
+    # item = re.findall('&lt;img src="(.*?)" class="(.*?)".', html)
+    item = re.findall(pattern, html)
+    print(item)
+    # print(html)
 
-print(result)
-print(findResult)
-print(findAllResult)
+def request_site(url):
+    try:
+        response = requests.get(url)
+        # Checking if our request has been accepted
+        if response.status_code == 200:
+            return response.text
+    # If not then return None (null)
+    except requests.RequestException:
+        return None
 
-haystack = 'thankyou876goodbye98'
-result = re.search('goodbye', haystack)[0]
-print(result)
+def main(page):
+    url = 'http://bang.dangdang.com/books/fivestars/01.00.00.00.00.00-recent30-0-0-1-1' + str(page)
+    html = request_site(url)
+    items = parse_result(html)
 
-a = 'An apple is 15 dollars and a peach is 3 dollars'
-result = re.findall('\d', a)
-print(result)
+    # for item in items:
+    #     write_item_to_file(item)
 
-a = 'The temperature in the next week will vary between 3 and 8 degrees celsius'
-result = re.search('\d', a)
-print(result)
-
-b = 'My_email_address_is_7657akj@gmail.com'
-# you cannot do this: re.search('@', b)
-result = re.search('\W', b)
-print(result)
-
-c = 'My number is 778-123-456'
-result = re.search('[0-9]+', c)
-print(result)
-
-d = 'Am funny comedy haha man'
-
-e = 'If sam goes to teh store and buys 50 melons and then travels 30 meters to his house why are there 4 moons around jupiters'
-
-f = 'Where y@ boi111! Im boutta &*$^ u so hard r%now'
+main("")
 </pre>
                 </div>
                 <div class="col-md-6">
@@ -79,24 +79,11 @@ f = 'Where y@ boi111! Im boutta &*$^ u so hard r%now'
                         |
                     </h3>
                     <h4>
-                        Use regex to find the required text in the string d, e and f
+                        Try to get the image src for the book covers on the other site.
                     </h4>
-                    <h2>
-                        Requirements:
-                    </h2>
                     <p>
-                        - For string d, find all the occurrences of the letter 'a'
+                        - Site: https://thegreatestbooks.org/
                     </p>
-                    <p>
-                        - For string e, find all the occurrences of numbers, (50, 30 and 4)
-                    </p>
-                    <p>
-                        - For string f, find all the occurrences of special characters.
-                    </p>
-                    <p>
-                        - Note: you can use multiple queries for string e.
-                    </p>
-                    <img src="resources/MetaCharacterChart.png">
                 </div>
             </div>
             <div class="row">
