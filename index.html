@@ -32,23 +32,26 @@
                     </h3>
 <pre>
 import requests
-import re
+from bs4 import BeautifulSoup
 
 def parse_result(html):
-    pattern = re.compile('&lt;li>.*?list_num.*?(\d+).&lt;/div>.*?'
-                            '&lt;img src="(.*?)".*?class="name".*?'
-                            'title="(.*?)">.*?class="star">.*?'
-                            'class="tuijian">(.*?)&lt;/span>.*?'
-                            'class="publish_info">.*?'
-                            'target="_blank">(.*?)&lt;/a>.*?'
-                            'class="biaosheng">.*?&lt;span>(.*?)&lt;/span>'
-                            '&lt;/div>.*?&lt;p>'
-                            '&lt;span\sclass="price_n">&yen;(.*?)'
-                            '&lt;span>.*?&lt;/li>', re.S)
-    # item = re.findall('&lt;img src="(.*?)" class="(.*?)".', html)
-    item = re.findall(pattern, html)
-    print(item)
-    # print(html)
+    soup = BeautifulSoup(html, 'html.parser')
+    images = soup.find_all('img')
+    titles = soup.find_all('a', href=True)
+
+    all_titles = []
+    for title in titles:
+        if ('items' in title['href']) and (title.string != None):
+            all_titles.append(title.string)
+    print(all_titles)
+
+    # print(images)
+    sources = []
+    for src in images:
+        buf = src['src']
+        if ('amazon' not in buf) and ('login' not in buf):
+            sources.append(buf)
+    print(sources)
 
 def request_site(url):
     try:
@@ -61,7 +64,7 @@ def request_site(url):
         return None
 
 def main(page):
-    url = 'http://bang.dangdang.com/books/fivestars/01.00.00.00.00.00-recent30-0-0-1-1' + str(page)
+    url = 'https://thegreatestbooks.org/' + str(page)
     html = request_site(url)
     items = parse_result(html)
 
@@ -79,10 +82,13 @@ main("")
                         |
                     </h3>
                     <h4>
-                        Try to get the image src for the book covers on the other site.
+                        Get more information from the site.
                     </h4>
                     <p>
-                        - Site: https://thegreatestbooks.org/
+                        - Get the author's name and store it into a list
+                    </p>
+                    <p>
+                        - Bonus: Get the description
                     </p>
                 </div>
             </div>
