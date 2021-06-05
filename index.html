@@ -40,18 +40,25 @@ def parse_result(html):
     titles = soup.find_all('a', href=True)
 
     all_titles = []
+    all_authors = []
     for title in titles:
         if ('items' in title['href']) and (title.string != None):
             all_titles.append(title.string)
-    print(all_titles)
+        
+        if ('authors' in title['href']) and ('written' not in title['href']):
+            all_authors.append(title.string)
 
-    # print(images)
     sources = []
     for src in images:
         buf = src['src']
         if ('amazon' not in buf) and ('login' not in buf):
             sources.append(buf)
-    print(sources)
+
+    out = []
+    for x in range(0, len(all_titles)):
+        buf = all_titles[x] + ", " + all_authors[x] + ", " + sources[x] + "\n"
+        out.append(buf)
+    return out
 
 def request_site(url):
     try:
@@ -63,13 +70,18 @@ def request_site(url):
     except requests.RequestException:
         return None
 
+def write_items_to_file(items):
+    f = open("top-books.txt", "w")
+    f.writelines(items)
+    f.close()
+
+
 def main(page):
     url = 'https://thegreatestbooks.org/' + str(page)
     html = request_site(url)
     items = parse_result(html)
 
-    # for item in items:
-    #     write_item_to_file(item)
+    write_items_to_file(items)
 
 main("")
 </pre>
@@ -82,10 +94,10 @@ main("")
                         |
                     </h3>
                     <h4>
-                        Get more information from the site.
+                        Text file formatting
                     </h4>
                     <p>
-                        - Get the author's name and store it into a list
+                        - Put the ranking of the book in the file before the title.
                     </p>
                     <p>
                         - Bonus: Get the description
