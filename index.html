@@ -123,80 +123,80 @@ main("")
                             textGame.py
                         </h3>
                         <pre>
-    import random
+import random
 
-    name = input("Please enter the name of your character:")
-    gender = input("Please enter the gender of your character(m/f):")
+name = input("Please enter the name of your character:")
+gender = input("Please enter the gender of your character(m/f):")
 
-    if gender == "m":
-        pronoun = "he"
-        char_title = "Mr."
-    elif gender == "f":
-        pronoun = "she"
-        char_title = "Ms."
+if gender == "m":
+    pronoun = "he"
+    char_title = "Mr."
+elif gender == "f":
+    pronoun = "she"
+    char_title = "Ms."
+else:
+    pronoun = "It"
+    char_title = "Ind."
+
+print("Welcome, " + char_title + " " + name + " to the magical world of Bababooey")
+done = False
+
+while not done:
+    p_input = input("Where would you like to start? [Forest]")
+    if p_input.lower() == "forest":
+        done = True
     else:
-        pronoun = "It"
-        char_title = "Ind."
+        print("Invalid Option")
 
-    print("Welcome, " + char_title + " " + name + " to the magical world of Bababooey")
-    done = False
+monsters = ["Goblin", "Ogre", "Dragon"]
+monster_1 = random.choice(monsters)
 
-    while not done:
-        p_input = input("Where would you like to start? [Forest]")
-        if p_input.lower() == "forest":
-            done = True
+print("You were walking in the forest of Sus, you walk for around for 10 minutes" \
++ " before feeling sussy and being stopped by a " + monster_1)
+
+#Combat
+defeated = False
+if monster_1 == "Goblin":
+    monster_health = 20
+elif monster_1 == "Ogre":
+    monster_health = 50
+else:
+    monster_health = 100
+player_health = 20
+
+while not defeated:
+    print(monster_1 + "'s current health: " + str(monster_health))
+    print("Your current health: " + str(player_health))
+    print("What will you do?")
+    p_action = input("(Attack) (Defend) (Bag) (Run)")
+    monster_action = random.choice(["attack", "defend"])
+    
+    if p_action.lower() == "attack":
+        if monster_action == "defend":
+            monster_health -= 5
         else:
-            print("Invalid Option")
-
-    monsters = ["Goblin", "Ogre", "Dragon"]
-    monster_1 = random.choice(monsters)
-
-    print("You were walking in the forest of Sus, you walk for around for 10 minutes" \
-    + " before feeling sussy and being stopped by a " + monster_1)
-
-    #Combat
-    defeated = False
-    if monster_1 == "Goblin":
-        monster_health = 20
-    elif monster_1 == "Ogre":
-        monster_health = 50
-    else:
-        monster_health = 100
-    player_health = 20
-
-    while not defeated:
-        print(monster_1 + "'s current health: " + str(monster_health))
-        print("Your current health: " + str(player_health))
-        print("What will you do?")
-        p_action = input("(Attack) (Defend) (Bag) (Run)")
-        monster_action = random.choice(["attack", "defend"])
-        
-        if p_action.lower() == "attack":
-            if monster_action == "defend":
-                monster_health -= 5
-            else:
-                player_health -= 5
-                monster_health -= 10
-        if p_action.lower() == "defend":
-            if monster_action == "attack":
-                player_health -= 2
-        if p_action.lower() == "run":
-            chance = random.randint(0, 5)
-            if chance == 0:
-                defeated = True
-                print("You've escaped!")
-                break
-            else:
-                print("You failed to escape!")
-                if monster_action == "attack":
-                    player_health -= 10
-        
-        if monster_health <= 0:
+            player_health -= 5
+            monster_health -= 10
+    if p_action.lower() == "defend":
+        if monster_action == "attack":
+            player_health -= 2
+    if p_action.lower() == "run":
+        chance = random.randint(0, 5)
+        if chance == 0:
             defeated = True
-            print("You have defeated the " + monster_1 + "!")
-        if player_health <= 0 :
-            print("You ded")
+            print("You've escaped!")
             break
+        else:
+            print("You failed to escape!")
+            if monster_action == "attack":
+                player_health -= 10
+    
+    if monster_health <= 0:
+        defeated = True
+        print("You have defeated the " + monster_1 + "!")
+    if player_health <= 0 :
+        print("You ded")
+        break
                         </pre>
                     </div>
                     <div class="col-md-6">
