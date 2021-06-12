@@ -42,62 +42,35 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            bookScraper.py
+                            htmlWriter.py
                         </h3>
     <pre>
-import requests
-from bs4 import BeautifulSoup
-
-def parse_result(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    images = soup.find_all('img')
-    titles = soup.find_all('a', href=True)
-
-    all_titles = []
-    all_authors = []
-    for title in titles:
-        if ('items' in title['href']) and (title.string != None):
-            all_titles.append(title.string)
-        
-        if ('authors' in title['href']) and ('written' not in title['href']):
-            all_authors.append(title.string)
-
-    sources = []
-    for src in images:
-        buf = src['src']
-        if ('amazon' not in buf) and ('login' not in buf):
-            sources.append(buf)
-
-    out = []
-    for x in range(0, len(all_titles)):
-        buf = all_titles[x] + ", " + all_authors[x] + ", " + sources[x] + "\n"
-        out.append(buf)
+def template():
+    out = ""
+    out += "&lt;!DOCTYPE html>\n"
     return out
 
-def request_site(url):
-    try:
-        response = requests.get(url)
-        # Checking if our request has been accepted
-        if response.status_code == 200:
-            return response.text
-    # If not then return None (null)
-    except requests.RequestException:
-        return None
+def generate_head():
+    out = ""
+    out += "&lt;head>\n"
+    out += "&lt;title>Great Books&lt;/title>\n"
+    out += "&lt;/head>\n"
+    return out
 
-def write_items_to_file(items):
-    f = open("top-books.txt", "w")
-    f.writelines(items)
+def write_to_file(string):
+    f = open("books2.html", "w")
+    f.write(string)
     f.close()
 
+def main():
+    final = ""
+    final += template()
+    final += generate_head()
+    # generate_body()
+    final += "\n&lt;/html>"
+    write_to_file(final)
 
-def main(page):
-    url = 'https://thegreatestbooks.org/' + str(page)
-    html = request_site(url)
-    items = parse_result(html)
-
-    write_items_to_file(items)
-
-main("")
+main()
     </pre>
                     </div>
                     <div class="col-md-6">
@@ -105,13 +78,13 @@ main("")
                             &nbsp;
                         </h3>
                         <h4>
-                            Text file formatting
+                            Html Generation
                         </h4>
                         <p>
-                            - Put the ranking of the book in the file before the title.
+                            - Generate the body to match ur book.html
                         </p>
                         <p>
-                            - Bonus: Get the description
+                            - Bonus: Get data from top-books.txt and print it out
                         </p>
                     </div>
                 </div>
