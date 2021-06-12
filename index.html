@@ -120,83 +120,61 @@ main("")
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            textGame.py
+                            snowFlake.py
                         </h3>
                         <pre>
-import random
+import turtle
 
-name = input("Please enter the name of your character:")
-gender = input("Please enter the gender of your character(m/f):")
+snow = turtle.Turtle()
+turtle.Screen().bgcolor("gray")
+snow.color("cyan")
 
-if gender == "m":
-    pronoun = "he"
-    char_title = "Mr."
-elif gender == "f":
-    pronoun = "she"
-    char_title = "Ms."
-else:
-    pronoun = "It"
-    char_title = "Ind."
+# Set speed to max
+snow.speed(0)
+# Hide turtle
+snow.ht()
 
-print("Welcome, " + char_title + " " + name + " to the magical world of Bababooey")
-done = False
+twigLength = 30
+numSegments = 4
+numBranches = 8
 
-while not done:
-    p_input = input("Where would you like to start? [Forest]")
-    if p_input.lower() == "forest":
-        done = True
-    else:
-        print("Invalid Option")
+def twig():
+    snow.left(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.right(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.right(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.left(45)
 
-monsters = ["Goblin", "Ogre", "Dragon"]
-monster_1 = random.choice(monsters)
-
-print("You were walking in the forest of Sus, you walk for around for 10 minutes" \
-+ " before feeling sussy and being stopped by a " + monster_1)
-
-#Combat
-defeated = False
-if monster_1 == "Goblin":
-    monster_health = 20
-elif monster_1 == "Ogre":
-    monster_health = 50
-else:
-    monster_health = 100
-player_health = 20
-
-while not defeated:
-    print(monster_1 + "'s current health: " + str(monster_health))
-    print("Your current health: " + str(player_health))
-    print("What will you do?")
-    p_action = input("(Attack) (Defend) (Bag) (Run)")
-    monster_action = random.choice(["attack", "defend"])
+def branch():
+    for i in range(numSegments):
+    twig()
+        snow.forward(twigLength)
     
-    if p_action.lower() == "attack":
-        if monster_action == "defend":
-            monster_health -= 5
-        else:
-            player_health -= 5
-            monster_health -= 10
-    if p_action.lower() == "defend":
-        if monster_action == "attack":
-            player_health -= 2
-    if p_action.lower() == "run":
-        chance = random.randint(0, 5)
-        if chance == 0:
-            defeated = True
-            print("You've escaped!")
-            break
-        else:
-            print("You failed to escape!")
-            if monster_action == "attack":
-                player_health -= 10
-    
-    if monster_health <= 0:
-        defeated = True
-        print("You have defeated the " + monster_1 + "!")
-    if player_health <= 0 :
-        print("You ded")
-        break
+        snow.backward(twigLength * numSegments)
+
+def flake():
+    # Snowflake Generation
+    for i in range(numBranches):
+        branch()
+        snow.right(360 / numBranches)
+
+snow.pu()
+snow.goto(100, -100)
+snow.pd()
+flake()
+snow.pu()
+snow.goto(-100, 100)
+snow.pd()
+flake()
+
+# Passing in values to a function
+def greetings(name):
+    print("Hello Mr." + name)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -204,25 +182,23 @@ while not defeated:
                             &nbsp;
                         </h3>
                         <h4>
-                            Text Adventure
+                            Snowflake
                         </h4>
                         <p>
-                            - Add the bag command
+                            - Make the snowflakes random colours
                         </p>
                         <p>
-                            - Make 5 unique items that do different things
+                            - Draw a pine tree
                         </p>
                         <p>
-                            - They can be unlimited.
+                            - Minimum: 4 triangles
                         </p>
                         <h4>
                             BEEG Challenge:
                         </h4>
                         <p>
-                            - Make the items limited.
+                            - have the snowflakes be resizble using only the snowflake() function
                         </p>
-                        <!-- <iframe src="./resources/Python_2_Homework_11.pdf#toolbar=0" width="100%" height="600px">
-                        </iframe> -->
                     </div>
                 </div>
             </div>
