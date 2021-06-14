@@ -179,70 +179,73 @@ def greetings(name):
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            intro.py
+                            racing.py
                         </h3>
                         <pre>
-# print("Hello")
-
-# print('''
-# Here's a picture of a dog:
-# o______
-# || ||
-# ''')
-
-# print(200-46)
-
-# year = input("What year were you born?")
-# year = int(year)
-# age = 2021 - year
-# print('You are ' + str(age) + ' years old')
-
-# print('Here is a scarf:')
-# print('~#' * 10)
-# print('#~' * 10)
-
-choice = input('''
-1. for sword
-2. for shield
-''')
-
-choice = int(choice)
-
-# Important to remember
-# Make sure your code is tabbed correctly
-# Make sure there is a ":" at the end
-
-if choice == 1:
-    reply = "nice sword"
-elif choice == 2:
-    reply = "nice shield"
-else:
-    reply = "not an available option"
-
-print(reply)
-
+#!/bin/python
 import random
+from turtle import *
 
-player = input('''
-Rock, Paper, Scissors
-1 - Rock
-2 - Paper
-3 - Scissors
-''')
+# "Lifts" the pen up so you don't leave a mark
+penup()
+# Change the speed of the pen
+speed(0)
+# Go to top left
+goto(-180, 190)
 
-player = int(player)
-cpu = random.randint(1, 3)
+# For loop in python
+for step in range(11):
+    # Code here will run up to the number in the range function times
+    # Step starts at 0
+    write(step * 10, align='center')
+    right(90)
+    forward(10)
+    pd()
+    forward(30)
+    pu()
+    forward(30)
+    pd()
+    forward(30)
+    pu()
+    forward(30)
+    pd()
+    forward(30)
+    pu()
+    forward(30)
+    pd()
+    forward(30)
+    pu()
+    backward(220)
+    left(90)
+    forward(30)
 
-if player == cpu:
-    print("tie")
-elif player == 1 and cpu == 2:
-    print("cpu wins (Paper beats rock)")
-elif player == 1 and cpu == 3:
-    print("player wins (Rock beats scissors)")
-elif player == 2 and cpu == 1:
-    print("blah")
-else:
-    print("Nice try")
+# Make the racers
+terence = Turtle()
+leo = Turtle()
+# To-do add 3 more contestants
+# Set colour
+terence.color('#00FFBA')
+leo.color('blue')
+# Set shape
+terence.shape('turtle')
+leo.shape('turtle')
+terence.pu()
+leo.pu()
+terence.goto(-180, 150)
+leo.goto(-180, 120)
+
+for step in range(100):
+    terence.forward(random.randint(1,5))
+    leo.forward(random.randint(1,5))
+    # Displays the current x-position
+    print(terence.xcor())
+    # Exits out of the loop at this location
+    break
+
+# while loop in Python
+while True:
+    # Use break to exit
+    break
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -250,30 +253,25 @@ else:
                             &nbsp;
                         </h3>
                         <h4>
-                            Rock, Paper, Scissors
+                            Turtle Racing
                         </h4>
                         <p>
-                            - Implement at least 5 different options
+                            - Make use of variable.xcor() to determine who wins, and stop all other contestants when they win.
                         </p>
                         <p>
-                            - Try to make the game as balanced as possible.
+                            - Print out the name of the winner, (i.e) "Jonny Wins!"
+                        </p>
+                        <p>
+                            - Hint: Make sure to take into account the cases of people crossing the finish line by a few units.
                         </p>
                         <h4>
                             Challenge:
                         </h4>
                         <p>
-                            - Add ASCII art for the selected options for both the CPU and the Player.
+                            - Use the while loop in Python to give the user a choice of whether or not they want to play again.
                         </p>
                         <p>
-                            - Ex: Gun
-                            <pre>
-    ___________________
-   |===================|[]
-   |_       ___________|
-     |    /_L_/
-    /    /
-   |____/
-                            </pre>
+                            - Hint: Make sure the lines are indented correctly.
                         </p>
                     </div>
                 </div>
