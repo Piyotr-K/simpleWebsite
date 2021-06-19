@@ -57,16 +57,50 @@ def generate_head():
     out += "&lt;/head>\n"
     return out
 
+def generate_body(data):
+    out = ""
+    out += "&lt;body>\n"
+    out += "&lt;ol>\n"
+    out += generate_list(data)
+    out += "&lt;/ol>\n"
+    out += "&lt;/body>\n"
+    return out
+
+def generate_list(data):
+    out = ""
+    for line in data:
+        out += "&lt;li>"
+        try:
+            rank, title, author, image = line.split(",")
+            out += title.strip() + ", "
+            out += author.strip() + ", "
+            out += image.strip()
+        except ValueError:
+            for item in line.split(",")[1:]:
+                out += item.strip() + ", "
+        except TypeError:
+            continue
+        out += "&lt;/li>\n"
+    return out
+
+def read_from_file(filename):
+    f = open(filename, "r")
+    out = f.readlines()
+    f.close()
+    return out
+
 def write_to_file(string):
     f = open("books2.html", "w")
     f.write(string)
     f.close()
 
 def main():
+    text = read_from_file("top-books.txt")
+
     final = ""
     final += template()
     final += generate_head()
-    # generate_body()
+    final += generate_body(text)
     final += "\n&lt;/html>"
     write_to_file(final)
 
@@ -81,10 +115,18 @@ main()
                             Html Generation
                         </h4>
                         <p>
-                            - Generate the body to match ur book.html
+                            - Display the image inline with the title and authors using &lt;img> tag
                         </p>
                         <p>
-                            - Bonus: Get data from top-books.txt and print it out
+                            - Display 3 images, (only 2 shown in example)
+                        </p>
+                        <p>
+                            <img src="resources/final.png">
+                        </p>
+                        <p>
+                            - Hint:
+                            <br/>
+                            <img src="resources/img.png">
                         </p>
                     </div>
                 </div>
