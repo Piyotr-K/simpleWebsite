@@ -165,73 +165,62 @@ time.sleep(8000)
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            racing.py
+                            fileio.py
                         </h3>
                         <pre>
 #!/bin/python
-import random
-from turtle import *
+from random import choice
 
-# "Lifts" the pen up so you don't leave a mark
-penup()
-# Change the speed of the pen
-speed(0)
-# Go to top left
-goto(-180, 190)
+# Homework:
+# Make a team C, split the players accordingly write to final team
+# Make 11 players in total
+# Challenge:
+# Allow the user at the beginning to enter more names
+# Also allow user to enter file names (ex. names.txt, finalTeams.txt)
 
-# For loop in python
-for step in range(11):
-    # Code here will run up to the number in the range function times
-    # Step starts at 0
-    write(step * 10, align='center')
-    right(90)
-    forward(10)
-    pd()
-    forward(30)
-    pu()
-    forward(30)
-    pd()
-    forward(30)
-    pu()
-    forward(30)
-    pd()
-    forward(30)
-    pu()
-    forward(30)
-    pd()
-    forward(30)
-    pu()
-    backward(220)
-    left(90)
-    forward(30)
+players = []
+teamA = []
+teamB = []
 
-# Make the racers
-terence = Turtle()
-leo = Turtle()
-# To-do add 3 more contestants
-# Set colour
-terence.color('#00FFBA')
-leo.color('blue')
-# Set shape
-terence.shape('turtle')
-leo.shape('turtle')
-terence.pu()
-leo.pu()
-terence.goto(-180, 150)
-leo.goto(-180, 120)
+# open file and read from it
+file = open('names.txt', 'r')
+players = file.read().splitlines()
+print(players)
 
-for step in range(100):
-    terence.forward(random.randint(1,5))
-    leo.forward(random.randint(1,5))
-    # Displays the current x-position
-    print(terence.xcor())
-    # Exits out of the loop at this location
-    break
+# While there are still available players, split them into two teams
+while len(players) > 0:
+    # Pick the first player
+    firstchoice = choice(players)
+    # Add to first team
+    teamA.append(firstchoice)
+    # Remove player from available players
+    players.remove(firstchoice)
+    
+    # Odd number of players
+    # if all the players are chosen
+    # exit the loop
+    if players == []:
+        break
 
-# while loop in Python
-while True:
-    # Use break to exit
-    break
+    # Pick second player
+    secondchoice = choice(players)
+    # Add to second team
+    teamB.append(secondchoice)
+    # Remove player from available players
+    players.remove(secondchoice)
+print("Team A: " + str(teamA))
+print("Team B: " + str(teamB))
+print("Available Players: " + str(players))
+
+# write to file
+file2 = open("finalTeams.txt", "w")
+file2.write("TeamA:" + "\n")
+for member in teamA:
+    file2.write(member + "\n")
+file2.write("\nTeamB:" + "\n")
+for member in teamB:
+    file2.write(member + "\n")
+file2.close()
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -239,25 +228,28 @@ while True:
                             &nbsp;
                         </h3>
                         <h4>
-                            Turtle Racing
+                            Team splitting
                         </h4>
                         <p>
-                            - Make use of variable.xcor() to determine who wins, and stop all other contestants when they win.
+                            - Make a third team, team C
                         </p>
                         <p>
-                            - Print out the name of the winner, (i.e) "Jonny Wins!"
+                            - Have 11 players
                         </p>
                         <p>
-                            - Hint: Make sure to take into account the cases of people crossing the finish line by a few units.
+                            - Make sure to write out to the finals teams
                         </p>
                         <h4>
                             Challenge:
                         </h4>
                         <p>
-                            - Use the while loop in Python to give the user a choice of whether or not they want to play again.
+                            - Allow the user to enter more players' names into the players list
                         </p>
                         <p>
-                            - Hint: Make sure the lines are indented correctly.
+                            - Allow the user to specify which file to read from and write to
+                        </p>
+                        <p>
+                            <img src="resources/2021_06_20_hw.png">
                         </p>
                     </div>
                 </div>
