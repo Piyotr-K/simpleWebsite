@@ -135,11 +135,44 @@ main()
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            chillin.py
+                            piechart.py
                         </h3>
                         <pre>
-import time
-time.sleep(8000)
+import pygal
+
+piechart = pygal.Pie(inner_radius = 0.6)
+piechart.title = 'Favourite Pets'
+piechart.add('Dog', 60)
+piechart.add('Cat', 20)
+piechart.add('Fish', 10)
+piechart.add('Frog', 3)
+piechart.add('Chicken', 2)
+piechart.render_to_file('piechart.svg')
+
+bargraph = pygal.Bar()
+bargraph._title = 'Pets part 2'
+
+file = open('pets.txt', 'r')
+
+for line in file.read().splitlines():
+    if line:
+        label, value = line.split(' ')
+        bargraph.add(label, int(value))
+
+file.close()
+
+bargraph.render_to_file('bargraph.svg')
+                        </pre>
+                        <h3>
+                            pets.txt
+                        </h3>
+                        <pre>
+Dog 3
+Cat 4
+Hamster 3
+Fish 7
+Snake 1
+Frog 2
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -147,16 +180,34 @@ time.sleep(8000)
                             &nbsp;
                         </h3>
                         <h4>
-                            Nice
+                            Graph and Chart Generation
                         </h4>
                         <p>
-                            - Chillin'
+                            - Make a new textfile for favourite music genres, at least 10
+                        </p>
+                        <p>
+                            - Rate each out of 10 for how much you like them
+                        </p>
+                        <p>
+                            - No 0 values
+                        </p>
+                        <p>
+                            - Use : for separation between label and value
+                        </p>
+                        <p>
+                            - Generate 2 graphs, 1 bar and 1 pie
                         </p>
                         <h4>
                             BEEG Challenge:
                         </h4>
                         <p>
-                            - Chillin'
+                            - Ask the user for input
+                        </p>
+                        <p>
+                            - Ask the user for graph type, title and data
+                        </p>
+                        <p>
+                            - Generate the graph the user asks for
                         </p>
                     </div>
                 </div>
