@@ -42,91 +42,26 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            htmlWriter.py
+                            <a href="resources/htmlWriter.py">
+                                htmlWriter.py
+                            </a>
                         </h3>
-    <pre>
-def template():
-    out = ""
-    out += "&lt;!DOCTYPE html>\n"
-    return out
-
-def generate_head():
-    out = ""
-    out += "&lt;head>\n"
-    out += "&lt;title>Great Books&lt;/title>\n"
-    out += "&lt;/head>\n"
-    return out
-
-def generate_body(data):
-    out = ""
-    out += "&lt;body>\n"
-    out += "&lt;ol>\n"
-    out += generate_list(data)
-    out += "&lt;/ol>\n"
-    out += "&lt;/body>\n"
-    return out
-
-def generate_list(data):
-    out = ""
-    for line in data:
-        out += "&lt;li>"
-        try:
-            rank, title, author, image = line.split(",")
-            out += title.strip() + ", "
-            out += author.strip() + ", "
-            out += image.strip()
-        except ValueError:
-            for item in line.split(",")[1:]:
-                out += item.strip() + ", "
-        except TypeError:
-            continue
-        out += "&lt;/li>\n"
-    return out
-
-def read_from_file(filename):
-    f = open(filename, "r")
-    out = f.readlines()
-    f.close()
-    return out
-
-def write_to_file(string):
-    f = open("books2.html", "w")
-    f.write(string)
-    f.close()
-
-def main():
-    text = read_from_file("top-books.txt")
-
-    final = ""
-    final += template()
-    final += generate_head()
-    final += generate_body(text)
-    final += "\n&lt;/html>"
-    write_to_file(final)
-
-main()
-    </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             &nbsp;
                         </h3>
                         <h4>
-                            Html Generation
+                            Site styling
                         </h4>
                         <p>
-                            - Display the image inline with the title and authors using &lt;img> tag
+                            - Figure out what code to change for the titles and authors to be linked with the word "by"
                         </p>
                         <p>
-                            - Display 3 images, (only 2 shown in example)
+                            - So the title for the first entry would be "In seach of Lost Time [by] Marcel Proust"
                         </p>
                         <p>
-                            <img src="resources/final.png">
-                        </p>
-                        <p>
-                            - Hint:
-                            <br/>
-                            <img src="resources/img.png">
+                            - Hint: for entry 30 it's going to be kinda tricky
                         </p>
                     </div>
                 </div>
@@ -216,62 +151,50 @@ Frog 2
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            fileio.py
+                            caesar.py
                         </h3>
                         <pre>
 #!/bin/python
-from random import choice
 
-# Homework:
-# Make a team C, split the players accordingly write to final team
-# Make 11 players in total
-# Challenge:
-# Allow the user at the beginning to enter more names
-# Also allow user to enter file names (ex. names.txt, finalTeams.txt)
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+# message = input("Enter a message:")
+f = open("sample.txt", "r")
+message = f.read()
 
-players = []
-teamA = []
-teamB = []
+key = input("Enter a key:")
+enc_msg = ""
 
-# open file and read from it
-file = open('names.txt', 'r')
-players = file.read().splitlines()
-print(players)
+# If the user didn't enter anything, set key to 3 by default
+if not key:
+    key = 3
 
-# While there are still available players, split them into two teams
-while len(players) > 0:
-    # Pick the first player
-    firstchoice = choice(players)
-    # Add to first team
-    teamA.append(firstchoice)
-    # Remove player from available players
-    players.remove(firstchoice)
-    
-    # Odd number of players
-    # if all the players are chosen
-    # exit the loop
-    if players == []:
-        break
+for char in message:
+    if char == " ":
+        enc_msg += " "
+    elif char == "\n":
+        enc_msg += "\n"
+    else:
+        pos = alphabet.find(char)
+        # Encoded char
+        encoded = (pos + key) % 26
+        # Encrypted message
+        enc_msg += alphabet[encoded]
 
-    # Pick second player
-    secondchoice = choice(players)
-    # Add to second team
-    teamB.append(secondchoice)
-    # Remove player from available players
-    players.remove(secondchoice)
-print("Team A: " + str(teamA))
-print("Team B: " + str(teamB))
-print("Available Players: " + str(players))
+print("Encrypted message: " + enc_msg)
+# Make another for loop and decrypt the message and print to console
+dec_msg = ""
 
-# write to file
-file2 = open("finalTeams.txt", "w")
-file2.write("TeamA:" + "\n")
-for member in teamA:
-    file2.write(member + "\n")
-file2.write("\nTeamB:" + "\n")
-for member in teamB:
-    file2.write(member + "\n")
-file2.close()
+for char in enc_msg:
+    if char == " ":
+        dec_msg += " "
+    elif char == "\n":
+        dec_msg += "\n"
+    else:
+        pos = alphabet.find(char)
+        decoded = (pos - key) % 26
+        dec_msg += alphabet[decoded]
+
+print("Decrypted message: " + dec_msg)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -279,28 +202,31 @@ file2.close()
                             &nbsp;
                         </h3>
                         <h4>
-                            Team splitting
+                            Ciphers and File Writing
                         </h4>
                         <p>
-                            - Make a third team, team C
+                            - Output the encryption and decryption to a file
                         </p>
                         <p>
-                            - Have 11 players
-                        </p>
-                        <p>
-                            - Make sure to write out to the finals teams
+                            - File should say something along the lines of </br>"Encrypted: blah blah blah" and "Decrypted: blah blah blah"
                         </p>
                         <h4>
                             Challenge:
                         </h4>
                         <p>
-                            - Allow the user to enter more players' names into the players list
+                            - Ask the user if they want to encrypt or decrypt
                         </p>
                         <p>
-                            - Allow the user to specify which file to read from and write to
+                            - Ask the user which file to encrypt or decrypt
                         </p>
                         <p>
-                            <img src="resources/2021_06_20_hw.png">
+                            - For encryption, the program should make a new file called "encrypted.txt"
+                        </p>
+                        <p>
+                            - For decryption, just print the output to the console
+                        </p>
+                        <p>
+                            - Extra sauce: Change up the encryption algorithm
                         </p>
                     </div>
                 </div>
