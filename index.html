@@ -37,13 +37,17 @@
                     <span class="glyphicon glyphicon-collapse-down"></span>
                     Python 1 Sunday Class
                 </button>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class4">
+                    <span class="glyphicon glyphicon-collapse-down"></span>
+                    Unity Level 4 Saturday Class
+                </button>
             </div>
             <div id="class1" class="collapse">
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            <a href="resources/htmlWriter.py">
-                                htmlWriter.py
+                            <a href="resources/bookScraper.py">
+                                bookScraper.py
                             </a>
                         </h3>
                     </div>
@@ -55,13 +59,10 @@
                             Site styling
                         </h4>
                         <p>
-                            - Figure out what code to change for the titles and authors to be linked with the word "by"
+                            - Make the title and author font bigger using CSS (Google)
                         </p>
                         <p>
-                            - So the title for the first entry would be "In seach of Lost Time [by] Marcel Proust"
-                        </p>
-                        <p>
-                            - Hint: for entry 30 it's going to be kinda tricky
+                            - Challenge: Get the ranking numbers from the for loop
                         </p>
                     </div>
                 </div>
@@ -186,6 +187,83 @@ print("Decrypted message: " + dec_msg)
                         </p>
                         <p>
                             - Extra sauce: Change up the encryption algorithm
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="class4" class="collapse">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>
+                            PlayerMovement.cs
+                        </h3>
+                        <pre>
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour
+{
+
+    private Rigidbody rb;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent&lt;Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        horizontal *= 2;
+        vertical *= 2;
+
+        Vector3 move = new Vector3(horizontal, 0, vertical);
+
+        move.y = rb.velocity.y;
+        rb.velocity = move;
+    }
+}
+                        </pre>
+                        <h3>
+                            Jump.cs
+                        </h3>
+                        <pre>
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Jump : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GetComponent&lt;Rigidbody>().AddForce(0, 300, 0);
+        }
+    }
+}
+                        </pre>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>
+                            &nbsp;
+                        </h3>
+                        <h4>
+                            Speed Modification
+                        </h4>
+                        <p>
+                            - Find a way to get the player to sprint if they hold the shift key
                         </p>
                     </div>
                 </div>
