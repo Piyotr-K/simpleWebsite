@@ -115,46 +115,87 @@
                         </h3>
                         <pre>
 #!/bin/python
+import random
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-# message = input("Enter a message:")
-f = open("sample.txt", "r")
-message = f.read()
+name = input("What is your name?")
+gender = input("What is your gender?")
 
-key = input("Enter a key:")
-enc_msg = ""
+print("Hello " + name)
 
-# If the user didn't enter anything, set key to 3 by default
-if not key:
-    key = 3
+pronoun = ""
 
-for char in message:
-    if char == " ":
-        enc_msg += " "
-    elif char == "\n":
-        enc_msg += "\n"
-    else:
-        pos = alphabet.find(char)
-        # Encoded char
-        encoded = (pos + key) % 26
-        # Encrypted message
-        enc_msg += alphabet[encoded]
+if gender == "girl":
+    pronoun = "she"
+elif gender == "boy":
+    pronoun = "he"
+else:
+    pronoun = "it"
 
-print("Encrypted message: " + enc_msg)
-# Make another for loop and decrypt the message and print to console
-dec_msg = ""
+names = ["Leo", "Daisy", "Jonny", "Terence(MIA)"]
+roles = ["Knight", "Princess", "Prince", "Wizard"]
+places = ["Forest", "Castle", "Space Station"]
+actions = ["Fight", "Kill", "Rescue"]
 
-for char in enc_msg:
-    if char == " ":
-        dec_msg += " "
-    elif char == "\n":
-        dec_msg += "\n"
-    else:
-        pos = alphabet.find(char)
-        decoded = (pos - key) % 26
-        dec_msg += alphabet[decoded]
+actor_name = random.choice(names)
+actor_role = random.choice(roles)
+setting = random.choice(places)
+action = random.choice(actions)
 
-print("Decrypted message: " + dec_msg)
+story = "Once upon a time, there was a " + actor_role + " called " + name \
++ ". " + pronoun + " and some friends found themselves in the magic land of " \
++ setting + ". This land was ruled by " + actor_name + " the " + actor_role \
++ ". All of a sudden a mysterious voice spoke to them from high in the " \
++ "sky and said you must " + action + " " + actor_name + " the " + actor_role \
++ " to lift the curse of not being able to use technology..."
+
+print(story)
+
+enemy = "Goblin"
+
+if setting == "Forest":
+    print("You have entered the cursed forest of constipation")
+elif setting == "Castle":
+    print("You have entered the Castle of Hamsters")
+elif setting == "Space Station":
+    print("You have boarded the Alien :) Space Station")
+
+print("You walked for 5 seconds and a " + enemy + " attacked you!")
+
+defeated = False
+
+player_hp = 100
+monster_hp = 50
+
+# Combat loop
+while not defeated:
+    print("Goblin's current hp: " + str(monster_hp))
+    print("Your current hp: " + str(player_hp))
+    print("What action do you take?")
+    
+    # Take Player action
+    player = input("Attack (A) | Defend (D)")
+    
+    # Monster's action
+    monster = random.choice(["a", "d"])
+    
+    # Test for Player's action and monster's actions
+    player = player.lower()
+    if player == "a":
+        if monster == "a":
+            player_hp -= 10
+            monster_hp -= 15
+        elif monster == "d":
+            monster_hp -= 5
+
+    # Check if monster's hp and Players' hps are below 0
+    if monster_hp &lt;= 0:
+        print("You have defeated the " + enemy + "!")
+        # Exit the loop through the variable
+        defeated = True
+    elif player_hp &lt;= 0:
+        print("You have died ;-;")
+        print("Game Over")
+        defeated = True                            
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -162,31 +203,46 @@ print("Decrypted message: " + dec_msg)
                             &nbsp;
                         </h3>
                         <h4>
-                            Ciphers and File Writing
+                            Text-Based Adventure
                         </h4>
                         <p>
-                            - Output the encryption and decryption to a file
+                            - Implement a run action that allows the user to escape the battle
                         </p>
                         <p>
-                            - File should say something along the lines of </br>"Encrypted: blah blah blah" and "Decrypted: blah blah blah"
+                            - It should be a 20% chance of escape
+                        </p>
+                        <p>
+                            - The user should take damage upon failure to escape
+                        </p>
+                        <p>
+                            - Implement a bag function that allows the user to open their bag and choose an item to use
+                        </p>
+                        <p>
+                            - Have at least 5 different items to choose from
+                        </p>
+                        <p>
+                            - They should all do different things
+                        </p>
+                        <p>
+                            - Items are infinite
+                        </p>
+                        <p>
+                            - Hint: Use another loop inside the combat one
                         </p>
                         <h4>
                             Challenge:
                         </h4>
                         <p>
-                            - Ask the user if they want to encrypt or decrypt
+                            - Make the items finite, so that they disappear from the inventory if used up
                         </p>
                         <p>
-                            - Ask the user which file to encrypt or decrypt
+                            - Have different enemies depending on the setting
                         </p>
                         <p>
-                            - For encryption, the program should make a new file called "encrypted.txt"
+                            - Give the enemies different attacks and damage values
                         </p>
                         <p>
-                            - For decryption, just print the output to the console
-                        </p>
-                        <p>
-                            - Extra sauce: Change up the encryption algorithm
+                            - Anything else you can think of!
                         </p>
                     </div>
                 </div>
