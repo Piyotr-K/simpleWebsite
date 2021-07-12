@@ -37,10 +37,6 @@
                     <span class="glyphicon glyphicon-collapse-down"></span>
                     Python 1 Sunday Class
                 </button>
-                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class4">
-                    <span class="glyphicon glyphicon-collapse-down"></span>
-                    Unity Level 4 Saturday Class
-                </button>
             </div>
             <div id="class1" class="collapse">
                 <div class="row">
@@ -56,13 +52,13 @@
                             &nbsp;
                         </h3>
                         <h4>
-                            Site styling
+                            File output
                         </h4>
                         <p>
-                            - Make the title and author font bigger using CSS (Google)
+                            - Give the user the ability to choose which file to output to
                         </p>
                         <p>
-                            - Challenge: Get the ranking numbers from the for loop
+                            ex. Ask the user the filename to output to and the program will output to it
                         </p>
                     </div>
                 </div>
@@ -71,8 +67,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            <a href="resources/insult.py">
-                                insult.py
+                            <a href="resources/PlayerMovement.cs">
+                                playermovement.cs
                             </a>
                         </h3>
                     </div>
@@ -81,28 +77,10 @@
                             &nbsp;
                         </h3>
                         <h4>
-                            Insult Generation and Gui
+                            Unity Intro
                         </h4>
                         <p>
-                            - Change the text size and colour for the insult line
-                        </p>
-                        <p>
-                            - Change the text size and colour for the PushButton
-                        </p>
-                        <h4>
-                            BEEG Challenge:
-                        </h4>
-                        <p>
-                            - Have 3 dropdown lists, 1 dropdown for each insult column
-                        </p>
-                        <p>
-                            - Let the user create their own insults from these 3 dropdown lists
-                        </p>
-                        <p>
-                            - Let the users rate the insults and output them to a separate file
-                        </p>
-                        <p>
-                            - Read the separate file and show the highest rated insults
+                            - Make player vertical movement possible (W, S)
                         </p>
                     </div>
                 </div>
@@ -111,91 +89,65 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            caesar.py
+                            snowflake.py
                         </h3>
                         <pre>
 #!/bin/python
-import random
+import turtle
 
-name = input("What is your name?")
-gender = input("What is your gender?")
+def twig():
+    snow.left(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.right(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.right(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.left(45)
 
-print("Hello " + name)
+def branch():
+    for i in range(numOfSegments):
+        twig()
+        snow.forward(twigLength)
+    snow.backward(twigLength * numOfSegments)
 
-pronoun = ""
+def snowflake(x, y, color):
+    snow.pu()
+    snow.goto(x, y)
+    snow.pd()
+    snow.color(color)
+    for i in range(numBranches):
+        branch()
+        snow.right(360 / numBranches)
 
-if gender == "girl":
-    pronoun = "she"
-elif gender == "boy":
-    pronoun = "he"
-else:
-    pronoun = "it"
+def snowflake2(x, y, color):
+    snow.pu()
+    snow.goto(x, y)
+    snow.pd()
+    snow.color(color)
+    for i in range(10):
+        for i in range(2):
+            snow.forward(100)
+            snow.right(60)
+            snow.forward(100)
+            snow.right(120)
+        snow.right(36)
 
-names = ["Leo", "Daisy", "Jonny", "Terence(MIA)"]
-roles = ["Knight", "Princess", "Prince", "Wizard"]
-places = ["Forest", "Castle", "Space Station"]
-actions = ["Fight", "Kill", "Rescue"]
+turtle.Screen().bgcolor("grey")
 
-actor_name = random.choice(names)
-actor_role = random.choice(roles)
-setting = random.choice(places)
-action = random.choice(actions)
+snow = turtle.Turtle()
+snow.speed(0)
+snow.ht()
 
-story = "Once upon a time, there was a " + actor_role + " called " + name \
-+ ". " + pronoun + " and some friends found themselves in the magic land of " \
-+ setting + ". This land was ruled by " + actor_name + " the " + actor_role \
-+ ". All of a sudden a mysterious voice spoke to them from high in the " \
-+ "sky and said you must " + action + " " + actor_name + " the " + actor_role \
-+ " to lift the curse of not being able to use technology..."
+twigLength = 30
+numOfSegments = 4
+numBranches = 4
 
-print(story)
-
-enemy = "Goblin"
-
-if setting == "Forest":
-    print("You have entered the cursed forest of constipation")
-elif setting == "Castle":
-    print("You have entered the Castle of Hamsters")
-elif setting == "Space Station":
-    print("You have boarded the Alien :) Space Station")
-
-print("You walked for 5 seconds and a " + enemy + " attacked you!")
-
-defeated = False
-
-player_hp = 100
-monster_hp = 50
-
-# Combat loop
-while not defeated:
-    print("Goblin's current hp: " + str(monster_hp))
-    print("Your current hp: " + str(player_hp))
-    print("What action do you take?")
-    
-    # Take Player action
-    player = input("Attack (A) | Defend (D)")
-    
-    # Monster's action
-    monster = random.choice(["a", "d"])
-    
-    # Test for Player's action and monster's actions
-    player = player.lower()
-    if player == "a":
-        if monster == "a":
-            player_hp -= 10
-            monster_hp -= 15
-        elif monster == "d":
-            monster_hp -= 5
-
-    # Check if monster's hp and Players' hps are below 0
-    if monster_hp &lt;= 0:
-        print("You have defeated the " + enemy + "!")
-        # Exit the loop through the variable
-        defeated = True
-    elif player_hp &lt;= 0:
-        print("You have died ;-;")
-        print("Game Over")
-        defeated = True                            
+snowflake(100, -100, "cyan")
+snowflake(-100, 100, "gold")
+snowflake2(100, 100, "purple")
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -203,123 +155,34 @@ while not defeated:
                             &nbsp;
                         </h3>
                         <h4>
-                            Text-Based Adventure
+                            Snowflakes
                         </h4>
                         <p>
-                            - Implement a run action that allows the user to escape the battle
+                            - Give the snowflakes random colours chosen from a list of pre-defined colours
                         </p>
                         <p>
-                            - It should be a 20% chance of escape
+                            - The random colours must be
+                            <br/>: passed in through the paramter field
+                            <br/>: at least 5 in size (have 5 colours to choose from)
                         </p>
                         <p>
-                            - The user should take damage upon failure to escape
+                            - Draw a tree and put the code into a separate method that you can call
                         </p>
                         <p>
-                            - Implement a bag function that allows the user to open their bag and choose an item to use
-                        </p>
-                        <p>
-                            - Have at least 5 different items to choose from
-                        </p>
-                        <p>
-                            - They should all do different things
-                        </p>
-                        <p>
-                            - Items are infinite
-                        </p>
-                        <p>
-                            - Hint: Use another loop inside the combat one
+                            - The tree method must contain
+                            <br/>: 2 parameters for coordinates, an x and a y
+                            <br/>: at least 4 triangles for the simplest version
+                            <br/>: a green colour
+                            <br/>: must use a separate turtle variable
                         </p>
                         <h4>
                             Challenge:
                         </h4>
                         <p>
-                            - Make the items finite, so that they disappear from the inventory if used up
+                            - Have a resizable snowflake and snowflake2
                         </p>
                         <p>
-                            - Have different enemies depending on the setting
-                        </p>
-                        <p>
-                            - Give the enemies different attacks and damage values
-                        </p>
-                        <p>
-                            - Anything else you can think of!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div id="class4" class="collapse">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3>
-                            PlayerMovement.cs
-                        </h3>
-                        <pre>
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerMovement : MonoBehaviour
-{
-
-    private Rigidbody rb;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent&lt;Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        horizontal *= 2;
-        vertical *= 2;
-
-        Vector3 move = new Vector3(horizontal, 0, vertical);
-
-        move.y = rb.velocity.y;
-        rb.velocity = move;
-    }
-}
-                        </pre>
-                        <h3>
-                            Jump.cs
-                        </h3>
-                        <pre>
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Jump : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent&lt;Rigidbody>().AddForce(0, 300, 0);
-        }
-    }
-}
-                        </pre>
-                    </div>
-                    <div class="col-md-6">
-                        <h3>
-                            &nbsp;
-                        </h3>
-                        <h4>
-                            Speed Modification
-                        </h4>
-                        <p>
-                            - Find a way to get the player to sprint if they hold the shift key
+                            - Make a nice picture of some sort
                         </p>
                     </div>
                 </div>
