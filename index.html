@@ -52,13 +52,13 @@
                             &nbsp;
                         </h3>
                         <h4>
-                            File output
+                            Additional Pages
                         </h4>
                         <p>
-                            - Give the user the ability to choose which file to output to
+                            - Add up to 1000 ranked books (aka up to page 10)
                         </p>
                         <p>
-                            ex. Ask the user the filename to output to and the program will output to it
+                            - All the pages should be listed in the index page and you should be able to click into the separate pages
                         </p>
                     </div>
                 </div>
@@ -89,65 +89,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            snowflake.py
+                            chillin'
                         </h3>
                         <pre>
-#!/bin/python
-import turtle
-
-def twig():
-    snow.left(45)
-    snow.forward(30)
-    snow.backward(30)
-    snow.right(45)
-    snow.forward(30)
-    snow.backward(30)
-    snow.right(45)
-    snow.forward(30)
-    snow.backward(30)
-    snow.left(45)
-
-def branch():
-    for i in range(numOfSegments):
-        twig()
-        snow.forward(twigLength)
-    snow.backward(twigLength * numOfSegments)
-
-def snowflake(x, y, color):
-    snow.pu()
-    snow.goto(x, y)
-    snow.pd()
-    snow.color(color)
-    for i in range(numBranches):
-        branch()
-        snow.right(360 / numBranches)
-
-def snowflake2(x, y, color):
-    snow.pu()
-    snow.goto(x, y)
-    snow.pd()
-    snow.color(color)
-    for i in range(10):
-        for i in range(2):
-            snow.forward(100)
-            snow.right(60)
-            snow.forward(100)
-            snow.right(120)
-        snow.right(36)
-
-turtle.Screen().bgcolor("grey")
-
-snow = turtle.Turtle()
-snow.speed(0)
-snow.ht()
-
-twigLength = 30
-numOfSegments = 4
-numBranches = 4
-
-snowflake(100, -100, "cyan")
-snowflake(-100, 100, "gold")
-snowflake2(100, 100, "purple")
+Take a break
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -155,35 +100,8 @@ snowflake2(100, 100, "purple")
                             &nbsp;
                         </h3>
                         <h4>
-                            Snowflakes
+                            Chillin'
                         </h4>
-                        <p>
-                            - Give the snowflakes random colours chosen from a list of pre-defined colours
-                        </p>
-                        <p>
-                            - The random colours must be
-                            <br/>: passed in through the paramter field
-                            <br/>: at least 5 in size (have 5 colours to choose from)
-                        </p>
-                        <p>
-                            - Draw a tree and put the code into a separate method that you can call
-                        </p>
-                        <p>
-                            - The tree method must contain
-                            <br/>: 2 parameters for coordinates, an x and a y
-                            <br/>: at least 4 triangles for the simplest version
-                            <br/>: a green colour
-                            <br/>: must use a separate turtle variable
-                        </p>
-                        <h4>
-                            Challenge:
-                        </h4>
-                        <p>
-                            - Have a resizable snowflake and snowflake2
-                        </p>
-                        <p>
-                            - Make a nice picture of some sort
-                        </p>
                     </div>
                 </div>
             </div>
