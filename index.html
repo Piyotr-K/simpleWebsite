@@ -52,13 +52,19 @@
                             &nbsp;
                         </h3>
                         <h4>
-                            Additional Pages
+                            About Page
                         </h4>
                         <p>
-                            - Add up to 1000 ranked books (aka up to page 10)
+                            - Make an about page about yourself
                         </p>
                         <p>
-                            - All the pages should be listed in the index page and you should be able to click into the separate pages
+                            - Make it look organized and nice
+                        </p>
+                        <p>
+                            - Put your name, age, grade and a fun fact about yourself
+                        </p>
+                        <p>
+                            - Talk in a paragraph about a game or anime you like and why you like it
                         </p>
                     </div>
                 </div>
@@ -77,10 +83,10 @@
                             &nbsp;
                         </h3>
                         <h4>
-                            Unity Intro
+                            Unity, new level
                         </h4>
                         <p>
-                            - Make player vertical movement possible (W, S)
+                            - Make a fleshed out level for the platforming game
                         </p>
                     </div>
                 </div>
@@ -89,19 +95,82 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            chillin'
+                            PyGal - Charts
                         </h3>
+                        <h4>
+                            test.py
+                        </h4>
                         <pre>
-Take a break
+import pygal
+
+pie_chart = pygal.Pie(title="Favourite Pets")
+
+file = open("data.txt", "r")
+
+for line in file.read().splitlines():
+    if line:
+        label, value = line.split(' ') # Dog 6 -> ["Dog", "6"]
+        print(f"Label: {label}, Value: {value}")
+        pie_chart.add(label, int(value))
+
+file.close()
+
+pie_chart.render_in_browser() # To use this you need lxml -> pip install lxml
+                        </pre>
+                        <h4>
+                            data.txt
+                        </h4>
+                        <pre>
+Dog 6
+Cat 5
+Goldfish 4
+Snake 3
+Monke 2
+Cat 1
                         </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             &nbsp;
                         </h3>
+                        <h3>
+                            Homework
+                        </h3>
                         <h4>
-                            Chillin'
+                            Normal:
                         </h4>
+                        <p>
+                            Make another data text file, called data2.txt
+                            <br/>
+                            - The label and the value must be separated by a colon ":"
+                            <br/>
+                            - There must be at least 10 different entries
+                        </p>
+                        <p>
+                            You must generate 2 separate graphs from this data file
+                            <br/>
+                            - one piechart and one bargraph
+                        </p>
+                        <h4>
+                            Challenge:
+                        </h4>
+                        <p>
+                            Make a survey type questionnaire, ask the user to choose from a list of 10 different things
+                            <br/>
+                            i.e. Their favourite ice cream (Vanilla, Chocolate, Strawberry, etc...)
+                            <br/>
+                            Record their answer into data2.txt
+                        </p>
+                        <p>
+                            Have data2.txt start with 0 as the value for all the entries
+                            <br/>
+                            - The values will fill up as the survey is done over and over again.
+                            <br/>
+                            - The label and the value have to be separated by a colon still
+                        </p>
+                        <p>
+                            Same as the normal homework, generate 2 separate graphs
+                        </p>
                     </div>
                 </div>
             </div>
