@@ -89,38 +89,54 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            PyGal - Charts
+                            Guizero
                         </h3>
                         <h4>
-                            test.py
+                            insults.py
                         </h4>
                         <pre>
-import pygal
+import random
+from guizero import App, Text, PushButton, Combo
 
-pie_chart = pygal.Pie(title="Favourite Pets")
+def insult_me():
+    word_a = random.choice(list_a)
+    word_b = random.choice(list_b)
+    word_c = random.choice(list_c)
+    insult = "Thou art a(n) " + word_a + " " + word_b + \
+        " " + word_c
 
-file = open("data.txt", "r")
+    return insult
 
-for line in file.read().splitlines():
-    if line:
-        label, value = line.split(' ') # Dog 6 -> ["Dog", "6"]
-        print(f"Label: {label}, Value: {value}")
-        pie_chart.add(label, int(value))
+def new_insult():
+    new_insult = insult_me()
+    message.value = new_insult
 
-file.close()
+list_a = []
+list_b = []
+list_c = []
 
-pie_chart.render_in_browser() # To use this you need lxml -> pip install lxml
-                        </pre>
-                        <h4>
-                            data.txt
-                        </h4>
-                        <pre>
-Dog 6
-Cat 5
-Goldfish 4
-Snake 3
-Monke 2
-Cat 1
+with open("./insults/insults.csv", "r") as f:
+    for line in f:
+        word1, word2, word3 = line.split(",")
+        list_a.append(word1)
+        list_b.append(word2)
+        list_c.append(word3.strip())
+
+        '''
+        tmp = line.split(",")
+        list_a.append(tmp[0])
+        list_b.append(tmp[1])
+        list_c.append(tmp[2])
+        '''
+
+# print(list_a) # Every word in column 1
+# print(list_b) # Every word in column 2
+# print(list_c) # Every word in column 3
+
+app = App("Shakespearean Insult Generator")
+message = Text(app, insult_me())
+button = PushButton(app, command=new_insult, text="Random insult")
+app.display()
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -134,37 +150,34 @@ Cat 1
                             Normal:
                         </h4>
                         <p>
-                            Make another data text file, called data2.txt
+                            Change one of three properties for the PushButton and the Text
                             <br/>
-                            - The label and the value must be separated by a colon ":"
+                            - Either text size, text color or background color
                             <br/>
-                            - There must be at least 10 different entries
-                        </p>
-                        <p>
-                            You must generate 2 separate graphs from this data file
+                            - All documentation here:
                             <br/>
-                            - one piechart and one bargraph
+                            <a href="https://lawsie.github.io/guizero/widgetoverview/">
+                                https://lawsie.github.io/guizero/widgetoverview/
+                            </a>
                         </p>
                         <h4>
                             Challenge:
                         </h4>
                         <p>
-                            Make a survey type questionnaire, ask the user to choose from a list of 10 different things
+                            Add three combos that have the lists as options
                             <br/>
-                            i.e. Their favourite ice cream (Vanilla, Chocolate, Strawberry, etc...)
+                            - The user should be able to choose from these options
                             <br/>
-                            Record their answer into data2.txt
+                            - The text should reflect what choice the users pick
                         </p>
                         <p>
-                            Have data2.txt start with 0 as the value for all the entries
+                            Getting the text to change with the combo selection will be difficult
                             <br/>
-                            - The values will fill up as the survey is done over and over again.
+                            - Hint: Use the keyword global, which will help you update the word
                             <br/>
-                            - The label and the value have to be separated by a colon still
+                            Sample of the finished product:
                         </p>
-                        <p>
-                            Same as the normal homework, generate 2 separate graphs
-                        </p>
+                        <img src="resources/insultChallenge.png">
                     </div>
                 </div>
             </div>
