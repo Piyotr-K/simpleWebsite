@@ -19,8 +19,6 @@
         <div class="row">
             <h2>
                 Email me at: piyotr.kao@gmail.com
-            </br>
-                or discord me
             </h2>
         </div>
         <div class="row">
@@ -31,7 +29,7 @@
                 </button>
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class2">
                     <span class="glyphicon glyphicon-collapse-down"></span>
-                    Python 1 Friday Class
+                    Python 2 Friday Class
                 </button>
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class3">
                     <span class="glyphicon glyphicon-collapse-down"></span>
@@ -52,13 +50,13 @@
                             &nbsp;
                         </h3>
                         <h4>
-                            About Page
+                            Contact Page
                         </h4>
                         <p>
-                            - Add an extra picture with a label and a description
+                            - Center align the Contact heading text
                         </p>
                         <p>
-                            - For a challenge make the image enlarge on hover
+                            - Enlarge the text for the name and email field labels
                         </p>
                     </div>
                 </div>
@@ -67,20 +65,61 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            <a href="resources/PlayerMovement.cs">
-                                playermovement.cs
-                            </a>
+                            myapp1.py
                         </h3>
+                        <pre>
+import tkinter as tk
+import random
+from tkinter import font
+
+def phrase_display():
+    text.delete("1.0", "end") # Add this if you want to get rid of the old text
+    phrases = ['Hi ', 'Hello there ', 'Howdy ']
+    name = str(entry.get())
+    greeting = random.choice(phrases) + name
+    text.insert(tk.END, greeting)
+
+window = tk.Tk()
+window.title("Minecraft at home")
+
+# window size
+window.geometry("400x400")
+window.configure(bg="grey")
+
+# text entry widget
+entry = tk.Entry(font=("Consolas", 12), bg="#FBAA00")
+entry.grid(column=1, row=1)
+
+label_intro = tk.Label(text="Give me robux\nPls momi", font=("Times", 17), bg="grey")
+label_intro.grid(columnspan=2, column=0, row=0)
+
+# label (text) widget
+label = tk.Label(text="What is your name? ", font=("Comic Sans MS", 12), bg="cyan")
+label.grid(column=0, row=1)
+
+# button widget
+button = tk.Button(text="Click this button", \
+    font=("Broadway Copyist Text", 20), \
+        bg="red", command=phrase_display)
+button.grid(column=0, row=2, columnspan=2)
+
+# textbox widget
+text = tk.Text(master=window, height=10, width=30)
+text.grid(column=0, row=3, columnspan=2)
+
+# starts the window
+window.mainloop()
+                        </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             &nbsp;
                         </h3>
                         <h4>
-                            Unity, new level
+                            Python 2
                         </h4>
                         <p>
-                            - Make a nice landscape
+                            - Make a title describing the app above the rest of the content
                         </p>
                     </div>
                 </div>
@@ -89,54 +128,56 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            Guizero
+                            Wireless Communication
                         </h3>
                         <h4>
-                            insults.py
+                            server.py
                         </h4>
                         <pre>
-import random
-from guizero import App, Text, PushButton, Combo
+import socket
 
-def insult_me():
-    word_a = random.choice(list_a)
-    word_b = random.choice(list_b)
-    word_c = random.choice(list_c)
-    insult = "Thou art a(n) " + word_a + " " + word_b + \
-        " " + word_c
+# 127.0.0.1 localhost
+localIP = "127.0.0.1"
 
-    return insult
+# Port
+localPORT = 20001
 
-def new_insult():
-    new_insult = insult_me()
-    message.value = new_insult
+# Max size of message the server is ready to receive
+bufferSize = 1024
 
-list_a = []
-list_b = []
-list_c = []
+# Create a socket datagram
+udpSock = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
-with open("./insults/insults.csv", "r") as f:
-    for line in f:
-        word1, word2, word3 = line.split(",")
-        list_a.append(word1)
-        list_b.append(word2)
-        list_c.append(word3.strip())
+# Bind put ip and port to the socket
+udpSock.bind((localIP, localPORT))
 
-        '''
-        tmp = line.split(",")
-        list_a.append(tmp[0])
-        list_b.append(tmp[1])
-        list_c.append(tmp[2])
-        '''
+print("UDP Server up and running")
 
-# print(list_a) # Every word in column 1
-# print(list_b) # Every word in column 2
-# print(list_c) # Every word in column 3
+# Listen for datagrams
+while True:
+    # Listen for datagrams on the given socket
+    dataAddress = udpSock.recvfrom(bufferSize)
+    message = dataAddress[0].decode()
 
-app = App("Shakespearean Insult Generator")
-message = Text(app, insult_me())
-button = PushButton(app, command=new_insult, text="Random insult")
-app.display()
+    print(f"Message from Client: {message}")
+                        </pre>
+                        <h4>
+                            client.py
+                        </h4>
+                        <pre>
+import socket
+
+msg = input("Type a message to the server: ")
+bytesToSend = str.encode(msg)
+
+serverAddressPort = ("127.0.0.1", 20001)
+bufferSize = 1024
+
+# Create a socket
+udpSendSock = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+# Send to server using created UDP Socket
+udpSendSock.sendto(bytesToSend, serverAddressPort)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -150,34 +191,22 @@ app.display()
                             Normal:
                         </h4>
                         <p>
-                            Change one of three properties for the PushButton and the Text
+                            Make a trivia game
                             <br/>
-                            - Either text size, text color or background color
+                            - Have at least 10 questions with 4 choices each (ex. ABCD)
                             <br/>
-                            - All documentation here:
-                            <br/>
-                            <a href="https://lawsie.github.io/guizero/widgetoverview/">
-                                https://lawsie.github.io/guizero/widgetoverview/
-                            </a>
+                            - Keep the highscore for the player in a separate text filem called highscore.txt
                         </p>
                         <h4>
                             Challenge:
                         </h4>
                         <p>
-                            Add three combos that have the lists as options
+                            Keep a bank of 20 questions and their choices in a text file
                             <br/>
-                            - The user should be able to choose from these options
+                            - Ask if the user wants to play again, if they do pick 10 different questions
                             <br/>
-                            - The text should reflect what choice the users pick
+                            - Keep highscore still
                         </p>
-                        <p>
-                            Getting the text to change with the combo selection will be difficult
-                            <br/>
-                            - Hint: Use the keyword global, which will help you update the word
-                            <br/>
-                            Sample of the finished product:
-                        </p>
-                        <img src="resources/insultChallenge.png">
                     </div>
                 </div>
             </div>
