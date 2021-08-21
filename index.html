@@ -65,50 +65,79 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            myapp1.py
+                            &nbsp;
+                        </h3>
+                        <h3>
+                            Employee.py
                         </h3>
                         <pre>
-import tkinter as tk
-import random
-from tkinter import font
+class Employee:
 
-def phrase_display():
-    text.delete("1.0", "end") # Add this if you want to get rid of the old text
-    phrases = ['Hi ', 'Hello there ', 'Howdy ']
-    name = str(entry.get())
-    greeting = random.choice(phrases) + name
-    text.insert(tk.END, greeting)
+    # This is also another way of creating new class variables
+    raise_amount = 1.04 # Float
 
-window = tk.Tk()
-window.title("Minecraft at home")
+    total_employees = 0
 
-# window size
-window.geometry("400x400")
-window.configure(bg="grey")
+    # Constructor
+    def __init__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = f"{first}.{last}@companymail.com"
+        Employee.total_employees += 1
 
-# text entry widget
-entry = tk.Entry(font=("Consolas", 12), bg="#FBAA00")
-entry.grid(column=1, row=1)
+    # So return is what you get out of using the method
+    def fullname(self):
+        return f"{self.first} {self.last}" # Here we return a string for using fullname
 
-label_intro = tk.Label(text="Give me robux\nPls momi", font=("Times", 17), bg="grey")
-label_intro.grid(columnspan=2, column=0, row=0)
+    def emailAndPay(self):
+        return f"Pay: {self.pay}, Email: {self.email}"
 
-# label (text) widget
-label = tk.Label(text="What is your name? ", font=("Comic Sans MS", 12), bg="cyan")
-label.grid(column=0, row=1)
+    def applyraise(self):
+        self.pay = int(self.pay * self.raise_amount)
 
-# button widget
-button = tk.Button(text="Click this button", \
-    font=("Broadway Copyist Text", 20), \
-        bg="red", command=phrase_display)
-button.grid(column=0, row=2, columnspan=2)
+    # cls means class
+    @classmethod
+    def set_raise_amount(cls, amount):
+        cls.raise_amount = amount
 
-# textbox widget
-text = tk.Text(master=window, height=10, width=30)
-text.grid(column=0, row=3, columnspan=2)
+    # ignores class and instance, there from the beginning
+    @staticmethod
+    def is_workday(day):
+        if day.weekday() == 5 or day.weekday() == 6:
+            return False
+        return True
+                        </pre>
+                        <h3>
+                            main.py
+                        </h3>
+                        <pre>
+                            from Employee import Employee
+import datetime
 
-# starts the window
-window.mainloop()
+# emp1 is an instance of our class Employee
+emp1 = Employee("John", "Doe", 500)
+emp2 = Employee("Richard", "Sweeney", 10000)
+
+my_day = datetime.date(2021, 8, 19)
+print(Employee.is_workday(my_day))
+
+print(emp1.fullname())
+print(emp1.emailAndPay())
+print(emp2.emailAndPay())
+emp1.applyraise()
+print(emp1.emailAndPay())
+# Employee.set_raise_amount(1.10)
+emp1.set_raise_amount(1.10)
+emp1.applyraise()
+emp2.applyraise()
+print(emp1.emailAndPay())
+print(emp2.emailAndPay())
+print(Employee.total_employees)
+
+
+# Another way of calling class methods/functions
+# print(Employee.fullname(emp1))
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -119,7 +148,24 @@ window.mainloop()
                             Python 2
                         </h4>
                         <p>
-                            - Make a title describing the app above the rest of the content
+                            Create a chicken class
+                            <br/>
+                            - It should have "1" parameter in the init which is name
+                            <br/>
+                            - Have "1" method which is speak
+                            <br/>
+                            - Speak method should say their name, (ex. Andrew says "Bok bok")
+                            <br/>
+                            - It should speak "bok bok" or something of the sort
+                        </p>
+                        <p>
+                            Create a main.py
+                            <br/>
+                            - Make 3 instances of the chicken
+                            <br/>
+                            - And make them all speak
+                            <br/>
+                            - As a challenge Keep track of total number of chickens
                         </p>
                     </div>
                 </div>
