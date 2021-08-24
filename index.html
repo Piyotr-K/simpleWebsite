@@ -25,7 +25,7 @@
             <div class="buttonsGroup" id="accordion">
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class1">
                     <span class="glyphicon glyphicon-collapse-down"></span>
-                    Python WebScraper Class
+                    Java 2 Sunday Class
                 </button>
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class2">
                     <span class="glyphicon glyphicon-collapse-down"></span>
@@ -40,20 +40,85 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            <a href="resources/bookScraper.py">
-                                bookScraper.py
-                            </a>
+                            driver.java
                         </h3>
+                        <pre>
+package classesPt1;
+
+public class driver {
+    
+    public static void main(String args[])
+    {
+        Dog dog1 = new Dog("Sparky", "Yorkshire", 5);
+        Dog dog2 = new Dog("Jonathan");
+        Dog dog3 = new Dog();
+
+        dog1.sayHello();
+        dog2.sayHello();
+        dog3.sayHello();
+    }
+}
+                        </pre>
+                        <h3>
+                            Dog.java
+                        </h3>
+                        <pre>
+package classesPt1;
+
+public class Dog {
+    // Properties (Fields)
+    public String name;
+    public String breed;
+    public int age;
+    
+    // Constructor
+    public Dog(String dName, String dBreed, int dAge)
+    {
+        name = dName;
+        breed = dBreed;
+        age = dAge;
+    }
+
+    // Overloaded Constructor, 1 parameter instead of 3
+    public Dog(String dName)
+    {
+        name = dName;
+    }
+
+    public Dog()
+    {
+        this("Derek", "Jin", 2);
+    }
+
+    public void sayHello()
+    {
+        System.out.println("Ruff ruff my name is " + name);
+    }
+}
+                        </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             &nbsp;
                         </h3>
                         <h4>
-                            Nice
+                            Classes Part 1
                         </h4>
                         <p>
-                            - Make ur about page look nicer, use google
+                            Normal:
+                            <br/>
+                            - Using words decribe a Person class and a Vehicle class
+                            <br/>
+                            - The Person and Vehicle classes must contain 5 properties and 5 actions (methods) at least
+                            <br/>
+                            - Explain what the methods should theoretically do if called
+                        </p>
+                        <p>
+                            Challenge:
+                            <br/>
+                            - Implement in Java the above described Classes
+                            <br/>
+                            - Make sure the code runs properly
                         </p>
                     </div>
                 </div>
@@ -171,56 +236,129 @@ print(Employee.total_employees)
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            Wireless Communication
+                            Game with UI
                         </h3>
                         <h4>
-                            server.py
+                            game.py
                         </h4>
                         <pre>
-import socket
+import random
+import guizero
 
-# 127.0.0.1 localhost
-localIP = "127.0.0.1"
+app = guizero.App(title="Fun Game", width="500", height="500")
+name = ""
+gender = ""
+txt1, txt2, txt3, txt4 = [None] * 4
+btn1, btn2, btn3, btn4 = [None] * 4
+char_name = ""
+char_gender = ""
 
-# Port
-localPORT = 20001
+def store_info():
+    global char_name, char_gender, name, gender
+    char_name = name.value
+    char_gender = gender.value
+    print(char_name)
+    print(char_gender)
+    scenario_1()
 
-# Max size of message the server is ready to receive
-bufferSize = 1024
+def intro_qs():
+    global app, name, gender, txt1, txt2, btn1
+    question = "Please enter the name of your character:"
+    question2 = "Please enter the gender of your character (boy/girl/other):"
+    txt1 = guizero.Text(app, text=question)
+    name = guizero.TextBox(app, width=20)
+    txt2 = guizero.Text(app, text=question2)
+    gender = guizero.TextBox(app)
+    btn1 = guizero.PushButton(app, command=store_info, text="Play the game")
+    app.display()
 
-# Create a socket datagram
-udpSock = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+def scenario_1():
+    global app, txt1, txt2, name, gender, btn1
+    global char_name
+    txt2.hide()
+    name.hide()
+    gender.hide()
+    btn1.hide()
 
-# Bind put ip and port to the socket
-udpSock.bind((localIP, localPORT))
+    txt1.value = "Welcome " + char_name + " to the world of Real Life."
+    txt2.value = "Where would you like to start?"
+    txt2.show()
 
-print("UDP Server up and running")
+intro_qs()
 
-# Listen for datagrams
-while True:
-    # Listen for datagrams on the given socket
-    dataAddress = udpSock.recvfrom(bufferSize)
-    message = dataAddress[0].decode()
+def to_do():
+    name = input("Please enter the name of your character:")
+    gender = input("Please enter the gender of your character(m/f):")
 
-    print(f"Message from Client: {message}")
-                        </pre>
-                        <h4>
-                            client.py
-                        </h4>
-                        <pre>
-import socket
+    if gender == "m":
+        pronoun = "he"
+        char_title = "Mr."
+    elif gender == "f":
+        pronoun = "she"
+        char_title = "Ms."
+    else:
+        pronoun = "It"
+        char_title = "Ind."
 
-msg = input("Type a message to the server: ")
-bytesToSend = str.encode(msg)
+    print("Welcome, " + char_title + " " + name + " to the magical world of Nice")
+    done = False
 
-serverAddressPort = ("127.0.0.1", 20001)
-bufferSize = 1024
+    while not done:
+        p_input = input("Where would you like to start? [Forest]")
+        if p_input.lower() == "forest":
+            done = True
+        else:
+            print("Invalid Option")
 
-# Create a socket
-udpSendSock = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+    monsters = ["Goblin", "Ogre", "Dragon"]
+    monster_1 = random.choice(monsters)
 
-# Send to server using created UDP Socket
-udpSendSock.sendto(bytesToSend, serverAddressPort)
+    print("You were walking in the forest of Sus, you walk for around for 10 minutes" \
+    + " before feeling sussy and being stopped by a " + monster_1)
+
+    #Combat
+    defeated = False
+    if monster_1 == "Goblin":
+        monster_health = 20
+    elif monster_1 == "Ogre":
+        monster_health = 50
+    else:
+        monster_health = 100
+        player_health = 20
+
+    while not defeated:
+        print(monster_1 + "'s current health: " + str(monster_health))
+        print("Your current health: " + str(player_health))
+        print("What will you do?")
+        p_action = input("(Attack) (Defend) (Bag) (Run)")
+        monster_action = random.choice(["attack", "defend"])
+        
+        if p_action.lower() == "attack":
+            if monster_action == "defend":
+                monster_health -= 5
+            else:
+                player_health -= 5
+                monster_health -= 10
+        if p_action.lower() == "defend":
+            if monster_action == "attack":
+                player_health -= 2
+        if p_action.lower() == "run":
+            chance = random.randint(0, 5)
+            if chance == 0:
+                defeated = True
+                print("You've escaped!")
+                break
+            else:
+                print("You failed to escape!")
+            if monster_action == "attack":
+                player_health -= 10
+            
+        if monster_health &lt;= 0:
+            defeated = True
+            print("You have defeated the " + monster_1 + "!")
+        if player_health &lt;= 0 :
+            print("You ded")
+            break
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -234,21 +372,13 @@ udpSendSock.sendto(bytesToSend, serverAddressPort)
                             Normal:
                         </h4>
                         <p>
-                            Make a trivia game
-                            <br/>
-                            - Have at least 10 questions with 4 choices each (ex. ABCD)
-                            <br/>
-                            - Keep the highscore for the player in a separate text filem called highscore.txt
+                            Coding bat python warmup-1 questions 1-5
                         </p>
                         <h4>
                             Challenge:
                         </h4>
                         <p>
-                            Keep a bank of 20 questions and their choices in a text file
-                            <br/>
-                            - Ask if the user wants to play again, if they do pick 10 different questions
-                            <br/>
-                            - Keep highscore still
+                            Coding bat python warmup-1 all questions
                         </p>
                     </div>
                 </div>
