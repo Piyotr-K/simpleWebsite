@@ -49,13 +49,37 @@ public class driver {
     
     public static void main(String args[])
     {
+        ArrayList&lt;Integer&gt; intList = new ArrayList&lt;Integer&gt;();
+        intList.add(1);
+        intList.add(2);
+        intList.add(3);
+        System.out.println(intList);
+
+        ArrayList&lt;Integer&gt; strList = new ArrayList&lt;Integer&gt;();
+        strList.add("Haha");
+        strList.add("Yes");
+        System.out.println(strList);
+
         Dog dog1 = new Dog("Sparky", "Yorkshire", 5);
         Dog dog2 = new Dog("Jonathan");
         Dog dog3 = new Dog();
+        dog1.setName("NotSparky");
+        System.out.println(dog1.getName());
 
-        dog1.sayHello();
-        dog2.sayHello();
-        dog3.sayHello();
+        ArrayList&lt;Dog&gt; dogList = new ArrayList&lt;Dog&gt;();
+        dogList.add(dog1);
+        dogList.add(dog2);
+        dogList.add(dog3);
+
+        // for (int i = 0; i &lt; dogList.size(); i++)
+        // {
+        //     Dog tempDog = dogList.get(i);
+        //     tempDog.sayHello();
+        // }
+
+        // For each loop in Java
+        for (Dog tempDog : dogList)
+            tempDog.sayHello();
     }
 }
                         </pre>
@@ -67,22 +91,22 @@ package classesPt1;
 
 public class Dog {
     // Properties (Fields)
-    public String name;
-    public String breed;
-    public int age;
+    private String name;
+    private String breed;
+    private int age;
     
     // Constructor
-    public Dog(String dName, String dBreed, int dAge)
+    public Dog(String name, String dBreed, int dAge)
     {
-        name = dName;
+        this.name = name;
         breed = dBreed;
         age = dAge;
     }
 
     // Overloaded Constructor, 1 parameter instead of 3
-    public Dog(String dName)
+    public Dog(String name)
     {
-        name = dName;
+        this.name = name;
     }
 
     public Dog()
@@ -93,6 +117,16 @@ public class Dog {
     public void sayHello()
     {
         System.out.println("Ruff ruff my name is " + name);
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String newName)
+    {
+        this.name = newName;
     }
 }
                         </pre>
@@ -107,18 +141,20 @@ public class Dog {
                         <p>
                             Normal:
                             <br/>
-                            - Using words decribe a Person class and a Vehicle class
+                            - Implement an Animal Class
                             <br/>
-                            - The Person and Vehicle classes must contain 5 properties and 5 actions (methods) at least
+                            - 5 properties (private), 5 action methods (run, walk)
                             <br/>
-                            - Explain what the methods should theoretically do if called
+                            - Getters and Setters for the 5 (private) properties
                         </p>
                         <p>
                             Challenge:
                             <br/>
-                            - Implement in Java the above described Classes
+                            - Have Animals be able to "speak" to one another
                             <br/>
-                            - Make sure the code runs properly
+                            - Pass an Animal into the parameter of another Animal
+                            <br/>
+                            - ex. // ani1.speakTo(ani2) -> "Jared says baaaaa to Jareed"
                         </p>
                     </div>
                 </div>
@@ -236,150 +272,16 @@ print(Employee.total_employees)
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            Game with UI
+                            Done!
                         </h3>
-                        <h4>
-                            game.py
-                        </h4>
-                        <pre>
-import random
-import guizero
-
-app = guizero.App(title="Fun Game", width="500", height="500")
-name = ""
-gender = ""
-txt1, txt2, txt3, txt4 = [None] * 4
-btn1, btn2, btn3, btn4 = [None] * 4
-char_name = ""
-char_gender = ""
-
-def store_info():
-    global char_name, char_gender, name, gender
-    char_name = name.value
-    char_gender = gender.value
-    print(char_name)
-    print(char_gender)
-    scenario_1()
-
-def intro_qs():
-    global app, name, gender, txt1, txt2, btn1
-    question = "Please enter the name of your character:"
-    question2 = "Please enter the gender of your character (boy/girl/other):"
-    txt1 = guizero.Text(app, text=question)
-    name = guizero.TextBox(app, width=20)
-    txt2 = guizero.Text(app, text=question2)
-    gender = guizero.TextBox(app)
-    btn1 = guizero.PushButton(app, command=store_info, text="Play the game")
-    app.display()
-
-def scenario_1():
-    global app, txt1, txt2, name, gender, btn1
-    global char_name
-    txt2.hide()
-    name.hide()
-    gender.hide()
-    btn1.hide()
-
-    txt1.value = "Welcome " + char_name + " to the world of Real Life."
-    txt2.value = "Where would you like to start?"
-    txt2.show()
-
-intro_qs()
-
-def to_do():
-    name = input("Please enter the name of your character:")
-    gender = input("Please enter the gender of your character(m/f):")
-
-    if gender == "m":
-        pronoun = "he"
-        char_title = "Mr."
-    elif gender == "f":
-        pronoun = "she"
-        char_title = "Ms."
-    else:
-        pronoun = "It"
-        char_title = "Ind."
-
-    print("Welcome, " + char_title + " " + name + " to the magical world of Nice")
-    done = False
-
-    while not done:
-        p_input = input("Where would you like to start? [Forest]")
-        if p_input.lower() == "forest":
-            done = True
-        else:
-            print("Invalid Option")
-
-    monsters = ["Goblin", "Ogre", "Dragon"]
-    monster_1 = random.choice(monsters)
-
-    print("You were walking in the forest of Sus, you walk for around for 10 minutes" \
-    + " before feeling sussy and being stopped by a " + monster_1)
-
-    #Combat
-    defeated = False
-    if monster_1 == "Goblin":
-        monster_health = 20
-    elif monster_1 == "Ogre":
-        monster_health = 50
-    else:
-        monster_health = 100
-        player_health = 20
-
-    while not defeated:
-        print(monster_1 + "'s current health: " + str(monster_health))
-        print("Your current health: " + str(player_health))
-        print("What will you do?")
-        p_action = input("(Attack) (Defend) (Bag) (Run)")
-        monster_action = random.choice(["attack", "defend"])
-        
-        if p_action.lower() == "attack":
-            if monster_action == "defend":
-                monster_health -= 5
-            else:
-                player_health -= 5
-                monster_health -= 10
-        if p_action.lower() == "defend":
-            if monster_action == "attack":
-                player_health -= 2
-        if p_action.lower() == "run":
-            chance = random.randint(0, 5)
-            if chance == 0:
-                defeated = True
-                print("You've escaped!")
-                break
-            else:
-                print("You failed to escape!")
-            if monster_action == "attack":
-                player_health -= 10
-            
-        if monster_health &lt;= 0:
-            defeated = True
-            print("You have defeated the " + monster_1 + "!")
-        if player_health &lt;= 0 :
-            print("You ded")
-            break
-                        </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             &nbsp;
                         </h3>
                         <h3>
-                            Homework
+                            Done!
                         </h3>
-                        <h4>
-                            Normal:
-                        </h4>
-                        <p>
-                            Coding bat python warmup-1 questions 1-5
-                        </p>
-                        <h4>
-                            Challenge:
-                        </h4>
-                        <p>
-                            Coding bat python warmup-1 all questions
-                        </p>
                     </div>
                 </div>
             </div>
