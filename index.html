@@ -25,137 +25,147 @@
             <div class="buttonsGroup" id="accordion">
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class1">
                     <span class="glyphicon glyphicon-collapse-down"></span>
-                    Java 2 Sunday Class
+                    Python 2 Friday Class
                 </button>
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class2">
                     <span class="glyphicon glyphicon-collapse-down"></span>
-                    Python 2 Friday Class
+                    Python 1 Sunday Class
                 </button>
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class3">
                     <span class="glyphicon glyphicon-collapse-down"></span>
-                    Python 1 Sunday Class
+                    Pygame Advanced Sunday Class
+                </button>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class4">
+                    <span class="glyphicon glyphicon-collapse-down"></span>
+                    Java 2 Sunday Class
                 </button>
             </div>
             <div id="class1" class="collapse">
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            driver.java
+                            End code:
+                        </h3>
+                        <h3>
+                            animal.py
                         </h3>
                         <pre>
-package classesPt1;
+class Animal:
 
-public class driver {
-    
-    public static void main(String args[])
-    {
-        ArrayList&lt;Integer&gt; intList = new ArrayList&lt;Integer&gt;();
-        intList.add(1);
-        intList.add(2);
-        intList.add(3);
-        System.out.println(intList);
+    total_Animals = 0
 
-        ArrayList&lt;Integer&gt; strList = new ArrayList&lt;Integer&gt;();
-        strList.add("Haha");
-        strList.add("Yes");
-        System.out.println(strList);
-
-        Dog dog1 = new Dog("Sparky", "Yorkshire", 5);
-        Dog dog2 = new Dog("Jonathan");
-        Dog dog3 = new Dog();
-        dog1.setName("NotSparky");
-        System.out.println(dog1.getName());
-
-        ArrayList&lt;Dog&gt; dogList = new ArrayList&lt;Dog&gt;();
-        dogList.add(dog1);
-        dogList.add(dog2);
-        dogList.add(dog3);
-
-        // for (int i = 0; i &lt; dogList.size(); i++)
-        // {
-        //     Dog tempDog = dogList.get(i);
-        //     tempDog.sayHello();
-        // }
-
-        // For each loop in Java
-        for (Dog tempDog : dogList)
-            tempDog.sayHello();
-    }
-}
+    def __init__(self, name):
+        self.name = name
+        Animal.total_Animals += 1
                         </pre>
                         <h3>
-                            Dog.java
+                            chicken.py
                         </h3>
                         <pre>
-package classesPt1;
+from animal import Animal
 
-public class Dog {
-    // Properties (Fields)
-    private String name;
-    private String breed;
-    private int age;
+class Chicken(Animal):
+
+    total_Chickens = 0
     
-    // Constructor
-    public Dog(String name, String dBreed, int dAge)
-    {
-        this.name = name;
-        breed = dBreed;
-        age = dAge;
-    }
+    def __init__(self, name):
+        super().__init__(name)
+        Chicken.total_Chickens += 1
+    
+    def speak(self):
+        return f"{self.name} says bok bok!"
+                        </pre>
+                        <h3>
+                            sheep.py
+                        </h3>
+                        <pre>
+from animal import Animal
 
-    // Overloaded Constructor, 1 parameter instead of 3
-    public Dog(String name)
-    {
-        this.name = name;
-    }
+class Sheep(Animal):
 
-    public Dog()
-    {
-        this("Derek", "Jin", 2);
-    }
+    def __init__(self, name, color, rate):
+        super().__init__(name)
+        self.color = color
+        self.growth = rate
+    
+    def speak(self):
+        return f"{self.name} the sheep says Baaa!"
+    
+    def wool(self):
+        return f"{self.name} the sheep has {self.color} coloured wool."
+    
+    def rate(self):
+        return f"{self.name} the sheep's {self.color} wool grows at {self.growth} days per full coat."
+    
+    def eat(self, food):
+        if food == "Takoyaki":
+            return f"{self.name} likes {food}"
+        elif food == "Hay":
+            return f"{self.name} likes {food}"
+        return f"{self.name} dislikes {food}"
+                        </pre>
+                        <h3>
+                            main.py
+                        </h3>
+                        <pre>
+from animal import Animal
+from chicken import Chicken
+from sheep import Sheep
 
-    public void sayHello()
-    {
-        System.out.println("Ruff ruff my name is " + name);
-    }
+# Passing values through parameters
+c1 = Chicken("Sam")
+c2 = Chicken("Michael")
+c3 = Chicken("Peter")
 
-    public String getName()
-    {
-        return name;
-    }
+s1 = Sheep("SamX", "Red", "30")
+s2 = Sheep("MikeX", "Green", "20")
 
-    public void setName(String newName)
-    {
-        this.name = newName;
-    }
-}
+print(c1.speak())
+print(c2.speak())
+print(c3.speak())
+
+print(s1.speak()) # --> "Max the sheep says Baaaa"
+print(s1.wool()) # --> "Max the sheep has red coloured wool"
+print(s1.rate()) # --> "Max the sheep's red wool grows at 14 days per full coat"
+
+print(s1.eat("Chocolate")) # --> "Max doesn't like Chocolate"
+print(s1.eat("Takoyaki")) # --> "Max likes Takoyaki"
+print(s1.eat("Hay")) # --> "Max likes Hay"
+
+print(s2.speak())
+
+print(Chicken.total_Chickens) # --> Total number of chickens
+print(Animal.total_Animals)
                         </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
-                            &nbsp;
+                            Homework
                         </h3>
-                        <h4>
-                            Classes Part 1
-                        </h4>
-                        <p>
-                            Normal:
-                            <br/>
-                            - Implement an Animal Class
-                            <br/>
-                            - 5 properties (private), 5 action methods (run, walk)
-                            <br/>
-                            - Getters and Setters for the 5 (private) properties
-                        </p>
-                        <p>
-                            Challenge:
-                            <br/>
-                            - Have Animals be able to "speak" to one another
-                            <br/>
-                            - Pass an Animal into the parameter of another Animal
-                            <br/>
-                            - ex. // ani1.speakTo(ani2) -> "Jared says baaaaa to Jareed"
-                        </p>
+                        <h3>
+                            Inheritance
+                        </h3>
+                        <pre class="homework">
+# Inheritance
+# 2 New sub classes of Employee
+# - 1 is a programmer
+    - Contains 4 parameters for the constructor
+    - (fname, lname, pay, prog_lang)
+    - have a variable keep track of all the programmers
+# - 1 is a manager
+    - Contains 4 parameters for the constructor
+    - (fname, lname, pay, team)
+        - team ex. (Marketing, Accounting)
+    - have a variable keep track of all the Managers
+# At least 3-5 of each sub class
+# Keep track of all the Employees in total
+    - print(all_programmers, all_managers, all_employees)
+
+Challenge:
+- Have the programmer have a different raise amount
+- Have the manager have a different raise amount
+- Generate a random number of programmers and managers
+                        </pre>
                     </div>
                 </div>
             </div>
@@ -163,108 +173,110 @@ public class Dog {
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            &nbsp;
+                            End code:
                         </h3>
-                        <h3>
-                            Employee.py
-                        </h3>
-                        <pre>
-class Employee:
-
-    # This is also another way of creating new class variables
-    raise_amount = 1.04 # Float
-
-    total_employees = 0
-
-    # Constructor
-    def __init__(self, first, last, pay):
-        self.first = first
-        self.last = last
-        self.pay = pay
-        self.email = f"{first}.{last}@companymail.com"
-        Employee.total_employees += 1
-
-    # So return is what you get out of using the method
-    def fullname(self):
-        return f"{self.first} {self.last}" # Here we return a string for using fullname
-
-    def emailAndPay(self):
-        return f"Pay: {self.pay}, Email: {self.email}"
-
-    def applyraise(self):
-        self.pay = int(self.pay * self.raise_amount)
-
-    # cls means class
-    @classmethod
-    def set_raise_amount(cls, amount):
-        cls.raise_amount = amount
-
-    # ignores class and instance, there from the beginning
-    @staticmethod
-    def is_workday(day):
-        if day.weekday() == 5 or day.weekday() == 6:
-            return False
-        return True
-                        </pre>
                         <h3>
                             main.py
                         </h3>
                         <pre>
-                            from Employee import Employee
-import datetime
+#!/bin/python3
 
-# emp1 is an instance of our class Employee
-emp1 = Employee("John", "Doe", 500)
-emp2 = Employee("Richard", "Sweeney", 10000)
+choice = input('''
+1. for sword
+2. for shield
+''')
 
-my_day = datetime.date(2021, 8, 19)
-print(Employee.is_workday(my_day))
+choice = int(choice)
 
-print(emp1.fullname())
-print(emp1.emailAndPay())
-print(emp2.emailAndPay())
-emp1.applyraise()
-print(emp1.emailAndPay())
-# Employee.set_raise_amount(1.10)
-emp1.set_raise_amount(1.10)
-emp1.applyraise()
-emp2.applyraise()
-print(emp1.emailAndPay())
-print(emp2.emailAndPay())
-print(Employee.total_employees)
+'''
+if something:
+  # Code here is "inside" the if statement above
+# Code here is "outside" the if statement above
+'''
 
+# For comparisons, use two equals signs
+if choice == 1:
+  print("Nice sword")
+elif choice == 2:
+  print("Nice shield")
+else:
+  print("No equipment chosen")
 
-# Another way of calling class methods/functions
-# print(Employee.fullname(emp1))
+# Code is top to bottom
+
+# Assignment
+test = 5
+
+yearBorn = input("What year were you born?")
+
+# convert to integer
+yearBorn = int(yearBorn)
+
+age = 2021 - yearBorn
+# One of the ways to put a var in a str
+print('You are', age, 'years old')
+print('You are ' + str(age) + ' years old')
+
+print('Here is a scarf:')
+print('~#' * 10)
+print('#~' * 10)
+
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+print(alphabet * 100)
+                        </pre>
+                        <h3>
+                            rps.py
+                        </h3>
+                        <pre>
+#!/bin/python3
+from random import randint
+
+player = input('''
+Rock - 1
+Paper - 2
+Scissors - 3
+''')
+
+# Convert to int to compare
+player = int(player)
+
+# Randint = random integer
+cpu = randint(1, 3) # 1 = r, 2 = p, 3 = s
+
+if player == cpu:
+    print("Tie")
+elif player == 1 and cpu == 2:
+    print("CPU Wins")
+elif player == 1 and cpu == 3:
+    print("Player Wins")
+elif player == 2 and cpu == 1:
+    print("Player Wins")
+elif player == 2 and cpu == 3:
+    print("CPU Wins")
+elif player == 3 and cpu == 1:
+    print("Player Wins")
+elif player == 3 and cpu == 2:
+    print("CPU Wins")
+else:
+    print("Not a choice")
                         </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
-                            &nbsp;
+                            Homework
                         </h3>
-                        <h4>
-                            Python 2
-                        </h4>
-                        <p>
-                            Create a chicken class
-                            <br/>
-                            - It should have "1" parameter in the init which is name
-                            <br/>
-                            - Have "1" method which is speak
-                            <br/>
-                            - Speak method should say their name, (ex. Andrew says "Bok bok")
-                            <br/>
-                            - It should speak "bok bok" or something of the sort
-                        </p>
-                        <p>
-                            Create a main.py
-                            <br/>
-                            - Make 3 instances of the chicken
-                            <br/>
-                            - And make them all speak
-                            <br/>
-                            - As a challenge Keep track of total number of chickens
-                        </p>
+                        <h3>
+                            RPS
+                        </h3>
+                        <pre class="homework">
+# Normal homework:
+# At least 2 more choice in addition to rps, ex. gun, lizard
+# gun beats rock, scissors and paper but lizards eat ur gun
+
+# Challenge homework:
+# Draw ascii art for every possible option
+                        </pre>
                     </div>
                 </div>
             </div>
@@ -272,16 +284,86 @@ print(Employee.total_employees)
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            Done!
+                            End code:
+                        </h3>
+                        <h3>
+                            <a href="resources/PygameAdv/dodger.py">
+                                dodger.py
+                            </a>
                         </h3>
                     </div>
                     <div class="col-md-6">
                         <h3>
-                            &nbsp;
+                            Homework
                         </h3>
                         <h3>
-                            Done!
+                            Assorted
                         </h3>
+                        <pre class="homework">
+# Normal homework:
+# Create a number guessing game
+# have the user be able to keep guessing until they get it right
+# Ask the user if they would like to play again
+
+# Challenge:
+# Be able to move the character in the dodger game
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div id="class4" class="collapse">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>
+                            End code:
+                        </h3>
+                        <h3>
+                            <a href="resources/APJava/Area.java">
+                                Area.java
+                            </a>
+                        </h3>
+                        <h3>
+                            <a href="resources/APJava/driver_Area.java">
+                                driver_Area.java
+                            </a>
+                        </h3>
+                        <h3>
+                            <a href="resources/APJava/Dog.java">
+                                Dog.java
+                            </a>
+                        </h3>
+                        <h3>
+                            <a href="resources/APJava/driver_Dog.java">
+                                driver_Dog.java
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>
+                            Homework
+                        </h3>
+                        <h3>
+                            Classes Part 2
+                        </h3>
+                        <pre class="homework">
+// Make 3 classes
+// 1 Cat, 1 Bird, 1 Dolphin
+
+// Each class must have at least two fields that are present in all classes.
+// For example, age and name.
+
+// Each class must also have at least one method that are present in all classes.
+// For example, speak.
+
+// Each class should have at least one field and one method that aren’t in the other classes.
+// For example, Bird’s can have fields and methods related to flying.
+
+// Make sure each class also has appropriate getters and setters.
+
+// Challenge:
+// Have the cat and bird and dolphin be able to interact with one another
+// Going to be tricky because of Bird interaction with Dolphin and vice versa
+                        </pre>
                     </div>
                 </div>
             </div>

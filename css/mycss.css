@@ -13,7 +13,7 @@ img {
     max-height: 500px;
 }
 
-pre {
+pre.homework {
     background: #f4f4f4;
     border: 1px solid #ddd;
     border-left: 3px solid #f36d33;
