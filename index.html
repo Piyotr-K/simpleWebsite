@@ -27,6 +27,10 @@
                     <span class="glyphicon glyphicon-collapse-down"></span>
                     Python 2 Friday Class
                 </button>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class5">
+                    <span class="glyphicon glyphicon-collapse-down"></span>
+                    Python 1 Friday Class
+                </button>
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class2">
                     <span class="glyphicon glyphicon-collapse-down"></span>
                     Python 1 Sunday Class
@@ -47,124 +51,43 @@
                             End code:
                         </h3>
                         <h3>
-                            animal.py
+                            <a href="resources/Python2/Employee.py">
+                                Employee.py
+                            </a>
                         </h3>
-                        <pre>
-class Animal:
-
-    total_Animals = 0
-
-    def __init__(self, name):
-        self.name = name
-        Animal.total_Animals += 1
-                        </pre>
                         <h3>
-                            chicken.py
+                            <a href="resources/Python2/Manager.py">
+                                Manager.py
+                            </a>
                         </h3>
-                        <pre>
-from animal import Animal
-
-class Chicken(Animal):
-
-    total_Chickens = 0
-    
-    def __init__(self, name):
-        super().__init__(name)
-        Chicken.total_Chickens += 1
-    
-    def speak(self):
-        return f"{self.name} says bok bok!"
-                        </pre>
                         <h3>
-                            sheep.py
+                            <a href="resources/Python2/Programmer.py">
+                                Programmer.py
+                            </a>
                         </h3>
-                        <pre>
-from animal import Animal
-
-class Sheep(Animal):
-
-    def __init__(self, name, color, rate):
-        super().__init__(name)
-        self.color = color
-        self.growth = rate
-    
-    def speak(self):
-        return f"{self.name} the sheep says Baaa!"
-    
-    def wool(self):
-        return f"{self.name} the sheep has {self.color} coloured wool."
-    
-    def rate(self):
-        return f"{self.name} the sheep's {self.color} wool grows at {self.growth} days per full coat."
-    
-    def eat(self, food):
-        if food == "Takoyaki":
-            return f"{self.name} likes {food}"
-        elif food == "Hay":
-            return f"{self.name} likes {food}"
-        return f"{self.name} dislikes {food}"
-                        </pre>
                         <h3>
-                            main.py
+                            <a href="resources/Python2/hw.py">
+                                main.py
+                            </a>
                         </h3>
-                        <pre>
-from animal import Animal
-from chicken import Chicken
-from sheep import Sheep
-
-# Passing values through parameters
-c1 = Chicken("Sam")
-c2 = Chicken("Michael")
-c3 = Chicken("Peter")
-
-s1 = Sheep("SamX", "Red", "30")
-s2 = Sheep("MikeX", "Green", "20")
-
-print(c1.speak())
-print(c2.speak())
-print(c3.speak())
-
-print(s1.speak()) # --> "Max the sheep says Baaaa"
-print(s1.wool()) # --> "Max the sheep has red coloured wool"
-print(s1.rate()) # --> "Max the sheep's red wool grows at 14 days per full coat"
-
-print(s1.eat("Chocolate")) # --> "Max doesn't like Chocolate"
-print(s1.eat("Takoyaki")) # --> "Max likes Takoyaki"
-print(s1.eat("Hay")) # --> "Max likes Hay"
-
-print(s2.speak())
-
-print(Chicken.total_Chickens) # --> Total number of chickens
-print(Animal.total_Animals)
-                        </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             Homework
                         </h3>
                         <h3>
-                            Inheritance
+                            More Inheritance
                         </h3>
                         <pre class="homework">
-# Inheritance
-# 2 New sub classes of Employee
-# - 1 is a programmer
-    - Contains 4 parameters for the constructor
-    - (fname, lname, pay, prog_lang)
-    - have a variable keep track of all the programmers
-# - 1 is a manager
-    - Contains 4 parameters for the constructor
-    - (fname, lname, pay, team)
-        - team ex. (Marketing, Accounting)
-    - have a variable keep track of all the Managers
-# At least 3-5 of each sub class
-# Keep track of all the Employees in total
-    - print(all_programmers, all_managers, all_employees)
-
-Challenge:
-- Have the programmer have a different raise amount
-- Have the manager have a different raise amount
-- Generate a random number of programmers and managers
+# Basic:
+# Add the magic methods __str__ and __add__ to animal
+# __str__ print out the Animal's name and the animal's species
+#     -> "Bob the chicken"
+# __add__ print out a message that the animal tried to add something
+#     -> "Bob the chicken tried to add itself to 5"
+# Make a list of 5 chickens and 5 sheep
+# Print out all the chickens and sheep
+#     -> print(chicken1) and print(sheep1)
                         </pre>
                     </div>
                 </div>
@@ -363,6 +286,55 @@ else:
 // Challenge:
 // Have the cat and bird and dolphin be able to interact with one another
 // Going to be tricky because of Bird interaction with Dolphin and vice versa
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            <div id="class5" class="collapse">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>
+                            End code:
+                        </h3>
+                        <h3>
+                            main.py
+                        </h3>
+                        <pre>
+#!/bin/python3
+
+print("Hello")
+
+print("Here's a picture of a dog")
+print(' o_______ ')
+print('  ||||')
+
+# Printing your names
+# Print grade and age
+# Print your favourite animal
+# Print something you like to do
+
+# Print a class you like at school
+# Print a message about the thing you like to do
+# and why you like it
+
+heehee = 10
+print(heehee + 5)
+
+year_born = input("What year were you born in?")
+print(2021 - int(year_born))
+                        </pre>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>
+                            Homework
+                        </h3>
+                        <h3>
+                            Intro
+                        </h3>
+                        <pre class="homework">
+# Print a class you like at school
+# Print a message about the thing you like to do
+# and why you like it
                         </pre>
                     </div>
                 </div>
