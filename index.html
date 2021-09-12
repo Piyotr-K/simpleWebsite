@@ -104,85 +104,76 @@
                         <pre>
 #!/bin/python3
 
-choice = input('''
-1. for sword
-2. for shield
-''')
-
-choice = int(choice)
-
-'''
-if something:
-  # Code here is "inside" the if statement above
-# Code here is "outside" the if statement above
-'''
-
-# For comparisons, use two equals signs
-if choice == 1:
-  print("Nice sword")
-elif choice == 2:
-  print("Nice shield")
-else:
-  print("No equipment chosen")
-
-# Code is top to bottom
-
-# Assignment
-test = 5
-
-yearBorn = input("What year were you born?")
-
-# convert to integer
-yearBorn = int(yearBorn)
-
-age = 2021 - yearBorn
-# One of the ways to put a var in a str
-print('You are', age, 'years old')
-print('You are ' + str(age) + ' years old')
-
-print('Here is a scarf:')
-print('~#' * 10)
-print('#~' * 10)
-
-alphabet = "abcdefghijklmnopqrstuvwxyz"
-
-print(alphabet * 100)
-                        </pre>
-                        <h3>
-                            rps.py
-                        </h3>
-                        <pre>
-#!/bin/python3
+from turtle import *
 from random import randint
 
-player = input('''
-Rock - 1
-Paper - 2
-Scissors - 3
-''')
+speed(0) # change the drawing speed
 
-# Convert to int to compare
-player = int(player)
+# goto(-150, -150)
+# circle(180)
+pu() # penup()
 
-# Randint = random integer
-cpu = randint(1, 3) # 1 = r, 2 = p, 3 = s
+starting_x = -150
+starting_y = 150
+# Race course location
+goto(starting_x, starting_y)
 
-if player == cpu:
-    print("Tie")
-elif player == 1 and cpu == 2:
-    print("CPU Wins")
-elif player == 1 and cpu == 3:
-    print("Player Wins")
-elif player == 2 and cpu == 1:
-    print("Player Wins")
-elif player == 2 and cpu == 3:
-    print("CPU Wins")
-elif player == 3 and cpu == 1:
-    print("Player Wins")
-elif player == 3 and cpu == 2:
-    print("CPU Wins")
-else:
-    print("Not a choice")
+# pd() # pendown()
+for step in range(11):
+    write(step * 10, align = "center")
+    right(90)
+    forward(10)
+    pd()
+    for step in range(5):
+    forward(20)
+    pu()
+    forward(20)
+    pd()
+    pu()
+    backward(210) # Number of dashes * distance
+    left(90)
+    forward(30)
+
+yuki = Turtle() # Creating a new pen
+yuki.color('Green')
+yuki.shape('turtle')
+yuki.pu()
+
+carol = Turtle()
+carol.color('Blue')
+carol.shape('turtle')
+carol.pu()
+
+ethan = Turtle()
+ethan.color('red')
+ethan.shape('turtle')
+ethan.pu()
+
+john = Turtle()
+john.color('#FFBA00')
+john.shape('turtle')
+john.pu()
+
+josh = Turtle()
+josh.color('purple')
+josh.shape('turtle')
+josh.pu()
+
+yuki.goto(starting_x, starting_y - 30)
+carol.goto(starting_x, starting_y - (30 * 2))
+ethan.goto(starting_x, starting_y - (30 * 3))
+john.goto(starting_x, starting_y - (30 * 4))
+josh.goto(starting_x, starting_y - (30 * 5))
+
+for step in range(100):
+    yuki.forward(randint(1, 5))
+    carol.forward(randint(1, 5))
+    ethan.forward(randint(1, 5))
+    john.forward(randint(1, 5))
+    josh.forward(randint(1, 5))
+    break
+
+    print(yuki.xcor())
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -190,15 +181,17 @@ else:
                             Homework
                         </h3>
                         <h3>
-                            RPS
+                            Racing turtles
                         </h3>
                         <pre class="homework">
-# Normal homework:
-# At least 2 more choice in addition to rps, ex. gun, lizard
-# gun beats rock, scissors and paper but lizards eat ur gun
+# Normal:
+# Draw a stadium around the racetrack
+# Use circles and whatever else you want
 
-# Challenge homework:
-# Draw ascii art for every possible option
+# Challenge:
+# Get the turtles to stop at the finish line
+# Also print out who wins
+# Need to use break
                         </pre>
                     </div>
                 </div>
