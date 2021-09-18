@@ -301,26 +301,34 @@ The Classes created should satisfy these properties:
                         <pre>
 #!/bin/python3
 
-print("Hello")
+choice = input('''
+1. for sword
+2. for shield
+3. for bread
+''')
 
-print("Here's a picture of a dog")
-print(' o_______ ')
-print('  ||||')
+choice = int(choice)
 
-# Printing your names
-# Print grade and age
-# Print your favourite animal
-# Print something you like to do
-
-# Print a class you like at school
-# Print a message about the thing you like to do
-# and why you like it
-
-heehee = 10
-print(heehee + 5)
-
-year_born = input("What year were you born in?")
-print(2021 - int(year_born))
+# if something then something else
+# you need the colon ":"
+# you need to use == for comparison
+# you need the indent (spaces infront of the line)
+if choice == 1:
+    print("Sword Picked")
+    print('''
+    o-X=====>
+    ''')
+elif choice == 2:
+    print("Nice Shield")
+    print('''
+    [==]
+    [==]
+    [==]
+    ''')
+elif choice == 3:
+    print("Nice Bread")
+else:
+    print("Not an option")
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -328,12 +336,14 @@ print(2021 - int(year_born))
                             Homework
                         </h3>
                         <h3>
-                            Intro
+                            If statements
                         </h3>
                         <pre class="homework">
-# Print a class you like at school
-# Print a message about the thing you like to do
-# and why you like it
+# Normal:
+# Have 5 choices in total with art
+#
+# Challenge:
+# Have coins that you can buy the items with
                         </pre>
                     </div>
                 </div>
