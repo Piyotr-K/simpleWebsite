@@ -90,76 +90,86 @@
                         <pre>
 #!/bin/python3
 
-from turtle import *
-from random import randint
+# import random
+from random import choice
 
-speed(0) # change the drawing speed
+players = []
+file = open('players.txt', 'r')
+players = file.read().splitlines()
+print(players)
 
-# goto(-150, -150)
-# circle(180)
-pu() # penup()
+while True:
+    name = input("Enter a name: ")
+    # Add to a list -> listname.append(variable)
+    # Exit a loop -> break
+    # If statement
+    # Make use of == sign
+    # When the user types "!q" exit the loop
 
-starting_x = -150
-starting_y = 150
-# Race course location
-goto(starting_x, starting_y)
+teamA = []
+teamB = []
+teamC = []
 
-# pd() # pendown()
-for step in range(11):
-    write(step * 10, align = "center")
-    right(90)
-    forward(10)
-    pd()
-    for step in range(5):
-    forward(20)
-    pu()
-    forward(20)
-    pd()
-    pu()
-    backward(210) # Number of dashes * distance
-    left(90)
-    forward(30)
-
-yuki = Turtle() # Creating a new pen
-yuki.color('Green')
-yuki.shape('turtle')
-yuki.pu()
-
-carol = Turtle()
-carol.color('Blue')
-carol.shape('turtle')
-carol.pu()
-
-ethan = Turtle()
-ethan.color('red')
-ethan.shape('turtle')
-ethan.pu()
-
-john = Turtle()
-john.color('#FFBA00')
-john.shape('turtle')
-john.pu()
-
-josh = Turtle()
-josh.color('purple')
-josh.shape('turtle')
-josh.pu()
-
-yuki.goto(starting_x, starting_y - 30)
-carol.goto(starting_x, starting_y - (30 * 2))
-ethan.goto(starting_x, starting_y - (30 * 3))
-john.goto(starting_x, starting_y - (30 * 4))
-josh.goto(starting_x, starting_y - (30 * 5))
-
-for step in range(100):
-    yuki.forward(randint(1, 5))
-    carol.forward(randint(1, 5))
-    ethan.forward(randint(1, 5))
-    john.forward(randint(1, 5))
-    josh.forward(randint(1, 5))
+while len(players) > 0:
+    chosenPlayer = choice(players)
+    teamA.append(chosenPlayer)
+    players.remove(chosenPlayer)
+    
+    if players == []:
     break
+    
+    chosenPlayer = choice(players)
+    teamB.append(chosenPlayer)
+    players.remove(chosenPlayer)
+    
+    if players == []:
+    break
+    
+    chosenPlayer = choice(players)
+    teamC.append(chosenPlayer)
+    players.remove(chosenPlayer)
 
-    print(yuki.xcor())
+print("Team A:", teamA)
+print("Team B:", teamB)
+print("Team C:", teamC)
+
+file = open('finalTeams.txt', 'w')
+
+file.write("Team A:\n")
+for member in teamA:
+    file.write(member + "\n")
+
+file.write("\nTeam B:\n")
+for member in teamB:
+    file.write(member + "\n")
+
+file.write("\nTeam C:\n")
+for member in teamC:
+    file.write(member + "\n")
+
+
+# Appendix
+
+# An empty list
+# empty = []
+
+# In programming we start counting from 0
+# players[0] # -> player1
+
+# Adding to a list
+# empty.append("thing")
+# empty.append("to-be-removed")
+
+# Removing from a list with a value
+# empty.remove("to-be-removed")
+
+# Removing from a list with an index
+# empty.remove(empty[0])
+
+# While loop
+# while condition:
+#   # Do stuff in here
+#   do_the_code()
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -167,18 +177,20 @@ for step in range(100):
                             Homework
                         </h3>
                         <h3>
-                            Racing turtles
+                            Lists
                         </h3>
                         <pre class="homework">
 # Normal:
-# Draw a stadium around the racetrack
-# Use circles and whatever else you want
-
-# Challenge:
-# Get the turtles to stop at the finish line
-# Also print out who wins
-# Need to use break
+# Finish the input stuff from class
+#
+# Hints:
+# Add to a list -> listname.append(variable)
+# Exit a loop -> break
+# If statement
+# Make use of == sign
+# When the user types "!q" exit the loop
                         </pre>
+                        <img src="resources/2021_09_19_hw.png" width="50%">
                     </div>
                 </div>
             </div>
