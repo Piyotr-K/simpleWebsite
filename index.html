@@ -86,86 +86,32 @@
                         <pre>
 #!/bin/python3
 
-# import random
-from random import choice
+# str (String)
+alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-players = []
-file = open('players.txt', 'r')
-players = file.read().splitlines()
-print(players)
+# test = "hello there"
+# Returns you the pos of the char in the str
+# print(test.find("e")) # 1
+# 17 % 6 -> 5 # modulus: take the remainder
 
-while True:
-    name = input("Enter a name: ")
-    # Add to a list -> listname.append(variable)
-    # Exit a loop -> break
-    # If statement
-    # Make use of == sign
-    # When the user types "!q" exit the loop
+msg = input("Enter a letter to be encrypted:")
+key = input("Enter a key to encrypt with:")
+key = int(key)
 
-teamA = []
-teamB = []
-teamC = []
+encoded = ""
 
-while len(players) > 0:
-    chosenPlayer = choice(players)
-    teamA.append(chosenPlayer)
-    players.remove(chosenPlayer)
-    
-    if players == []:
-    break
-    
-    chosenPlayer = choice(players)
-    teamB.append(chosenPlayer)
-    players.remove(chosenPlayer)
-    
-    if players == []:
-    break
-    
-    chosenPlayer = choice(players)
-    teamC.append(chosenPlayer)
-    players.remove(chosenPlayer)
+for char in msg:
+    pos = alphabet.find(char)
+    pos = (pos + key) % 26
+    encoded += alphabet[pos]
 
-print("Team A:", teamA)
-print("Team B:", teamB)
-print("Team C:", teamC)
+print("Encoded message:", encoded)
 
-file = open('finalTeams.txt', 'w')
+pos = alphabet.find(encoded)
+pos = (pos - key) % 26
+decoded = alphabet[pos]
 
-file.write("Team A:\n")
-for member in teamA:
-    file.write(member + "\n")
-
-file.write("\nTeam B:\n")
-for member in teamB:
-    file.write(member + "\n")
-
-file.write("\nTeam C:\n")
-for member in teamC:
-    file.write(member + "\n")
-
-
-# Appendix
-
-# An empty list
-# empty = []
-
-# In programming we start counting from 0
-# players[0] # -> player1
-
-# Adding to a list
-# empty.append("thing")
-# empty.append("to-be-removed")
-
-# Removing from a list with a value
-# empty.remove("to-be-removed")
-
-# Removing from a list with an index
-# empty.remove(empty[0])
-
-# While loop
-# while condition:
-#   # Do stuff in here
-#   do_the_code()
+print("Decoded message:", decoded)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -173,18 +119,18 @@ for member in teamC:
                             Homework
                         </h3>
                         <h3>
-                            Lists
+                            Ciphers
                         </h3>
                         <pre class="homework">
 # Normal:
-# Finish the input stuff from class
+# Encode and decode sentences
+# Ex. "hello there" with key 3 becomes "khoor wkhuh" and then decodes to "hello there"
+#
+# Challenge:
+# Read from a file and encode and decode that
 #
 # Hints:
-# Add to a list -> listname.append(variable)
-# Exit a loop -> break
-# If statement
-# Make use of == sign
-# When the user types "!q" exit the loop
+# For spaces use an if statement
                         </pre>
                         <img src="resources/2021_09_19_hw.png" width="50%">
                     </div>
