@@ -94,32 +94,120 @@
                         <pre>
 #!/bin/python3
 
-# str (String)
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+from random import choice
+from random import randint
 
-# test = "hello there"
-# Returns you the pos of the char in the str
-# print(test.find("e")) # 1
-# 17 % 6 -> 5 # modulus: take the remainder
+name = input("What's your name?")
+gender = input("boy/girl/other")
+print("Hello " + name)
 
-msg = input("Enter a letter to be encrypted:")
-key = input("Enter a key to encrypt with:")
-key = int(key)
+pronoun = ""
+if gender == "girl":
+    pronoun = "she"
+elif gender == "boy":
+    pronoun = "he"
+else:
+    pronoun = "it"
 
-encoded = ""
+names = ["Yuki", "Carol", "Ethan(Mia)", "Piyotr", "Liz"]
+roles = ["Knight", "Princess", "Prince", "Wizard"]
+places = ["Forest", "Castle", "Space", "Narnia", "Wonderland"]
+actions = ["Rescue", "Protect", "Defeat", "Attack", "Punch"]
+# Create 2 more for places and actions
 
-for char in msg:
-    pos = alphabet.find(char)
-    pos = (pos + key) % 26
-    encoded += alphabet[pos]
+actor = choice(names)
+role = choice(roles)
+action = choice(actions)
+location = choice(places)
 
-print("Encoded message:", encoded)
+story = "Once upon a time, there was a " + role + " called " +\
+        name + ". " + pronoun + " and some friends found themselves " +\
+        "in the magic land of " + location + ". This land was ruled by " +\
+        actor + " the " + role + ". All of a sudden a mysterious voice" +\
+        " spoke to them from high in the sky and said you must " + action +\
+        " " + actor + " the " + role + " to life the curse of not" +\
+        " being able to use technology..."
 
-pos = alphabet.find(encoded)
-pos = (pos - key) % 26
-decoded = alphabet[pos]
+print(story)
 
-print("Decoded message:", decoded)
+print("\n" * 3)
+location = input('''
+Choose a starting location:
+1. Forest of trees
+2. Good Wonderland
+''')
+
+if location == "1":
+    location = "Forest of trees"
+elif location == "2":
+    location = "Good Wonderland"
+else:
+    location = "River of water"
+
+intro_1 = "You step out of your black car infront of the " + location +\
+            ". You see a path to the left and to the right."
+
+print("\n" + intro_1 + "\n")
+
+user = input("Which path do you take? (l/r)")
+
+if user == "r":
+    print("You go to the right.")
+    user = "right"
+elif user == "l":
+    print("You go to the left.")
+    user = "left"
+else:
+    print("You were hesitant but felt more compelled to go left.")
+
+# Add 2 more scenarios
+# Have the player end up in an indoor area
+
+print("You're heading down the " + user + " path, but all of a sudden" +\
+        " a goblin jumps out and attacks you.")
+
+enemy = "Goblin"
+defeated = False
+monster_hp = 100
+player_hp = 100
+
+while not defeated:
+    print(enemy + "'s HP: " + str(monster_hp))
+    print("Your HP: " + str(player_hp))
+    
+    player = input("(A)ttack | (D)efend | (B)ag | (R)un")
+    player = player.upper()
+
+    # 1 - attack, 2 - defend
+    monster = randint(1,2)
+    
+    if player == "A":
+        if monster == 1:
+            monster_hp -= 20 # Enemy attacked
+            # Player take damage
+        elif monster == 2:
+            monster_hp -= 10 # Enemy defended
+    elif player == "D":
+        # Defend, take into account enemy attack
+        # to-do defend stuff
+    elif player == "B":
+        # Challenge
+        # You have items that you can use
+        # Let the player choose
+        # The items do different things
+        # to-do bag stuff
+    elif player == "R":
+        # Escape based on a percentage, 50% to run
+        # If you fail you take damage
+        # to-do run stuff
+    else:
+        print("Invalid choice")
+    
+    if monster_hp &lt;= 0:
+        print("The " + enemy + " has been defeated.")
+        print("You get $2.50")
+        defeated = True
+        # Make a player death part too
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -127,18 +215,18 @@ print("Decoded message:", decoded)
                             Homework
                         </h3>
                         <h3>
-                            Ciphers
+                            Text-Based Combat
                         </h3>
                         <pre class="homework">
 # Normal:
-# Encode and decode sentences
-# Ex. "hello there" with key 3 becomes "khoor wkhuh" and then decodes to "hello there"
+# Finish defend and run
+# Run should be based on a "fraction"
+# Make player death
+# Have player take damage from enemy
 #
 # Challenge:
-# Read from a file and encode and decode that
-#
-# Hints:
-# For spaces use an if statement
+# Implement bag
+# Use different items and they do different things
                         </pre>
                     </div>
                 </div>
