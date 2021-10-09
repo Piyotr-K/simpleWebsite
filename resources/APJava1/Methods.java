@@ -6,9 +6,21 @@ public class Methods {
         int[] arr1 = {1, 2, 3, 4, 5};
         int[] arr2 = new int[5];
 
-        arr2[0] = 5;
-        for (int i = 0; i < arr1.length; i++)
-            System.out.println(arr1[i]);
+        int[] exercise1 = {1, 2, 3, 4, 5, 6};
+        int[] exercise2 = {1, 2, 3, 4, 5, 6, 7};
+
+        // Array are poopy but they take up less memory and do simple
+        // Lists are better but take up moar memory and do big complex
+
+        // given an array see if there is a negative number in it
+        // if there is return true otherwise false
+        // make a new function
+        // use a for loop
+        System.out.println(arrNegative(exercise1));
+
+        // given an array find if the sum is an even or odd number
+        // if it is even return true, if odd return false;
+        System.out.println(arrSumEven(exercise2));
 
         // greet("Sam");
         // System.out.println(power(2, 3));
@@ -47,5 +59,74 @@ public class Methods {
     public static boolean tellMeEven(int num)
     {
         return num % 2 == 0;
+    }
+
+    public static void question1()
+    {
+        int num = 22;
+        if (num > 0)
+        if (num % 5 == 0)
+        System.out.println(num);
+        else System.out.println(num + " is negative");
+    }
+
+    public static void question2()
+    {
+        int x = 30, y = 40;
+        if (x >= 0)
+        {
+            if (x <= 100)
+            {
+                y = x * 3;
+                if (y < 50)
+                    x /= 10;
+            }
+            else
+                y = x * 2;
+        }
+        else
+            y = -x;
+        System.out.println("x: " + x + ", y: " + y);
+    }
+
+    public static void question3()
+    {
+        int a = 5, b = 4, n = 6;
+        // a != b
+        if (a != b && n / (a-b) > 90)
+        {
+            /* statement 1 */
+        }
+        else
+        {
+            /* statement 2 */
+        }
+        /* statement 3 */
+
+        // A) statement 1 will be exectued
+        // B) statement 2 will be executed
+        // C) either statement 1 or statement 2
+        // D) Compile die
+        // E) Exception -> "Crash"
+    }
+
+    public static boolean arrNegative(int[] arr)
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            if (arr[i] < 0)
+                return true;
+        }
+        return false;
+    }
+
+    public static boolean arrSumEven(int[] arr)
+    {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++)
+        {
+            sum += arr[i];
+        }
+        return sum % 2 == 0;
     }
 }
