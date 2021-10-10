@@ -99,120 +99,61 @@
                         <pre>
 #!/bin/python3
 
-from random import choice
-from random import randint
+import turtle
 
-name = input("What's your name?")
-gender = input("boy/girl/other")
-print("Hello " + name)
-
-pronoun = ""
-if gender == "girl":
-    pronoun = "she"
-elif gender == "boy":
-    pronoun = "he"
-else:
-    pronoun = "it"
-
-names = ["Yuki", "Carol", "Ethan(Mia)", "Piyotr", "Liz"]
-roles = ["Knight", "Princess", "Prince", "Wizard"]
-places = ["Forest", "Castle", "Space", "Narnia", "Wonderland"]
-actions = ["Rescue", "Protect", "Defeat", "Attack", "Punch"]
-# Create 2 more for places and actions
-
-actor = choice(names)
-role = choice(roles)
-action = choice(actions)
-location = choice(places)
-
-story = "Once upon a time, there was a " + role + " called " +\
-        name + ". " + pronoun + " and some friends found themselves " +\
-        "in the magic land of " + location + ". This land was ruled by " +\
-        actor + " the " + role + ". All of a sudden a mysterious voice" +\
-        " spoke to them from high in the sky and said you must " + action +\
-        " " + actor + " the " + role + " to life the curse of not" +\
-        " being able to use technology..."
-
-print(story)
-
-print("\n" * 3)
-location = input('''
-Choose a starting location:
-1. Forest of trees
-2. Good Wonderland
-''')
-
-if location == "1":
-    location = "Forest of trees"
-elif location == "2":
-    location = "Good Wonderland"
-else:
-    location = "River of water"
-
-intro_1 = "You step out of your black car infront of the " + location +\
-            ". You see a path to the left and to the right."
-
-print("\n" + intro_1 + "\n")
-
-user = input("Which path do you take? (l/r)")
-
-if user == "r":
-    print("You go to the right.")
-    user = "right"
-elif user == "l":
-    print("You go to the left.")
-    user = "left"
-else:
-    print("You were hesitant but felt more compelled to go left.")
-
-# Add 2 more scenarios
-# Have the player end up in an indoor area
-
-print("You're heading down the " + user + " path, but all of a sudden" +\
-        " a goblin jumps out and attacks you.")
-
-enemy = "Goblin"
-defeated = False
-monster_hp = 100
-player_hp = 100
-
-while not defeated:
-    print(enemy + "'s HP: " + str(monster_hp))
-    print("Your HP: " + str(player_hp))
+def simpleSnowflake(x, y, br):
+    snow.pu()
+    snow.goto(x, y)
+    snow.pd()
     
-    player = input("(A)ttack | (D)efend | (B)ag | (R)un")
-    player = player.upper()
+    for i in range(br):
+        for i in range(2):
+            snow.forward(100)
+            snow.right(60)
+            snow.forward(100)
+            snow.right(120)
+        snow.right(360 / br)
 
-    # 1 - attack, 2 - defend
-    monster = randint(1,2)
-    
-    if player == "A":
-        if monster == 1:
-            monster_hp -= 20 # Enemy attacked
-            # Player take damage
-        elif monster == 2:
-            monster_hp -= 10 # Enemy defended
-    elif player == "D":
-        # Defend, take into account enemy attack
-        # to-do defend stuff
-    elif player == "B":
-        # Challenge
-        # You have items that you can use
-        # Let the player choose
-        # The items do different things
-        # to-do bag stuff
-    elif player == "R":
-        # Escape based on a percentage, 50% to run
-        # If you fail you take damage
-        # to-do run stuff
-    else:
-        print("Invalid choice")
-    
-    if monster_hp &lt;= 0:
-        print("The " + enemy + " has been defeated.")
-        print("You get $2.50")
-        defeated = True
-        # Make a player death part too
+def twig():
+    snow.left(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.right(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.right(45)
+    snow.forward(30)
+    snow.backward(30)
+    snow.left(45)
+
+def branch():
+    for i in range(numOfSegments):
+        twig()
+        snow.forward(twigLength)
+
+    snow.backward(twigLength * numOfSegments)
+
+def snowflake(x, y, br):
+    snow.pu()
+    snow.goto(x, y)
+    snow.pd()
+
+    for i in range(br):
+        branch()
+        snow.right(360 / br)
+
+snow = turtle.Turtle()
+snow.speed(0)
+snow.color("cyan")
+turtle.Screen().bgcolor("Dark Gray")
+snow.ht()
+
+twigLength = 30
+numOfSegments = 4
+numOfBranches = 6
+
+snowflake(100, -100, 6)
+snowflake(0, 200, 8)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -223,15 +164,13 @@ while not defeated:
                             Text-Based Combat
                         </h3>
                         <pre class="homework">
-# Normal:
-# Finish defend and run
-# Run should be based on a "fraction"
-# Make player death
-# Have player take damage from enemy
+# Required:
+# Draw a tree
+# Can be just 4 triangles stacked on top of one another
+# If you want to be spicy add a trunk
 #
 # Challenge:
-# Implement bag
-# Use different items and they do different things
+# Resizable snowflakes
                         </pre>
                     </div>
                 </div>
