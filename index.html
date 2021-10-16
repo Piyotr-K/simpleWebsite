@@ -65,24 +65,11 @@
                             Homework
                         </h3>
                         <h3>
-                            More for loops
+                            More Codingbat
                         </h3>
                         <pre class="homework">
 // Required:
-// create a method named getSum()
-// it should take in two parameters, int x and int y
-// return the sum of all numbers between x and y (inclusive) as an integer.
-// Assume x &lt; y
-// ex: getSum(8, 10);
-// returns 27 (8 + 9 + 10 = 27)
-// ex: getSum(-2, 10);
-// returns 52 (-2 + -1 + 0 + 1 + ... + 10 = 52)
-//
-// Challenge:
-// no assumptions
-// x can be greater than y
-// x and y can be equal
-// x or y can be null
+// Finish up to arrays-1 sum2
                         </pre>
                     </div>
                 </div>
@@ -258,9 +245,58 @@ snowflake(0, 200, 8)
                             End code:
                         </h3>
                         <h3>
-                            turtle.py
+                            lists
                         </h3>
                         <pre>
+#!/bin/python3
+
+# list of stuff
+# 1 - 1 toy
+# 2 - 1 Money
+# 3 - Own the government
+listOfStuff = ["Money", "Toys", "Government", "Russia"]
+
+# Print out the length of the list
+print(len(listOfStuff))
+
+# Print out all of the stuff in the list
+print(listOfStuff)
+
+# Print individual items
+print(listOfStuff[0]) # REMEMBER PROGRAMMING STARTS COUNTING AT 0
+
+# Change items in a list
+listOfStuff[0] = "MoarMoney"
+print("After changing the first item:", listOfStuff)
+
+# Print out the last item of the list using len
+print(listOfStuff[len(listOfStuff) - 1])
+
+# Empty a list
+listOfStuff = []
+
+print("After erasing:", listOfStuff)
+
+# Adding to the list
+listOfStuff.append("Hee")
+listOfStuff.append("Ho")
+
+print("After adding to the list:", listOfStuff)
+
+# Removing from a list with the name of the item
+listOfStuff.remove("Hee")
+
+# Removing from a list with the position number
+listOfStuff.remove(listOfStuff[0])
+
+print("After removing hee ho:", listOfStuff)
+                        </pre>
+                        <h3>
+                            Last week's homework answers
+                        </h3>
+                        <pre>
+#!/bin/python3
+
 from turtle import *
 from random import randint
 
@@ -273,9 +309,21 @@ for step in range(11):
     right(90)
     forward(10)
     pd()
-    forward(150)
+    forward(20)
     pu()
-    backward(160)
+    forward(20)
+    pd()
+    forward(20)
+    pu()
+    forward(20)
+    pd()
+    forward(20)
+    pu()
+    forward(20)
+    pd()
+    forward(20)
+    pu()
+    backward(150)
     left(90)
     forward(30)
 
@@ -283,26 +331,36 @@ edison = Turtle()
 edison.color('green')
 edison.shape('turtle')
 edison.pu()
+edison.goto(-190, 130)
+edison.write("Edison")
 
 jayden = Turtle()
 jayden.color('orange')
 jayden.shape('turtle')
 jayden.pu()
+jayden.goto(-190, 100)
+jayden.write("Jayden")
 
 emma = Turtle()
 emma.color('blue')
 emma.shape('turtle')
 emma.pu()
+emma.goto(-190, 70)
+emma.write("Emma")
 
 roger = Turtle()
 roger.color('black')
 roger.shape('turtle')
 roger.pu()
+roger.goto(-190, 40)
+roger.write("Roger")
 
 owen = Turtle()
 owen.color('red')
 owen.shape('turtle')
 owen.pu()
+owen.goto(-190, 10)
+owen.write("Owen")
 
 edison.goto(-150, 130)
 jayden.goto(-150, 100)
@@ -316,6 +374,8 @@ write("Fun Turtle Race Game",
         align="center")
 ht() # hide turtle
 
+input("Press a key to start the game")
+
 for x in range(110):
     edison.forward(randint(0, 5))
     jayden.forward(randint(0, 5))
@@ -323,63 +383,29 @@ for x in range(110):
     roger.forward(randint(0, 5))
     owen.forward(randint(0, 5))
                         </pre>
-                        <h3>
-                            Last week's homework answers
-                        </h3>
-                        <pre>
-from turtle import *
-
-speed(0) # max speed
-pu()
-goto(-100, 100)
-pd ()
-
-for x in range(8):
-    left(45)
-    forward(20)
-    
-pu()
-goto(100, -100)
-pd()
-
-for x in range(4):
-    left(90)
-    forward(20)
-
-pu()
-goto(-100, -100)
-pd()
-
-for x in range(5):
-    left(72)
-    forward(20)
-
-pu()
-goto(100, 100)
-pd()
-
-for x in range(6):
-    left(60)
-    forward(20)
-pu()
-goto(0, 0)
-ht() # hideturtle()
-                        </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             Homework
                         </h3>
                         <h3>
-                            Turtle
+                            Lists
                         </h3>
                         <pre class="homework">
-# Required
-# Have the names of each turtle appear to the left of them
-# In that turtle's colour
-#
+# Required:
+listToChange = ["empty", "empty", "empty"]
+# Change the first item to your favourite movie
+# Add 3 more items
+# Remove the third empty
+# 
+# Finished list should look like this:
+# [Matrix, empty, item1, item2, item3]
+
 # Challenge:
-# Make dotted lines and a press enter to start the game function
+numbers = [1, 2, 3, 4, 5]
+# Add one to each of these numbers in the list
+# Without deleting, or adding new numbers to the list
+# [2, 3, 4, 5, 6]
                         </pre>
                     </div>
                 </div>
