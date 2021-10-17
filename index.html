@@ -88,59 +88,55 @@
 
 import turtle
 
-def simpleSnowflake(x, y, br):
-    snow.pu()
-    snow.goto(x, y)
-    snow.pd()
-    
-    for i in range(br):
-        for i in range(2):
-            snow.forward(100)
-            snow.right(60)
-            snow.forward(100)
-            snow.right(120)
-        snow.right(360 / br)
+def test():
+    print("Hello!")
 
-def twig():
-    snow.left(45)
-    snow.forward(30)
-    snow.backward(30)
-    snow.right(45)
-    snow.forward(30)
-    snow.backward(30)
-    snow.right(45)
-    snow.forward(30)
-    snow.backward(30)
-    snow.left(45)
+def moveUp():
+    # setheading - point the turtle in that direction
+    playerT.seth(90)
+    playerT.forward(20)
 
-def branch():
-    for i in range(numOfSegments):
-        twig()
-        snow.forward(twigLength)
+def moveDown():
+    playerT.seth(270)
+    playerT.forward(20)
 
-    snow.backward(twigLength * numOfSegments)
+def moveRight():
+    playerT.seth(0)
+    playerT.forward(20)
 
-def snowflake(x, y, br):
-    snow.pu()
-    snow.goto(x, y)
-    snow.pd()
+def moveLeft():
+    playerT.seth(180)
+    playerT.forward(20)
 
-    for i in range(br):
-        branch()
-        snow.right(360 / br)
+def trailToggle():
+    global trail
+    if not trail:
+        trail = True
+        playerT.pd()
+    else:
+        trail = False
+        playerT.pu()
 
-snow = turtle.Turtle()
-snow.speed(0)
-snow.color("cyan")
-turtle.Screen().bgcolor("Dark Gray")
-snow.ht()
+screen = turtle.Screen()
+screen.bgcolor("beige")
+screen.listen()
 
-twigLength = 30
-numOfSegments = 4
-numOfBranches = 6
+# param 1 - the function to run when you press that key
+# param 2 - the key to listen for
+# screen.onkey(test, "h")
 
-snowflake(100, -100, 6)
-snowflake(0, 200, 8)
+playerT = turtle.Turtle()
+playerT.shape("turtle")
+playerT.color("red")
+playerT.pu()
+playerT.speed(0)
+trail = False
+
+screen.onkey(moveUp, "w")
+screen.onkey(moveDown, "s")
+screen.onkey(moveLeft, "a")
+screen.onkey(moveRight, "d")
+screen.onkey(trailToggle, "f")
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -148,16 +144,18 @@ snowflake(0, 200, 8)
                             Homework
                         </h3>
                         <h3>
-                            Snowflakes
+                            Turtle
                         </h3>
                         <pre class="homework">
 # Required:
-# Draw a tree
-# Can be just 4 triangles stacked on top of one another
-# If you want to be spicy add a trunk
+# Spice me up function
+# Changes the background and turtle to a random colour
+# Make at least 5 colours
+# need to import random
 #
 # Challenge:
-# Resizable snowflakes
+# Change your turtle game to support input
+# Ex. Press "a" and "d" to move your turtle forward in the race
                         </pre>
                     </div>
                 </div>
