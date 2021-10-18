@@ -12,6 +12,9 @@ SCREEN_H = 560
 # Keep track of game state
 GAMEOVER = False
 
+# LOG string for logging errors
+LOG = f"File: {__file__} Method: {__name__} Error"
+
 # Map class to generate the map
 class Map():
 
@@ -25,6 +28,130 @@ class Map():
     def load_map(self):
         MainGame.window.blit(self.image, self.position)
 
+# Plants class
+class Plant(pygame.sprite.Sprite):
+    def __init__(self):
+        super(Plant, self).__init__()
+        self.live = True
+
+    def load_image(self):
+        if hasattr(self, 'image') and hasattr(self, 'rect'):
+            MainGame.window.blit(self.image, self.rect)
+        else:
+            print(LOG)
+
+# Sunflower class
+class Sunflower(Plant):
+    def __init__(self, x, y):
+        super(Sunflower, self).__init__()
+        self.image = pygame.image.load(FOLDER_PATH + IMAGE_PATH + "sunflower.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.price = 50
+        self.hp = 100
+        # Counter to keep track of time passed
+        self.time_count = 0
+
+    # Function for money/sun production
+    def produce_money(self):
+        self.time_count += 1
+        if self.time_count == 25:
+            MainGame.money += 5
+            self.time_count = 0
+
+    # Showing the sunflower on the screen
+    def display_sunflower(self):
+        MainGame.window.blit(self.image, self.rect)
+
+# Peashooter class
+class Peashooter(Plant):
+    def __init__(self, x, y):
+        super(Peashooter, self).__init__()
+        self.image = pygame.image.load(FOLDER_PATH + IMAGE_PATH + "peashooter.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.price = 100
+        self.hp = 200
+        # Counter for keeping track of time since last shot
+        self.shot_count = 0
+
+    # Firing method
+    def shoot(self):
+        should_fire = True
+
+        if self.live and should_fire:
+            self.shot_count += 1
+
+            if self.shot_count == 25:
+                peabullet = PeaBullet(self)
+
+                MainGame.peabullet_list.append(peabullet)
+                self.shot_count = 0
+
+    # Show the peashooter
+    def display_peashooter(self):
+        MainGame.window.blit(self.image, self.rect)
+
+class PeaBullet(pygame.sprite.Sprite):
+    def __init__(self, peashooter):
+        self.live = True
+        self.image = pygame.image.load(FOLDER_PATH + IMAGE_PATH + "peabullet.png")
+        self.damage = 50
+        self.speed = 10
+        self.rect = self.image.get_rect()
+        self.rect.x = peashooter.rect.x + 60
+        self.rect.y = peashooter.rect.y + 15
+
+    def move_bullet(self):
+        if self.rect.x < SCREEN_W:
+            self.rect.x += self.speed
+        else:
+            self.live = False
+    
+    def display_bullet(self):
+        MainGame.window.blit(self.image, self.rect)
+
+class Zombie(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super(Zombie, self).__init__()
+        self.image = pygame.image.load(FOLDER_PATH + IMAGE_PATH + "zombie.png")
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.hp = 1000
+        self.damage = 2
+        self.speed = 1
+        self.live = True
+        self.stop = False
+    
+    def move_zombie(self):
+        if self.live and not self.stop:
+            self.rect.x -= self.speed
+            if self.rect.x < -80:
+                MainGame().gameOver()
+    
+    def hit_plant(self):
+        for plant in MainGame.plants_list:
+            if pygame.sprite.collide_rect(self, plant):
+                # Zombies stop at plants to attacc
+                self.stop = True
+                self.eat_plant(plant)
+    
+    def eat_plant(self, plant):
+        plant.hp -= self.damage
+        if plant.hp <= 0:
+            a = plant.rect.x // 80 - 1
+            b = plant.rect.y // 80
+            map = MainGame.map_list[a][b]
+            map.can_grow = True
+            plant.live = False
+            self.stop = False
+
+    def display_zombie(self):
+        MainGame.window.blit(self.image, self.rect)
+
 # Main game class
 class MainGame():
 
@@ -36,13 +163,61 @@ class MainGame():
 
     # Store all map coordinate points
     map_points_list = []
+
     # Store all map tiles
     map_list = []
+
+    # Plants list
+    plants_list = []
+
+    # Bullet list
+    peabullet_list = []
+
+    # Zombie related variables
+    zombie_list = []
+    count_zombie = 0
+    produce_zombie = 100
 
     def init_window(self):
         pygame.display.init()
         MainGame.window = pygame.display.set_mode((SCREEN_W, SCREEN_H))
     
+    def load_plants(self):
+        for plant in MainGame.plants_list:
+            if plant.live:
+                if isinstance(plant, Sunflower):
+                    plant.display_sunflower()
+                    plant.produce_money()
+                elif isinstance(plant, Peashooter):
+                    plant.display_peashooter()
+                    plant.shoot()
+            else:
+                MainGame.plants_list.remove(plant)
+    
+    def load_peabullets(self):
+        for b in MainGame.peabullet_list:
+            # If the bullet is moving through the air
+            if b.live:
+                b.display_bullet()
+                b.move_bullet()
+            else:
+                MainGame.peabullet_list.remove(b)
+
+    def init_zombies(self):
+        for i in range(1, 7):
+            dis = random.randint(1, 5) * 200
+            zombie = Zombie(800 + dis, i * 80)
+            MainGame.zombie_list.append(zombie)
+
+    def load_zombies(self):
+        for zombie in MainGame.zombie_list:
+            if zombie.live:
+                zombie.display_zombie()
+                zombie.move_zombie()
+                zombie.hit_plant()
+            else:
+                MainGame.zombie_list.remove(zombie)
+
     def init_plant_points(self):
         # Create row by row
         for y in range(1, 7):
@@ -98,6 +273,8 @@ class MainGame():
         self.init_plant_points()
         self.init_map()
 
+        self.init_zombies()
+
         while not GAMEOVER:
             MainGame.window.fill((255, 255, 255))
 
@@ -113,10 +290,41 @@ class MainGame():
 
             self.load_map()
 
+            self.load_plants()
+
+            self.load_peabullets()
+
+            self.load_zombies()
+
+            MainGame.count_zombie += 1
+            if MainGame.count_zombie == MainGame.produce_zombie:
+                self.init_zombies()
+                MainGame.count_zombie = 0
+            pygame.time.wait(10)
+
             events = pygame.event.get()
             for e in events:
                 if e.type == pygame.QUIT:
                     GAMEOVER = True
+                elif e.type == pygame.MOUSEBUTTONDOWN:
+                    x = e.pos[0] // 80
+                    y = e.pos[1] // 80
+                    map = MainGame.map_list[y - 1][x]
+                    print(map.position)
+                    if e.button == 1:
+                        if map.can_grow and MainGame.money >= 50:
+                            sunflower = Sunflower(map.position[0], map.position[1])
+                            MainGame.plants_list.append(sunflower)
+                            print(f'Plants list length: {len(MainGame.plants_list)}')
+                            map.can_grow = False
+                            MainGame.money -= sunflower.price
+                    elif e.button == 3:
+                        if map.can_grow and MainGame.money >= 100:
+                            peashooter = Peashooter(map.position[0], map.position[1])
+                            MainGame.plants_list.append(peashooter)
+                            print(f'Plants list length: {len(MainGame.plants_list)}')
+                            map.can_grow = False
+                            MainGame.money -= peashooter.price
             pygame.display.update()
 
 if __name__ == '__main__':
