@@ -241,7 +241,55 @@ screen.onkey(trailToggle, "f")
                             End code:
                         </h3>
                         <h3>
-                            lists
+                            more lists
+                        </h3>
+                        <pre>
+#!/bin/python3
+
+from random import choice
+
+# remember lists start counting at 0
+players = ['player1', 'player2', 'player3', 'player4']
+
+print("Current players", players)
+
+players.append(input("Enter more players:"))
+players.append(input("Enter more players:"))
+players.append(input("Enter more players:"))
+
+print("Current players", players)
+
+while len(players) > 0:
+    firstChoice = choice(players)
+    
+    teamA = [] # empty list
+    teamA.append(firstChoice)
+    print("TeamA:", teamA)
+
+    players.remove(firstChoice)
+    print("Players Pool:", players)
+    
+    if players == []:
+        break # If there are no more players; exit
+    
+    secondChoice = choice(players)
+    
+    teamB = []
+    teamB.append(secondChoice)
+    print("TeamB:", teamB)
+    
+    players.remove(secondChoice)
+    print("Players Pool:", players)
+
+
+# If I say "at" it means square brackets
+# print(players[0])
+# choice(listName) -> chooses a random item from
+# your list
+# print(choice(players))
+                        </pre>
+                        <h3>
+                            Last week's homework answers
                         </h3>
                         <pre>
 #!/bin/python3
@@ -286,98 +334,25 @@ listOfStuff.remove("Hee")
 listOfStuff.remove(listOfStuff[0])
 
 print("After removing hee ho:", listOfStuff)
-                        </pre>
-                        <h3>
-                            Last week's homework answers
-                        </h3>
-                        <pre>
-#!/bin/python3
 
-from turtle import *
-from random import randint
+listToChange = ["empty", "empty", "empty"]
 
-speed(0)
-pu()
-goto(-150, 150)
+listToChange[0] = "Matrix"
+listToChange.append("item1")
+listToChange.append("item2")
+listToChange.append("item3")
+listToChange.remove(listToChange[2])
 
-for step in range(11):
-    write(step * 10, align='center')
-    right(90)
-    forward(10)
-    pd()
-    forward(20)
-    pu()
-    forward(20)
-    pd()
-    forward(20)
-    pu()
-    forward(20)
-    pd()
-    forward(20)
-    pu()
-    forward(20)
-    pd()
-    forward(20)
-    pu()
-    backward(150)
-    left(90)
-    forward(30)
+print("Finished list:", listToChange)
 
-edison = Turtle()
-edison.color('green')
-edison.shape('turtle')
-edison.pu()
-edison.goto(-190, 130)
-edison.write("Edison")
+numbers = [1, 2, 3, 4, 5]
+numbers[0] += 1
+numbers[1] += 1
+numbers[2] += 1
+numbers[3] += 1
+numbers[4] += 1
 
-jayden = Turtle()
-jayden.color('orange')
-jayden.shape('turtle')
-jayden.pu()
-jayden.goto(-190, 100)
-jayden.write("Jayden")
-
-emma = Turtle()
-emma.color('blue')
-emma.shape('turtle')
-emma.pu()
-emma.goto(-190, 70)
-emma.write("Emma")
-
-roger = Turtle()
-roger.color('black')
-roger.shape('turtle')
-roger.pu()
-roger.goto(-190, 40)
-roger.write("Roger")
-
-owen = Turtle()
-owen.color('red')
-owen.shape('turtle')
-owen.pu()
-owen.goto(-190, 10)
-owen.write("Owen")
-
-edison.goto(-150, 130)
-jayden.goto(-150, 100)
-emma.goto(-150, 70)
-roger.goto(-150, 40)
-owen.goto(-150, 10)
-
-pu()
-goto(0, -70)
-write("Fun Turtle Race Game",
-        align="center")
-ht() # hide turtle
-
-input("Press a key to start the game")
-
-for x in range(110):
-    edison.forward(randint(0, 5))
-    jayden.forward(randint(0, 5))
-    emma.forward(randint(0, 5))
-    roger.forward(randint(0, 5))
-    owen.forward(randint(0, 5))
+print("Finished Challenge:", numbers)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -389,20 +364,15 @@ for x in range(110):
                         </h3>
                         <pre class="homework">
 # Required:
-listToChange = ["empty", "empty", "empty"]
-# Change the first item to your favourite movie
-# Add 3 more items
-# Remove the third empty
-# 
-# Finished list should look like this:
-# [Matrix, empty, item1, item2, item3]
+# Have the user add 3 more players
+# Add the players entered to the players list
 
 # Challenge:
-numbers = [1, 2, 3, 4, 5]
-# Add one to each of these numbers in the list
-# Without deleting, or adding new numbers to the list
-# [2, 3, 4, 5, 6]
+# Figure out why the teams are not keeping the players
+# TeamA should have 2 players and
+# TeamB should have 2 players if there are 4 players in total
                         </pre>
+                        <img src="resources/2021_10_23_hw.png" width="80%">
                     </div>
                 </div>
             </div>
