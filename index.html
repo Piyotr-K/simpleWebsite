@@ -224,112 +224,61 @@ barGraph2.render()
                             End code:
                         </h3>
                         <h3>
-                            more lists
+                            lists end
                         </h3>
                         <pre>
 #!/bin/python3
 
 from random import choice
 
-# remember lists start counting at 0
-players = ['player1', 'player2', 'player3', 'player4']
+players = []
+teamNames = ['Team Badminton',
+                'Team Softball',
+                'Team Soccer',
+                'Team Nice']
+file = open('players.txt', 'r')
+players = file.read().splitlines()
+print(players)
 
-print("Current players", players)
+newPlayer = input("Add a new player:")
+players.append(newPlayer)
+newPlayer = input("Add a new player:")
+players.append(newPlayer)
+newPlayer = input("Add a new player:")
+players.append(newPlayer)
+
+teamA = [] # creates a new "team"
+teamB = []
+teamC = []
 
 while len(players) > 0:
     firstChoice = choice(players)
-    
-    teamA = [] # empty list
     teamA.append(firstChoice)
-    print("TeamA:", teamA)
-
     players.remove(firstChoice)
-    print("Players Pool:", players)
-    
+
     if players == []:
         break # If there are no more players; exit
     
     secondChoice = choice(players)
-    
-    teamB = []
     teamB.append(secondChoice)
-    print("TeamB:", teamB)
-    
     players.remove(secondChoice)
-    print("Players Pool:", players)
+    
+    if players == []:
+        break
+    
+    thirdChoice = choice(players)
+    teamC.append(thirdChoice)
+    players.remove(thirdChoice)
 
+firstTeamName = choice(teamNames)
+teamNames.remove(firstTeamName)
+secondTeamName = choice(teamNames)
+teamNames.remove(secondTeamName)
+thirdTeamName = choice(teamNames)
 
-# If I say "at" it means square brackets
-# print(players[0])
-# choice(listName) -> chooses a random item from
-# your list
-# print(choice(players))
-                        </pre>
-                        <h3>
-                            Last week's homework answers
-                        </h3>
-                        <pre>
-#!/bin/python3
-
-# list of stuff
-# 1 - 1 toy
-# 2 - 1 Money
-# 3 - Own the government
-listOfStuff = ["Money", "Toys", "Government", "Russia"]
-
-# Print out the length of the list
-print(len(listOfStuff))
-
-# Print out all of the stuff in the list
-print(listOfStuff)
-
-# Print individual items
-print(listOfStuff[0]) # REMEMBER PROGRAMMING STARTS COUNTING AT 0
-
-# Change items in a list
-listOfStuff[0] = "MoarMoney"
-print("After changing the first item:", listOfStuff)
-
-# Print out the last item of the list using len
-print(listOfStuff[len(listOfStuff) - 1])
-
-# Empty a list
-listOfStuff = []
-
-print("After erasing:", listOfStuff)
-
-# Adding to the list
-listOfStuff.append("Hee")
-listOfStuff.append("Ho")
-
-print("After adding to the list:", listOfStuff)
-
-# Removing from a list with the name of the item
-listOfStuff.remove("Hee")
-
-# Removing from a list with the position number
-listOfStuff.remove(listOfStuff[0])
-
-print("After removing hee ho:", listOfStuff)
-
-listToChange = ["empty", "empty", "empty"]
-
-listToChange[0] = "Matrix"
-listToChange.append("item1")
-listToChange.append("item2")
-listToChange.append("item3")
-listToChange.remove(listToChange[2])
-
-print("Finished list:", listToChange)
-
-numbers = [1, 2, 3, 4, 5]
-numbers[0] += 1
-numbers[1] += 1
-numbers[2] += 1
-numbers[3] += 1
-numbers[4] += 1
-
-print("Finished Challenge:", numbers)
+print(firstTeamName, teamA)
+print(secondTeamName, teamB)
+print(thirdTeamName, teamC)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -337,19 +286,11 @@ print("Finished Challenge:", numbers)
                             Homework
                         </h3>
                         <h3>
-                            Lists
+                            Halloween
                         </h3>
                         <pre class="homework">
-# Required:
-# Have the user add 3 more players
-# Add the players entered to the players list
-
-# Challenge:
-# Figure out why the teams are not keeping the players
-# TeamA should have 2 players and
-# TeamB should have 2 players if there are 4 players in total
+# Required: no homework!!
                         </pre>
-                        <img src="resources/2021_10_23_hw.png" width="80%">
                     </div>
                 </div>
             </div>
