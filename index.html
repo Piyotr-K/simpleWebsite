@@ -82,51 +82,47 @@
                             End code:
                         </h3>
                         <h3>
-                            main.py
+                            insults.py
                         </h3>
                         <pre>
-#!/bin/python3
+import random
+from guizero import App, Text, Picture, PushButton
 
-import pygal
+def insult_me():
+    adj1 = random.choice(col1)
+    adj2 = random.choice(col2)
+    noun = random.choice(col3)
 
-f = open('data.txt', 'r')
-allData = f.read().splitlines()
+    return f"Thou art a(n) {adj1} {adj2} {noun}"
 
-piechart = pygal.Pie()
-piechart.title = 'Favourite Pets'
+def new_insult():
+    new_roast = insult_me()
+    text1.value = new_roast
 
-for data in allData:
-    if data == '':
-    break
-    label, value = data.split(' ')
-    piechart.add(label, int(value))
+col1 = []
+col2 = []
+col3 = []
+with open("insults.csv", "r") as f:
+    contents = f.read().splitlines()
+    for line in contents:
+        adj1, adj2, noun = line.split(",")
+        col1.append(adj1)
+        col2.append(adj2)
+        col3.append(noun)
 
-piechart.render()
+app = App("Insult Generator")
+# Starting parameters is whenever you first create the new text
+text1 = Text(app, insult_me())
+btn1 = PushButton(app, new_insult, text="Insult Me")
+btn2 = PushButton(app, None, text="Spice Me Up")
+img1 = Picture(app, image = "chicken.jpg")
 
-while True:
-    choice = input('''
-    Pick your favourite movie:
-    1 - Avengers Infinity War
-    2 - Free Guy
-    3 - Matrix
-    4 - Kill Bill
-    5 - Pulp Fiction
-    6 - Shutter Island
-    Press 'q' when done
-    ''')
-    print(choice)
-    if choice == 'q':
-        break
+app.bg = "cyan"
 
-barGraph2 = pygal.Bar()
-barGraph2.title = 'Favourite Movie'
-barGraph2.add('Avengers Infinity War', 10)
-barGraph2.add('Free Guy', 7)
-barGraph2.add('Matrix', 6)
-barGraph2.add('Kill Bill', 3)
-barGraph2.add('Pulp Fiction', 2)
-barGraph2.add('Shutter Island', 9)
-barGraph2.render()
+text1.text_size = 16
+text1.text_color = (255, 0, 0)
+
+app.display()
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -134,13 +130,19 @@ barGraph2.render()
                             Homework
                         </h3>
                         <h3>
-                            Pygal
+                            Guizero
                         </h3>
                         <pre class="homework">
 # Required:
-# Try your best to make the graph take user-input
-# The piechart should update based on what the user answers
-# in addition to the data2.txt's values already present
+# spiceMeUp button
+# changes text color to a random color
+# changes text color of the buttons to a random color
+# changes bg color to a random color
+# hints: def new function
+# read guizero for properties
+#
+# Challenge:
+# Randomize the image
                         </pre>
                     </div>
                 </div>
