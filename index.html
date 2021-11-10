@@ -82,47 +82,72 @@
                             End code:
                         </h3>
                         <h3>
-                            insults.py
+                            Lists review
                         </h3>
                         <pre>
-import random
-from guizero import App, Text, Picture, PushButton
+# Q1
+# data = [1, 2, 3, 4]
+# data_2 = [1, 2, 4, 3]
 
-def insult_me():
-    adj1 = random.choice(col1)
-    adj2 = random.choice(col2)
-    noun = random.choice(col3)
+# print(data == data_2)
 
-    return f"Thou art a(n) {adj1} {adj2} {noun}"
+# Q2
+# data = [1, "hello", 2, "world"]
+# print(data[0]) # arrays start from 0, so prints 1
+# print(data[3]) # world
 
-def new_insult():
-    new_roast = insult_me()
-    text1.value = new_roast
+# Q3
+# data = [1, "hello", 2, "world"]
+# data.append(3)
+# print(data)
 
-col1 = []
-col2 = []
-col3 = []
-with open("insults.csv", "r") as f:
-    contents = f.read().splitlines()
-    for line in contents:
-        adj1, adj2, noun = line.split(",")
-        col1.append(adj1)
-        col2.append(adj2)
-        col3.append(noun)
+# Q4
+# data = [1, "hello", 2, "world", 3]
+# data.insert(3, "teach")
+# print(data)
 
-app = App("Insult Generator")
-# Starting parameters is whenever you first create the new text
-text1 = Text(app, insult_me())
-btn1 = PushButton(app, new_insult, text="Insult Me")
-btn2 = PushButton(app, None, text="Spice Me Up")
-img1 = Picture(app, image = "chicken.jpg")
+# Q5
+# data = ["teach", 1, "hello", 2, "world", 3]
+# data.remove("teach")
+# print(data)
 
-app.bg = "cyan"
+# Q6
+# data = [1, "hello", 2, "world"]
+# nice = len(data)
+# print(nice)
 
-text1.text_size = 16
-text1.text_color = (255, 0, 0)
+# Q7
+# data = [1, "hello", 2, "world", 3]
+# # takes the last element out of the list
+# # and returns it
+# nice = data.pop()
+# print(data)
+# print(nice)
 
-app.display()
+
+# data = [1, 2, 3, 4, 5]
+# data1 = []
+# Put the reverse of data into data1
+# using only pop and append
+# no using "magic" numbers, only use 0 and 1
+# for x in range(len(data)):
+#     data1.append(data.pop())
+# print(data1)
+
+# data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# put the word "even" infront of all the even numbers
+# can use magic numbers
+# challenge: don't use magic numbers, but can use 2
+# (0, 1, 2)
+# i = 0
+# while i < len(data):
+#     # Remainder
+#     if data[i] % 2 == 0:
+#         data.insert(i, "even")
+#         i += 1
+#     i += 1
+
+# print(data)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -133,16 +158,17 @@ app.display()
                             Guizero
                         </h3>
                         <pre class="homework">
+# Coding bat
+#
 # Required:
-# spiceMeUp button
-# changes text color to a random color
-# changes text color of the buttons to a random color
-# changes bg color to a random color
-# hints: def new function
-# read guizero for properties
+# first_last6
+# same_first_last
+# make_pi
+# common_end
 #
 # Challenge:
-# Randomize the image
+# sum3
+# rotate_left3
                         </pre>
                     </div>
                 </div>
