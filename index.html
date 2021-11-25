@@ -243,63 +243,63 @@
                             End code:
                         </h3>
                         <h3>
-                            Loops
+                            More Turtle
                         </h3>
                         <pre>
 #!/bin/python3
 
-# something = True
+from turtle import *
 
-# sides = 7
-# counter = 1
+screen = Screen()
 
-# while counter <= sides:
-#   print("Side " + str(counter))
-#   counter = counter + 1
+speed(0)
 
-# upToNumber = 10
-# counter = 1
-# while counter <= upToNumber:
-#   print(counter)
-#   counter += 1
+# Make a new "pen"
+pen = Turtle()
+pen.speed(0)
 
-# for this it should be 1 + 2 + 3...
-# answer should be 55
-# sumToNumber = 10
-# counter = 1
-# finalSum = 0
+# Changes the background colour
+screen.bgcolor('gold')
 
-# while counter <= sumToNumber:
-#   finalSum += counter
-#   counter += 1
+# (font, size, font-style)
+style = ('Comic Sans MS', 30, 'bold')
+style2 = ('Arial', 20, 'italic')
 
-# print(finalSum)
-# maxNum = 10
-# for counter in range(1, maxNum + 1):
-#   print(counter)
+pu()
+setpos(0, 20)
+# (message, style, alignment)
+write('Piyotr Kao', font = style, align = 'center')
 
-# Multiplication table for 3
-# 3
-# 6
-# 9
-# 12
-# 15 up to 3 x 9 = 27
-# for x in range(9):
-#   print(3 * (x + 1)) # BEDMAS
+setpos(0, -20)
+write('Teacher Mans', font = style2, align = 'center')
 
-# Countdown
-# start = 10
-# while start > 0:
-#   print(start)
-#   start -= 1
+pen.pu()
+# Set position(x, y)
+pen.setpos(0, -135)
+pen.pd()
+# draw a circle
+pen.circle(150)
+pen.ht()
 
-# Print all numbers between two given numbers
-# start 2 end 9 -> 2, 3, 4, 5, 6, 7, 8, 9
-# start: 10 end: 11 -> 10, 11
-# start = 2
-# end = 9
-# for x in range(start, end + 1):
-#   print(x)
+pen.color("red")
+pen.pu()
+pen.dot(60)
+
+pen.goto(150, 15)
+pen.dot(60)
+
+pen.goto(0, 165)
+pen.dot(60)
+
+pen.goto(-150, 15)
+pen.dot(60)
+
+pen.setpos(0, -135)
+pen.seth(45)
+pen.goto()
+
+# Hide the arrow thing
+ht()
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -307,18 +307,18 @@
                             Homework
                         </h3>
                         <h3>
-                            More Loops
+                            More Turtle
                         </h3>
                         <pre class="homework">
-# Homework:
 # Required:
-# Ask the user for a start and end number
-# Then print the start to the end for that sequence
+# Add more shapes, 4 more
+# Sample below
 #
 # Challenge:
-# Print backwards from end to start
-# 10, 9, 8, 7, 6, 5
+# Draw a star
+# Bonus if u can use a for-loop to make it
                         </pre>
+                        <img src="resources/Python1/2021_NOV_24_Example.png">
                     </div>
                 </div>
             </div>
