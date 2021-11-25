@@ -94,91 +94,69 @@
                         <h3>
                             Lists review
                         </h3>
-                        <pre>
-# Q1
-# data = [1, 2, 3, 4]
-# data_2 = [1, 2, 4, 3]
-
-# print(data == data_2)
-
-# Q2
-# data = [1, "hello", 2, "world"]
-# print(data[0]) # arrays start from 0, so prints 1
-# print(data[3]) # world
-
-# Q3
-# data = [1, "hello", 2, "world"]
-# data.append(3)
-# print(data)
-
-# Q4
-# data = [1, "hello", 2, "world", 3]
-# data.insert(3, "teach")
-# print(data)
-
-# Q5
-# data = ["teach", 1, "hello", 2, "world", 3]
-# data.remove("teach")
-# print(data)
-
-# Q6
-# data = [1, "hello", 2, "world"]
-# nice = len(data)
-# print(nice)
-
-# Q7
-# data = [1, "hello", 2, "world", 3]
-# # takes the last element out of the list
-# # and returns it
-# nice = data.pop()
-# print(data)
-# print(nice)
-
-
-# data = [1, 2, 3, 4, 5]
-# data1 = []
-# Put the reverse of data into data1
-# using only pop and append
-# no using "magic" numbers, only use 0 and 1
-# for x in range(len(data)):
-#     data1.append(data.pop())
-# print(data1)
-
-# data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# put the word "even" infront of all the even numbers
-# can use magic numbers
-# challenge: don't use magic numbers, but can use 2
-# (0, 1, 2)
-# i = 0
-# while i < len(data):
-#     # Remainder
-#     if data[i] % 2 == 0:
-#         data.insert(i, "even")
-#         i += 1
-#     i += 1
-
-# print(data)
-                        </pre>
+                        <a href="resources/Python1/Review/dictionaries.py">
+                            dictionaries.py
+                        </a>
+                        <a href="resources/Python1/Review/functions(Turtle).py">
+                            functions(Turtle).py
+                        </a>
+                        <a href="resources/Python1/Review/functions.py">
+                            functions.py
+                        </a>
+                        <a href="resources/Python1/Review/lists_review.py">
+                            lists_review.py
+                        </a>
+                        <a href="resources/Python1/Review/loops.py">
+                            loops.py
+                        </a>
+                        <a href="resources/Python1/Review/sets.py">
+                            sets.py
+                        </a>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             Homework
                         </h3>
                         <h3>
-                            Coding Bat
+                            Backpack Assignment
                         </h3>
                         <pre class="homework">
-# Coding bat
+# Lists, loops, sets, functions
+# Make a simple backpack program
+# That lets the user add, remove, check and list stuff from
+# the backpack
 #
-# Required:
-# first_last6
-# same_first_last
-# make_pi
-# common_end
+# When you run the program
+# It shows the user options:
+# 1. Add
+# 2. Remove
+# 3. Check
+# 4. List all
+# 5. Quit
 #
+# Depending on what the user selects does that given function
+# Add - add a new item to the backpack (input)
+        - after adding take back to main menu
+# Remove - remove an item from the backpack (input)
+        - after removing take back to main menu
+        - assume that the user enters a valid item
+        - that is already in the bag
+# Check - let the user enter a item to check (input)
+        - check if that item is in the bag
+        - print out if it is (True or False)
+        - take back to main menu
+# List all - print all stuff in the backpack
+        - take back to main menu
+# Quit - Exits the program
+# Requirement:
+#   - Use at least 1 set, 1 list
+#   - Separate into functions
+#   - Program should keep going until user quits
+# Tipz:
+#   - Remember to check for invalid inputs
 # Challenge:
-# sum3
-# rotate_left3
+# Quantity - Dictionary
+# Drinks -> 2
                         </pre>
                     </div>
                 </div>
