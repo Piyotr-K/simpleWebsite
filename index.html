@@ -226,63 +226,38 @@
                             End code:
                         </h3>
                         <h3>
-                            More Turtle
+                            Caesar
                         </h3>
                         <pre>
 #!/bin/python3
 
-from turtle import *
+alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-screen = Screen()
+word = input("Enter a message:")
+key = input("Enter a key:")
+key = int(key)
 
-speed(0)
+secret = ""
+for letter in word:
+    # finds the letter in the alphabet
+    pos = alphabet.find(letter)
 
-# Make a new "pen"
-pen = Turtle()
-pen.speed(0)
+    # remainder division %
+    # aka Modulus
+    # 28 % 26 -> r: 2
+    newpos = (pos + key) % 26
+    
+    # It builds a new word letter by letter
+    secret += alphabet[newpos]
 
-# Changes the background colour
-screen.bgcolor('gold')
+print("The secret message: " + secret)
+print("Decoding...")
 
-# (font, size, font-style)
-style = ('Comic Sans MS', 30, 'bold')
-style2 = ('Arial', 20, 'italic')
-
-pu()
-setpos(0, 20)
-# (message, style, alignment)
-write('Piyotr Kao', font = style, align = 'center')
-
-setpos(0, -20)
-write('Teacher Mans', font = style2, align = 'center')
-
-pen.pu()
-# Set position(x, y)
-pen.setpos(0, -135)
-pen.pd()
-# draw a circle
-pen.circle(150)
-pen.ht()
-
-pen.color("red")
-pen.pu()
-pen.dot(60)
-
-pen.goto(150, 15)
-pen.dot(60)
-
-pen.goto(0, 165)
-pen.dot(60)
-
-pen.goto(-150, 15)
-pen.dot(60)
-
-pen.setpos(0, -135)
-pen.seth(45)
-pen.goto()
-
-# Hide the arrow thing
-ht()
+for letter in secret:
+    pass
+    # ideas for decoding??
+    # how we do??
+    # whats idea
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -290,16 +265,17 @@ ht()
                             Homework
                         </h3>
                         <h3>
-                            More Turtle
+                            Caesar
                         </h3>
                         <pre class="homework">
 # Required:
-# Add more shapes, 4 more
-# Sample below
+# Make sure the encrypter takes a spacebar
+# ex.	hello there
+# 	3
+#	khoor wkhuh
 #
 # Challenge:
-# Draw a star
-# Bonus if u can use a for-loop to make it
+# Get decoding to work
                         </pre>
                         <img src="resources/Python1/2021_NOV_24_Example.png">
                     </div>
