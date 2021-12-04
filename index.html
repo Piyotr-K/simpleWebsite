@@ -37,7 +37,7 @@
                 </button>
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class2">
                     <span class="glyphicon glyphicon-collapse-down"></span>
-                    Python 1 Sunday Class
+                    Python CCC Sunday Class
                 </button>
                 <!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#class3">
                     <span class="glyphicon glyphicon-collapse-down"></span>
@@ -171,31 +171,45 @@ Done!
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-word = input("Enter a message:")
+file = open("message.txt", "r")
+message = file.read().strip()
+
+# word = input("Enter a message:")
 key = input("Enter a key:")
 key = int(key)
 
 secret = ""
-for letter in word:
-    # finds the letter in the alphabet
-    pos = alphabet.find(letter)
-
-    # remainder division %
-    # aka Modulus
-    # 28 % 26 -> r: 2
-    newpos = (pos + key) % 26
-    
-    # It builds a new word letter by letter
-    secret += alphabet[newpos]
+for letter in message:
+    if letter == " ":
+        secret += " "
+    elif letter == "\n":
+        secret += "\n"
+    else:
+        # finds the letter in the alphabet
+        pos = alphabet.find(letter)
+        
+        # remainder division %
+        # aka Modulus
+        # 28 % 26 -> r: 2
+        newpos = (pos + key) % 26
+        
+        # It builds a new word letter by letter
+        secret += alphabet[newpos]
 
 print("The secret message: " + secret)
 print("Decoding...")
 
+decoded = ""
 for letter in secret:
-    pass
-    # ideas for decoding??
-    # how we do??
-    # whats idea
+    if letter == " ":
+        decoded += " "
+    elif letter == "\n":
+        decoded += "\n"
+    else:
+        pos = alphabet.find(letter)
+        newpos = (pos - key) % 26
+        decoded += alphabet[newpos]
+print("The decoded message: " + decoded)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -207,13 +221,11 @@ for letter in secret:
                         </h3>
                         <pre class="homework">
 # Required:
-# Make sure the encrypter takes a spacebar
-# ex.	hello there
-# 	3
-#	khoor wkhuh
-#
-# Challenge:
-# Get decoding to work
+# Have the decoder make print out a special message for a special word
+# Eg if the word to look for is "funny"
+# the program should print a separate message
+# like "nice"
+# hint: use the word "in" to search for a phrase in a variable
                         </pre>
                     </div>
                 </div>
