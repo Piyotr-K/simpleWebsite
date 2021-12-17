@@ -166,52 +166,45 @@
                             End code:
                         </h3>
                         <h3>
-                            Caesar
+                            Story Game
                         </h3>
                         <pre>
 #!/bin/python3
 
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+import random
 
-file = open("message.txt", "r")
-message = file.read().strip()
+name = input("What is your name?")
+print("Hello there " + name)
 
-# word = input("Enter a message:")
-key = input("Enter a key:")
-key = int(key)
+gender = input("What is your gender?")
+print("Your gender is " + gender)
 
-secret = ""
-for letter in message:
-    if letter == " ":
-        secret += " "
-    elif letter == "\n":
-        secret += "\n"
-    else:
-        # finds the letter in the alphabet
-        pos = alphabet.find(letter)
-        
-        # remainder division %
-        # aka Modulus
-        # 28 % 26 -> r: 2
-        newpos = (pos + key) % 26
-        
-        # It builds a new word letter by letter
-        secret += alphabet[newpos]
+age = input("What is your age?")
+print("Your age is " + age)
 
-print("The secret message: " + secret)
-print("Decoding...")
+pronoun = ''
+if gender == "boy":
+    pronoun = "he"
+elif gender == "girl":
+    pronoun = "she"
+else:
+    pronoun = "it"
 
-decoded = ""
-for letter in secret:
-    if letter == " ":
-        decoded += " "
-    elif letter == "\n":
-        decoded += "\n"
-    else:
-        pos = alphabet.find(letter)
-        newpos = (pos - key) % 26
-        decoded += alphabet[newpos]
-print("The decoded message: " + decoded)
+print("You are a(n) " + pronoun)
+
+names = ["Jayden", "Edison", "Emma", "OwenQin"]
+roles = ["Knight", "Prince", "Princess", "Bishop"]
+places = ["Forest", "Plains", "Castle", "Dungeon"]
+actions = ["Protect", "Defend", "Attack", "Fight"]
+
+actor_name = random.choice(names)
+actor_role = random.choice(roles)
+location = random.choice(places)
+verb = random.choice(actions)
+
+print("You ran into " + actor_name + \
+        " the " + actor_role)
+print("You are currently in the " + location)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -219,15 +212,12 @@ print("The decoded message: " + decoded)
                             Homework
                         </h3>
                         <h3>
-                            Caesar
+                            Story Game
                         </h3>
                         <pre class="homework">
 # Required:
-# Have the decoder make print out a special message for a special word
-# Eg if the word to look for is "funny"
-# the program should print a separate message
-# like "nice"
-# hint: use the word "in" to search for a phrase in a variable
+# Add one more line for the game where you have to use the verb
+# String concatenation
                         </pre>
                     </div>
                 </div>
