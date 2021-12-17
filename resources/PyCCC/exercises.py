@@ -47,4 +47,34 @@ def exercise4():
     else:
         print(f"{year} is not a leap year")
 
-exercise4()
+def exercise5():
+    # take user input
+    # convert their input (celsius) to fahrenheit
+    # formula: celsius * 1.8 + 32 = fahrenheit
+    # print out the answer
+    # 1 C to 33.8 F
+    # 6 C to 42.8 F
+    # 6.5 to 43.7 F
+    ui = float(input("Enter celsius time: "))
+    ans = ui * 1.8 + 32
+    print(f"Your input converted is {ans} degrees fahrenheit.")
+
+def exercise6(start, end):
+    # Find all the prime numbers between the start and end numbers (incl.)
+    # 1 7
+    # 2, 3, 5, 7
+    # 5 9
+    # 5 7
+    # 20 50
+    # 23 29 31 37 41 43 47
+    # Assume correct parameters
+    # Print all prime numbers
+    for i in range(start, end + 1):
+        if i > 1:
+            for div in range(2, i):
+                if i % div == 0:
+                    break
+            else:
+                print(i, end=", ")
+
+exercise6(0, 100)
