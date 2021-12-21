@@ -192,15 +192,57 @@ names = ["Jayden", "Edison", "Emma", "OwenQin"]
 roles = ["Knight", "Prince", "Princess", "Bishop"]
 places = ["Forest", "Plains", "Castle", "Dungeon"]
 actions = ["Protect", "Defend", "Attack", "Fight"]
+# Create a new list for enemies
+enemies = ["kraken", "cat", "witch", "goblin"]
 
 actor_name = random.choice(names)
 actor_role = random.choice(roles)
 location = random.choice(places)
 verb = random.choice(actions)
+enemy = random.choice(enemies)
 
 print("You ran into " + actor_name + \
         " the " + actor_role)
+
 print("You are currently in the " + location)
+
+print("Your action is to " + verb + " " + \
+        actor_name + " the " + actor_role)
+
+print("There is a branching path up ahead, which one do you take?")
+
+choice = input("Left or Right? (l/r)")
+
+if choice.lower() == "l":
+    print("You took the left path")
+elif choice.lower() == "r":
+    print("You took the right path")
+else:
+    print("You were indecisive and took the " + \
+        "middle path that didn't exist")
+
+print("You ran into a(n) " + enemy + "!")
+
+enemy_hp = 100
+enemy_dmg_low = 5
+enemy_dmg_high = 30
+player_hp = 100
+player_dmg = 10
+
+while enemy_hp > 0:
+    print("Enemy's hp: " + str(enemy_hp))
+    print("Player's hp: " + str(player_hp))
+    player = input("(A)ttack | (D)efend ")
+
+    if player.lower() == "a":
+        enemy_hp -= player_dmg
+        player_hp -= random.randint(enemy_dmg_low, enemy_dmg_high)
+    if player.lower() == "d":
+        player_hp -= 1
+    if player_hp &lt; 0:
+        print("You lost")
+        break
+        # Quit (run)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -208,12 +250,10 @@ print("You are currently in the " + location)
                             Homework
                         </h3>
                         <h3>
-                            Story Game
+                            Holidays
                         </h3>
                         <pre class="homework">
-# Required:
-# Add one more line for the game where you have to use the verb
-# String concatenation
+Merry Christmas Happy Holidays
                         </pre>
                     </div>
                 </div>
