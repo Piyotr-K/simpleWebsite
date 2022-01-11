@@ -77,4 +77,64 @@ def exercise6(start, end):
             else:
                 print(i, end=", ")
 
-exercise6(0, 100)
+def exercise7():
+    # An armstrong number is an n-digit number that is equal to the sum of the
+    # n-th power of its digits
+    # Armstrong numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208
+    # eg: 153
+    # 3-digit number that is equal to the sum of the 3rd power of its digits
+    # 1^3 + 5^3 + 3^3 = 153
+    # Make a program that checks if the user has entered a armstrong number
+    # Output true or false
+    # need to convert user input to int()
+    # ** means power 2 ** 3 = 2^3 = 8
+    num = input("Input a number: ")
+    sum = 0
+    n = len(num) # Gets the number of digits in the number
+
+    for i in range(n):
+        sum += int(num[i]) ** n
+
+    print(int(num) == sum)
+
+def exercise8(x, y, negative):
+    # 2 ints, return True if one is neg and one is positive except if the
+    # param negative is true, then only return true if both are negative
+    # No input
+    # exercise8(1, -1, False) -> True
+    # exercise8(-1, 1, False) -> True
+
+    # exercise8(-1, 1, True) -> False
+    # exercise8(-1, -1, True) -> True
+
+    # exercise8(1, 1, True) -> False
+    # exercise8(1, 1, False) -> False
+    # Output true/false
+    # Hintz: to test if a number is negative if x < 0
+    if negative:
+        return (x < 0 and y < 0)
+    else:
+        return (x < 0) ^ (y < 0)
+    # return (x < 0) and (y < 0) if negative else (x < 0) ^ (y < 0)
+
+def exercise9(weekday, vacation):
+    pass
+
+def exercise10(num):
+    # Given a 3 digit number inverse it
+    # Reverse the number given
+    # run: print(exercise10(123))
+    # 321 -> 123
+    # 789 -> 987
+    # str(789) -> converts to string
+    num = str(num)
+    # i = len(num) - 1
+    # end = ""
+    # while i >= 0:
+    #     end += num[i]
+    #     i -= 1
+    # return end
+
+    return(num[::-1])
+
+print(exercise10(12345678987646326362))
