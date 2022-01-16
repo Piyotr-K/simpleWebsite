@@ -173,131 +173,26 @@
                             End code:
                         </h3>
                         <h3>
-                            Story Game
+                            Turtle time
                         </h3>
                         <pre>
 #!/bin/python3
 
-import random
+import turtle
+snow = turtle.Turtle()
+snow.speed(0)
+snow.ht()
 
-name = input("What is your name?")
-print("Hello there " + name)
+snow.color("red")
+turtle.Screen().bgcolor("black")
 
-gender = input("What is your gender?")
-print("Your gender is " + gender)
-
-age = input("What is your age?")
-print("Your age is " + age)
-
-pronoun = ''
-if gender == "boy":
-    pronoun = "he"
-elif gender == "girl":
-    pronoun = "she"
-else:
-    pronoun = "it"
-
-print("You are a(n) " + pronoun)
-
-names = ["Jayden", "Edison", "Emma", "OwenQin"]
-roles = ["Knight", "Prince", "Princess", "Bishop"]
-places = ["Forest", "Plains", "Castle", "Dungeon"]
-actions = ["Protect", "Defend", "Attack", "Fight"]
-# Create a new list for enemies
-enemies = ["kraken", "cat", "witch", "goblin"]
-
-actor_name = random.choice(names)
-actor_role = random.choice(roles)
-location = random.choice(places)
-verb = random.choice(actions)
-enemy = random.choice(enemies)
-
-print("You ran into " + actor_name + \
-        " the " + actor_role)
-
-print("You are currently in the " + location)
-
-print("Your action is to " + verb + " " + \
-        actor_name + " the " + actor_role)
-
-print("There is a branching path up ahead, which one do you take?")
-
-choice = input("Left or Right? (l/r)")
-
-if choice.lower() == "l":
-    print("You took the left path")
-elif choice.lower() == "r":
-    print("You took the right path")
-else:
-    print("You were indecisive and took the " + \
-        "middle path that didn't exist")
-
-gold = 500
-done = False
-print("You ran into some random shop")
-
-while not done:
-    print("Shopping time")
-    print('''
-    Welcome to big man's big shop for big people
-    Please enter the item you would like to buy
-    1. Big Sword (240g)
-    2. Big Shield (200g)
-    3. Big Armour (200g)
-    4. Nice (600g)
-    5. Exit (1g)
-    ''')
-    choice = input("What to buy? You have " + str(gold))
-
-print("You ran into a(n) " + enemy + "!")
-
-enemy_hp = 100
-enemy_dmg_low = 5
-enemy_dmg_high = 30
-player_hp = 100
-player_dmg = 10
-
-while enemy_hp > 0:
-    print("Enemy's hp: " + str(enemy_hp))
-    print("Player's hp: " + str(player_hp))
-    player = input("(A)ttack | (D)efend | (R)un")
-
-    # Simple Enemy AI (random)
-    # 0 - Attack
-    # 1 - Defend
-    enemy_ai = random.randint(0, 1)
-    if enemy_ai == 0:
-        print("The " + enemy + " attacks!")
-    if enemy_ai == 1:
-        print("The " + enemy + " defends!")
-
-    if player.lower() == "a":
-        if enemy_ai == 0: # If the enemy also chose to attack
-            enemy_hp -= player_dmg
-            player_hp -= random.randint(enemy_dmg_low, enemy_dmg_high)
-        if enemy_ai == 1: # If the enemy chose to defend
-            enemy_hp -= 1
-
-    if player.lower() == "d":
-        if enemy_ai == 0:
-            player_hp -= 1
-        if enemy_ai == 1:
-            player_hp -= 0
-
-    if player.lower() == "r":
-        print("You tried to run away...")
-        chance = random.randint(0,1)
-        if chance == 1:
-            print("You have successfully escaped!")
-            break
-        else:
-            print("You failed to escape :(, continue to fight.")
-            player_hp -= random.randint(enemy_dmg_low, enemy_dmg_high)
-
-    if player_hp &lt; 0:
-        print("You lost")
-        alive = False
-        break
+for x in range(12):
+    for x in range(2):
+        snow.forward(100)
+        snow.right(60)
+        snow.forward(100)
+        snow.right(120)
+    snow.left(30)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -305,16 +200,12 @@ while enemy_hp > 0:
                             Homework
                         </h3>
                         <h3>
-                            Shop Time
+                            Turtle time
                         </h3>
                         <pre class="homework">
 # Required:
-# You press 1 it will subtract the cost of the item from your gold
-# You should be able to leave the shop
-# The shopkeeper should not let you buy an item if it is too expensive
-# Required: just first 3
-#
-# Challenge: get the entire shop to work
+# Get user input before drawing the "flower"
+# To determine the colour
                         </pre>
                     </div>
                 </div>
