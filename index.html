@@ -178,21 +178,57 @@
                         <pre>
 #!/bin/python3
 
+def simpleSnowflake():
+    for x in range(12):
+        for x in range(2):
+            snow.forward(100)
+            snow.right(60)
+            snow.forward(100)
+            snow.right(120)
+        snow.left(30)
+
+def twig():
+    snow.left(45)
+    snow.forward(30)
+    snow.backward(30)
+    
+    snow.right(45)
+    snow.forward(30)
+    snow.backward(30)
+    
+    snow.right(45)
+    snow.forward(30)
+    snow.backward(30)
+    
+    snow.left(45)
+
+def branch():
+    for i in range(numSegments):
+        twig()
+        snow.forward(twigLength)
+    snow.backward(twigLength * numSegments)
+
+def snowflake():
+    numOfBranches = 8
+
+    for i in range(numOfBranches):
+        branch()
+        snow.right(360 / numOfBranches)
+
 import turtle
 snow = turtle.Turtle()
+tree = turtle.Turtle()
 snow.speed(0)
+snow.color("cyan")
 snow.ht()
 
-snow.color("red")
-turtle.Screen().bgcolor("black")
+twigLength = 30
+numSegments = 4
 
-for x in range(12):
-    for x in range(2):
-        snow.forward(100)
-        snow.right(60)
-        snow.forward(100)
-        snow.right(120)
-    snow.left(30)
+snow.setpos(100, 100)
+snowflake()
+snow.setpos(-100, -100)
+snowflake()
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -204,8 +240,9 @@ for x in range(12):
                         </h3>
                         <pre class="homework">
 # Required:
-# Get user input before drawing the "flower"
-# To determine the colour
+# A tree, at least 4 triangles stacked on top of on another
+# Challenge:
+# Make a trunk
                         </pre>
                     </div>
                 </div>
