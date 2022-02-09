@@ -168,115 +168,10 @@
                             End code:
                         </h3>
                         <h3>
-                            Turtle time
+                            Codecraft
                         </h3>
                         <pre>
-#!/bin/python3
-
-def simpleSnowflake(x, y, size, color):
-    snow.color(color)
-    snow.pu()
-    snow.setpos(x, y)
-    snow.pd()
-    for x in range(12):
-        for x in range(2):
-            snow.forward(size)
-            snow.right(60)
-            snow.forward(size)
-            snow.right(120)
-        snow.left(30)
-
-def twig():
-    snow.left(45)
-    snow.forward(30)
-    snow.backward(30)
-    
-    snow.right(45)
-    snow.forward(30)
-    snow.backward(30)
-    
-    snow.right(45)
-    snow.forward(30)
-    snow.backward(30)
-    
-    snow.left(45)
-
-def branch():
-    for i in range(numSegments):
-        twig()
-        snow.forward(twigLength)
-    snow.backward(twigLength * numSegments)
-
-def snowflake(x, y, color):
-    snow.color(color)
-    snow.pu()
-    snow.setpos(x, y)
-    snow.pd()
-    numOfBranches = 8
-
-    for i in range(numOfBranches):
-        branch()
-        snow.right(360 / numOfBranches)
-
-def treeTri():
-    for i in range(3):
-    tree.forward(50)
-    tree.left(120)
-
-def pineTree(x, y, color):
-    tree.color(color)
-    tree.pu()
-    tree.setpos(x, y)
-    tree.pd()
-    for i in range(4):
-        treeTri()
-        if i >= 3:
-            break
-        tree.left(60)
-        tree.forward(40)
-        tree.left(120)
-        tree.forward(40/2)
-        tree.right(180)
-
-def snowman(x, y, color):
-    man.pu()
-    man.setpos(x, y)
-    man.pd()
-    man.color(color)
-    
-    man.dot(100) # Creates a filled circle at your turtle's position
-    
-    # We do plus 50 here so we move the turtle pen upwards according to the y value entered
-    man.setpos(x, y + 50)
-    man.dot(65)
-
-import turtle
-turtle.Screen().bgcolor("grey")
-snow = turtle.Turtle()
-tree = turtle.Turtle()
-man = turtle.Turtle()
-
-snow.speed(0)
-snow.ht()
-
-tree.speed(0)
-tree.ht()
-
-man.speed(0)
-man.ht()
-
-twigLength = 30
-numSegments = 4
-
-snowman(0, -100, "white")
-
-snowflake(100, 100, "cyan")
-snowflake(-100, -100, "cyan")
-
-simpleSnowflake(-100, 100, 25, "red")
-
-pineTree(50,50, "green")
-pineTree(-50,-50, "dark green")
+Email me to ask about it
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -284,16 +179,13 @@ pineTree(-50,-50, "dark green")
                             Homework
                         </h3>
                         <h3>
-                            Turtle time
+                            Codecraft
                         </h3>
                         <pre class="homework">
 # Homework:
-# Add one more circle to the snowman
-# Create a scene with all the functions and stuff we made
-# at least 3 snowflake()
-# at least 3 simpleSnowflake()
-# at least 4 trees
-# 1 snowman or more
+# Add Sand and Glass
+# Sand should spawn on the map
+# Glass should be craftable with 2 sand each
                         </pre>
                     </div>
                 </div>
