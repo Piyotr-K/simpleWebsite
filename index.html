@@ -164,10 +164,36 @@
                             End code:
                         </h3>
                         <h3>
-                            Codecraft
+                            Pygal
                         </h3>
                         <pre>
-Email me to ask about it
+#!/bin/python3
+
+def check(ans):
+    global wrong, correct
+    if user.lower() == ans:
+    correct += 1
+    else:
+    wrong += 1
+
+import pygal
+
+correct = 0
+wrong = 0
+
+print("Q1. Hello?")
+user = input("Input your answer:")
+check("weee")
+# if user.lower() == "weee":
+#   correct += 1
+# else:
+#   wrong += 1
+
+piechart = pygal.Pie()
+piechart.title = "Final Score"
+piechart.add("Incorrect", 1)
+piechart.add("Correct", 1)
+piechart.render()
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -175,13 +201,14 @@ Email me to ask about it
                             Homework
                         </h3>
                         <h3>
-                            Codecraft
+                            Quiz time
                         </h3>
                         <pre class="homework">
 # Homework:
-# Add Sand and Glass
-# Sand should spawn on the map
-# Glass should be craftable with 2 sand each
+# Make 10 quiz questions
+# Questions can be basic and a bit funny
+# Don't make the questions just 1 letter or 1 symbol
+# Make sure the ending piechart displays the information correctly
                         </pre>
                     </div>
                 </div>
