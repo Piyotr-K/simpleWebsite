@@ -75,7 +75,7 @@ function setJava3()
 
     java3hw.children[1].innerHTML = hwName;
     java3hw.children[2].innerHTML = hw;
-    java3grades.children[1].innerHTML = outputDecimal(allGrades);
+    java3grades.children[1].innerHTML = outputFraction(allGrades);
     // java3grades.innerHTML = calcAverage(allGrades);
     // console.log(outputDecimal(allGrades));
 }
@@ -120,6 +120,8 @@ function outputFraction(allUnits)
     let out = "";
     for (let name in allUnits)
     {
+        let tempGrades = [];
+
         // Add extra line after name
         out += name + ": \n";
         grades = allUnits[name];
@@ -128,12 +130,20 @@ function outputFraction(allUnits)
         {
             out += unit + ": ";
             grades[unit].forEach((nums) => {
+
+                // tempGrades for each unit to calculate overall average
+                tempGrades.push(convertFrac(nums));
+
                 // convert to decimal
                 out += nums + " ";
             });
             out += "\n";
         }
         out += "\n";
+
+        // Add overall at the end
+
+        out += "Overall: " + (calcAverage(tempGrades) * 100) + "%\n\n";
     }
     return out;
 }
