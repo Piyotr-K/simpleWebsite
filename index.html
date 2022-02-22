@@ -93,10 +93,7 @@
                             Coding bat
                         </h3>
                         <pre class="homework">
-# Required:
-# Coding Bat String-2
-# https://codingbat.com/python/String-2
-# count_code end_other xyz_there
+# CCC 2000 J1
                         </pre>
                     </div>
                 </div>
@@ -167,31 +164,38 @@
                         <pre>
 #!/bin/python3
 
-def check(ans):
-    global wrong, correct
-    if user.lower() == ans:
-    correct += 1
-    else:
-    wrong += 1
-
 import pygal
-
-correct = 0
-wrong = 0
-
-print("Q1. Hello?")
-user = input("Input your answer:")
-check("weee")
-# if user.lower() == "weee":
-#   correct += 1
-# else:
-#   wrong += 1
-
 piechart = pygal.Pie()
-piechart.title = "Final Score"
-piechart.add("Incorrect", 1)
-piechart.add("Correct", 1)
+
+f = open('data.txt', 'r')
+f2 = open('data2.txt', 'r')
+
+piechart.title = f.read().splitlines()[0]
+
+for line in f.read().splitlines()[1:]:
+    label, value = line.split(" ")
+    piechart.add(label, int(value))
+
 piechart.render()
+                        </pre>
+                        <h3>data.txt</h3>
+                        <pre>
+Dog 6
+Cat 4
+Hamster 3
+Fish 2
+Frog 3
+                        </pre>
+                        <h3>data2.txt</h3>
+                        <pre>
+Ice Cream Flavours
+rocky_road 10
+mint 2
+green_tea 5
+strawberry 6
+vanilla 8
+mango 3
+cookies_and_cream 7
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -199,14 +203,14 @@ piechart.render()
                             Homework
                         </h3>
                         <h3>
-                            Quiz time
+                            Piecharts
                         </h3>
                         <pre class="homework">
-# Homework:
-# Make 10 quiz questions
-# Questions can be basic and a bit funny
-# Don't make the questions just 1 letter or 1 symbol
-# Make sure the ending piechart displays the information correctly
+# Required:
+# Display data.txt, data2.txt and data3.txt
+# data.txt should be a pie chart with no title
+# data2.txt should be a pie chart with a title
+# data3.txt should be a bar graph with a title
                         </pre>
                     </div>
                 </div>
