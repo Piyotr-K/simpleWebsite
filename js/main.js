@@ -4,36 +4,42 @@ const allGrades = {
         "Unit-4" : ["4/5", "0/10"],
         "Unit-5" : ["2/5", "7/15"],
         "Unit-6" : ["7/15"],
+        "Unit-7" : ["N/A"],
     },
     "David" : {
         "Unit-3" : ["0/5", "2/5", "12/15"],
         "Unit-4" : ["2/5", "5.5/10"],
         "Unit-5" : ["3/5", "8/15"],
         "Unit-6" : ["11/15"],
+        "Unit-7" : ["3/5"],
     },
     "Hong" : {
         "Unit-3" : ["2/5", "5/5", "8/15"],
         "Unit-4" : ["N/A", "2/10"],
         "Unit-5" : ["1/5", "7/15"],
         "Unit-6" : ["5/15"],
+        "Unit-7" : ["2/5"],
     },
     "Jonathan" : {
         "Unit-3" : ["1/5", "3/5", "10/15"],
         "Unit-4" : ["3/5", "8.5/10"],
         "Unit-5" : ["5/5", "12/15"],
         "Unit-6" : ["13/15"],
+        "Unit-7" : ["4/5"],
     },
     "Paul" : {
         "Unit-3" : ["4/5", "3/5", "N/A"],
         "Unit-4" : ["2/5", "4/10"],
         "Unit-5" : ["1/5", "8/15"],
         "Unit-6" : ["8/15"],
+        "Unit-7" : ["1/5"],
     },
     "Victoria" : {
         "Unit-3" : ["N/A", "3/5", "7/15"],
         "Unit-4" : ["3/5", "N/A"],
         "Unit-5" : ["4/5", "10/15"],
         "Unit-6" : ["11/15"],
+        "Unit-7" : ["4/5"],
     },
 };
 
@@ -65,7 +71,7 @@ function setJava3()
     const notesUrl = "resources/APJava3/_notes/Unit-7-Notes.zip";
     const notesName = "Unit 7 Notes";
     const hwName = "Unit 7 Review";
-    const hw = "// Required: \n// Quiz on Unit-7 \n// 5 Questions";
+    const hw = "// Required: \n// Quiz Part2 on Unit-7 \n// 5 Questions";
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
