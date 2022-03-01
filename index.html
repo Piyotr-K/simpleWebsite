@@ -162,43 +162,37 @@
                             End code:
                         </h3>
                         <h3>
-                            Pygal
+                            Insults
                         </h3>
                         <pre>
 #!/bin/python3
 
-import pygal
-piechart = pygal.Pie()
+def insult_me(name):
+    global list_a, list_b, list_c
+    out = ""
+    out += name + " is a "
+    out += random.choice(list_a) + " "
+    out += random.choice(list_b) + " "
+    out += random.choice(list_c) + "."
+    print(out)
 
-f = open('data.txt', 'r')
-f2 = open('data2.txt', 'r')
+import random
 
-piechart.title = f.read().splitlines()[0]
+f = open('insults.txt', 'r')
 
-for line in f.read().splitlines()[1:]:
-    label, value = line.split(" ")
-    piechart.add(label, int(value))
+list_a = []
+list_b = []
+list_c = []
 
-piechart.render()
-                        </pre>
-                        <h3>data.txt</h3>
-                        <pre>
-Dog 6
-Cat 4
-Hamster 3
-Fish 2
-Frog 3
-                        </pre>
-                        <h3>data2.txt</h3>
-                        <pre>
-Ice Cream Flavours
-rocky_road 10
-mint 2
-green_tea 5
-strawberry 6
-vanilla 8
-mango 3
-cookies_and_cream 7
+for line in f.read().splitlines():
+    # print(line.split(","))
+    word1, word2, word3 = line.split(",")
+    list_a.append(word1)
+    list_b.append(word2)
+    list_c.append(word3)
+
+name = input("Enter a name:")
+insult_me(name)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -206,14 +200,12 @@ cookies_and_cream 7
                             Homework
                         </h3>
                         <h3>
-                            Piecharts
+                            Insults
                         </h3>
                         <pre class="homework">
 # Required:
-# Display data.txt, data2.txt and data3.txt
-# data.txt should be a pie chart with no title
-# data2.txt should be a pie chart with a title
-# data3.txt should be a bar graph with a title
+# Allow the user to generate another insult
+# Ask the user again if they want to generate another insult
                         </pre>
                     </div>
                 </div>
