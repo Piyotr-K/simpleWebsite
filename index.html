@@ -51,27 +51,22 @@
             </div>
             <div id="class1" class="collapse">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div id="end-class1" class="col-md-6">
                         <h3>
                             End code:
                         </h3>
                         <h3>
-                            <a href="resources/APJava2/Sam/Arrays.zip">
-                                Arrays.zip
+                            <a href="">
                             </a>
                         </h3>
                     </div>
-                    <div class="col-md-6">
+                    <div id="hw-class1" class="col-md-6">
                         <h3>
                             Homework
                         </h3>
                         <h3>
-                            Arrays
                         </h3>
                         <pre class="homework">
-// Required:
-// Create a resizable array
-// Code on the website
                         </pre>
                     </div>
                 </div>
@@ -162,37 +157,28 @@
                             End code:
                         </h3>
                         <h3>
-                            Insults
+                            Calculator
                         </h3>
                         <pre>
 #!/bin/python3
 
-def insult_me(name):
-    global list_a, list_b, list_c
-    out = ""
-    out += name + " is a "
-    out += random.choice(list_a) + " "
-    out += random.choice(list_b) + " "
-    out += random.choice(list_c) + "."
-    print(out)
+equation = ""
 
-import random
+while True:
+    user = input("Enter the next part of the equation:")
+    print("You entered: " + user)
+    
+    equation += user
+    print("The equation looks like this: " + equation)
+    
+    if user == "=":
+        break
 
-f = open('insults.txt', 'r')
+firstNum = equation.split("+")[0]
+secondNum = equation.split("+")[1][:-1]
+ans = int(firstNum) + int(secondNum)
 
-list_a = []
-list_b = []
-list_c = []
-
-for line in f.read().splitlines():
-    # print(line.split(","))
-    word1, word2, word3 = line.split(",")
-    list_a.append(word1)
-    list_b.append(word2)
-    list_c.append(word3)
-
-name = input("Enter a name:")
-insult_me(name)
+print("Your answer is " + str(ans))
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -200,12 +186,12 @@ insult_me(name)
                             Homework
                         </h3>
                         <h3>
-                            Insults
+                            Calculator
                         </h3>
                         <pre class="homework">
 # Required:
-# Allow the user to generate another insult
-# Ask the user again if they want to generate another insult
+# Make sure your program works for 2 numbers addition
+# Make sure your program works for 2 numbers subtraction
                         </pre>
                     </div>
                 </div>

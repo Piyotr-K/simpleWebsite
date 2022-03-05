@@ -66,6 +66,11 @@ const allGrades = {
 //     }
 // }
 
+function setButtons()
+{
+
+}
+
 function setJava3()
 {
     const notesUrl = "resources/APJava3/_notes/Unit-7-Notes.zip";
@@ -84,6 +89,24 @@ function setJava3()
     java3grades.children[1].innerHTML = outputFraction(allGrades);
     // java3grades.innerHTML = calcAverage(allGrades);
     // console.log(outputDecimal(allGrades));
+}
+
+function setClass1()
+{
+    const endUrl = "";
+    const endName = ""
+    const hwTitle = "CCC Practice";
+    let hwStr = "// Required: \n// CCC2005 J1-J2\n// https://www.cemc.uwaterloo.ca/contests/computing/2005/stage1/juniorEn.pdf\n";
+    hwStr += "// If time permits:\n// Java Coding Bat Strings-1 next 3 problems";
+
+    const endAnchor = document.getElementById("end-class1").children[1].children[0];
+    const hw = document.getElementById("hw-class1");
+
+    endAnchor.setAttribute("href", endUrl);
+    endAnchor.innerHTML = endName;
+
+    hw.children[1].innerHTML = hwTitle;
+    hw.children[2].innerHTML = hwStr;
 }
 
 function setClass2()
@@ -106,6 +129,7 @@ function setClass2()
 function setAll()
 {
     setJava3();
+    setClass1();
     setClass2();
 }
 
