@@ -157,28 +157,18 @@
                             End code:
                         </h3>
                         <h3>
-                            Calculator
+                            Lists
                         </h3>
                         <pre>
-#!/bin/python3
+data = []
 
-equation = ""
+for i in range(5):
+    data.append(int(input("Enter some numbreros:")))
 
-while True:
-    user = input("Enter the next part of the equation:")
-    print("You entered: " + user)
-    
-    equation += user
-    print("The equation looks like this: " + equation)
-    
-    if user == "=":
-        break
+# Your code here
+# Hint: remember to use temp thing
 
-firstNum = equation.split("+")[0]
-secondNum = equation.split("+")[1][:-1]
-ans = int(firstNum) + int(secondNum)
-
-print("Your answer is " + str(ans))
+print("" + str(data))
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -186,12 +176,17 @@ print("Your answer is " + str(ans))
                             Homework
                         </h3>
                         <h3>
-                            Calculator
+                            Lists
                         </h3>
                         <pre class="homework">
 # Required:
-# Make sure your program works for 2 numbers addition
-# Make sure your program works for 2 numbers subtraction
+# Create a data list = []
+# Using whatever means you wish, move the last item to the front
+# [1, 2, 3, 4, 5]
+# [5, 1, 2, 3, 4]
+# [5, 4, 2, 3, 1]
+# and then switch the second and last item
+# Based on whatever user enters
                         </pre>
                     </div>
                 </div>
