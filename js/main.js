@@ -5,6 +5,7 @@ const allGrades = {
         "Unit-5" : ["2/5", "7/15"],
         "Unit-6" : ["7/15"],
         "Unit-7" : ["N/A", "2/5", "9/15"],
+        "Unit-8" : ["2.5/5"],
     },
     "David" : {
         "Unit-3" : ["0/5", "2/5", "12/15"],
@@ -12,6 +13,7 @@ const allGrades = {
         "Unit-5" : ["3/5", "8/15"],
         "Unit-6" : ["11/15"],
         "Unit-7" : ["3/5", "1/5", "8/15"],
+        "Unit-8" : ["3.5/5"],
     },
     "Hong" : {
         "Unit-3" : ["2/5", "5/5", "8/15"],
@@ -19,6 +21,7 @@ const allGrades = {
         "Unit-5" : ["1/5", "7/15"],
         "Unit-6" : ["5/15"],
         "Unit-7" : ["2/5", "2/5", "9/15"],
+        "Unit-8" : ["1.5/5"],
     },
     "Jonathan" : {
         "Unit-3" : ["1/5", "3/5", "10/15"],
@@ -26,6 +29,7 @@ const allGrades = {
         "Unit-5" : ["5/5", "12/15"],
         "Unit-6" : ["13/15"],
         "Unit-7" : ["4/5", "4/5", "9/15"],
+        "Unit-8" : ["2.5/5"],
     },
     "Paul" : {
         "Unit-3" : ["4/5", "3/5", "N/A"],
@@ -33,6 +37,7 @@ const allGrades = {
         "Unit-5" : ["1/5", "8/15"],
         "Unit-6" : ["8/15"],
         "Unit-7" : ["1/5", "2/5", "3/15"],
+        "Unit-8" : ["4.5/5"],
     },
     "Victoria" : {
         "Unit-3" : ["N/A", "3/5", "7/15"],
@@ -40,6 +45,7 @@ const allGrades = {
         "Unit-5" : ["4/5", "10/15"],
         "Unit-6" : ["11/15"],
         "Unit-7" : ["4/5", "1/5", "11/15"],
+        "Unit-8" : ["0.5/5"],
     },
 };
 
@@ -71,12 +77,19 @@ function setButtons()
 
 }
 
+function setAll()
+{
+    setJava3();
+    setClass1();
+    setClass2();
+}
+
 function setJava3()
 {
-    const notesUrl = "resources/APJava3/_notes/Unit-8-Notes.zip";
-    const notesName = "Unit 8 Notes";
-    const hwName = "Unit 8 Review";
-    const hw = "// Required: \n// Quiz on Unit-8 \n// 5 Questions \n// Textbook questions 1-10";
+    const notesUrl = "resources/APJava3/_notes/Unit-8_9-Notes.zip";
+    const notesName = "Unit 8 & 9 Notes";
+    const hwName = "Unit 8 & 9 Review";
+    const hw = "// Required: \n// Quiz on MC with mc questions \n// 20 Questions \n// Textbook Diagnostic test mc and free response";
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
@@ -95,9 +108,9 @@ function setClass1()
 {
     const endUrl = "";
     const endName = ""
-    const hwTitle = "CCC Practice";
-    let hwStr = "// Required: \n// CCC2005 J1-J2\n// https://www.cemc.uwaterloo.ca/contests/computing/2005/stage1/juniorEn.pdf\n";
-    hwStr += "// If time permits:\n// Java Coding Bat Strings-1 next 3 problems";
+    const hwTitle = "Java 2 end";
+    let hwStr = "// Required: Study for java basics quiz next week";
+    hwStr += "// If time permits:\n// Java Coding Bat Ap-CS1";
 
     const endAnchor = document.getElementById("end-class1").children[1].children[0];
     const hw = document.getElementById("hw-class1");
@@ -114,7 +127,7 @@ function setClass2()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2008 J3\n# https://cemc.uwaterloo.ca/contests/computing/2008/stage1/juniorEn.pdf";
+    const hwStr = "# Required: \n# CCC2018 J3\n# https://dmoj.ca/problem/ccc18j3/pdf";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
@@ -124,13 +137,6 @@ function setClass2()
 
     hw.children[1].innerHTML = hwTitle;
     hw.children[2].innerHTML = hwStr;
-}
-
-function setAll()
-{
-    setJava3();
-    setClass1();
-    setClass2();
 }
 
 function outputDecimal(allUnits)
@@ -196,7 +202,7 @@ function outputFraction(allUnits)
 
         // Add overall at the end
 
-        out += "Overall: " + (calcAverage(tempGrades) * 100) + "%\n\n";
+        out += "Overall: " + (calcAverage(tempGrades) * 100).toPrecision(2) + "%\n\n";
     }
     return out;
 }
@@ -212,7 +218,7 @@ function calcAverage(tmpGrades)
         else
             sum += parseFloat(tmpGrades[num]);
     }
-    return (sum / size).toPrecision(2);
+    return (sum / size);
 }
 
 function convertFrac(grade)
