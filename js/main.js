@@ -110,7 +110,7 @@ function setClass1()
     const endName = ""
     const hwTitle = "Java 2 end";
     let hwStr = "// Required: Study for java basics quiz next week";
-    hwStr += "// If time permits:\n// Java Coding Bat Ap-CS1";
+    hwStr += "\n// If time permits:\n// Java Coding Bat Ap-CS1 question 1-3";
 
     const endAnchor = document.getElementById("end-class1").children[1].children[0];
     const hw = document.getElementById("hw-class1");
