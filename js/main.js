@@ -82,6 +82,7 @@ function setAll()
     setJava3();
     setClass1();
     setClass2();
+    setClass3();
 }
 
 function setJava3()
@@ -106,14 +107,19 @@ function setJava3()
 
 function setClass1()
 {
+    const title = "Java 3 Friday Class";
     const endUrl = "";
     const endName = ""
-    const hwTitle = "Java 2 end";
-    let hwStr = "// Required: Study for java basics quiz next week";
-    hwStr += "\n// If time permits:\n// Java Coding Bat Ap-CS1 question 1-3";
+    const hwTitle = "Java 3 Review";
+    let hwStr = "// Required: Pig Game";
+    hwStr += "\n// Study for Unit 4 Stuff\n// Game of pig rules: ";
+    hwStr += "\n// http://cs.gettysburg.edu/projects/pig/piggame.html";
 
+    const dropTitle = document.getElementById("title-class1");
     const endAnchor = document.getElementById("end-class1").children[1].children[0];
     const hw = document.getElementById("hw-class1");
+
+    dropTitle.innerHTML = title;
 
     endAnchor.setAttribute("href", endUrl);
     endAnchor.innerHTML = endName;
@@ -123,6 +129,15 @@ function setClass1()
 }
 
 function setClass2()
+{
+    const title = "Python 1 Friday Class";
+
+    const dropTitle = document.getElementById("title-class2");
+
+    dropTitle.innerHTML = title;
+}
+
+function setClass3()
 {
     const endUrl = "";
     const endName = ""
