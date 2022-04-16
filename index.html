@@ -157,18 +157,69 @@
                             End code:
                         </h3>
                         <h3>
-                            Lists
+                            Pig Game
                         </h3>
                         <pre>
-data = []
+#!/bin/python3
+import random
 
-for i in range(5):
-    data.append(int(input("Enter some numbreros:")))
+score = 0
+turnScore = 0
+playerTurn = True
+cpuScore = 0
+cpuTurn = 0
 
-# Your code here
-# Hint: remember to use temp thing
+print("Welcome to game of pig")
+print("Whoever rolls to 100 first wins!")
 
-print("" + str(data))
+f = open("score.txt", "r")
+highScore = int(f.read())
+f.close()
+
+while True:
+    choice = input("Would you like to roll or hold? (R/H): ")
+
+    if choice.upper() == "R":
+        roll = random.randint(1, 6)
+        print("You rolled a: " + str(roll))
+    
+    if roll == 1:
+        turnScore = 0
+        print("Uh oh you rolled a 1! Your turn's over!")
+        playerTurn = False
+    else:
+        turnScore += roll
+        print("Your current turn score is: " + str(turnScore))
+
+    if choice.upper() == "H":
+        score += turnScore
+        turnScore = 0
+        print("Your current score is: " + str(score))
+        playerTurn = False
+    
+    if playerTurn == False:
+        cpuTmp = 0
+        for i in range(5):
+            cpu = random.randint(1, 6)
+            if cpu == 1:
+                print("The computer rolled a 1!")
+                cpuTmp = 0
+                break
+            else:
+                cpuTmp += cpu
+        cpuScore += cpuTmp
+        print("The Computer's Score is: " + str(cpuScore))
+        playerTurn = True
+
+    if score >= 100:
+        print("Player wins!")
+        f = open("score.txt", "w")
+        f.write(highScore + 1)
+        break
+    
+    if cpuScore >= 100:
+        print("CPU wins!")
+        break
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -176,17 +227,11 @@ print("" + str(data))
                             Homework
                         </h3>
                         <h3>
-                            Lists
+                            Pig Game
                         </h3>
                         <pre class="homework">
 # Required:
-# Create a data list = []
-# Using whatever means you wish, move the last item to the front
-# [1, 2, 3, 4, 5]
-# [5, 1, 2, 3, 4]
-# [5, 4, 2, 3, 1]
-# and then switch the second and last item
-# Based on whatever user enters
+# Add a text file for scoring the computer's wins
                         </pre>
                     </div>
                 </div>
