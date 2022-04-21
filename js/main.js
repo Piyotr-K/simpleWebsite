@@ -74,11 +74,24 @@ const allGrades = {
 
 function setButtons()
 {
-
+    const accordion = document.getElementById("accordion");
+    const allClasses = [
+        "Java 3 Friday Class",
+        "Python 1 Friday Class",
+        "Python 1 Wednesday Class",
+        "Unity 3d Sunday Class",
+        "Python Algorithms Sunday Class",
+        "Java 3 Sunday Class"];
+    console.log(accordion.children);
+    for (let x = 0; x < accordion.children.length; x++)
+    {
+        accordion.children[x].lastChild.textContent = allClasses[x];
+    }
 }
 
 function setAll()
 {
+    setButtons();
     setJava3();
     setClass1();
     setClass2();
@@ -115,11 +128,8 @@ function setClass1()
     hwStr += "\n// Study for Unit 4 Stuff\n// Game of pig rules: ";
     hwStr += "\n// http://cs.gettysburg.edu/projects/pig/piggame.html";
 
-    const dropTitle = document.getElementById("title-class1");
     const endAnchor = document.getElementById("end-class1").children[1].children[0];
     const hw = document.getElementById("hw-class1");
-
-    dropTitle.innerHTML = title;
 
     endAnchor.setAttribute("href", endUrl);
     endAnchor.innerHTML = endName;
@@ -130,11 +140,7 @@ function setClass1()
 
 function setClass2()
 {
-    const title = "Python 1 Friday Class";
-
-    const dropTitle = document.getElementById("title-class2");
-
-    dropTitle.innerHTML = title;
+    
 }
 
 function setClass3()
@@ -142,7 +148,7 @@ function setClass3()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2007J2 J3\n# https://dmoj.ca/problem/ccc07j2";
+    const hwStr = "# Required: \n# CCC2007J2\n# https://dmoj.ca/problem/ccc07j2";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
