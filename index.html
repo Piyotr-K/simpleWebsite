@@ -146,69 +146,58 @@
                             End code:
                         </h3>
                         <h3>
-                            Pig Game
+                            Turtle Game
                         </h3>
                         <pre>
 #!/bin/python3
-import random
+import turtle
 
-score = 0
-turnScore = 0
-playerTurn = True
-cpuScore = 0
-cpuTurn = 0
+def moveForward():
+    global playerT
+    playerT.forward(10)
+    
+def moveBackward():
+    global playerT
+    playerT.backward(10)
+    
+def moveLeft():
+    global playerT
+    playerT.left(90)
 
-print("Welcome to game of pig")
-print("Whoever rolls to 100 first wins!")
+def moveRight():
+    global playerT
+    playerT.right(90)
 
-f = open("score.txt", "r")
-highScore = int(f.read())
-f.close()
+screen = turtle.Screen()
+screen.bgcolor("green")
+screen.listen()
+
+playerT = turtle.Turtle()
+playerT.shape("turtle")
+playerT.color("red")
+playerT.speed(0)
+
+finishT = turtle.Turtle()
+finishT.ht()
+finishT.color("white")
+finishT.speed(0)
+
+finishT.pu()
+finishT.goto(180,-180)
+finishT.pd()
+finishT.seth(90)
+finishT.forward(360)
+finishT.write("FINISH", align="center")
+
+screen.onkey(moveForward, "w")
+screen.onkey(moveBackward, "s")
+screen.onkey(moveLeft, "a")
+screen.onkey(moveRight, "d")
 
 while True:
-    choice = input("Would you like to roll or hold? (R/H): ")
-
-    if choice.upper() == "R":
-        roll = random.randint(1, 6)
-        print("You rolled a: " + str(roll))
-    
-    if roll == 1:
-        turnScore = 0
-        print("Uh oh you rolled a 1! Your turn's over!")
-        playerTurn = False
-    else:
-        turnScore += roll
-        print("Your current turn score is: " + str(turnScore))
-
-    if choice.upper() == "H":
-        score += turnScore
-        turnScore = 0
-        print("Your current score is: " + str(score))
-        playerTurn = False
-    
-    if playerTurn == False:
-        cpuTmp = 0
-        for i in range(5):
-            cpu = random.randint(1, 6)
-            if cpu == 1:
-                print("The computer rolled a 1!")
-                cpuTmp = 0
-                break
-            else:
-                cpuTmp += cpu
-        cpuScore += cpuTmp
-        print("The Computer's Score is: " + str(cpuScore))
-        playerTurn = True
-
-    if score >= 100:
-        print("Player wins!")
-        f = open("score.txt", "w")
-        f.write(highScore + 1)
-        break
-    
-    if cpuScore >= 100:
-        print("CPU wins!")
-        break
+    print("Player's current x: " +\
+    str(playerT.xcor()) + " y: " +\
+    str(playerT.ycor()))                            
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -216,11 +205,12 @@ while True:
                             Homework
                         </h3>
                         <h3>
-                            Pig Game
+                            Turtle Game
                         </h3>
                         <pre class="homework">
 # Required:
-# Add a text file for scoring the computer's wins
+# Have the game stop when the turtle crosses the finish line
+# And print "the player wins"!
                         </pre>
                     </div>
                 </div>
