@@ -222,7 +222,49 @@ while True:
                             End code:
                         </h3>
                         <pre>
-# Accidentally Lost, email me if you have questions
+# from turtle import *
+import turtle as T
+import random as R
+
+# quick duplicate: shift + alt + arrowDown or arrowUp
+T.Screen().bgcolor("gold")
+
+T.speed(0)
+# T.circle(100)
+T.pu()
+T.goto(-150,150)
+
+for x in range(11):
+    T.write(x * 10, align = "center")
+    T.right(90)
+    
+    T.forward(10)
+    T.pd()
+    T.forward(150)
+    T.pu()
+    T.backward(160)
+    
+    T.left(90)
+    T.forward(30)
+T.ht()
+
+ellJay = T.Turtle()
+ellJay.color("green")
+ellJay.shape("turtle")
+ellJay.pu()
+ellJay.goto(-150, 130)
+
+sean = T.Turtle()
+sean.color("blue")
+sean.shape("turtle")
+sean.pu()
+sean.goto(-150, 110)
+
+for x in range(100):
+    ellJay.forward(R.randint(1,5))
+    sean.forward(R.randint(1,5))
+    print(ellJay.xcor())
+    break
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -230,36 +272,15 @@ while True:
                             Homework
                         </h3>
                         <h3>
-                            Rock, Paper, Scissors
+                            Turtle Game
                         </h3>
                         <pre class="homework">
 # Homework:
 # Required:
-# Add a fourth option to the rps game
+# Dashed lines
 # Challenge:
-# Have the game print out how the player/cpu won, as well as
-# having the game print out a little picture depicting the scissors
-# and the rock
-# something like:
-# "Player wins!"
-# Rock beats scissors!
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-
-beats!
-
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-
-https://gist.github.com/wynand1004/b5c521ea8392e9c6bfe101b025c39abe for the ascii art
+# Have the game stop when one of the turtles crosses the finish line
+# And print who won
                         </pre>
                     </div>
                 </div>
