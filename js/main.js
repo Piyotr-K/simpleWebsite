@@ -102,8 +102,8 @@ function setJava3()
 {
     const notesUrl = "resources/APJava3/_notes/Unit-8_9-Notes.zip";
     const notesName = "Unit 8 & 9 Notes";
-    const hwName = "Unit 8 & 9 Review";
-    const hw = "// Required: \n// Quiz on MC with mc questions \n// 20 Questions \n// Textbook Diagnostic test mc and free response";
+    const hwName = "Exam Review";
+    const hw = "// Required: http://barronsbooks.com/ap/ap-computer-sci-9/test/";
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
@@ -113,7 +113,7 @@ function setJava3()
 
     java3hw.children[1].innerHTML = hwName;
     java3hw.children[2].innerHTML = hw;
-    java3grades.children[1].innerHTML = outputFraction(allGrades);
+    // java3grades.children[1].innerHTML = outputFraction(allGrades);
     // java3grades.innerHTML = calcAverage(allGrades);
     // console.log(outputDecimal(allGrades));
 }
