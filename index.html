@@ -205,50 +205,42 @@ while True:
                         <h3>
                             End code:
                         </h3>
+                        <h3>
+                            Lists
+                        </h3>
                         <pre>
-# from turtle import *
-import turtle as T
 import random as R
 
-# quick duplicate: shift + alt + arrowDown or arrowUp
-T.Screen().bgcolor("gold")
+f = open("players.txt", "r")
+players = f.read().splitlines()
+print("Players reading done...")
 
-T.speed(0)
-# T.circle(100)
-T.pu()
-T.goto(-150,150)
+teamA = []
+teamB = []
+teamC = []
 
-for x in range(11):
-    T.write(x * 10, align = "center")
-    T.right(90)
+while len(players) > 0:
+    choice = R.choice(players)
+    teamA.append(choice)
+    players.remove(choice)
     
-    T.forward(10)
-    T.pd()
-    T.forward(150)
-    T.pu()
-    T.backward(160)
+    if players == []:
+        break
+
+    choice = R.choice(players)
+    teamB.append(choice)
+    players.remove(choice)
     
-    T.left(90)
-    T.forward(30)
-T.ht()
-
-ellJay = T.Turtle()
-ellJay.color("green")
-ellJay.shape("turtle")
-ellJay.pu()
-ellJay.goto(-150, 130)
-
-sean = T.Turtle()
-sean.color("blue")
-sean.shape("turtle")
-sean.pu()
-sean.goto(-150, 110)
-
-for x in range(100):
-    ellJay.forward(R.randint(1,5))
-    sean.forward(R.randint(1,5))
-    print(ellJay.xcor())
-    break
+    if players == []:
+        break
+    
+    choice = R.choice(players)
+    teamC.append(choice)
+    players.remove(choice)
+    
+print("Team A: " + str(teamA))
+print("Team B: " + str(teamB))
+print("Team C: " + str(teamC))
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -256,15 +248,24 @@ for x in range(100):
                             Homework
                         </h3>
                         <h3>
-                            Turtle Game
+                            Lists
                         </h3>
                         <pre class="homework">
-# Homework:
 # Required:
-# Dashed lines
+# Read from the text file for your players
+# But after reading from the file, allow the user to enter more names
+# Then split the players into 4 teams
+# -> "User entry loop"
+#    -> The user should be able to keep entering names until
+#    -> the user enters a special stopping character, "@"
+#    -> When the user enters the @ symbol the entry stops
+# Hint: use while and break
+#
 # Challenge:
-# Have the game stop when one of the turtles crosses the finish line
-# And print who won
+# Write out to a file called "final-teams.txt"
+# Write out the team and the members in that team
+# f = open("lol.txt", "w")
+# f.write("heehee")
                         </pre>
                     </div>
                 </div>
