@@ -81,7 +81,7 @@ function setButtons()
         "Python 1 Wednesday Class",
         "Unity 3d Sunday Class",
         "Python Algorithms Sunday Class",
-        "Java 3 Sunday Class"];
+        "Java 3 Saturday Class"];
     console.log(accordion.children);
     for (let x = 0; x < accordion.children.length; x++)
     {
@@ -100,10 +100,13 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava3/_notes/Unit-8_9-Notes.zip";
-    const notesName = "Unit 8 & 9 Notes";
-    const hwName = "Exam Review";
-    const hw = "// Required: http://barronsbooks.com/ap/ap-computer-sci-9/test/";
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Example.java";
+    const notesName = "Example.java";
+    const hwName = "Java Intro Stuff";
+    let hw = "// Required: Create a simple program that takes the input from the user, a name and an age";
+    hw += "\n// The program should output \nHello John!\nYou are allowed to drive!";
+    hw += "\nThe program should display you are allowed to drive if the age of the user is over 16";
+    hw += "\nif the age of the user is under 16 it should display you are not allowed to drive";
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
