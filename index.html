@@ -208,38 +208,27 @@ while True:
                             Lists
                         </h3>
                         <pre>
-import random as R
+alphabet = "abcdefghijklmnopqrstuvwxyz" # alphabet as a string
 
-f = open("players.txt", "r")
-players = f.read().splitlines()
-print("Players reading done...")
+f = open("sometext.txt", "r")
 
-teamA = []
-teamB = []
-teamC = []
+userIn = f.read()
 
-while len(players) > 0:
-    choice = R.choice(players)
-    teamA.append(choice)
-    players.remove(choice)
-    
-    if players == []:
-        break
+encrypted_string = ""
+for c in userIn:
+    if c == " ":
+        encrypted_string += " "
+    else:
+        originPos = alphabet.find(c)
+        newPos = (originPos + 3) % 26 # transpose letter
+        encrypted_string += alphabet[newPos]
 
-    choice = R.choice(players)
-    teamB.append(choice)
-    players.remove(choice)
-    
-    if players == []:
-        break
-    
-    choice = R.choice(players)
-    teamC.append(choice)
-    players.remove(choice)
-    
-print("Team A: " + str(teamA))
-print("Team B: " + str(teamB))
-print("Team C: " + str(teamC))
+print(encrypted_string)
+
+# Don't have to actually create the file when using w
+# it will create the file for you if it does not exist
+f = open("encrypted_msg.txt", "w")
+f.write(encrypted_string)
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -247,24 +236,20 @@ print("Team C: " + str(teamC))
                             Homework
                         </h3>
                         <h3>
-                            Lists
+                            Ciphers
                         </h3>
                         <pre class="homework">
 # Required:
-# Read from the text file for your players
-# But after reading from the file, allow the user to enter more names
-# Then split the players into 4 teams
-# -> "User entry loop"
-#    -> The user should be able to keep entering names until
-#    -> the user enters a special stopping character, "@"
-#    -> When the user enters the @ symbol the entry stops
-# Hint: use while and break
+# Make sure the encrypter does not encrypt the following symbols:
+# \n \'
+# Make sure the written file is multiple lines and includes
+# single quotes '
 #
 # Challenge:
-# Write out to a file called "final-teams.txt"
-# Write out the team and the members in that team
-# f = open("lol.txt", "w")
-# f.write("heehee")
+# Make sure the encrypter works with uppercase letters as well
+# 
+# Omegaspice:
+# Find a way to encode special characters, \n, ', $, # ...
                         </pre>
                     </div>
                 </div>
