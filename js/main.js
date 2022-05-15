@@ -96,6 +96,7 @@ function setAll()
     setClass1();
     setClass2();
     setClass3();
+    setClass5();
 }
 
 function setJava3()
@@ -161,6 +162,11 @@ function setClass3()
 
     hw.children[1].innerHTML = hwTitle;
     hw.children[2].innerHTML = hwStr;
+}
+
+function setClass5()
+{
+    const endCode = document.getElementById("code-class5");
 }
 
 function outputDecimal(allUnits)
