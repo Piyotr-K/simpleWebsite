@@ -81,7 +81,7 @@ function setButtons()
         "Python 1 Wednesday Class",
         "Unity 3d Sunday Class",
         "Python Algorithms Sunday Class",
-        "Java 3 Saturday Class"];
+        "AP Java Saturday Class"];
     console.log(accordion.children);
     for (let x = 0; x < accordion.children.length; x++)
     {
@@ -101,13 +101,18 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Example.java";
-    const notesName = "Example.java";
-    const hwName = "Java Intro Stuff";
-    let hw = "// Required: Create a simple program that takes the input from the user, a name and an age";
-    hw += "\n// The program should output \nHello John!\nYou are allowed to drive!";
-    hw += "\nThe program should display you are allowed to drive if the age of the user is over 16";
-    hw += "\nif the age of the user is under 16 it should display you are not allowed to drive";
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/FormulaCalculator.java";
+    const notesName = "FormulaCalculator.java";
+    const hwName = "Formula Calculator";
+    let hw = `// Hmwk:
+// Required:
+// Finished Volume of Cylinder
+// Add surface area of sphere as choice 3
+// Add volume of sphere as choice 4
+// 
+// Challenge:
+// Find a way to shorten the amount of code in the main
+// The less the amount of code in main the better`;
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
