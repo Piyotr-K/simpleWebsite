@@ -106,13 +106,8 @@ function setJava3()
     const hwName = "Formula Calculator";
     let hw = `// Hmwk:
 // Required:
-// Finished Volume of Cylinder
-// Add surface area of sphere as choice 3
-// Add volume of sphere as choice 4
-// 
-// Challenge:
-// Find a way to shorten the amount of code in the main
-// The less the amount of code in main the better`;
+// Create an atm machine program
+// `;
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
@@ -157,7 +152,7 @@ function setClass3()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2002J2\n# https://dmoj.ca/problem/ccc02j2";
+    const hwStr = "# Required: \n# CCC2001S1/J3\n# https://dmoj.ca/problem/ccc01s1";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
