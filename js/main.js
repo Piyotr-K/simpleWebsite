@@ -101,13 +101,22 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/FormulaCalculator.java";
-    const notesName = "FormulaCalculator.java";
-    const hwName = "Formula Calculator";
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class3.java";
+    const notesName = "Class3.java";
+    const hwName = "ATM.java";
     let hw = `// Hmwk:
 // Required:
 // Create an atm machine program
-// `;
+// That allows a user to deposit/withdrawal money as well as view their balance
+// The balance of the user should start at $1000 in chequing account
+// and $1000 in savings account
+// -> There should be two deposit methods, one for if the user specifies an account to deposit into
+// -> And one for if the user does not, in which it defaults to chequing
+// -> There should be two withdrawal methods, similar to the functionality of the deposit method
+// -> One for no account specified and one with account specified
+// -> When the user quits it should show the end results of the transactions to the user
+//    -> Print out chequing final amount and savings final amount as well as number of transactions
+// Constraint: Must have overloaded methods`;
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
