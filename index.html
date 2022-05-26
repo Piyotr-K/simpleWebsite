@@ -238,118 +238,10 @@ while True:
                             End code:
                         </h3>
                         <h3>
-                            Text Game
+                            Functions
                         </h3>
                         <pre>
-import random as R
-
-name = input("What is your name?")
-print("Welcome " + name + " to the fun adventure game woohoo")
-
-print("""
-Pick your starting setting:
-1. Kremlin
-2. Great Wall of China
-3. International Space Station
-4. Disneyland
-5. Adelaid
-""")
-
-location = ""
-enemies = []
-while True:
-    setting = int(input("Enter an option: "))
-    if setting == 1:
-        location = "Kremlin"
-        enemies = ["Russian Soldier", "Bears", "Putin"]
-        break
-    elif setting == 2:
-        location = "Great Wall of China"
-        enemies = ["Panda", "Walking Bamboo", "Mongol Soldier"]
-        break
-    elif setting == 3:
-        location = "International Space Station"
-        enemies = ["Asteroid", "Martian/Alien", "Neil Armstrong"]
-        break
-    elif setting == 4:
-        location = "Disneyland"
-        enemies = ["Mickey Mouse", "Peter Pan", "Mad Karen"]
-        break
-    elif setting == 5:
-        location = "Adelaid"
-        enemies = ["Angry Australian", "Kangaroo", "Snake", "Koala"]
-        break
-    else:
-        print("Invalid choice")
-
-encounter_enemy = R.choice(enemies)
-print("You woke up in the nice place of " + location)
-print("You find 1 sword near you and you pick it up.")
-print("You don't know where you are so you decide to move forward")
-print("=" * 40)
-print("Up ahead you see a(n) " + encounter_enemy)
-print("They don't look very friendly, and they attack!")
-print("")
-print("=" * 40)
-print("")
-
-# The Combat Mainloop
-# Some variables
-player_hp = 100
-enemy_hp = 100
-
-while True:
-    print("Your current hp: " + str(player_hp))
-    print(encounter_enemy + "'s hp: " + str(enemy_hp))
-    
-    print("Attack (A), Defend (D), Bag (B), Run (R)")
-    player_opt = input("Choose a combat option: ")
-    
-    # Choose an option for the enemy to make
-    enemy_opt = R.choice(["A", "D"])
-    
-    # Convert player option into uppercase so we only have to worry about
-    # 1 scenario
-    if player_opt.upper() == "A":
-        # If the player chooses attack and the enemy chooses
-        # attack:
-        if enemy_opt == "A":
-            player_hp -= 8
-            enemy_hp -= 5
-        # If the player chooses attack and the enemy chooses
-        # defend:
-        else:
-            enemy_hp -= 2
-    elif player_opt.upper() == "D":
-    # If the player chooses defend and the enemy chooses
-    # attack:
-        if enemy_opt == "A":
-            player_hp -= 3
-    # 50% chance of escape
-    elif player_opt.upper() == "R":
-        num = R.randint(1, 2)
-        if num == 1:
-            print("You have escaped!")
-            break
-        else:
-            print("You tried to escape but the monster attacked!")
-            player_hp -= 5
-    # Escape for testing purposes
-    elif player_opt.upper() == "Q":
-        break
-    # Any invalid option
-    else:
-        print("Invalid choice")
-    
-    # Evalute combat
-    if enemy_hp <= 0:
-        print("You have defeated the " + encounter_enemy)
-        print("You win!")
-        break
-    if player_hp <= 0:
-        print("You have been defeated by the " + encounter_enemy)
-        print("You lost :(")
-        break
+https://trinket.io/python/3e535c76d2
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -357,27 +249,26 @@ while True:
                             Homework
                         </h3>
                         <h3>
-                            Ciphers
+                            Poster
                         </h3>
                         <pre class="homework">
-# Hw:
+# Hw
 # Required:
-# Make use of randint
-# Have the damage dealt by you and to you be a range
-# not a fixed number
-# So sometimes you will do 5 dmg, sometimes 8
-# So have a low dmg amt and a high dmg amt, dealing a random number between
-# that
-#
+# Draw a poster
+# As complicated as you want
+# But at minimum must include:
+# 1 title line of text
+# 2 smaller description lines of text
+# At least 10 shapes
+#    > At least 4 different colours for them
+# Background colour changed to something different
+# Put the text writing logic into function(s)
+# 
 # Challenge:
-# Add crits
-# Add bag functionality
-# -> Player should be able to choose from a list of items to use
-# -> Items are infinite
-# -> Player should be able to exit the bag if they want
-# -> Items should do stuff
-#   -> Hp potion, Extra damage, Smoke bomb(run)
-# Hint: use another while loop
+# Combine all shapes into 1 function called polygon
+# Where the user can define x, y, size, colour and numSides
+# Make it so that the user can change the direction the shape
+# is pointing in
                         </pre>
                     </div>
                 </div>
