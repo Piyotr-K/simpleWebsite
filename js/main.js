@@ -101,22 +101,26 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class3.java";
-    const notesName = "Class3.java";
-    const hwName = "ATM.java";
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class4.java";
+    const notesName = "Class4.java";
+    const hwName = "Class4.java";
     let hw = `// Hmwk:
 // Required:
-// Create an atm machine program
-// That allows a user to deposit/withdrawal money as well as view their balance
-// The balance of the user should start at $1000 in chequing account
-// and $1000 in savings account
-// -> There should be two deposit methods, one for if the user specifies an account to deposit into
-// -> And one for if the user does not, in which it defaults to chequing
-// -> There should be two withdrawal methods, similar to the functionality of the deposit method
-// -> One for no account specified and one with account specified
-// -> When the user quits it should show the end results of the transactions to the user
-//    -> Print out chequing final amount and savings final amount as well as number of transactions
-// Constraint: Must have overloaded methods`;
+// A new function called sum
+// -> Sums up all the elements of a given array
+// A new function called specialSum
+// -> Sums up all the elements of a given array
+// -> If the difference between the largest number and the smallest num
+//    is greater than the largest num then multiply the sum by 2
+// A new function called order
+// -> If the largest number is after the smallest number return true
+// -> If the smallest number is after the largest number return false
+//
+// Challenge:
+// Have the user enter the array
+// Ask the user for a lenght first
+// Then ask the user for numbers to populate the array
+`;
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
