@@ -101,25 +101,20 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class4.java";
-    const notesName = "Class4.java";
-    const hwName = "Class4.java";
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class5.java";
+    const notesName = "Class5.java";
+    const hwName = "Class5.java";
     let hw = `// Hmwk:
 // Required:
-// A new function called sum
-// -> Sums up all the elements of a given array
-// A new function called specialSum
-// -> Sums up all the elements of a given array
-// -> If the difference between the largest number and the smallest num
-//    is greater than the largest num then multiply the sum by 2
-// A new function called order
-// -> If the largest number is after the smallest number return true
-// -> If the smallest number is after the largest number return false
+// First number (n) is the number of words the user will enter
+// The next n Strings will be the words
+// Output all the strings the user entered in dictionary order
+// Hint: use String array -> String[] words = new String[size];
+// And also compareTo()
 //
 // Challenge:
-// Have the user enter the array
-// Ask the user for a lenght first
-// Then ask the user for numbers to populate the array
+// Make 1 word pig latin translator
+// https://en.wikipedia.org/wiki/Pig_Latin
 `;
 
     const java3end = document.getElementById("end-java3");
