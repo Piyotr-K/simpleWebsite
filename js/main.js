@@ -160,7 +160,7 @@ function setClass3()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2005J3\n# https://dmoj.ca/problem/ccc05j3";
+    const hwStr = "# Required: \n# CCC2006J3\n# https://dmoj.ca/problem/ccc06j3";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
