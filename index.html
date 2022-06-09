@@ -173,10 +173,33 @@
                             End code:
                         </h3>
                         <h3>
-                            Snow Scene
+                            Moving Turtle
                         </h3>
                         <pre>
-https://trinket.io/python/2a9bf78ef9
+import turtle as T
+
+def random():
+    print("hello random")
+
+def moveUp():
+    player.seth(90)
+    player.forward(10)
+
+def moveDown():
+    player.seth(-90)
+    player.forward(10)
+
+screen = T.Screen()
+screen.bgcolor("yellow")
+
+player = T.Turtle()
+player.color("red")
+player.shape("turtle")
+player.speed(0)
+
+screen.listen()
+screen.onkey(moveUp, "w")
+screen.onkey(moveDown, "s")
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -184,22 +207,12 @@ https://trinket.io/python/2a9bf78ef9
                             Homework:
                         </h3>
                         <h3>
-                            Snow Scene
+                            Moving Turtle
                         </h3>
                         <pre class="homework">
 # Required:
-# Have some snowflakes over trees in a scene
-# can just use genSimple for the snowflakes
-# and just have to place the trees below them
-# trees should have 4 green triangles stacked
-# and a trunk that is brown
-# at least 10 trees
-# -> hint: create a generate trees function
-# 
-# Challenge:
-# Resizable snowflake "complicated"
-# generate those instead of simple
-# add hills using circle                            
+# Move turtle left and right
+# Reset turtle's position to (0,0) by pressing 'r'                            
                         </pre>
                     </div>
                 </div>
