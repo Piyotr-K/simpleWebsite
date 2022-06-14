@@ -101,20 +101,21 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class5.java";
-    const notesName = "Class5.java";
-    const hwName = "Class5.java";
-    let hw = `// Hmwk:
-// Required:
-// First number (n) is the number of words the user will enter
-// The next n Strings will be the words
-// Output all the strings the user entered in dictionary order
-// Hint: use String array -> String[] words = new String[size];
-// And also compareTo()
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class6.java";
+    const notesName = "Class6.java";
+    const hwName = "Class6.java";
+    let hw = `// Hw:
+// Get the sums of the rows and columns
+// And two diagonals
+// Just print them
+// Use 5x5 for testing but do not assume always 5x5
 //
 // Challenge:
-// Make 1 word pig latin translator
-// https://en.wikipedia.org/wiki/Pig_Latin
+// Compare the sums, if at least 1 row's sum is the same as a column
+// AND the two diagonals are the same
+// Then its a magic square
+// Create a function that checks if its a magic square
+// Generate a whole bunch of squares to see if any of them are magic
 `;
 
     const java3end = document.getElementById("end-java3");
@@ -160,7 +161,7 @@ function setClass3()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2006J3\n# https://dmoj.ca/problem/ccc06j3";
+    const hwStr = "# Required: \n# CCC2009J2\n# https://dmoj.ca/problem/ccc09j2";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
