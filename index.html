@@ -173,33 +173,38 @@
                             End code:
                         </h3>
                         <h3>
-                            Moving Turtle
+                            Insult Generator
                         </h3>
                         <pre>
-import turtle as T
+import random as R
 
-def random():
-    print("hello random")
+def randomInsult():
+    word1 = R.choice(adj1)
+    word2 = R.choice(adj2)
+    word3 = R.choice(nouns)
+    print("Thou art a(n) " + word1 + " " + word2 + " " + word3)
 
-def moveUp():
-    player.seth(90)
-    player.forward(10)
+adj1 = []
+adj2 = []
+nouns = []
 
-def moveDown():
-    player.seth(-90)
-    player.forward(10)
+f = open("insults.csv")
+# Alternatives to spliting by lines
+# print(f.readlines())
+# print(f.read().split("\n"))
 
-screen = T.Screen()
-screen.bgcolor("yellow")
+for line in f.read().splitlines():
+    pieces = line.split(",")
+    adj1.append(pieces[0])
+    adj2.append(pieces[1])
+    nouns.append(pieces[2])
 
-player = T.Turtle()
-player.color("red")
-player.shape("turtle")
-player.speed(0)
-
-screen.listen()
-screen.onkey(moveUp, "w")
-screen.onkey(moveDown, "s")
+while True:
+    randomInsult()
+    user = input("Do you want another insult?")
+    if user == "no":
+        print("bye")
+        break
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -207,12 +212,11 @@ screen.onkey(moveDown, "s")
                             Homework:
                         </h3>
                         <h3>
-                            Moving Turtle
+                            Insult Generator
                         </h3>
                         <pre class="homework">
 # Required:
-# Move turtle left and right
-# Reset turtle's position to (0,0) by pressing 'r'                            
+# Have the insult generated be 3 adjectives instead of 2 + noun                    
                         </pre>
                     </div>
                 </div>
