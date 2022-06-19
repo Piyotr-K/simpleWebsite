@@ -101,21 +101,14 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class6.java";
-    const notesName = "Class6.java";
-    const hwName = "Class6.java";
-    let hw = `// Hw:
-// Get the sums of the rows and columns
-// And two diagonals
-// Just print them
-// Use 5x5 for testing but do not assume always 5x5
-//
-// Challenge:
-// Compare the sums, if at least 1 row's sum is the same as a column
-// AND the two diagonals are the same
-// Then its a magic square
-// Create a function that checks if its a magic square
-// Generate a whole bunch of squares to see if any of them are magic
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class7.java";
+    const notesName = "Class7.java";
+    const hwName = "Class7.java";
+    let hw = `// Coding bat recursion
+// Hw:
+// bunnyEars2, triangle, sumDigits
+// Spicy:
+// count7, count8, powerN
 `;
 
     const java3end = document.getElementById("end-java3");
