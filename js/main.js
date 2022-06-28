@@ -101,8 +101,8 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class7.java";
-    const notesName = "Class8.zip";
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/PigGame.zip";
+    const notesName = "PigGame.zip";
     const hwName = "Pig Game";
     let hw = `// Pig Game
 // Hw:
