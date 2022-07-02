@@ -176,35 +176,45 @@
                             Insult Generator
                         </h3>
                         <pre>
+import guizero as GZ
 import random as R
 
-def randomInsult():
-    word1 = R.choice(adj1)
-    word2 = R.choice(adj2)
-    word3 = R.choice(nouns)
-    print("Thou art a(n) " + word1 + " " + word2 + " " + word3)
+def something():
+    global t, counter
+    counter += 1
+    t.value = f"Counter: {counter}"
 
-adj1 = []
-adj2 = []
-nouns = []
+    if counter >= 10:
+        t.text_color = "Red"
 
-f = open("insults.csv")
-# Alternatives to spliting by lines
-# print(f.readlines())
-# print(f.read().split("\n"))
+def guess():
+    global t, tb, rng
+    user = tb.value
+    user = int(user) # convert to integer
 
-for line in f.read().splitlines():
-    pieces = line.split(",")
-    adj1.append(pieces[0])
-    adj2.append(pieces[1])
-    nouns.append(pieces[2])
+    if user == rng:
+        t.value = "You Win!"
+        t.text_color = "green"
+    else:
+        t.value = "Guess again!"
+        t.text_color = "red"
+        
+app = GZ.App(title="Number Guesser")
 
-while True:
-    randomInsult()
-    user = input("Do you want another insult?")
-    if user == "no":
-        print("bye")
-        break
+rng = R.randint(1, 10)
+
+# Text widget
+t = GZ.Text(app, text="Guess the number!")
+# Access properties of the Text() widget
+t.font = "Comic Sans MS"
+
+tb = GZ.TextBox(app, text="Type here", width=30)
+
+# PushButton widget
+b = GZ.PushButton(app, text="Guess", command=guess)
+b.font = "Comic Sans MS"
+
+app.display()
                         </pre>
                     </div>
                     <div class="col-md-6">
@@ -212,11 +222,14 @@ while True:
                             Homework:
                         </h3>
                         <h3>
-                            Insult Generator
+                            Alphabet guesser
                         </h3>
                         <pre class="homework">
 # Required:
-# Have the insult generated be 3 adjectives instead of 2 + noun                    
+# Have the user guess the letter of the alphabet chosen by the computer
+# Challenge:
+# Word guesser
+# Have the user guess from a library of words                  
                         </pre>
                     </div>
                 </div>
