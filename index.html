@@ -173,63 +173,29 @@
                             End code:
                         </h3>
                         <h3>
-                            Insult Generator
+                            TKinter
                         </h3>
-                        <pre>
-import guizero as GZ
-import random as R
-
-def something():
-    global t, counter
-    counter += 1
-    t.value = f"Counter: {counter}"
-
-    if counter >= 10:
-        t.text_color = "Red"
-
-def guess():
-    global t, tb, rng
-    user = tb.value
-    user = int(user) # convert to integer
-
-    if user == rng:
-        t.value = "You Win!"
-        t.text_color = "green"
-    else:
-        t.value = "Guess again!"
-        t.text_color = "red"
-        
-app = GZ.App(title="Number Guesser")
-
-rng = R.randint(1, 10)
-
-# Text widget
-t = GZ.Text(app, text="Guess the number!")
-# Access properties of the Text() widget
-t.font = "Comic Sans MS"
-
-tb = GZ.TextBox(app, text="Type here", width=30)
-
-# PushButton widget
-b = GZ.PushButton(app, text="Guess", command=guess)
-b.font = "Comic Sans MS"
-
-app.display()
-                        </pre>
+                        <h3>
+                            <a href="./resources/Python2/2022_08/window.py">
+                                window.py
+                            </a>
+                        </h3>
                     </div>
                     <div class="col-md-6">
                         <h3>
                             Homework:
                         </h3>
                         <h3>
-                            Alphabet guesser
+                            TKinter
                         </h3>
                         <pre class="homework">
 # Required:
-# Have the user guess the letter of the alphabet chosen by the computer
+# Change the greeting everytime, something like "Hi John" and then "Hello John"
+# Once in a while "S'up John"
 # Challenge:
-# Word guesser
-# Have the user guess from a library of words                  
+# A custom text option for when they type a certain name
+# AND also if they press the click me button 10 times
+# it displays a special message                
                         </pre>
                     </div>
                 </div>

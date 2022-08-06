@@ -78,7 +78,7 @@ function setButtons()
     const allClasses = [
         "Java 3 Friday Class",
         "Python 1 Friday Class",
-        "Python 1 Wednesday Class",
+        "Python 2 Wednesday Class",
         "Unity 3d Sunday Class",
         "Python Algorithms Sunday Class",
         "AP Java Saturday Class"];
@@ -152,7 +152,7 @@ function setClass3()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2012J4\n# https://dmoj.ca/problem/ccc12j4";
+    const hwStr = "# Required: \n# CCC2014J1\n# https://dmoj.ca/problem/ccc14j1";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
