@@ -101,12 +101,18 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/PigGame.zip";
-    const notesName = "PigGame.zip";
-    const hwName = "Pig Game";
-    let hw = `// Pig Game
-// Hw:
-// Try to finish the pig game
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class13.zip";
+    const notesName = "Class13.zip";
+    const hwName = "Inheritance";
+    let hw = `CLASS 13 AUG 27 2022:
+// Required:
+// Dog, Bird and Dolphin classes change them to inherit Animal Class
+// The animal class should have 4 common properties that are shared with
+// All the animals
+// Add 2 more animals, Cat and Mosquito
+// Dog, Bird, Dolphin, Cat and Mosquito classes should all inherit Animal Class
+// Dog, Bird, Dolphin, Cat and Mosquito classes should all have 1 unique property and function each
+// Create 1 of each in a driver file and just print their properties (5 properties ea)
 `;
 
     const java3end = document.getElementById("end-java3");
@@ -152,7 +158,7 @@ function setClass3()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2014J1\n# https://dmoj.ca/problem/ccc14j1";
+    const hwStr = "# Required: \n# CCC2006J4\n# https://dmoj.ca/problem/ccc06j4";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
