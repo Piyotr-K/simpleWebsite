@@ -97,6 +97,7 @@ function setAll()
     setClass2();
     setClass3();
     setClass5();
+    setClass6();
 }
 
 function setJava3()
@@ -173,6 +174,29 @@ function setClass3()
 function setClass5()
 {
     const endCode = document.getElementById("code-class5");
+}
+
+function setClass6()
+{
+    const endUrl = "./resources/Python2/2022_08/Class5.zip";
+    const endName = "Class5"
+    const hwTitle = "TKinter";
+    const hwStr = `# Hw
+# Required:
+# Add a menu button for loading the employees
+# Display all the employees IF the user is logged in
+# Put it in the subMenu under fileMenu
+# Make sure to make use of the employee class as well  
+    `;
+
+    const endAnchor = document.getElementById("end-class6").children[1].children[0];
+    const hw = document.getElementById("hw-class6");
+
+    endAnchor.setAttribute("href", endUrl);
+    endAnchor.innerHTML = endName;
+
+    hw.children[1].innerHTML = hwTitle;
+    hw.children[2].innerHTML = hwStr;
 }
 
 function outputDecimal(allUnits)
