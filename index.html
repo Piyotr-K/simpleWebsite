@@ -97,17 +97,62 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h3>
-                            Spring Break
+                            Rock Paper Scissors
                         </h3>
+                        <h3>
+                            |
+                        </h3>
+                        <pre id="code">
+import random as R
+
+choice = input("""
+Choose an option
+1 - Rock
+2 - Paper
+3 - Scissors
+""")
+
+# convert to int
+choice = int(choice)
+
+cpu = R.randint(1,3)
+
+# Both choose rock
+if choice == 1 and cpu == 1:
+    print("Tie")
+# Player choose rock and cpu chose paper
+if choice == 1 and cpu == 2:
+    print("CPU Win")
+
+
+# ==, =
+# = -> assignment, anyVariable = 6.
+# == -> comparison, anyVariable == 6?
+
+# tabs are important here!
+# if choice == 1:
+#   print("Nice sword!")
+# elif choice == 2:
+#   print("Nice shield!")
+# else:
+#   print("Nothing")
+                        </pre>
                     </div>
                     <div class="col-md-6">
                         <h3>
-                            Unity3d Henry
+                            Rock Paper Scissors
                         </h3>
                         <h3>
                             Homework:
                         </h3>
                         <pre class="homework">
+# Required:
+# Finish the rock paper scissors game
+# Challenge:
+# If the user enters any number above 3 or below 1 it says
+# "Invalid choice"
+# Add more options, 2 more
+# 4 for gun, 5 for cake
                         </pre>
                     </div>
                 </div>

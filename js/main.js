@@ -79,7 +79,7 @@ function setButtons()
         "Java 3 Friday Class",
         "Python 1 Friday Class",
         "Python 2 Wednesday Class",
-        "Unity 3d Sunday Class",
+        "Python 1 Thursday Class",
         "Python Algorithms Sunday Class",
         "AP Java Saturday Class"];
     console.log(accordion.children);
