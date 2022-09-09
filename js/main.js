@@ -82,7 +82,7 @@ function setButtons()
         "Python 1 Thursday Class",
         "Python Algorithms Sunday Class",
         "AP Java Saturday Class"];
-    console.log(accordion.children);
+    // console.log(accordion.children);
     for (let x = 0; x < accordion.children.length; x++)
     {
         accordion.children[x].lastChild.textContent = allClasses[x];
@@ -151,11 +151,6 @@ function setClass1()
 
 function setClass2()
 {
-    
-}
-
-function setClass3()
-{
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
@@ -165,6 +160,28 @@ function setClass3()
     const hw = document.getElementById("hw-class2");
 
     endAnchor.setAttribute("href", endUrl);
+    endAnchor.innerHTML = endName;
+
+    hw.children[1].innerHTML = hwTitle;
+    hw.children[2].innerHTML = hwStr;
+}
+
+function setClass3()
+{
+    const endUrl = "";
+    const endName = "Turtle Game"
+    const hwTitle = "Turtle Game";
+    const hwStr = `# Required:
+# Add 3 more racers to make it 5 turtles in total
+# Make them all different colors
+# Bonus:
+# Make the lines dashed lines
+# - - - - - - - - - -`;
+
+    const endAnchor = document.getElementById("end-class3").children[1];
+    const hw = document.getElementById("hw-class3");
+
+    // endAnchor.setAttribute("href", endUrl);
     endAnchor.innerHTML = endName;
 
     hw.children[1].innerHTML = hwTitle;
