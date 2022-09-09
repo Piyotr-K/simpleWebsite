@@ -102,19 +102,23 @@ function setAll()
 
 function setJava3()
 {
-    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class13.zip";
-    const notesName = "Class13.zip";
-    const hwName = "Inheritance";
-    let hw = `CLASS 13 AUG 27 2022:
+    const notesUrl = "resources/APJava1/2022_05_07/_end_code_/Class14.zip";
+    const notesName = "Class14.zip";
+    const hwName = "Inheritance Part2";
+    let hw = `CLASS 14 SEP 03 2022:
 // Required:
-// Dog, Bird and Dolphin classes change them to inherit Animal Class
-// The animal class should have 4 common properties that are shared with
-// All the animals
-// Add 2 more animals, Cat and Mosquito
-// Dog, Bird, Dolphin, Cat and Mosquito classes should all inherit Animal Class
-// Dog, Bird, Dolphin, Cat and Mosquito classes should all have 1 unique property and function each
-// Create 1 of each in a driver file and just print their properties (5 properties ea)
-`;
+// Implement magicSpeak() in Animal class
+// Override magicSpeak() for Bird, Dog, Dolphin, Cat, Mosquito
+// Animal.magicSpeak()
+// -> My name is Sparky and I am 5 years old and I am 5m(s) tall and I weigh 1lb(s)
+// Dolphin.magicSpeak()
+// -> My name is Echo the Dolphin and I am 5 years old and I am 5cm(s) tall and I weigh 2lb(s)
+//    Echo! Echo!
+// Make an ArrayList called zoo that contains all the animals
+// You should have 25 animals in total, 5 of ea.
+// You can add new objects inline like so: zoo.add(new Mosquito("Evil", 5, 5, 10));
+// Use a loop to have them all magicSpeak()
+// zoo.get(0).magicSpeak();`;
 
     const java3end = document.getElementById("end-java3");
     const java3hw = document.getElementById("hw-java3");
