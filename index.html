@@ -160,27 +160,50 @@ T.goto(-150, 150)
             </div>
             <div id="class5" class="collapse">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div id="end-class5" class="col-md-6">
                         <h3>
                             End code:
                         </h3>
                         <h3>
-                            Backpack time
+                            |
                         </h3>
-                        <pre id="code-class5">                       
+                        <pre id="code-class5">
+import turtle as T
+
+def random():
+    print("Hello there")
+
+def moveUp():
+    # Set heading (which direction its pointing in)
+    player.seth(90)
+    player.forward(10)
+
+# headings: 0 (right), -90 (down), 180 (left)
+screen = T.Screen()
+
+player = T.Turtle()
+player.color("red")
+player.shape("turtle")
+player.speed(0)
+player.up()
+
+# player.xcor() -> gives x position on the screen
+# player.ycor() -> gives y position on the screen
+
+screen.listen()
+screen.onkey(random, "space")
+screen.onkey(moveUp, "w")
+
+T.mainloop()
                         </pre>
                     </div>
-                    <div class="col-md-6">
+                    <div id="hw-class5" class="col-md-6">
                         <h3>
                             Homework
                         </h3>
                         <h3>
-                            Backpack time
                         </h3>
                         <pre class="homework">
-# Required:
-# Make sure buy item is safe from user spam as well
-# hint: use getUserNumber() function somewhere
                         </pre>
                     </div>
                 </div>

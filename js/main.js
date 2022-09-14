@@ -158,7 +158,7 @@ function setClass2()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2006J4\n# https://dmoj.ca/problem/ccc06j4";
+    const hwStr = "# Required: \n# CCC2016J4\n# https://dmoj.ca/problem/ccc16j4";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
@@ -195,6 +195,18 @@ function setClass3()
 function setClass5()
 {
     const endCode = document.getElementById("code-class5");
+    const endUrl = "";
+    const endName = "Turtle Move";
+    const hwTitle = "Turtle Move";
+    const hwStr = `# Required:
+# make sure your turtle can move up down left and right
+# draw a line to the right of the screen
+# when the player crosses that line print
+# wow you wonned!`;
+    const hw = document.getElementById("hw-class5");
+    // const end = document.getElementById("end-class5").children[1];
+    hw.children[1].innerHTML = hwTitle;
+    hw.children[2].innerHTML = hwStr;
 }
 
 function setClass6()
