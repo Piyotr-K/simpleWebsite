@@ -211,16 +211,13 @@ function setClass5()
 
 function setClass6()
 {
-    const endUrl = "./resources/Python2/2022_08/Class5.zip";
-    const endName = "Class5"
+    const endUrl = "./resources/Python2/2022_08/Class6zip";
+    const endName = "Class6"
     const hwTitle = "TKinter";
-    const hwStr = `# Hw
-# Required:
-# Add a menu button for loading the employees
-# Display all the employees IF the user is logged in
-# Put it in the subMenu under fileMenu
-# Make sure to make use of the employee class as well  
-    `;
+    const hwStr = `# Required:
+# Implement * and / and C for clear
+# They should do as they should
+# Play with the padding for different layouts`;
 
     const endAnchor = document.getElementById("end-class6").children[1].children[0];
     const hw = document.getElementById("hw-class6");
