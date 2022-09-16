@@ -173,8 +173,8 @@ function setClass2()
 function setClass3()
 {
     const endUrl = "";
-    const endName = "Turtle Game"
-    const hwTitle = "Turtle Game";
+    const endName = "Teams";
+    const hwTitle = "Teams";
     const hwStr = `# Required:
 # Split players into 3 teams
 # Teams A, B and C
