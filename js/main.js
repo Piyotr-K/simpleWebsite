@@ -176,11 +176,12 @@ function setClass3()
     const endName = "Turtle Game"
     const hwTitle = "Turtle Game";
     const hwStr = `# Required:
-# Add 3 more racers to make it 5 turtles in total
-# Make them all different colors
-# Bonus:
-# Make the lines dashed lines
-# - - - - - - - - - -`;
+# Split players into 3 teams
+# Teams A, B and C
+# DO NOT change number of players in players.txt
+# Output final teams into Final-Teams.txt
+# There should be 3 lines at least,
+# one team on each line in Final-Teams.txt`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
