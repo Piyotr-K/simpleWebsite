@@ -212,7 +212,7 @@ function setClass5()
 
 function setClass6()
 {
-    const endUrl = "./resources/Python2/2022_08/Class6zip";
+    const endUrl = "./resources/Python2/2022_08/Class6.zip";
     const endName = "Class6"
     const hwTitle = "TKinter";
     const hwStr = `# Required:
