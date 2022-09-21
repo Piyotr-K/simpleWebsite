@@ -158,7 +158,7 @@ function setClass2()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Junior";
-    const hwStr = "# Required: \n# CCC2016J4\n# https://dmoj.ca/problem/ccc16j4";
+    const hwStr = "# Required: \n# CCC2019J3\n# https://dmoj.ca/problem/ccc19j3";
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
