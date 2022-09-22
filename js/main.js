@@ -198,12 +198,13 @@ function setClass5()
     const endCode = document.getElementById("code-class5");
     const endUrl = "";
     const endName = "Turtle Move";
-    const hwTitle = "Turtle Move";
+    const hwTitle = "Tkinter";
     const hwStr = `# Required:
-# make sure your turtle can move up down left and right
-# draw a line to the right of the screen
-# when the player crosses that line print
-# wow you wonned!`;
+# Have the text change to a random word every time you click it
+# Hint: remember lists?
+# Hint: remember from random import *
+# Hint: remember choice()?
+# Hint: put the stuff in the function`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
