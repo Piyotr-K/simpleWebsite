@@ -212,13 +212,12 @@ function setClass5()
 
 function setClass6()
 {
-    const endUrl = "./resources/Python2/2022_08/Class6.zip";
-    const endName = "Class6"
+    const endUrl = "./resources/Python2/2022_08/Class7.zip";
+    const endName = "Class7"
     const hwTitle = "TKinter";
     const hwStr = `# Required:
-# Implement * and / and C for clear
-# They should do as they should
-# Play with the padding for different layouts`;
+# Add functionality to play animation button
+# Spice up the animation a bit`;
 
     const endAnchor = document.getElementById("end-class6").children[1].children[0];
     const hw = document.getElementById("hw-class6");
