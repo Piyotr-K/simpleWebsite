@@ -200,11 +200,11 @@ function setClass5()
     const endName = "Turtle Move";
     const hwTitle = "Tkinter";
     const hwStr = `# Required:
-# Have the text change to a random word every time you click it
-# Hint: remember lists?
-# Hint: remember from random import *
-# Hint: remember choice()?
-# Hint: put the stuff in the function`;
+# if the user enters a certain name
+# display a special message
+# garfield
+# you fat cat
+# Do 3 of these special messages, each for a different name`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
