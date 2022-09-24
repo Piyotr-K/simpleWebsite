@@ -175,13 +175,12 @@ function setClass3()
     const endUrl = "";
     const endName = "Teams";
     const hwTitle = "Teams";
-    const hwStr = `# Required:
-# Split players into 3 teams
-# Teams A, B and C
-# DO NOT change number of players in players.txt
-# Output final teams into Final-Teams.txt
-# There should be 3 lines at least,
-# one team on each line in Final-Teams.txt`;
+    const hwStr = `# Hw
+# Required:
+# Make sure the code works for sentences and spaces
+# Let us go to the beach
+# 3
+# Whb ew cd wt kli wjhte`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
