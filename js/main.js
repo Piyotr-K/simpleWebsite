@@ -77,7 +77,7 @@ function setButtons()
     const accordion = document.getElementById("accordion");
     const allClasses = [
         "Java 3 Friday Class",
-        "Python 1 Friday Class",
+        "Python 2 Friday Class",
         "Python 2 Wednesday Class",
         "Python 1 Thursday Class",
         "Python Algorithms Sunday Class",
