@@ -212,12 +212,14 @@ function setClass5()
 
 function setClass6()
 {
-    const endUrl = "./resources/Python2/2022_08/Class7.zip";
-    const endName = "Class7"
+    const endUrl = "./resources/Python2/2022_08/Class8.zip";
+    const endName = "Class8"
     const hwTitle = "TKinter";
-    const hwStr = `# Required:
-# Add functionality to play animation button
-# Spice up the animation a bit`;
+    const hwStr = `# Hw
+# Required:
+# Spawn ball in random direction upon starting
+# A reset button that puts the ball back at the start
+# and gives it a random direction`;
 
     const endAnchor = document.getElementById("end-class6").children[1].children[0];
     const hw = document.getElementById("hw-class6");
