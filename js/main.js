@@ -172,15 +172,16 @@ function setClass2()
 
 function setClass3()
 {
+    // Python 1 Thursday Class
     const endUrl = "";
     const endName = "Teams";
     const hwTitle = "Teams";
-    const hwStr = `# Hw
+    const hwStr = `# HW:
 # Required:
-# Make sure the code works for sentences and spaces
-# Let us go to the beach
-# 3
-# Whb ew cd wt kli wjhte`;
+# Add more to the combat loop
+# Make the enemy able to attack as well
+# Make it so that the player can also die
+# DONT FORGET TO CONVERT TO INT`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -194,6 +195,7 @@ function setClass3()
 
 function setClass5()
 {
+    // Python 2 Friday Class
     const endCode = document.getElementById("code-class5");
     const endUrl = "";
     const endName = "Turtle Move";
@@ -212,8 +214,9 @@ function setClass5()
 
 function setClass6()
 {
+    // Python 2 Wednesday Class
     const endUrl = "./resources/Python2/2022_08/Class8.zip";
-    const endName = "Class8"
+    const endName = "Class8";
     const hwTitle = "TKinter";
     const hwStr = `# Hw
 # Required:
