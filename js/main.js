@@ -219,14 +219,17 @@ function setClass5()
 function setClass6()
 {
     // Python 2 Wednesday Class
-    const endUrl = "./resources/Python2/2022_08/Class8.zip";
-    const endName = "Class8";
+    const endUrl = "./resources/Python2/2022_08/Class9.zip";
+    const endName = "Class9";
     const hwTitle = "TKinter";
     const hwStr = `# Hw
 # Required:
-# Spawn ball in random direction upon starting
-# A reset button that puts the ball back at the start
-# and gives it a random direction`;
+# If the ball touches the bottom
+# Just display gameover in terminal
+# (bonus ducks if you can get it to stop the game)
+# Anytime the ball touches the paddle add to score
+# Display score in terminal
+# (bonus ducks if you can get it to display on screen)`;
 
     const endAnchor = document.getElementById("end-class6").children[1].children[0];
     const hw = document.getElementById("hw-class6");
