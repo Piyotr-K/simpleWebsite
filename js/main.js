@@ -178,14 +178,18 @@ function setClass3()
 {
     // Python 1 Thursday Class
     const endUrl = "";
-    const endName = "Teams";
-    const hwTitle = "Teams";
-    const hwStr = `# HW:
+    const endName = "Functions";
+    const hwTitle = "Functions";
+    const hwStr = `# Hw
 # Required:
-# Add more to the combat loop
-# Make the enemy able to attack as well
-# Make it so that the player can also die
-# DONT FORGET TO CONVERT TO INT`;
+# Make a poster thing
+# With at least 15 shapes
+# 5 lines of any written thing
+# add one more argument to the shape
+# for an angle to tilt the shape at
+# one extra rule: do something that requires at least some effort
+# don't just do A B C D and E for the lines of written text
+# and don't just stack 15 polygons together`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
