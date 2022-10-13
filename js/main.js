@@ -221,17 +221,13 @@ function setClass5()
 function setClass6()
 {
     // Python 2 Wednesday Class
-    const endUrl = "./resources/Python2/2022_08/Class9.zip";
-    const endName = "Class9";
+    const endUrl = "./resources/Python2/2022_08/Class10.zip";
+    const endName = "Class10";
     const hwTitle = "TKinter";
     const hwStr = `# Hw
 # Required:
-# If the ball touches the bottom
-# Just display gameover in terminal
-# (bonus ducks if you can get it to stop the game)
-# Anytime the ball touches the paddle add to score
-# Display score in terminal
-# (bonus ducks if you can get it to display on screen)`;
+# Move turtle with arrow or WASD
+# ok`;
 
     const endAnchor = document.getElementById("end-class6").children[1].children[0];
     const hw = document.getElementById("hw-class6");
