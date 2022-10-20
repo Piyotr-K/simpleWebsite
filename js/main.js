@@ -178,16 +178,12 @@ function setClass3()
     const endUrl = "";
     const endName = "Functions";
     const hwTitle = "Functions";
-    const hwStr = `# Hw
+    const hwStr = `# HW
 # Required:
-# Make a poster thing
-# With at least 15 shapes
-# 5 lines of any written thing
-# add one more argument to the shape
-# for an angle to tilt the shape at
-# one extra rule: do something that requires at least some effort
-# don't just do A B C D and E for the lines of written text
-# and don't just stack 15 polygons together`;
+# make a "tree"
+# first figure out how to make a triangle
+# then figure out how to stack them
+# make a snow scene with trees and snowflakes`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -221,13 +217,19 @@ function setClass5()
 function setClass6()
 {
     // Python 2 Wednesday Class
-    const endUrl = "./resources/Python2/2022_08/Class10.zip";
-    const endName = "Class10";
+    const endUrl = "./resources/Python2/2022_08/Class11.zip";
+    const endName = "Class11";
     const hwTitle = "TKinter";
-    const hwStr = `# Hw
+    const hwStr = `# Hw:
 # Required:
-# Move turtle with arrow or WASD
-# ok`;
+# Fix the rdy_to_fire for the bullet
+# the rdy_to_fire should be set to True
+# after the bullet leaves the screen
+# bonus ducks:
+# have the bullet be able to hit the enemy
+# you'll have to check boundaries
+# of the bullet and the enemy
+# print hit or you can hide the bullet and the enemy`;
 
     const endAnchor = document.getElementById("end-class6").children[1].children[0];
     const hw = document.getElementById("hw-class6");
