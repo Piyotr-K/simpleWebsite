@@ -200,14 +200,13 @@ function setClass5()
     // Python 2 Friday Class
     const endCode = document.getElementById("code-class5");
     const endUrl = "";
-    const endName = "Turtle Move";
+    const endName = "Calendar";
     const hwTitle = "Tkinter";
-    const hwStr = `# Required:
-# if the user enters a certain name
-# display a special message
-# garfield
-# you fat cat
-# Do 3 of these special messages, each for a different name`;
+    const hwStr = `# HW Required:
+# Don't generate the last 4 numbers
+# HINT:
+# Put 1 if statement in the loop where the date increases
+# Check if the date is larger than something`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
