@@ -178,12 +178,22 @@ function setClass3()
     const endUrl = "";
     const endName = "Functions";
     const hwTitle = "Functions";
-    const hwStr = `# HW
+    const hwStr = `# Hw
 # Required:
-# make a "tree"
-# first figure out how to make a triangle
-# then figure out how to stack them
-# make a snow scene with trees and snowflakes`;
+# Create a data2.txt that has 11 lines of data
+# The first line is the piechart's title
+# Every other line is data separated by a ":"
+#     ex. Spaghetti:8
+# Read from data2.txt
+# Create a piechart from the data read
+# listName[1:] -> Take every item after the first one
+# listName[0] -> Gets the first item from a list
+
+# data2.txt
+# Favourite Foods
+# Spaghetti:8
+# Pizza:10
+# ... etc`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
