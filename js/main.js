@@ -212,11 +212,13 @@ function setClass5()
     const endUrl = "";
     const endName = "Calendar";
     const hwTitle = "Tkinter";
-    const hwStr = `# HW Required:
-# Don't generate the last 4 numbers
-# HINT:
-# Put 1 if statement in the loop where the date increases
-# Check if the date is larger than something`;
+    const hwStr = `# Hw
+# Required:
+# When the yes button or no button is clicked
+# it should change the question to another random question
+# count the number of yes presses and the number of no presses
+# print it in the console
+# At the top of your functions add global varName`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
