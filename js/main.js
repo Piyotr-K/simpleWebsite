@@ -178,22 +178,14 @@ function setClass3()
     const endUrl = "";
     const endName = "Functions";
     const hwTitle = "Functions";
-    const hwStr = `# Hw
-# Required:
-# Create a data2.txt that has 11 lines of data
-# The first line is the piechart's title
-# Every other line is data separated by a ":"
-#     ex. Spaghetti:8
-# Read from data2.txt
-# Create a piechart from the data read
-# listName[1:] -> Take every item after the first one
-# listName[0] -> Gets the first item from a list
-
-# data2.txt
-# Favourite Foods
-# Spaghetti:8
-# Pizza:10
-# ... etc`;
+    const hwStr = `# Hw:
+# When the user presses "space" it should toggle between drawing and not drawing
+# Should also give a random colour
+# choose from 4 different colours
+# hint: import random
+# hint: use T.isdown()
+#       tells you whether or not the pen is down
+# hint: use if statements`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -214,11 +206,14 @@ function setClass5()
     const hwTitle = "Tkinter";
     const hwStr = `# Hw
 # Required:
-# When the yes button or no button is clicked
-# it should change the question to another random question
-# count the number of yes presses and the number of no presses
-# print it in the console
-# At the top of your functions add global varName`;
+# Check if the name and password is a certain combination
+# If it is, print logged in!
+# Otherwise print, wrong
+# Bonus:
+# If they log in, delete the frame and show
+# a label that says nice
+# Hints: use if statements
+# Hints: Make sure to put it in the right place`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
