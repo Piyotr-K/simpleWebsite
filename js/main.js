@@ -179,9 +179,10 @@ function setClass3()
     const endName = "Functions";
     const hwTitle = "Functions";
     const hwStr = `# Hw
-# Random colour every new insult -> R.choice()
-# Random text size for every new insult -> R.randint()
-# Random font (Arial, Calibri, Times, Consolas)`;
+# Required:
+# Every time you click its a new colour
+# fiesta time
+# Change the font so its bigger, no need for random`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
