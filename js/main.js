@@ -78,9 +78,9 @@ function setButtons()
     const allClasses = [
         "Java 3 Friday Class",
         "Python 2 Friday Class",
-        "Python 2 Wednesday Class",
+        "Python Algorithms Wednesday Class",
         "Python 1 Thursday Class",
-        "Python Algorithms Sunday Class",
+        "Python Algorithms (Adv) Sunday Class",
         "AP Java Saturday Class"];
     // console.log(accordion.children);
     for (let x = 0; x < accordion.children.length; x++)
@@ -213,7 +213,7 @@ function setClass5()
 
 function setClass6()
 {
-    // Python 2 Wednesday Class
+    // Python Algo Wednesday Class
     const endUrl = "./resources/Python2/2022_08/Class11.zip";
     const endName = "Class11";
     const hwTitle = "TKinter";
