@@ -178,11 +178,7 @@ function setClass3()
     const endUrl = "";
     const endName = "Functions";
     const hwTitle = "Functions";
-    const hwStr = `# Hw
-# Required:
-# Every time you click its a new colour
-# fiesta time
-# Change the font so its bigger, no need for random`;
+    const hwStr = `N/A`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
