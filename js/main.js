@@ -210,12 +210,11 @@ function setClass5()
 function setClass6()
 {
     // Python Algo Wednesday Class
-    const endUrl = "./resources/Python2/2022_08/Class11.zip";
-    const endName = "Class11";
+    const endUrl = "";
+    const endName = "Class2";
     const hwTitle = "TKinter";
-    const hwStr = `# Hw-2022-NOV-16
-# Codingbat:Strings2 first 3, double_char, count_hi, cat_dog
-# Also prime numbers exercise`;
+    const hwStr = `# Hw-2022-NOV-23
+# Codingbat: String-2 and List-2 all questions`;
 
     const endAnchor = document.getElementById("end-class6").children[1].children[0];
     const hw = document.getElementById("hw-class6");
