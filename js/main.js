@@ -201,11 +201,10 @@ function setClass5()
     const endUrl = "";
     const endName = "Calendar";
     const hwTitle = "Tkinter";
-    const hwStr = `# Hw
-# Required:
-# Add to the class6 password thing
-# Add an error message box for failed login
-# Add an info message box for successful login`;
+    const hwStr = `# Homework
+# Make the menu button display showinfo
+# Hint:
+# import tkinter.messagebox as mb`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
