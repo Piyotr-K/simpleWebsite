@@ -155,12 +155,12 @@ function setClass1()
 
 function setClass2()
 {
+    // Python Algo Sunday Class
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Senior";
     const hwStr =  `# Required:
-# https://dmoj.ca/problem/ccc12s2
-# https://dmoj.ca/problem/ccc14s1`;
+# https://dmoj.ca/problem/ccc15s1`;
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
