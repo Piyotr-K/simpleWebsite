@@ -79,7 +79,7 @@ function setButtons()
         "Java 3 Friday Class",
         "Python 2 Friday Class",
         "Python Algorithms Wednesday Class",
-        "Python 1 Thursday Class",
+        "Python 2 Thursday Class",
         "Python Algorithms (Adv) Sunday Class",
         "AP Java Saturday Class"];
     // console.log(accordion.children);
@@ -178,7 +178,13 @@ function setClass3()
     const endUrl = "";
     const endName = "Functions";
     const hwTitle = "Functions";
-    const hwStr = `N/A`;
+    const hwStr = `# Required:
+# If the user type in some special text it will print a special message
+# ex. garfield
+# You fat cat!
+# Also if the user pressed the button more than 25 times
+# it also something different
+# hint: put 2 if statements somewhere`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -195,12 +201,11 @@ function setClass5()
     // Python 2 Friday Class
     const endCode = document.getElementById("code-class5");
     const endUrl = "";
-    const endName = "Calendar";
+    const endName = "Tkinter Canvas";
     const hwTitle = "Tkinter";
-    const hwStr = `# Homework
-# Make the menu button display showinfo
-# Hint:
-# import tkinter.messagebox as mb`;
+    const hwStr = `# Homework:
+# When the user presses space in a specific spot
+# it says "You found it!"`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
