@@ -174,17 +174,16 @@ https://dmoj.ca/problem/ccc16s1`;
 
 function setClass3()
 {
-    // Python 1 Thursday Class
+    // Python 2 Thursday Class
     const endUrl = "";
     const endName = "Functions";
-    const hwTitle = "Functions";
+    const hwTitle = "Tkinter";
     const hwStr = `# Required:
-# If the user type in some special text it will print a special message
-# ex. garfield
-# You fat cat!
-# Also if the user pressed the button more than 25 times
-# it also something different
-# hint: put 2 if statements somewhere`;
+# Button pressed counter
+# Make it display on screen
+# use msg.set("something")
+# if its pressed more than 20 times
+# display a funny haha message :|`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -204,8 +203,9 @@ function setClass5()
     const endName = "Tkinter Canvas";
     const hwTitle = "Tkinter";
     const hwStr = `# Homework:
-# When the user presses space in a specific spot
-# it says "You found it!"`;
+# make a counter that tracks how many times you pressed space
+# hint use global somewhere
+# yea`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
