@@ -159,8 +159,9 @@ function setClass2()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Senior";
-    const hwStr =  `# Required:
-https://dmoj.ca/problem/ccc16s1`;
+    const hwStr =  `Hw:
+    https://dmoj.ca/problem/ccc17s1
+    https://dmoj.ca/problem/ccc19s1`;
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
