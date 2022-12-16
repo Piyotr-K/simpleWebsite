@@ -180,11 +180,11 @@ function setClass3()
     const endName = "Functions";
     const hwTitle = "Tkinter";
     const hwStr = `# Required:
-# Button pressed counter
-# Make it display on screen
-# use msg.set("something")
-# if its pressed more than 20 times
-# display a funny haha message :|`;
+# Logic-1
+# https://codingbat.com/python/Logic-1
+# Do all questions lel
+# If you can't finish at least do something
+# Make an account as well`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
