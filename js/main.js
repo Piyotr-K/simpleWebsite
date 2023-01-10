@@ -160,8 +160,8 @@ function setClass2()
     const endName = ""
     const hwTitle = "CCC Senior";
     const hwStr =  `Hw:
-https://dmoj.ca/problem/ccc05s2
-https://dmoj.ca/problem/ccc11j4`;
+https://dmoj.ca/problem/ccc98s1
+https://dmoj.ca/problem/ccc97s1`;
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
@@ -180,11 +180,9 @@ function setClass3()
     const endName = "Functions";
     const hwTitle = "Tkinter";
     const hwStr = `# Required:
-# Logic-1
+# 2023-JAN-05
 # https://codingbat.com/python/Logic-1
-# Do all questions lel
-# If you can't finish at least do something
-# Make an account as well`;
+# Up to alarm clock`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -204,9 +202,9 @@ function setClass5()
     const endName = "Tkinter Canvas";
     const hwTitle = "Tkinter";
     const hwStr = `# Homework:
-# make a counter that tracks how many times you pressed space
-# hint use global somewhere
-# yea`;
+# 2023 JAN 06
+# When you get to 10 points, it says
+# You winned!`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
