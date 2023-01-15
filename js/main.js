@@ -180,9 +180,11 @@ function setClass3()
     const endName = "Functions";
     const hwTitle = "Tkinter";
     const hwStr = `# Required:
-# 2023-JAN-05
-# https://codingbat.com/python/Logic-1
-# Up to alarm clock`;
+# 2023 JAN 12
+# HW
+# Codingbat DONT FORGET TO LOGIN FIRST
+# love6, in1to10, near_ten
+# At least attempt plsssssssssssss`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -202,10 +204,12 @@ function setClass5()
     const endName = "Tkinter Canvas";
     const hwTitle = "Tkinter";
     const hwStr = `# Homework:
-# 2023 JAN 06
-# When you get to 10 points, it says
-# You winned!`;
-    const hw = document.getElementById("hw-class5");
+# 2023-01-13
+# Required:
+# Add all the every buttons
+# Add a C, =, +, -, /, *
+# and add padx and pady to all buttons to make it look better`;
+const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
     hw.children[2].innerHTML = hwStr;
