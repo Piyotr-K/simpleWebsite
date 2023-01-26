@@ -160,8 +160,10 @@ function setClass2()
     const endName = ""
     const hwTitle = "CCC Senior";
     const hwStr =  `Hw:
-https://dmoj.ca/problem/ccc99s1
-https://dmoj.ca/problem/ccc96s1`;
+https://dmoj.ca/problem/nccc6j1
+https://dmoj.ca/problem/mccc4j1
+https://dmoj.ca/problem/mccc3j1
+https://dmoj.ca/problem/ccc04s1`;
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
