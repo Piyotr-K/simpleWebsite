@@ -200,11 +200,10 @@ function setClass5()
     const endUrl = "";
     const endName = "Tkinter Canvas";
     const hwTitle = "Tkinter";
-    const hwStr = `# 2023-01-20
-# Required:
-# Change font of display text
-# Change font of buttons
-# Change colour of buttons`;
+    const hwStr = `# 2023-FEB-03
+# Make it so that it shows your score at the end
+# When you become unalive
+# Don't forgor dvide by 10`;
 const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
