@@ -160,10 +160,8 @@ function setClass2()
     const endName = ""
     const hwTitle = "CCC Senior";
     const hwStr =  `Hw:
-https://dmoj.ca/problem/nccc6j1
-https://dmoj.ca/problem/mccc4j1
-https://dmoj.ca/problem/mccc3j1
-https://dmoj.ca/problem/ccc04s1`;
+https://dmoj.ca/problem/mockccc15j2
+https://dmoj.ca/problem/mockccc15j1`;
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
@@ -182,9 +180,8 @@ function setClass3()
     const endName = "Functions";
     const hwTitle = "Tkinter";
     const hwStr = `# Required:
-# 2023 JAN 19
-# Codingbat string-1
-# make_out_word, extra_end, first_two`;
+# 2023 FEB 02
+# Coding Bat - List 1`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
