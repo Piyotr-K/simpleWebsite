@@ -177,11 +177,12 @@ function setClass3()
 {
     // Python 2 Thursday Class
     const endUrl = "";
-    const endName = "Functions";
+    const endName = "Tkinter";
     const hwTitle = "Tkinter";
     const hwStr = `# Required:
-# 2023 FEB 02
-# Coding Bat - List 1`;
+# 2023-FEB-09
+# https://codingbat.com/prob/p167246
+# https://codingbat.com/prob/p164876`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
