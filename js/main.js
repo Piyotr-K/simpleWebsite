@@ -160,7 +160,7 @@ function setClass2()
     const endName = ""
     const hwTitle = "CCC Senior";
     const hwStr =  `Hw:
-https://dmoj.ca/problem/ccc22s1`;
+https://dmoj.ca/problem/ccc23s1`;
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
@@ -198,13 +198,19 @@ function setClass5()
     // Python 2 Friday Class
     const endCode = document.getElementById("code-class5");
     const endUrl = "";
-    const endName = "Tkinter Canvas";
-    const hwTitle = "Tkinter";
-    const hwStr = `# 2023-FEB-10
-# Hw
-# Space to dash upwards
-# Make sure you cannot leave the boundaries with
-# the dash`;
+    const endName = "Pygame";
+    const hwTitle = "Pygame";
+    const hwStr = `# 2023-FEB-17
+# Take 2 inputs from the user
+# Determine which one is a even number or odd number
+# and print it out
+# input()
+# INput: 5
+#        6
+# Output:
+# 5 is an odd number
+# 6 is an even number
+# Hint: don't forgor to convert to int, and %`;
 const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
