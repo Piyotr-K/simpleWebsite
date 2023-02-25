@@ -178,18 +178,14 @@ function setClass3()
     const endUrl = "";
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
-    const hwStr = `
-    # Given 2 inputs
-    # Find ALL prime numbers in between the two inputs
-    # Input:
-    # 1
-    # 10
-    # Output:
-    # 1
-    # 2
-    # 3
-    # 5
-    # 7`;
+    const hwStr = `# 2023-FEB-24
+# Given 2 inputs
+# Sum only the odd numbers in the range provided
+# input:
+# 1
+# 6
+# output:
+# 9 is your odd-sum`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
