@@ -77,7 +77,7 @@ function setButtons()
     const accordion = document.getElementById("accordion");
     const allClasses = [
         "Java 3 Friday Class",
-        "Python 2 Friday Class",
+        "Pygame Friday Class",
         "Python Algorithms Wednesday Class",
         "Python 2 Thursday Class",
         "Python Algorithms (Adv) Sunday Class",
@@ -179,19 +179,17 @@ function setClass3()
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
     const hwStr = `
-    # Determine if the number input by the user is a leap year
-
-    # Input: 2012
-    # Ouput: 2012 is a leap year
-    
-    # Input: 2000
-    # Ouput: 2000 is a leap year
-
-    # Input: 1900
-    # Output: 1900 is not a leap year
-
-    # Input: 1800
-    # Output: 1800 is not a leap year`;
+    # Given 2 inputs
+    # Find ALL prime numbers in between the two inputs
+    # Input:
+    # 1
+    # 10
+    # Output:
+    # 1
+    # 2
+    # 3
+    # 5
+    # 7`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
