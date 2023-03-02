@@ -204,17 +204,14 @@ function setClass5()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    const hwStr = `# 2023-FEB-17
-# Take 2 inputs from the user
-# Determine which one is a even number or odd number
-# and print it out
-# input()
-# INput: 5
-#        6
-# Output:
-# 5 is an odd number
-# 6 is an even number
-# Hint: don't forgor to convert to int, and %`;
+    const hwStr = `# 2023-FEB-24
+# Given 2 inputs
+# Sum only the odd numbers in the range provided
+# input:
+# 1
+# 6
+# output:
+# 9 is your odd-sum`;
 const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
