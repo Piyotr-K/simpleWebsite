@@ -159,8 +159,10 @@ function setClass2()
     const endUrl = "";
     const endName = ""
     const hwTitle = "CCC Senior";
-    const hwStr =  `Hw:
-https://dmoj.ca/problem/ccc23s1`;
+    const hwStr =  `
+    HW:
+    https://dmoj.ca/problem/mccc5j2
+    https://dmoj.ca/problem/mccc5j1`;
 
     const endAnchor = document.getElementById("end-class2").children[1].children[0];
     const hw = document.getElementById("hw-class2");
@@ -178,14 +180,13 @@ function setClass3()
     const endUrl = "";
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
-    const hwStr = `# 2023-FEB-24
-# Given 2 inputs
-# Sum only the odd numbers in the range provided
-# input:
-# 1
-# 6
-# output:
-# 9 is your odd-sum`;
+    const hwStr = `# 2023 MAR 2
+# Armstrong number
+# An armstrong number is a number that is equal to the sum of the power of its digits
+# Hints:
+# don't convert to int right away leave it as a string
+# convert to int only for calculations
+# also power of -> **`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -199,19 +200,15 @@ function setClass3()
 
 function setClass5()
 {
-    // Python 2 Friday Class
+    // Pygame Friday Class
     const endCode = document.getElementById("code-class5");
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    const hwStr = `# 2023-FEB-24
-# Given 2 inputs
-# Sum only the odd numbers in the range provided
-# input:
-# 1
-# 6
-# output:
-# 9 is your odd-sum`;
+    const hwStr = `# 2023 MAR 03:
+    # take two inputs from user
+    # if the second input is bigger then print all even numbers between in1 and in2
+    # if the first input is bigger then print all odd numbers between in2 and in1`;
 const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
