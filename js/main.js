@@ -79,7 +79,7 @@ function setButtons()
         "Java 3 Friday Class",
         "Pygame Friday Class",
         "Python Algorithms Wednesday Class",
-        "Python 2 Thursday Class",
+        "Pygame Thursday Class",
         "Python Algorithms (Adv) Sunday Class",
         "AP Java Saturday Class"];
     // console.log(accordion.children);
@@ -176,17 +176,13 @@ function setClass2()
 
 function setClass3()
 {
-    // Python 2 Thursday Class
+    // Pygame Thursday Class
     const endUrl = "";
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
-    const hwStr = `# 2023 MAR 2
-# Armstrong number
-# An armstrong number is a number that is equal to the sum of the power of its digits
-# Hints:
-# don't convert to int right away leave it as a string
-# convert to int only for calculations
-# also power of -> **`;
+    const hwStr = `# 2023 APR 06
+    # Everyone: CCC2006J2
+    # Abheer: http://www.usaco.org/index.php?page=viewproblem2&cpid=663`;
 
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -205,10 +201,18 @@ function setClass5()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    const hwStr = `# 2023 MAR 03:
-    # take two inputs from user
-    # if the second input is bigger then print all even numbers between in1 and in2
-    # if the first input is bigger then print all odd numbers between in2 and in1`;
+    const hwStr = `# 2023 MAR 31
+    # Hw
+    # Make a converter that takes 3 inputs
+    # first input is a value, second value is a unit
+    # third value is the destination unit
+    # Only need cm and in
+    
+    # Converts from the first unit into the second unit
+    # Input: 5
+    # cm
+    # in
+    # Ouput: 1.9 ~ 2.0`;
 const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
