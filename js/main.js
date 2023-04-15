@@ -201,19 +201,13 @@ function setClass5()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    const hwStr = `# 2023 MAR 31
-    # Hw
-    # Make a converter that takes 3 inputs
-    # first input is a value, second value is a unit
-    # third value is the destination unit
-    # Only need cm and in
-    
-    # Converts from the first unit into the second unit
-    # Input: 5
-    # cm
-    # in
-    # Ouput: 1.9 ~ 2.0`;
-const hw = document.getElementById("hw-class5");
+    const hwStr = `# 2023 APR 14
+# We have two inputs monkey_a, True/False and monkey_b, True/False
+# If monkey_a is smiling and monkey_b is smiling we are in trouble
+# If monkey_a is NOT smiling and monkey_b is NOT smiling we are in trouble
+# Print "trouble" if we are in trouble
+# Print "no trouble" if we are not in trouble`;
+    const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
     hw.children[2].innerHTML = hwStr;
