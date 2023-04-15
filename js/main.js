@@ -180,10 +180,10 @@ function setClass3()
     const endUrl = "";
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
-    const hwStr = `# 2023 APR 06
-    # Everyone: CCC2006J2
-    # Abheer: http://www.usaco.org/index.php?page=viewproblem2&cpid=663`;
-
+    const hwStr = `# 2023 APR 13
+# https://dmoj.ca/problem/ccc08j1
+# https://dmoj.ca/problem/ccc09j1`;
+    
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
 
