@@ -158,12 +158,14 @@ function setClass2()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    const hwStr = `# 2023 APR 14
-# We have two inputs monkey_a, True/False and monkey_b, True/False
-# If monkey_a is smiling and monkey_b is smiling we are in trouble
-# If monkey_a is NOT smiling and monkey_b is NOT smiling we are in trouble
-# Print "trouble" if we are in trouble
-# Print "no trouble" if we are not in trouble`;
+    const hwStr = `# 2023 APR 21
+# Take 3 inputs, call them person_a, person_b, person_c
+# These are the orders for the table
+# A person has an order if they are True
+# If only one person orders, then its questionable
+# If two or more people order, then its alright
+# Print "Questionable" if its questionable
+# Print "Alright" if its alright`;
     const hw = document.getElementById("hw-class2");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
