@@ -178,8 +178,8 @@ function setClass3()
     const endUrl = "";
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
-    const hwStr = `# 2023 APR 20
-# CCC: CCC2010J1, CCC2011J1`;
+    const hwStr = `# 2023 APR 27
+# CCC: CCC2013J1, CCC2014J1, CCC2015J1`;
     
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
