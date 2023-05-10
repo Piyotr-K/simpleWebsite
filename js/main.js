@@ -78,7 +78,6 @@ function setButtons()
     const allClasses = [
         "Java 3 Friday Class",
         "Pygame Friday Class",
-        "Python Algorithms Wednesday Class",
         "Pygame Thursday Class"];
     // console.log(accordion.children);
     for (let x = 0; x < accordion.children.length; x++)
@@ -158,14 +157,16 @@ function setClass2()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    const hwStr = `# 2023 APR 21
-# Take 3 inputs, call them person_a, person_b, person_c
-# These are the orders for the table
-# A person has an order if they are True
-# If only one person orders, then its questionable
-# If two or more people order, then its alright
-# Print "Questionable" if its questionable
-# Print "Alright" if its alright`;
+    const hwStr = `def exe(trees, trucks):
+    # 2023 MAY 05
+    # Given a number of trees and a number of trucks
+    # Return True if John has enough trucks to carry all the trees
+    # If each truck carries 5 trees
+    if trees + trucks == 20:
+        return True
+    return False
+
+print(exe(5, 10))`;
     const hw = document.getElementById("hw-class2");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
@@ -178,8 +179,8 @@ function setClass3()
     const endUrl = "";
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
-    const hwStr = `# 2023 APR 27
-# CCC: CCC2013J1, CCC2014J1, CCC2015J1`;
+    const hwStr = `# 2023 MAY 04
+# CCC: CCC2016J1, CCC2017J1, CCC2018J1`;
     
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
