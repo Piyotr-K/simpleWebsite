@@ -76,7 +76,7 @@ function setButtons()
 {
     const accordion = document.getElementById("accordion");
     const allClasses = [
-        "Java 3 Friday Class",
+        "Scratch Friday Class",
         "Pygame Friday Class",
         "Pygame Thursday Class"];
     // console.log(accordion.children);
@@ -132,13 +132,16 @@ function setJava3()
 
 function setClass1()
 {
-    const title = "Java 3 Friday Class";
+    const title = "Scratch Friday Class";
     const endUrl = "";
     const endName = ""
-    const hwTitle = "Java 3 Review";
-    let hwStr = "// Required: Pig Game";
-    hwStr += "\n// Study for Unit 4 Stuff\n// Game of pig rules: ";
-    hwStr += "\n// http://cs.gettysburg.edu/projects/pig/piggame.html";
+    const hwTitle = "Scratch time";
+    let hwStr = `
+MAY 12 2023
+Add three dancers to the stage
+Make sure they're animated
+    `;
+    hwStr = hwStr.trim();
 
     const endAnchor = document.getElementById("end-class1").children[1].children[0];
     const hw = document.getElementById("hw-class1");
@@ -157,7 +160,7 @@ function setClass2()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    const hwStr = `def exe(trees, trucks):
+    let hwStr = `def exe(trees, trucks):
     # 2023 MAY 05
     # Given a number of trees and a number of trucks
     # Return True if John has enough trucks to carry all the trees
@@ -179,8 +182,11 @@ function setClass3()
     const endUrl = "";
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
-    const hwStr = `# 2023 MAY 04
-# CCC: CCC2016J1, CCC2017J1, CCC2018J1`;
+    let hwStr = `
+# 2023 MAY 04
+# CCC: CCC2016J1, CCC2017J1, CCC2018J1
+`;
+    hwStr = hwStr.trim();
     
     const endAnchor = document.getElementById("end-class3").children[1];
     const hw = document.getElementById("hw-class3");
@@ -199,12 +205,14 @@ function setClass5()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    const hwStr = `# 2023 APR 14
+    const hwStr = `
+# 2023 APR 14
 # We have two inputs monkey_a, True/False and monkey_b, True/False
 # If monkey_a is smiling and monkey_b is smiling we are in trouble
 # If monkey_a is NOT smiling and monkey_b is NOT smiling we are in trouble
 # Print "trouble" if we are in trouble
-# Print "no trouble" if we are not in trouble`;
+# Print "no trouble" if we are not in trouble
+`;
     const hw = document.getElementById("hw-class5");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
