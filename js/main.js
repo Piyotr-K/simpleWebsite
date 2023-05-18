@@ -160,16 +160,21 @@ function setClass2()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    let hwStr = `def exe(trees, trucks):
-    # 2023 MAY 05
-    # Given a number of trees and a number of trucks
-    # Return True if John has enough trucks to carry all the trees
-    # If each truck carries 5 trees
-    if trees + trucks == 20:
-        return True
-    return False
+    let hwStr = `def q1(a, b, c):
+    # 2023 MAY 12
+    # Sum triple kinda
+    # Given three numbers a, b and c
+    # Return their sum
+    # Unless a b and c are all the same then return triple (3x) their sum
+    # If the sum of a and b is > than c then return quadruple (4x) their sum
+    # Code goes here
+    return 0 # random lel
 
-print(exe(5, 10))`;
+# Test cases
+print(q1(1, 2, 3)) # 6
+print(q1(2, 2, 3)) # 28
+print(q1(2, 2, 2)) # 18
+print(q1(10, 1, 11)) # 66`;
     const hw = document.getElementById("hw-class2");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
@@ -183,8 +188,8 @@ function setClass3()
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
     let hwStr = `
-# 2023 MAY 04
-# CCC: CCC2016J1, CCC2017J1, CCC2018J1
+# 2023 MAY 11
+# CCC: CCC2019J1, CCC2020J1, CCC2021J1
 `;
     hwStr = hwStr.trim();
     
