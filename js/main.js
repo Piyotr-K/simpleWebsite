@@ -137,9 +137,10 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-MAY 12 2023
-Add three dancers to the stage
-Make sure they're animated
+MAY 19 2023
+Add another scene with the main character and another character
+At least 2 lines each
+Make sure they animate when they talk
     `;
     hwStr = hwStr.trim();
 
