@@ -188,8 +188,8 @@ function setClass3()
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
     let hwStr = `
-# 2023 MAY 11
-# CCC: CCC2019J1, CCC2020J1, CCC2021J1
+# 2023 MAY 18
+# CCC: CCC2022J1, CCC2023J1, CCC2004J1, CCC2005J1
 `;
     hwStr = hwStr.trim();
     
