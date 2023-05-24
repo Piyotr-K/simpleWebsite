@@ -76,9 +76,11 @@ function setButtons()
 {
     const accordion = document.getElementById("accordion");
     const allClasses = [
+        "Monday USACO Class",
+        "Pygame Thursday Class",
         "Scratch Friday Class",
         "Pygame Friday Class",
-        "Pygame Thursday Class"];
+    ];
     // console.log(accordion.children);
     for (let x = 0; x < accordion.children.length; x++)
     {
@@ -89,11 +91,11 @@ function setButtons()
 function setAll()
 {
     setButtons();
-    setJava3();
-    setClass1();
-    setClass2();
-    setClass3();
-    //setClass5();
+    // setJava3();
+    setClass1(); // Scratch Fri
+    setClass2(); // Pygame Fri
+    setClass3(); // Pygame Thu
+    setClass5(); // USACO Mon
     //setClass6();
 }
 
@@ -132,6 +134,7 @@ function setJava3()
 
 function setClass1()
 {
+    // Scratch Friday Class
     const title = "Scratch Friday Class";
     const endUrl = "";
     const endName = ""
@@ -206,21 +209,17 @@ function setClass3()
 
 function setClass5()
 {
-    // Pygame Friday Class
+    // USACO Monday Class
     const endCode = document.getElementById("code-class5");
     const endUrl = "";
-    const endName = "Pygame";
-    const hwTitle = "Pygame";
-    const hwStr = `
-# 2023 APR 14
-# We have two inputs monkey_a, True/False and monkey_b, True/False
-# If monkey_a is smiling and monkey_b is smiling we are in trouble
-# If monkey_a is NOT smiling and monkey_b is NOT smiling we are in trouble
-# Print "trouble" if we are in trouble
-# Print "no trouble" if we are not in trouble
+    const endName = "USACO";
+    const hwTitle = "USACO";
+    let hwStr = `
+Coding bat: Arrays2, modThree -> fizzArray3
 `;
+    hwStr = hwStr.trim();
     const hw = document.getElementById("hw-class5");
-    // const end = document.getElementById("end-class5").children[1];
+    const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
     hw.children[2].innerHTML = hwStr;
 }
