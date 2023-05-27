@@ -92,10 +92,22 @@ function setAll()
 {
     setButtons();
     // setJava3();
+    let test = [
+        setClass1,
+        setClass2,
+        setClass3,
+        setClass5,
+    ]
+
+    for (let i = 0; i < test.length; i++)
+        test[i]();
+
+    /*
     setClass1(); // Scratch Fri
     setClass2(); // Pygame Fri
     setClass3(); // Pygame Thu
     setClass5(); // USACO Mon
+    */
     //setClass6();
 }
 
@@ -140,10 +152,9 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-MAY 19 2023
-Add another scene with the main character and another character
-At least 2 lines each
-Make sure they animate when they talk
+MAY 26 2023
+Make the background change when someone changes
+Remeber to use broadcast and receive
     `;
     hwStr = hwStr.trim();
 
@@ -164,21 +175,45 @@ function setClass2()
     const endUrl = "";
     const endName = "Pygame";
     const hwTitle = "Pygame";
-    let hwStr = `def q1(a, b, c):
-    # 2023 MAY 12
-    # Sum triple kinda
-    # Given three numbers a, b and c
-    # Return their sum
-    # Unless a b and c are all the same then return triple (3x) their sum
-    # If the sum of a and b is > than c then return quadruple (4x) their sum
-    # Code goes here
-    return 0 # random lel
+    let hwStr = `def q1(start, end, modifier):
+    # 2023 MAY 26
+    # Counter
+    # Return the sum of all the numbers between start and end
+    # Unless there is a modifier
+    # If the modifier is set to 1, return the sum of all even numbers in between start and end
+    # If the modifier is set to 2, return the sum of all odd numbers in between start and end
+    # If the modifier is set to 3, return twice the sum of the numbers in the range
+    # If the modifier is set to 4, return the sum of the start and end numbers
+    # For all other modifiers, just return the sum of all numbers between start and end
+    if modifier == 1:
+        tmp = 0 # var represents sum
+        # Make sure to remember a for loop doesnt include the end number
+        for i in range(start, end + 1):
+            if i % 2 == 0:
+                tmp += i
+        return tmp
+    pass
 
-# Test cases
-print(q1(1, 2, 3)) # 6
-print(q1(2, 2, 3)) # 28
-print(q1(2, 2, 2)) # 18
-print(q1(10, 1, 11)) # 66`;
+# for i in range(1, 5):
+#   i starts from 1 and counts to 4
+
+# if modife == ?:
+#   for i in range???:
+#       ????
+# elif modifer == ?:
+#   for i in range???:
+#       ????
+
+# Hint: find an even number = % 2
+
+print(q1(1, 6, 1)) # 12
+print(q1(1, 7, 1)) # 12
+print(q1(1, 7, 2)) # 16
+print(q1(1, 6, 2)) # 9
+print(q1(1, 6, 3)) # 42
+print(q1(1, 10, 3)) # 110
+print(q1(100, 101, 4)) # 201
+print(q1(1, 6, 6)) # 21`;
     const hw = document.getElementById("hw-class2");
     // const end = document.getElementById("end-class5").children[1];
     hw.children[1].innerHTML = hwTitle;
@@ -192,8 +227,8 @@ function setClass3()
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
     let hwStr = `
-# 2023 MAY 18
-# CCC: CCC2022J1, CCC2023J1, CCC2004J1, CCC2005J1
+# 2023 MAY 25
+# CCC: CCCHK2008J1, CCCHK2015J1
 `;
     hwStr = hwStr.trim();
     
