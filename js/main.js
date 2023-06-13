@@ -152,11 +152,9 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-2023 JUN 02
-Add more background characters
-at least 7 in total
-Make sure they move across the screen
-You can make them rotate too
+2023 JUN 09
+Make sure the background changes when the level changes
+Use receive message for that to happen
     `;
     hwStr = hwStr.trim();
 
