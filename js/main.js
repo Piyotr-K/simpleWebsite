@@ -191,9 +191,9 @@ function setClass3()
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
     let hwStr = `
-# 2023 JUN 1
-# CCC2004J2: https://dmoj.ca/problem/ccc04j2
-# CCC2000J2: https://dmoj.ca/problem/ccc00j2
+# 2023 JUN 15
+# https://dmoj.ca/problem/ccc05j2
+# https://dmoj.ca/problem/ccc08j2
 `;
     hwStr = hwStr.trim();
     
