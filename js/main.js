@@ -152,9 +152,10 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-2023 JUN 09
-Make sure the background changes when the level changes
-Use receive message for that to happen
+2023 JUN 16
+Add another maze level
+Make sure the end sprite moves to the correct position
+Make sure the player moves to the correct position
     `;
     hwStr = hwStr.trim();
 
@@ -215,8 +216,9 @@ function setClass5()
     const endName = "USACO";
     const hwTitle = "USACO";
     let hwStr = `
-2023 MAY 29
-Arrays2 : shiftLeft -> zeroFront
+2023 JUN 17
+String2 - last 3
+Logic2 - last 3
 `;
     hwStr = hwStr.trim();
     const hw = document.getElementById("hw-class5");
