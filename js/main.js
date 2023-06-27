@@ -152,10 +152,9 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-2023 JUN 16
-Add another maze level
-Make sure the end sprite moves to the correct position
-Make sure the player moves to the correct position
+2023 JUN 23
+Make sure there are 4 cars in total
+Make them all move (not in the correct direction is fine)
     `;
     hwStr = hwStr.trim();
 
@@ -192,9 +191,9 @@ function setClass3()
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
     let hwStr = `
-# 2023 JUN 15
-# https://dmoj.ca/problem/ccc05j2
-# https://dmoj.ca/problem/ccc08j2
+# 2023 JUN 22
+# https://dmoj.ca/problem/ccc11j2
+# https://dmoj.ca/problem/ccc03j2
 `;
     hwStr = hwStr.trim();
     
