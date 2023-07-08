@@ -152,9 +152,8 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-2023 JUN 23
-Make sure there are 4 cars in total
-Make them all move (not in the correct direction is fine)
+2023 JUL 07
+Add another collectible
     `;
     hwStr = hwStr.trim();
 
