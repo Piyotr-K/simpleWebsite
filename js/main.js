@@ -152,8 +152,10 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-2023 JUL 07
-Add another collectible
+2023 JUL 14
+Randomize time for the W A S D say
+Add a special quote for hitting level 2 (20 score)
+Change background for level 2
     `;
     hwStr = hwStr.trim();
 
