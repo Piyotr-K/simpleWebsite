@@ -190,12 +190,12 @@ function setClass3()
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
     let hwStr = `
-# 2023 JUL 06
-# https://dmoj.ca/problem/ccc05j2
-# https://dmoj.ca/problem/ccc11j2
-# https://dmoj.ca/problem/ccc23j2
-# https://dmoj.ca/problem/ccc22j2
-# If you are done these, finish 2 that you haven't in CCCJ2
+# 2023 JUL 13
+# https://dmoj.ca/problem/ccc12j2
+# https://dmoj.ca/problem/ccc13j2
+# https://dmoj.ca/problem/ccc14j2
+# https://dmoj.ca/problem/ccc15j2
+# Fini these pls
 `;
     hwStr = hwStr.trim();
     
