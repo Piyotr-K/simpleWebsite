@@ -192,12 +192,11 @@ function setClass3()
     const endName = "Tkinter";
     const hwTitle = "Tkinter";
     let hwStr = `
-# 2023 JUL 13
-# https://dmoj.ca/problem/ccc12j2
-# https://dmoj.ca/problem/ccc13j2
-# https://dmoj.ca/problem/ccc14j2
-# https://dmoj.ca/problem/ccc15j2
-# Fini these pls
+# 2023 AUG 10
+# "Finish" all dmoj J2 Questions
+# You just need to have tried them
+# Tried = actually try the questions
+# don't do the HK ones (unless you think you gottem)
 `;
     hwStr = hwStr.trim();
     
