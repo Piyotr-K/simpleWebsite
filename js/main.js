@@ -152,10 +152,9 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-2023 JUL 14
-Randomize time for the W A S D say
-Add a special quote for hitting level 2 (20 score)
-Change background for level 2
+2023 AUG 14
+Make the goalie or shooter say something at
+a certain score point
     `;
     hwStr = hwStr.trim();
 
