@@ -188,14 +188,11 @@ function setClass3()
 {
     // Pygame Thursday Class
     const endUrl = "";
-    const endName = "Tkinter";
-    const hwTitle = "Tkinter";
+    const endName = "Pygame";
+    const hwTitle = "Pygame";
     let hwStr = `
-# 2023 AUG 10
-# "Finish" all dmoj J2 Questions
-# You just need to have tried them
-# Tried = actually try the questions
-# don't do the HK ones (unless you think you gottem)
+# 2023 AUG 24
+# https://dmoj.ca/problem/ccc10j2
 `;
     hwStr = hwStr.trim();
     
