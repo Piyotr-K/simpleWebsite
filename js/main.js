@@ -152,9 +152,10 @@ function setClass1()
     const endName = ""
     const hwTitle = "Scratch time";
     let hwStr = `
-2023 AUG 14
-Make the goalie or shooter say something at
-a certain score point
+2023 SEP 04
+Add 4 more characters
+Add 2 more scenes
+Make sure they all have the code
     `;
     hwStr = hwStr.trim();
 
