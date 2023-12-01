@@ -192,8 +192,10 @@ function setClass3()
     const endName = "Pygame";
     const hwTitle = "Pygame";
     let hwStr = `
-# 2023 NOV 23
-# https://dmoj.ca/problem/ccc06j3
+# 2023 NOV 30
+# https://dmoj.ca/problem/ccc15j3
+# https://dmoj.ca/problem/ccc08j3
+# https://dmoj.ca/problem/ccc09j3
 `;
     hwStr = hwStr.trim();
     
